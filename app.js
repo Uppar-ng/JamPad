@@ -25,12 +25,12 @@ const app = {
     currentUniversity: null,
     
     userProfile: JSON.parse(localStorage.getItem('userProfile')) || {
-        name: 'Chidi Okonkwo',
-        email: 'chidi.okonkwo@email.com',
+        name: 'Me',
+        email: 'Me@email.com',
         phone: '+234 801 234 5678',
         avatar: null,
-        address: 'Hostel Block A, UNILAG, Lagos',
-        memberSince: '2024',
+        address: 'Off K, UNILAG, Lagos',
+        memberSince: '2026',
         preferences: {
             notifications: true,
             darkMode: localStorage.getItem('theme') === 'dark'
@@ -200,7 +200,7 @@ const app = {
                 distance: '5km from University of Abuja',
                 amenities: ['Swimming Pool', '24/7 Security', 'Gym', 'Parking', 'Generator'],
                 description: 'Luxury apartment in prestigious Maitama district. Fully furnished with modern amenities and excellent security.',
-                addedDate: '2024-01-10',
+                addedDate: '2025-05-23',
                 isNew: true,
                 region: 'north'
             }
@@ -1007,7 +1007,7 @@ const app = {
                         </div>
                         <div>
                             <h4 style="font-weight: 700; margin-bottom: 4px;">JamPad Student Housing</h4>
-                            <p style="font-size: var(--font-size-sm); color: var(--text-secondary);">Making student housing smarter since 2024</p>
+                            <p style="font-size: var(--font-size-sm); color: var(--text-secondary);">Making student housing smarter since 2025</p>
                         </div>
                     </div>
                     
@@ -1016,11 +1016,11 @@ const app = {
                         <div style="display: flex; flex-direction: column; gap: var(--space-sm);">
                             <div style="display: flex; align-items: center; gap: var(--space-sm);">
                                 <i class="fas fa-phone" style="color: var(--primary); width: 20px;"></i>
-                                <span style="font-size: var(--font-size-sm);">+234 800 JAMPAD</span>
+                                <span style="font-size: var(--font-size-sm);">+234 800 </span>
                             </div>
                             <div style="display: flex; align-items: center; gap: var(--space-sm);">
                                 <i class="fas fa-envelope" style="color: var(--primary); width: 20px;"></i>
-                                <span style="font-size: var(--font-size-sm);">hello@jampad.com.ng</span>
+                                <span style="font-size: var(--font-size-sm);">get.primer@proton.me</span>
                             </div>
                         </div>
                     </div>
@@ -1038,7 +1038,7 @@ const app = {
                     </div>
                     
                     <div style="text-align: center; font-size: var(--font-size-xs); color: var(--text-tertiary);">
-                        © 2024 JamPad. All rights reserved.
+                        © 2025 Primer Technologies. All rights reserved.
                     </div>
                 </div>
                 
@@ -1071,9 +1071,7 @@ const app = {
                     </div>
                 </div>
                 
-                <button class="btn btn-outline btn-full" onclick="app.logout()" style="border-color: var(--danger); color: var(--danger);">
-                    <i class="fas fa-sign-out-alt"></i> Sign Out
-                </button>
+      
             </div>
         `;
     },
@@ -1135,7 +1133,7 @@ const app = {
                         </div>
                         <div style="text-align: right;">
                             <span style="font-size: 1.8rem; font-weight: 800; color: var(--primary);">₦${this.formatNaira(property.price)}</span>
-                            <span style="display: block; font-size: var(--font-size-sm); color: var(--text-secondary);">per month</span>
+                            <span style="display: block; font-size: var(--font-size-sm); color: var(--text-secondary);">per Session</span>
                         </div>
                     </div>
                     
@@ -1860,7 +1858,7 @@ const app = {
             phone: '+234 800 000 0000',
             avatar: null,
             address: '',
-            memberSince: '2024',
+            memberSince: '2025',
             preferences: {
                 notifications: true,
                 darkMode: this.userProfile.preferences.darkMode

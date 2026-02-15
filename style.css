@@ -2861,6 +2861,63 @@ body {
     margin-right: var(--space-sm);
 }
 
+/* Add at the end of your CSS file */
+
+/* Full desktop experience */
+@media (min-width: 1024px) {
+    .app-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        box-shadow: var(--shadow-xl);
+    }
+    
+    /* Make property grids responsive on desktop */
+    #propertiesContainer > div > div {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
+    }
+    
+    /* Better spacing for desktop */
+    .hero-section {
+        padding: var(--space-4xl) var(--space-3xl);
+    }
+    
+    .hero-title {
+        font-size: var(--font-size-4xl);
+    }
+    
+    /* Desktop navigation */
+    .bottom-nav {
+        max-width: 600px;
+        bottom: var(--space-2xl);
+    }
+    
+    /* Better card layouts */
+    .homepage-properties {
+        justify-content: center;
+    }
+    
+    .homepage-property-card {
+        min-width: 300px;
+    }
+    
+    /* Service cards grid */
+    .services-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Large desktop */
+@media (min-width: 1440px) {
+    .app-container {
+        max-width: 1400px;
+    }
+    
+    #propertiesContainer > div > div {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+}
+
+
 /* Responsive Share Options */
 @media (max-width: 480px) {
     .share-options {
