@@ -351,7 +351,7 @@ const app = {
                     <button class="btn btn-primary" style="border-radius: 32px;" onclick="app.showGasRefillBooking()">
                         <i class="fas fa-fire"></i> Gas Refill
                     </button>
-                    <button class="btn btn-primary" style="border-radius: 32px;" onclick="window.location.href='https://bit.ly/3Og6bBX'">
+                    <button class="btn btn-primary" style="border-radius: 32px;" onclick="window.location.href='https://b98ce7b9.mobsted.com/pwa/?appid=17'">
                         <i class="fas fa-mobile-alt"></i> Get app
                     </button>
                 </div>
