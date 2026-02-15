@@ -351,8 +351,8 @@ const app = {
                     <button class="btn btn-primary" style="border-radius: 32px;" onclick="app.showGasRefillBooking()">
                         <i class="fas fa-fire"></i> Gas Refill
                     </button>
-                    <button class="btn btn-primary" style="border-radius: 32px;" onclick="window.location.href='store.html'">
-                        <i class="fas fa-store"></i> Store
+                    <button class="btn btn-primary" style="border-radius: 32px;" onclick="window.location.href='https://bit.ly/3Og6bBX'">
+                        <i class="fas fa-mobile-alt"></i> Get app
                     </button>
                 </div>
             </div>
