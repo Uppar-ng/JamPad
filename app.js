@@ -1,4 +1,4 @@
-// app.js - Complete JamPad Housing Application
+// app.js - Complete Primer Housing Application (Regular + Student Listings)
 // FIXED: Map disabled - showing coming soon
 
 const app = {
@@ -95,9 +95,9 @@ const app = {
                 banners: [
                     {
                         id: 1,
-                        icon: 'fa-graduation-cap',
-                        title: 'Student Special!',
-                        description: '20% off for first-year students'
+                        icon: 'fa-home',
+                        title: 'Find Your Perfect Home',
+                        description: 'Browse apartments, houses, and student accommodations'
                     },
                     {
                         id: 2,
@@ -107,8 +107,8 @@ const app = {
                     }
                 ], 
                 hero: {
-                    title: 'Find Your Student Home in Nigeria',
-                    subtitle: 'Discover verified accommodations near your campus'
+                    title: 'Find Your Perfect Home in Nigeria',
+                    subtitle: 'Discover verified apartments, houses, and student accommodations'
                 } 
             };
             
@@ -121,9 +121,9 @@ const app = {
                 banners: [
                     {
                         id: 1,
-                        icon: 'fa-graduation-cap',
-                        title: 'Student Special!',
-                        description: '20% off for first-year students'
+                        icon: 'fa-home',
+                        title: 'Find Your Perfect Home',
+                        description: 'Browse apartments, houses, and student accommodations'
                     },
                     {
                         id: 2,
@@ -133,8 +133,8 @@ const app = {
                     }
                 ], 
                 hero: {
-                    title: 'Find Your Student Home in Nigeria',
-                    subtitle: 'Discover verified accommodations near your campus'
+                    title: 'Find Your Perfect Home in Nigeria',
+                    subtitle: 'Discover verified apartments, houses, and student accommodations'
                 }
             };
         }
@@ -146,7 +146,7 @@ const app = {
                 id: 'prop1',
                 title: 'Modern Studio Apartment',
                 location: 'Near University Campus',
-                school: 'University of Lagos',
+                school: 'Kaduna State University',
                 type: 'studio',
                 price: 120000,
                 priceDisplay: '₦120,000/month',
@@ -168,8 +168,39 @@ const app = {
                 ],
                 distance: '0.5km from campus',
                 amenities: ['Fully Furnished', '24/7 Security', 'Study Area', 'Laundry Room'],
-                description: 'Modern studio apartment perfect for students. Fully furnished with high-speed internet and secure access.',
+                description: 'Modern studio apartment perfect for students or young professionals. Fully furnished with high-speed internet and secure access.',
                 addedDate: new Date().toISOString(),
+                isNew: true,
+                region: 'south'
+            },
+            {
+                id: 'prop2',
+                title: '3-Bedroom Family Home',
+                location: 'GRA, Port Harcourt',
+                school: 'University of Port Harcourt',
+                type: 'house',
+                price: 350000,
+                priceDisplay: '₦350,000/month',
+                coordinates: [4.8156, 7.0498],
+                landlord: {
+                    name: 'Chief Mrs. Eze',
+                    phone: '+2348123456789',
+                    rating: 4.9
+                },
+                images: [
+                    'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=500',
+                    'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=500'
+                ],
+                features: [
+                    { icon: 'bed', label: '3 Beds' },
+                    { icon: 'bath', label: '2 Baths' },
+                    { icon: 'car', label: 'Parking' },
+                    { icon: 'square', label: '180 m²' }
+                ],
+                distance: '3km from town',
+                amenities: ['Gated Community', '24/7 Security', 'Backup Generator', 'Staff Quarters'],
+                description: 'Spacious family home in secure GRA neighborhood. Perfect for professionals or families.',
+                addedDate: '2025-05-15',
                 isNew: true,
                 region: 'south'
             },
@@ -288,8 +319,9 @@ const app = {
                     appContainer.innerHTML = this.renderBrowse();
                     break;
                 case 'services':
-                    appContainer.innerHTML = this.renderServices();
-                    break;
+                    // Redirect to external services page
+                    window.location.href = 'services.html';
+                    return;
                 case 'favorites':
                     appContainer.innerHTML = this.renderFavorites();
                     break;
@@ -320,11 +352,11 @@ const app = {
                 <div class="header-content">
                     <div class="header-left">
                         <div class="header-logo">
-                            <img src="logo.png" alt="JamPad" onerror="this.style.display='none';this.parentElement.innerHTML='JP';this.parentElement.style.background='var(--primary-gradient)';this.parentElement.style.color='white';">
+                            <img src="logo.png" alt="Primer" onerror="this.style.display='none';this.parentElement.innerHTML='JP';this.parentElement.style.background='var(--primary-gradient)';this.parentElement.style.color='white';">
                         </div>
                         <div class="header-info">
-                            <h1>JamPad</h1>
-                            <p>Student Housing • Nigeria</p>
+                            <h1>Primer</h1>
+                            <p>Housing • Nigeria</p>
                         </div>
                     </div>
                     <div class="header-actions">
@@ -337,20 +369,14 @@ const app = {
             
             <section class="hero-section" style="background: var(--primary-gradient);">
                 <div class="hero-content">
-                    <h1 class="hero-title">${this.dynamicContent.hero?.title || 'Find Your Student Home in Nigeria'}</h1>
-                    <p class="hero-subtitle">${this.dynamicContent.hero?.subtitle || 'Discover verified accommodations near your campus'}</p>
+                    <h1 class="hero-title">${this.dynamicContent.hero?.title || 'Find Your Perfect Home in Nigeria'}</h1>
+                    <p class="hero-subtitle">${this.dynamicContent.hero?.subtitle || 'Discover verified apartments, houses, and student accommodations'}</p>
                 </div>
             </section>
             
-            <!-- SERVICE BUTTONS -->
+            <!-- SERVICE BUTTONS - Only Get App remains -->
             <div style="padding: var(--space-lg) var(--space-xl); overflow-x: auto; white-space: nowrap; scrollbar-width: none; -ms-overflow-style: none;">
                 <div style="display: inline-flex; gap: var(--space-sm);">
-                    <button class="btn btn-primary" style="border-radius: 32px;" onclick="app.showLaundryBooking()">
-                        <i class="fas fa-tshirt"></i> Laundry
-                    </button>
-                    <button class="btn btn-primary" style="border-radius: 32px;" onclick="app.showGasRefillBooking()">
-                        <i class="fas fa-fire"></i> Gas Refill
-                    </button>
                     <button class="btn btn-primary" style="border-radius: 32px;" onclick="window.location.href='https://b98ce7b9.mobsted.com/pwa/?appid=17'">
                         <i class="fas fa-mobile-alt"></i> Get app
                     </button>
@@ -364,7 +390,7 @@ const app = {
                     <input 
                         type="text" 
                         class="ai-search-input" 
-                        placeholder="Search by university, city, or property type..."
+                        placeholder="Search by location, property type, or university..."
                         readonly
                         style="cursor: pointer; background: var(--bg-card); box-shadow: var(--shadow-md); border: none;"
                     >
@@ -395,7 +421,7 @@ const app = {
             <!-- Featured Properties -->
             <section class="properties-section">
                 <div class="section-header">
-                    <h2 class="section-title">Featured near you</h2>
+                    <h2 class="section-title">Featured Listings</h2>
                     <a href="#browse" class="view-all" onclick="app.navigate('browse')">
                         See all <i class="fas fa-arrow-right"></i>
                     </a>
@@ -406,10 +432,10 @@ const app = {
                 </div>
             </section>
             
-            <!-- Why JamPad Section -->
+            <!-- Why Primer Section -->
             <section style="padding: var(--space-xl); background: var(--bg-gradient);">
                 <h2 style="font-size: var(--font-size-xl); font-weight: 800; margin-bottom: var(--space-xl); text-align: center;">
-                    Why students love JamPad
+                    Why choose Primer
                 </h2>
                 <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-lg);">
                     <div style="text-align: center;">
@@ -428,17 +454,17 @@ const app = {
                     </div>
                     <div style="text-align: center;">
                         <div style="width: 48px; height: 48px; background: var(--primary-100); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-md);">
-                            <i class="fas fa-wifi" style="color: var(--primary); font-size: 1.2rem;"></i>
+                            <i class="fas fa-home" style="color: var(--primary); font-size: 1.2rem;"></i>
                         </div>
-                        <h3 style="font-weight: 700; margin-bottom: var(--space-xs);">Free WiFi</h3>
-                        <p style="font-size: var(--font-size-sm); color: var(--text-secondary);">High-speed internet</p>
+                        <h3 style="font-weight: 700; margin-bottom: var(--space-xs);">All Property Types</h3>
+                        <p style="font-size: var(--font-size-sm); color: var(--text-secondary);">Apartments, houses, studios</p>
                     </div>
                     <div style="text-align: center;">
                         <div style="width: 48px; height: 48px; background: var(--primary-100); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-md);">
                             <i class="fas fa-tag" style="color: var(--primary); font-size: 1.2rem;"></i>
                         </div>
-                        <h3 style="font-weight: 700; margin-bottom: var(--space-xs);">Student Discounts</h3>
-                        <p style="font-size: var(--font-size-sm); color: var(--text-secondary);">Special rates</p>
+                        <h3 style="font-weight: 700; margin-bottom: var(--space-xs);">Best Prices</h3>
+                        <p style="font-size: var(--font-size-sm); color: var(--text-secondary);">Negotiated rates</p>
                     </div>
                 </div>
             </section>
@@ -451,10 +477,10 @@ const app = {
                 <div class="banner">
                     <div class="banner-content">
                         <div class="banner-icon">
-                            <i class="fas fa-graduation-cap"></i>
+                            <i class="fas fa-home"></i>
                         </div>
-                        <h3 class="banner-title">Student Special!</h3>
-                        <p class="banner-description">20% off for first-year students</p>
+                        <h3 class="banner-title">Find Your Perfect Home</h3>
+                        <p class="banner-description">Browse apartments, houses, and student accommodations</p>
                     </div>
                 </div>
             `;
@@ -495,8 +521,8 @@ const app = {
         
         // University images
         const uniImages = {
-            'University of Lagos': 'https://images.unsplash.com/photo-1562774053-701939374585?w=500',
-            'University of Ibadan': 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=500',
+            'Kaduna State University': 'https://images.unsplash.com/photo-1562774053-701939374585?w=500',
+            'Gombe State University': 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=500',
             'Ahmadu Bello University': 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?w=500',
             'University of Abuja': 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=500'
         };
@@ -504,17 +530,17 @@ const app = {
         if (topUniversities.length === 0) {
             // Fallback universities
             return `
-                <div style="border-radius: var(--radius-lg); overflow: hidden; background: var(--bg-card); box-shadow: var(--shadow-sm); cursor: pointer;" onclick="app.searchByUniversity('University of Lagos')">
+                <div style="border-radius: var(--radius-lg); overflow: hidden; background: var(--bg-card); box-shadow: var(--shadow-sm); cursor: pointer;" onclick="app.searchByUniversity('Kaduna State University')">
                     <div style="height: 100px; background-image: url('https://images.unsplash.com/photo-1562774053-701939374585?w=500'); background-size: cover; background-position: center;"></div>
                     <div style="padding: var(--space-md);">
-                        <h3 style="font-weight: 700; font-size: var(--font-size-sm); margin-bottom: 4px;">University of Lagos</h3>
+                        <h3 style="font-weight: 700; font-size: var(--font-size-sm); margin-bottom: 4px;">Kaduna State University</h3>
                         <p style="font-size: var(--font-size-xs); color: var(--text-secondary);">2 properties</p>
                     </div>
                 </div>
-                <div style="border-radius: var(--radius-lg); overflow: hidden; background: var(--bg-card); box-shadow: var(--shadow-sm); cursor: pointer;" onclick="app.searchByUniversity('University of Ibadan')">
+                <div style="border-radius: var(--radius-lg); overflow: hidden; background: var(--bg-card); box-shadow: var(--shadow-sm); cursor: pointer;" onclick="app.searchByUniversity('Gombe State University')">
                     <div style="height: 100px; background-image: url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=500'); background-size: cover; background-position: center;"></div>
                     <div style="padding: var(--space-md);">
-                        <h3 style="font-weight: 700; font-size: var(--font-size-sm); margin-bottom: 4px;">University of Ibadan</h3>
+                        <h3 style="font-weight: 700; font-size: var(--font-size-sm); margin-bottom: 4px;">Gombe State University</h3>
                         <p style="font-size: var(--font-size-xs); color: var(--text-secondary);">1 property</p>
                     </div>
                 </div>
@@ -746,93 +772,6 @@ const app = {
     },
 
     // ============================================
-    // SERVICES PAGE
-    // ============================================
-    
-    renderServices() {
-        return `
-            <header class="app-header">
-                <div class="header-content">
-                    <div class="header-left">
-                        <button class="btn btn-ghost" onclick="app.navigate('home')">
-                            <i class="fas fa-arrow-left"></i>
-                        </button>
-                        <div class="header-info">
-                            <h1>Services</h1>
-                            <p>Student essentials</p>
-                        </div>
-                    </div>
-                </div>
-            </header>
-            
-            <div style="padding: var(--space-xl);">
-                <!-- Laundry Service -->
-                <div class="service-page-card" onclick="app.showLaundryBooking()" style="margin-bottom: var(--space-lg);">
-                    <div style="display: flex; gap: var(--space-lg);">
-                        <div style="width: 80px; height: 80px; background: var(--primary); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white;">
-                            <i class="fas fa-tshirt" style="font-size: 2rem;"></i>
-                        </div>
-                        <div style="flex: 1;">
-                            <h3 style="font-weight: 800; margin-bottom: var(--space-xs);">Laundry Service</h3>
-                            <p style="color: var(--text-secondary); font-size: var(--font-size-sm); margin-bottom: var(--space-sm);">Pickup, wash, fold & delivery</p>
-                            <div style="display: flex; gap: var(--space-sm); flex-wrap: wrap;">
-                                <span style="background: var(--bg-secondary); padding: 4px 12px; border-radius: var(--radius-full); font-size: var(--font-size-xs);">From ₦500</span>
-                                <span style="background: var(--primary-100); color: var(--primary); padding: 4px 12px; border-radius: var(--radius-full); font-size: var(--font-size-xs);">
-                                    <i class="fas fa-bolt"></i> Same-day
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Gas Refill -->
-                <div class="service-page-card" onclick="app.showGasRefillBooking()" style="margin-bottom: var(--space-lg);">
-                    <div style="display: flex; gap: var(--space-lg);">
-                        <div style="width: 80px; height: 80px; background: var(--primary); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white;">
-                            <i class="fas fa-fire" style="font-size: 2rem;"></i>
-                        </div>
-                        <div style="flex: 1;">
-                            <h3 style="font-weight: 800; margin-bottom: var(--space-xs);">Gas Refill</h3>
-                            <p style="color: var(--text-secondary); font-size: var(--font-size-sm); margin-bottom: var(--space-sm);">Cooking gas delivery in 1 hour</p>
-                            <div style="display: flex; gap: var(--space-sm); flex-wrap: wrap;">
-                                <span style="background: var(--bg-secondary); padding: 4px 12px; border-radius: var(--radius-full); font-size: var(--font-size-xs);">3kg • 6kg • 12.5kg</span>
-                                <span style="background: var(--primary-100); color: var(--primary); padding: 4px 12px; border-radius: var(--radius-full); font-size: var(--font-size-xs);">
-                                    <i class="fas fa-truck"></i> Free delivery
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Store -->
-                <div class="service-page-card" onclick="window.location.href='store.html'" style="margin-bottom: var(--space-lg);">
-                    <div style="display: flex; gap: var(--space-lg);">
-                        <div style="width: 80px; height: 80px; background: var(--primary); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white;">
-                            <i class="fas fa-store" style="font-size: 2rem;"></i>
-                        </div>
-                        <div style="flex: 1;">
-                            <h3 style="font-weight: 800; margin-bottom: var(--space-xs);">Student Store</h3>
-                            <p style="color: var(--text-secondary); font-size: var(--font-size-sm); margin-bottom: var(--space-sm);">Groceries, stationery & essentials</p>
-                            <div style="display: flex; gap: var(--space-sm); flex-wrap: wrap;">
-                                <span style="background: var(--bg-secondary); padding: 4px 12px; border-radius: var(--radius-full); font-size: var(--font-size-xs);">2,000+ items</span>
-                                <span style="background: var(--primary-100); color: var(--primary); padding: 4px 12px; border-radius: var(--radius-full); font-size: var(--font-size-xs);">
-                                    <i class="fas fa-tag"></i> Student discount
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Your Bookings -->
-                <div style="margin-top: var(--space-2xl);">
-                    <h3 style="font-size: var(--font-size-lg); font-weight: 800; margin-bottom: var(--space-lg);">Your Bookings</h3>
-                    ${this.renderUserBookings()}
-                </div>
-            </div>
-        `;
-    },
-
-    // ============================================
     // FAVORITES PAGE
     // ============================================
     
@@ -933,7 +872,7 @@ const app = {
                     <div>
                         <h2 style="font-size: var(--font-size-xl); font-weight: 800; margin-bottom: var(--space-xs);">${this.userProfile.name}</h2>
                         <p style="color: var(--text-secondary); display: flex; align-items: center; gap: var(--space-xs);">
-                            <i class="fas fa-university"></i> Student • Member since ${this.userProfile.memberSince}
+                            <i class="fas fa-user"></i> Member since ${this.userProfile.memberSince}
                         </p>
                     </div>
                 </div>
@@ -997,17 +936,17 @@ const app = {
                     </div>
                 </div>
                 
-                <!-- ABOUT JAMPAD SECTION -->
+                <!-- ABOUT Primer SECTION -->
                 <div style="background: var(--bg-card); border-radius: var(--radius-lg); padding: var(--space-xl); border: 1px solid var(--border-light); margin-bottom: var(--space-xl);">
-                    <h3 style="font-weight: 700; margin-bottom: var(--space-lg);">About JamPad</h3>
+                    <h3 style="font-weight: 700; margin-bottom: var(--space-lg);">About Primer</h3>
                     
                     <div style="display: flex; align-items: center; gap: var(--space-lg); margin-bottom: var(--space-xl);">
                         <div style="width: 60px; height: 60px; background: var(--primary); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: 800;">
                             JP
                         </div>
                         <div>
-                            <h4 style="font-weight: 700; margin-bottom: 4px;">JamPad Student Housing</h4>
-                            <p style="font-size: var(--font-size-sm); color: var(--text-secondary);">Making student housing smarter since 2025</p>
+                            <h4 style="font-weight: 700; margin-bottom: 4px;">Primer Housing</h4>
+                            <p style="font-size: var(--font-size-sm); color: var(--text-secondary);">Making housing smarter since 2025</p>
                         </div>
                     </div>
                     
@@ -1016,7 +955,7 @@ const app = {
                         <div style="display: flex; flex-direction: column; gap: var(--space-sm);">
                             <div style="display: flex; align-items: center; gap: var(--space-sm);">
                                 <i class="fas fa-phone" style="color: var(--primary); width: 20px;"></i>
-                                <span style="font-size: var(--font-size-sm);">+234 800 </span>
+                                <span style="font-size: var(--font-size-sm);">+234 800 PRIMER</span>
                             </div>
                             <div style="display: flex; align-items: center; gap: var(--space-sm);">
                                 <i class="fas fa-envelope" style="color: var(--primary); width: 20px;"></i>
@@ -1133,7 +1072,7 @@ const app = {
                         </div>
                         <div style="text-align: right;">
                             <span style="font-size: 1.8rem; font-weight: 800; color: var(--primary);">₦${this.formatNaira(property.price)}</span>
-                            <span style="display: block; font-size: var(--font-size-sm); color: var(--text-secondary);">per Session</span>
+                            <span style="display: block; font-size: var(--font-size-sm); color: var(--text-secondary);">per month</span>
                         </div>
                     </div>
                     
@@ -1213,8 +1152,8 @@ const app = {
                         <div style="display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-md);">
                             <i class="fas fa-university" style="color: var(--primary);"></i>
                             <div>
-                                <div style="font-weight: 600;">${property.school || 'Near university'}</div>
-                                <div style="font-size: var(--font-size-xs); color: var(--text-secondary);">${property.distance || '5-10 minute walk'}</div>
+                                <div style="font-weight: 600;">${property.school || 'Near area'}</div>
+                                <div style="font-size: var(--font-size-xs); color: var(--text-secondary);">${property.distance || 'Convenient location'}</div>
                             </div>
                         </div>
                         <button class="btn btn-outline btn-full" onclick="app.viewOnMap('${property.id}')">
@@ -1296,214 +1235,7 @@ const app = {
     // ============================================
     
     callCompany() {
-        this.showToast('Calling JamPad Support: +234 800 JAMPAD', 'info');
-    },
-
-    // ============================================
-    // LAUNDRY BOOKING
-    // ============================================
-    
-    showLaundryBooking() {
-        const modal = document.getElementById('bottomModal');
-        
-        modal.innerHTML = `
-            <div class="modal-header">
-                <h3 class="modal-title">
-                    <i class="fas fa-tshirt" style="margin-right: var(--space-sm); color: var(--primary);"></i>
-                    Book Laundry
-                </h3>
-                <button class="modal-close" onclick="app.closeModal()">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div style="padding: var(--space-xl);">
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-md); margin-bottom: var(--space-xl);">
-                    <div class="card-option selected" onclick="app.selectLaundryPackage(this, 'Wash & Fold', 500)">
-                        <div class="card-icon">
-                            <i class="fas fa-weight-hanging"></i>
-                        </div>
-                        <span class="card-label">Wash & Fold</span>
-                        <span style="font-weight: 700; color: var(--primary); margin-top: 4px;">₦500/kg</span>
-                    </div>
-                    <div class="card-option" onclick="app.selectLaundryPackage(this, 'Iron Only', 300)">
-                        <div class="card-icon">
-                            <i class="fas fa-vest"></i>
-                        </div>
-                        <span class="card-label">Iron Only</span>
-                        <span style="font-weight: 700; color: var(--primary); margin-top: 4px;">₦300/item</span>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Weight (kg)</label>
-                    <input type="number" id="laundryQuantity" class="form-input" value="3" min="1" max="20" onchange="app.updateLaundryPrice()">
-                </div>
-                
-                <div style="background: var(--bg-secondary); padding: var(--space-lg); border-radius: var(--radius-lg); margin-bottom: var(--space-xl);">
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <span style="font-weight: 600;">Total</span>
-                        <span style="font-size: 1.5rem; font-weight: 800; color: var(--primary);" id="laundryTotal">₦1,500</span>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Address</label>
-                    <input type="text" class="form-input" value="${this.userProfile.address || 'Hostel Block A, UNILAG'}">
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Phone Number</label>
-                    <input type="tel" class="form-input" value="${this.userProfile.phone}">
-                </div>
-                
-                <button class="btn btn-primary btn-full" onclick="app.confirmLaundryBooking()">
-                    Confirm Booking
-                </button>
-            </div>
-        `;
-        
-        this.openModal();
-        this.laundryPackage = { name: 'Wash & Fold', price: 500 };
-        this.updateLaundryPrice();
-    },
-
-    selectLaundryPackage(element, name, price) {
-        document.querySelectorAll('.card-option').forEach(el => el.classList.remove('selected'));
-        element.classList.add('selected');
-        this.laundryPackage = { name, price };
-        this.updateLaundryPrice();
-    },
-
-    updateLaundryPrice() {
-        const quantity = parseInt(document.getElementById('laundryQuantity')?.value || 3);
-        const price = this.laundryPackage?.price || 500;
-        const total = quantity * price;
-        const totalEl = document.getElementById('laundryTotal');
-        if (totalEl) {
-            totalEl.textContent = `₦${this.formatNaira(total)}`;
-        }
-    },
-
-    confirmLaundryBooking() {
-        const bookingId = 'LD' + Math.floor(Math.random() * 10000).toString().padStart(4, '0');
-        
-        const booking = {
-            id: bookingId,
-            service: 'Laundry',
-            package: this.laundryPackage?.name || 'Wash & Fold',
-            total: parseInt(document.getElementById('laundryQuantity')?.value || 3) * (this.laundryPackage?.price || 500),
-            status: 'upcoming',
-            timestamp: new Date().toISOString()
-        };
-        
-        this.bookings.unshift(booking);
-        localStorage.setItem('bookings', JSON.stringify(this.bookings));
-        
-        this.closeModal();
-        this.showToast(`Laundry booked! ID: ${bookingId}`, 'success');
-    },
-
-    // ============================================
-    // GAS REFILL BOOKING
-    // ============================================
-    
-    showGasRefillBooking() {
-        const modal = document.getElementById('bottomModal');
-        
-        modal.innerHTML = `
-            <div class="modal-header">
-                <h3 class="modal-title">
-                    <i class="fas fa-fire" style="margin-right: var(--space-sm); color: var(--primary);"></i>
-                    Gas Refill
-                </h3>
-                <button class="modal-close" onclick="app.closeModal()">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div style="padding: var(--space-xl);">
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-md); margin-bottom: var(--space-xl);">
-                    <div class="card-option selected" onclick="app.selectGasCylinder(this, '3kg', 3500)">
-                        <div class="card-icon">
-                            <i class="fas fa-burn"></i>
-                        </div>
-                        <span class="card-label">3kg Cylinder</span>
-                        <span style="font-weight: 700; color: var(--primary); margin-top: 4px;">₦3,500</span>
-                    </div>
-                    <div class="card-option" onclick="app.selectGasCylinder(this, '6kg', 6500)">
-                        <div class="card-icon">
-                            <i class="fas fa-burn"></i>
-                        </div>
-                        <span class="card-label">6kg Cylinder</span>
-                        <span style="font-weight: 700; color: var(--primary); margin-top: 4px;">₦6,500</span>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Quantity</label>
-                    <input type="number" id="gasQuantity" class="form-input" value="1" min="1" max="5" onchange="app.updateGasPrice()">
-                </div>
-                
-                <div style="background: var(--bg-secondary); padding: var(--space-lg); border-radius: var(--radius-lg); margin-bottom: var(--space-xl);">
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <span style="font-weight: 600;">Total</span>
-                        <span style="font-size: 1.5rem; font-weight: 800; color: var(--primary);" id="gasTotal">₦3,500</span>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Address</label>
-                    <input type="text" class="form-input" value="${this.userProfile.address || 'Hostel Block A, UNILAG'}">
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Phone Number</label>
-                    <input type="tel" class="form-input" value="${this.userProfile.phone}">
-                </div>
-                
-                <button class="btn btn-primary btn-full" onclick="app.confirmGasBooking()">
-                    Order Gas Refill
-                </button>
-            </div>
-        `;
-        
-        this.openModal();
-        this.gasCylinder = { size: '3kg', price: 3500 };
-    },
-
-    selectGasCylinder(element, size, price) {
-        document.querySelectorAll('.card-option').forEach(el => el.classList.remove('selected'));
-        element.classList.add('selected');
-        this.gasCylinder = { size, price };
-        this.updateGasPrice();
-    },
-
-    updateGasPrice() {
-        const quantity = parseInt(document.getElementById('gasQuantity')?.value || 1);
-        const price = this.gasCylinder?.price || 3500;
-        const total = quantity * price;
-        const totalEl = document.getElementById('gasTotal');
-        if (totalEl) {
-            totalEl.textContent = `₦${this.formatNaira(total)}`;
-        }
-    },
-
-    confirmGasBooking() {
-        const bookingId = 'GAS' + Math.floor(Math.random() * 10000).toString().padStart(4, '0');
-        
-        const booking = {
-            id: bookingId,
-            service: 'Gas Refill',
-            package: this.gasCylinder?.size || '3kg',
-            total: parseInt(document.getElementById('gasQuantity')?.value || 1) * (this.gasCylinder?.price || 3500),
-            status: 'upcoming',
-            timestamp: new Date().toISOString()
-        };
-        
-        this.bookings.unshift(booking);
-        localStorage.setItem('bookings', JSON.stringify(this.bookings));
-        
-        this.closeModal();
-        this.showToast(`Gas refill ordered! ID: ${bookingId}`, 'success');
+        this.showToast('Calling Primer Support: +234 800 PRIMER', 'info');
     },
 
     // ============================================
