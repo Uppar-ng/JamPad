@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Learn how to install the Primer Technologies PWA app on your Android or iOS device.">
+    <title>Primer Technologies - How to Install Our App</title>
+    
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://images.unsplash.com">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== RESET & BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #ffffff;
+            color: #111827;
+            line-height: 1.5;
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        /* ===== FLOATING PRIMER BACKGROUND - FIXED ===== */
+.primer-floating-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+    opacity: 0.50; /* Increased from 0.03 for better visibility */
+}
+
+.floating-text {
+    position: absolute;
+    font-size: clamp(4rem, 15vw, 12rem);
+    font-weight: 900;
+    color: #1f2937; /* gray-800 - much darker */
+    white-space: nowrap;
+    text-transform: uppercase;
+    user-select: none;
+    animation: floatHorizontal 25s linear infinite;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Adds subtle depth */
+}
+
+/* Dark mode adjustment */
+[data-theme="dark"] .floating-text {
+    color: #9ca3af; /* gray-400 - lighter for dark backgrounds */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Different positions, sizes, and speeds */
+.floating-text:nth-child(1) { top: 5%; animation-duration: 30s; font-size: 10rem; }
+.floating-text:nth-child(2) { top: 20%; animation-duration: 35s; animation-delay: -5s; font-size: 14rem; opacity: 0.1; }
+.floating-text:nth-child(3) { top: 35%; animation-duration: 25s; animation-delay: -10s; font-size: 8rem; }
+.floating-text:nth-child(4) { top: 50%; animation-duration: 40s; animation-delay: -15s; font-size: 16rem; opacity: 0.1; }
+.floating-text:nth-child(5) { top: 65%; animation-duration: 28s; animation-delay: -20s; font-size: 11rem; }
+.floating-text:nth-child(6) { top: 80%; animation-duration: 32s; animation-delay: -25s; font-size: 13rem; opacity: 0.1; }
+.floating-text:nth-child(7) { top: 95%; animation-duration: 38s; animation-delay: -30s; font-size: 9rem; }
+
+@keyframes floatHorizontal {
+    0% {
+        transform: translateX(-100%) rotate(-2deg);
+    }
+    100% {
+        transform: translateX(100vw) rotate(2deg);
+    }
+}
+        /* ===== DARK MODE VARIABLES ===== */
+        :root {
+            --primary: #0066FF;
+            --primary-dark: #0044CC;
+            --primary-light: #e6f0ff;
+            --accent: #F59E0B;
+            --success: #10B981;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+            --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            --gradient-primary: linear-gradient(135deg, #0066FF, #0044CC);
+            --gradient-accent: linear-gradient(135deg, #F59E0B, #F97316);
+        }
+        
+        [data-theme="dark"] {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --primary-light: #1e3a8a20;
+            --gray-50: #111827;
+            --gray-100: #1f2937;
+            --gray-200: #374151;
+            --gray-300: #4b5563;
+            --gray-400: #6b7280;
+            --gray-500: #9ca3af;
+            --gray-600: #d1d5db;
+            --gray-700: #e5e7eb;
+            --gray-800: #f3f4f6;
+            --gray-900: #f9fafc;
+            background: #0f172a;
+            color: #f8fafc;
+        }
+        
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+        @media (min-width: 640px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 2rem;
+            }
+        }
+        
+        /* ===== NAVIGATION ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        [data-theme="dark"] .navbar {
+            background: rgba(15, 23, 42, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+        
+        .logo-mark {
+            width: 48px;
+            height: 48px;
+            background: var(--gradient-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+        
+        .logo-text p {
+            font-size: 0.7rem;
+            color: var(--gray-500);
+            font-weight: 500;
+        }
+        
+        .nav-links {
+            display: none;
+        }
+        
+        @media (min-width: 1024px) {
+            .nav-links {
+                display: flex;
+                align-items: center;
+                gap: 2rem;
+            }
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--gray-600);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gray-100);
+            border: none;
+            color: var(--gray-600);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        
+        .theme-toggle:hover {
+            background: var(--gray-200);
+            transform: rotate(15deg);
+        }
+        
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 102, 255, 0.3);
+        }
+        
+        .mobile-menu-btn {
+            display: block;
+            background: none;
+            border: none;
+            color: var(--gray-600);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        @media (min-width: 1024px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: white;
+            z-index: 999;
+            padding: 2rem;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            overflow-y: auto;
+        }
+        
+        [data-theme="dark"] .mobile-menu {
+            background: #0f172a;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .mobile-nav-link {
+            text-decoration: none;
+            color: var(--gray-800);
+            font-size: 1.25rem;
+            font-weight: 600;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+        
+        [data-theme="dark"] .mobile-nav-link {
+            color: var(--gray-200);
+            border-bottom-color: var(--gray-700);
+        }
+        
+        /* ===== PAGE HEADER ===== */
+        .page-header {
+            padding: 120px 0 2rem;
+            text-align: center;
+            background: var(--gray-50);
+            position: relative;
+            z-index: 10;
+        }
+        
+        [data-theme="dark"] .page-header {
+            background: var(--gray-800);
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .page-header p {
+            color: var(--gray-500);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* ===== PLATFORM TOGGLE ===== */
+        .platform-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .platform-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: white;
+            border: 2px solid var(--gray-200);
+            color: var(--gray-700);
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        [data-theme="dark"] .platform-btn {
+            background: var(--gray-800);
+            border-color: var(--gray-700);
+            color: var(--gray-300);
+        }
+        
+        .platform-btn i {
+            font-size: 1.3rem;
+        }
+        
+        .platform-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+        
+        .platform-btn.active i {
+            color: white;
+        }
+        
+        .platform-btn:hover:not(.active) {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        
+        /* ===== GUIDE SECTIONS ===== */
+        .guide-section {
+            display: none;
+            padding: 2rem 0 4rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .guide-section.active {
+            display: block;
+        }
+        
+        /* ===== STEPS GRID ===== */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 640px) {
+            .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .steps-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        /* Step Card */
+        .step-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        [data-theme="dark"] .step-card {
+            background: var(--gray-800);
+            border-color: var(--gray-700);
+        }
+        
+        .step-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        /* Image Container */
+        .step-image-container {
+            position: relative;
+            width: 100%;
+            background: var(--gray-100);
+            overflow: hidden;
+            aspect-ratio: 16/9;
+        }
+        
+        [data-theme="dark"] .step-image-container {
+            background: var(--gray-700);
+        }
+        
+        .step-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: var(--gray-100);
+            transition: transform 0.5s ease;
+        }
+        
+        [data-theme="dark"] .step-image {
+            background: var(--gray-700);
+        }
+        
+        .step-card:hover .step-image {
+            transform: scale(1.02);
+        }
+        
+        /* Step Content */
+        .step-content {
+            padding: 1.5rem;
+            flex: 1;
+        }
+        
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-light);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        [data-theme="dark"] .step-number {
+            background: rgba(0,102,255,0.2);
+        }
+        
+        .step-card:hover .step-number {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .step-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gray-100);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        [data-theme="dark"] .step-icon {
+            background: var(--gray-700);
+        }
+        
+        .step-card:hover .step-icon {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .step-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--gray-900);
+        }
+        
+        [data-theme="dark"] .step-title {
+            color: var(--gray-200);
+        }
+        
+        .step-description {
+            color: var(--gray-500);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* ===== BACK BUTTON ===== */
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin: 2rem 0 3rem;
+            padding: 0.75rem 2rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 100px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .back-home:hover {
+            background: var(--primary-dark);
+            transform: translateX(-4px);
+        }
+        
+        /* ===== FOOTER ===== */
+        .footer {
+            background: #111827;
+            color: white;
+            padding: 3rem 1rem 2rem;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            text-align: center;
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+        
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .step-card {
+            animation: fadeIn 0.6s ease forwards;
+            opacity: 0;
+        }
+        
+        .step-card:nth-child(1) { animation-delay: 0.1s; }
+        .step-card:nth-child(2) { animation-delay: 0.2s; }
+        .step-card:nth-child(3) { animation-delay: 0.3s; }
+        .step-card:nth-child(4) { animation-delay: 0.4s; }
+        .step-card:nth-child(5) { animation-delay: 0.5s; }
+        .step-card:nth-child(6) { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <!-- Floating Primer Background -->
+    <div class="primer-floating-bg">
+        <div class="floating-text">Primer Technologies</div>
+        <div class="floating-text">Primer Technologies</div>
+        <div class="floating-text">Primer Technologies</div>
+        <div class="floating-text">Primer Technologies</div>
+        <div class="floating-text">Primer Technologies</div>
+        <div class="floating-text">Primer Technologies</div>
+        <div class="floating-text">Primer Technologies</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo-wrapper">
+    <img src="logo.png" alt="Primer Technologies" class="logo-image" style="height: 40px; width: auto;">
+                <div class="logo-text">
+                    <h1>Primer</h1>
+                    <p>technologies</p>
+                </div>
+            </a>
+            
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="how-it-works.html" class="nav-link">How It Works</a>
+                <a href="for-tenants.html" class="nav-link">For Tenants</a>
+                <a href="for-landlords.html" class="nav-link">For Landlords</a>
+                <a href="pricing.html" class="nav-link">Pricing</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu Panel -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-nav-links">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="how-it-works.html" class="mobile-nav-link">How It Works</a>
+            <a href="for-tenants.html" class="mobile-nav-link">For Tenants</a>
+            <a href="for-landlords.html" class="mobile-nav-link">For Landlords</a>
+            <a href="pricing.html" class="mobile-nav-link">Pricing</a>
+            <a href="about.html" class="mobile-nav-link">About</a>
+            <a href="contact.html" class="mobile-nav-link">Contact</a>
+        </div>
+    </div>
+    
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>How to Install Our App</h1>
+            <p>Follow these simple steps to install Primer Technologies on your device</p>
+        </div>
+    </section>
+    
+    <!-- Main Content -->
+    <section class="container">
+        <!-- Platform Toggle -->
+        <div class="platform-toggle">
+            <button class="platform-btn active" id="androidBtn" onclick="window.switchPlatform('android')">
+                <i class="fab fa-android"></i>
+                <span>Android</span>
+            </button>
+            <button class="platform-btn" id="iosBtn" onclick="window.switchPlatform('ios')">
+                <i class="fab fa-apple"></i>
+                <span>iPhone</span>
+            </button>
+        </div>
+        
+        <!-- Android Guide -->
+        <div class="guide-section active" id="androidGuide">
+            <div class="steps-grid">
+                <!-- Step 1 -->
+                <div class="step-card">
+                    <div class="step-image-container">
+                        <img class="step-image" src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=400" alt="Open in Chrome">
+                    </div>
+                    <div class="step-content">
+                        <div class="step-header">
+                            <div class="step-number">1</div>
+                            <div class="step-icon"><i class="fas fa-globe"></i></div>
+                        </div>
+                        <h3 class="step-title">Open in Chrome</h3>
+                        <p class="step-description">Using Google Chrome on your Android device, go to the Primer website. Select "Install app for Android" to begin the installation.</p>
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="step-card">
+                    <div class="step-image-container">
+                        <img class="step-image" src="https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?w=400" alt="Look for Install Prompt">
+                    </div>
+                    <div class="step-content">
+                        <div class="step-header">
+                            <div class="step-number">2</div>
+                            <div class="step-icon"><i class="fas fa-bolt"></i></div>
+                        </div>
+                        <h3 class="step-title">Click Install Prompt</h3>
+                        <p class="step-description">On the redirected page, tap the "Install" button in the banner that displays the app icon.</p>
+                    </div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="step-card">
+                    <div class="step-image-container">
+                        <img class="step-image" src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=400" alt="Open Browser Menu">
+                    </div>
+                    <div class="step-content">
+                        <div class="step-header">
+                            <div class="step-number">3</div>
+                            <div class="step-icon"><i class="fas fa-bars"></i></div>
+                        </div>
+                        <h3 class="step-title">Open Browser Menu</h3>
+                        <p class="step-description">Tap the three-dot menu button in Chrome and select "Add to Home screen".</p>
+                    </div>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="step-card">
+                    <div class="step-image-container">
+                        <img class="step-image" src="https://images.unsplash.com/photo-1611162616550-7f3b5bf8f2c8?w=400" alt="Customize Name">
+                    </div>
+                    <div class="step-content">
+                        <div class="step-header">
+                            <div class="step-number">4</div>
+                            <div class="step-icon"><i class="fas fa-pen"></i></div>
+                        </div>
+                        <h3 class="step-title">Select the app</h3>
+                        <p class="step-description">Go ahead and select the app icon to start the installation. It might take about a minute to complete—just keep an eye on your notifications for the confirmation.</p>
+                    </div>
+                </div>
+                
+                <!-- Step 5 -->
+                <div class="step-card">
+                    <div class="step-image-container">
+                        <img class="step-image" src="https://images.unsplash.com/photo-1611162617263-4ecfb0b8e6cd?w=400" alt="Tap Add">
+                    </div>
+                    <div class="step-content">
+                        <div class="step-header">
+                            <div class="step-number">5</div>
+                            <div class="step-icon"><i class="fas fa-check-circle"></i></div>
+                        </div>
+                        <h3 class="step-title">Go to your apps</h3>
+                        <p class="step-description">You're all set! Simply search for 'Primer' or find it in your app list, then tap to open it—just like any other app.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- iOS Guide -->
+        <div class="guide-section" id="iosGuide">
+            <div class="steps-grid">
+                <!-- Step 1 -->
+                <div class="step-card">
+                    <div class="step-image-container">
+                        <img class="step-image" src="https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=400" alt="Open in Safari">
+                    </div>
+                    <div class="step-content">
+                        <div class="step-header">
+                            <div class="step-number">1</div>
+                            <div class="step-icon"><i class="fas fa-safari"></i></div>
+                        </div>
+                        <h3 class="step-title">Open in Safari</h3>
+                        <p class="step-description">Open the Primer website in Safari browser on your iPhone and tap install for iPhone.</p>
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="step-card">
+                    <div class="step-image-container">
+                        <img class="step-image" src="https://images.unsplash.com/photo-1596526130771-4084b3c51a8d?w=400" alt="Tap Share Button">
+                    </div>
+                    <div class="step-content">
+                        <div class="step-header">
+                            <div class="step-number">2</div>
+                            <div class="step-icon"><i class="fas fa-share-square"></i></div>
+                        </div>
+                        <h3 class="step-title">Tap Share Button</h3>
+                        <p class="step-description">Tap the share button (square with arrow) at the bottom of the screen.</p>
+                    </div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="step-card">
+                    <div class="step-image-container">
+                        <img class="step-image" src="https://images.unsplash.com/photo-1596526130901-1d87e79f9b8b?w=400" alt="Add to Home Screen">
+                    </div>
+                    <div class="step-content">
+                        <div class="step-header">
+                            <div class="step-number">3</div>
+                            <div class="step-icon"><i class="fas fa-plus-circle"></i></div>
+                        </div>
+                        <h3 class="step-title">Add to Home Screen</h3>
+                        <p class="step-description">Scroll down and tap "Add to Home Screen" from the share menu options.</p>
+                    </div>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="step-card">
+                    <div class="step-image-container">
+                        <img class="step-image" src="https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=400" alt="Confirm Name">
+                    </div>
+                    <div class="step-content">
+                        <div class="step-header">
+                            <div class="step-number">4</div>
+                            <div class="step-icon"><i class="fas fa-pencil-alt"></i></div>
+                        </div>
+                        <h3 class="step-title">Confirm Name</h3>
+                        <p class="step-description">Edit the app name if you'd like, then tap "Add" in the top right.</p>
+                    </div>
+                </div>
+                
+                <!-- Step 5 -->
+                <div class="step-card">
+                    <div class="step-image-container">
+                        <img class="step-image" src="https://images.unsplash.com/photo-1596526130771-4084b3c51a8d?w=400" alt="App Added">
+                    </div>
+                    <div class="step-content">
+                        <div class="step-header">
+                            <div class="step-number">5</div>
+                            <div class="step-icon"><i class="fas fa-check-double"></i></div>
+                        </div>
+                        <h3 class="step-title">App Added!</h3>
+                        <p class="step-description">The app icon appears on your home screen. Tap it to launch Primer anytime!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Back to Home -->
+        <div style="text-align: center;">
+            <a href="index.html" class="back-home">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Home</span>
+            </a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div>© 2026 Primer Technologies. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle - Global function
+        window.toggleTheme = function() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme') || 'light';
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            const icon = document.querySelector('.theme-toggle i');
+            if (icon) {
+                icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            }
+        };
+        
+        // Apply saved theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        
+        // Mobile Menu - Global function
+        window.toggleMobileMenu = function() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+            
+            const icon = document.querySelector('.mobile-menu-btn i');
+            if (menu.classList.contains('active')) {
+                icon.className = 'fas fa-times';
+            } else {
+                icon.className = 'fas fa-bars';
+            }
+        };
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.remove('active');
+                const icon = document.querySelector('.mobile-menu-btn i');
+                if (icon) icon.className = 'fas fa-bars';
+            });
+        });
+        
+        // Platform Switching - Global function
+        window.switchPlatform = function(platform) {
+            const androidBtn = document.getElementById('androidBtn');
+            const iosBtn = document.getElementById('iosBtn');
+            const androidGuide = document.getElementById('androidGuide');
+            const iosGuide = document.getElementById('iosGuide');
+            
+            if (platform === 'android') {
+                androidBtn.classList.add('active');
+                iosBtn.classList.remove('active');
+                androidGuide.classList.add('active');
+                iosGuide.classList.remove('active');
+            } else {
+                iosBtn.classList.add('active');
+                androidBtn.classList.remove('active');
+                iosGuide.classList.add('active');
+                androidGuide.classList.remove('active');
+            }
+        };
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

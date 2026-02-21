@@ -1,0 +1,2011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Enterprise Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Careers at Primer Technologies - Join our team and help make housing smarter in Nigeria. Open positions in marketing, development, and more.">
+    <meta name="keywords" content="careers, jobs, employment, Primer Technologies, social media manager, Django developer, internship, Nigeria jobs">
+    <meta name="author" content="Primer Technologies">
+    <meta property="og:title" content="Careers | Primer Technologies - Join Our Team">
+    <meta property="og:description" content="Build your career with Primer. We're hiring passionate individuals to transform Nigerian housing.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://primert.vercel.app/careers">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <title>Careers | Primer Technologies - Join Our Team</title>
+    
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://images.unsplash.com">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="enterprise-design-system.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <style>
+        /* ===== MOBILE-FIRST ENTERPRISE STYLES ===== */
+        
+        /* CSS Custom Properties */
+        :root {
+            --container-padding: 1rem;
+            --grid-gap: 1rem;
+            --primary-50: #eff6ff;
+            --primary-100: #dbeafe;
+            --primary-500: #0066FF;
+            --primary-600: #2563eb;
+            --primary-700: #1d4ed8;
+            --primary-800: #1e40af;
+            --accent-500: #F59E0B;
+            --success-500: #10B981;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+        }
+        
+        @media (min-width: 640px) {
+            :root {
+                --container-padding: 1.5rem;
+                --grid-gap: 1.5rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            :root {
+                --container-padding: 2rem;
+                --grid-gap: 2rem;
+            }
+        }
+        
+        /* Base Container */
+        .enterprise-container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+        }
+        
+        /* ===== NAVIGATION (Consistent with other pages) ===== */
+        .enterprise-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            height: 64px;
+            display: flex;
+            align-items: center;
+        }
+        
+        [data-theme="dark"] .enterprise-nav {
+            background: rgba(10, 10, 10, 0.98);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 1rem;
+        }
+        
+        @media (min-width: 1024px) {
+            .nav-container {
+                padding: 0 2rem;
+            }
+        }
+        
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+        
+        .logo-mark {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #0066FF, #0044CC);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 1.25rem;
+            transition: transform 0.2s ease;
+        }
+        
+        .logo-text {
+            display: none;
+        }
+        
+        @media (min-width: 640px) {
+            .logo-text {
+                display: block;
+            }
+            .logo-text h1 {
+                font-size: 1.25rem;
+                font-weight: 800;
+                background: linear-gradient(135deg, #0066FF, #0044CC);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                line-height: 1.2;
+            }
+            .logo-text p {
+                font-size: 0.7rem;
+                color: #666;
+                font-weight: 500;
+            }
+        }
+        
+        .mobile-menu-btn {
+            display: block;
+            background: none;
+            border: none;
+            color: #333;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        @media (min-width: 1024px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+        }
+        
+        [data-theme="dark"] .mobile-menu-btn {
+            color: #fff;
+        }
+        
+        .nav-links-desktop {
+            display: none;
+        }
+        
+        @media (min-width: 1024px) {
+            .nav-links-desktop {
+                display: flex;
+                align-items: center;
+                gap: 2rem;
+            }
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+            position: relative;
+        }
+        
+        [data-theme="dark"] .nav-link {
+            color: #aaa;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            color: #0066FF;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #0066FF;
+            transition: width 0.2s;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .nav-actions-desktop {
+            display: none;
+        }
+        
+        @media (min-width: 1024px) {
+            .nav-actions-desktop {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+        }
+        
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f5f5f5;
+            border: none;
+            color: #333;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        
+        [data-theme="dark"] .theme-toggle {
+            background: #222;
+            color: #fff;
+        }
+        
+        .btn-properties {
+            background: linear-gradient(135deg, #0066FF, #0044CC);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        
+        .btn-properties:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 102, 255, 0.3);
+        }
+        
+        .mobile-menu {
+            position: fixed;
+            top: 64px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: white;
+            z-index: 999;
+            padding: 2rem;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            overflow-y: auto;
+        }
+        
+        [data-theme="dark"] .mobile-menu {
+            background: #111;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        @media (min-width: 1024px) {
+            .mobile-menu {
+                display: none;
+            }
+        }
+        
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .mobile-nav-link {
+            text-decoration: none;
+            color: #333;
+            font-size: 1.25rem;
+            font-weight: 600;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        [data-theme="dark"] .mobile-nav-link {
+            color: #fff;
+            border-bottom-color: #333;
+        }
+        
+        .mobile-actions {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .mobile-btn-properties {
+            background: linear-gradient(135deg, #0066FF, #0044CC);
+            color: white;
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        /* ===== PAGE HEADER WITH BACKGROUND IMAGE ===== */
+        .page-header {
+            position: relative;
+            min-height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+        
+        .header-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+        
+        .header-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .header-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0,102,255,0.9), rgba(0,68,204,0.9));
+            z-index: 1;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 4rem 1rem;
+        }
+        
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .header-badge i {
+            color: #FFD700;
+        }
+        
+        .header-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .header-title {
+                font-size: 3.5rem;
+            }
+        }
+        
+        .header-description {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* ===== SECTION HEADERS ===== */
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            padding: 0 1rem;
+        }
+        
+        .section-badge {
+            display: inline-block;
+            background: #e6f0ff;
+            color: #0066FF;
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        [data-theme="dark"] .section-badge {
+            background: rgba(0,102,255,0.2);
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #0066FF, #0044CC);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+        
+        .section-description {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        [data-theme="dark"] .section-description {
+            color: #aaa;
+        }
+        
+        /* ===== LOADING SPINNER ===== */
+        .loading-spinner {
+            text-align: center;
+            padding: 4rem 0;
+        }
+        
+        .loading-spinner i {
+            font-size: 3rem;
+            color: #0066FF;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* ===== JOBS GRID ===== */
+        .jobs-section {
+            padding: 4rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .jobs-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .jobs-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .job-card {
+            background: white;
+            border-radius: 24px;
+            border: 1px solid #eee;
+            overflow: hidden;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        [data-theme="dark"] .job-card {
+            background: #1a1a1a;
+            border-color: #333;
+        }
+        
+        .job-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-color: #0066FF;
+        }
+        
+        .job-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.25rem 1rem;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .job-badge.full-time {
+            background: #0066FF;
+            color: white;
+        }
+        
+        .job-badge.internship {
+            background: #F59E0B;
+            color: white;
+        }
+        
+        .job-badge.contract {
+            background: #10B981;
+            color: white;
+        }
+        
+        .job-content {
+            padding: 2rem;
+        }
+        
+        .job-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: #0066FF;
+        }
+        
+        .job-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .job-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .job-meta i {
+            color: #0066FF;
+            width: 16px;
+        }
+        
+        .job-description {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .job-requirements {
+            margin-bottom: 1.5rem;
+        }
+        
+        .job-requirements h4 {
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+            color: #333;
+        }
+        
+        .job-requirements ul {
+            list-style: none;
+        }
+        
+        .job-requirements li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: #555;
+        }
+        
+        .job-requirements li i {
+            color: #10B981;
+            font-size: 0.8rem;
+            margin-top: 0.2rem;
+        }
+        
+        .job-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .job-date {
+            font-size: 0.8rem;
+            color: #999;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .btn-apply {
+            background: linear-gradient(135deg, #0066FF, #0044CC);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-apply:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,102,255,0.3);
+        }
+        
+        /* ===== NO JOBS MESSAGE ===== */
+        .no-jobs {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 4rem 2rem;
+            background: white;
+            border-radius: 24px;
+            border: 1px solid #eee;
+        }
+        
+        [data-theme="dark"] .no-jobs {
+            background: #1a1a1a;
+            border-color: #333;
+        }
+        
+        .no-jobs i {
+            font-size: 4rem;
+            color: #ccc;
+            margin-bottom: 1.5rem;
+        }
+        
+        .no-jobs h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .no-jobs p {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        
+        .no-jobs .btn {
+            display: inline-block;
+            background: #0066FF;
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        /* ===== BENEFITS SECTION ===== */
+        .benefits-section {
+            padding: 4rem 1rem;
+            background: #f8f9fa;
+        }
+        
+        [data-theme="dark"] .benefits-section {
+            background: #111;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        @media (min-width: 640px) {
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .benefits-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        .benefit-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid #eee;
+            transition: all 0.3s;
+        }
+        
+        [data-theme="dark"] .benefit-card {
+            background: #1a1a1a;
+            border-color: #333;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-color: #0066FF;
+        }
+        
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            background: #e6f0ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .benefit-icon i {
+            font-size: 2rem;
+            color: #0066FF;
+        }
+        
+        .benefit-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .benefit-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        /* ===== MODAL STYLES ===== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        
+        .modal-overlay.active {
+            display: flex;
+        }
+        
+        .application-modal {
+            background: white;
+            border-radius: 32px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        }
+        
+        [data-theme="dark"] .application-modal {
+            background: #1a1a1a;
+        }
+        
+        .modal-header {
+            padding: 2rem 2rem 1rem;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        [data-theme="dark"] .modal-header {
+            border-bottom-color: #333;
+        }
+        
+        .modal-header h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #0066FF;
+        }
+        
+        .modal-header h2 span {
+            display: block;
+            font-size: 1rem;
+            font-weight: 400;
+            color: #666;
+            margin-top: 0.25rem;
+        }
+        
+        .modal-close {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f5f5f5;
+            border: none;
+            color: #333;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.2s;
+        }
+        
+        .modal-close:hover {
+            background: #0066FF;
+            color: white;
+            transform: rotate(90deg);
+        }
+        
+        .modal-body {
+            padding: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        
+        @media (min-width: 640px) {
+            .form-row {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        [data-theme="dark"] .form-label {
+            color: #fff;
+        }
+        
+        .form-label i {
+            color: #0066FF;
+            margin-right: 0.5rem;
+        }
+        
+        .form-required {
+            color: #dc3545;
+            margin-left: 0.25rem;
+        }
+        
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: #f8f9fa;
+            border: 2px solid #eee;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            color: #333;
+            transition: all 0.2s;
+        }
+        
+        [data-theme="dark"] .form-input,
+        [data-theme="dark"] .form-select,
+        [data-theme="dark"] .form-textarea {
+            background: #222;
+            border-color: #444;
+            color: #fff;
+        }
+        
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: #0066FF;
+            box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.1);
+            background: white;
+        }
+        
+        [data-theme="dark"] .form-input:focus,
+        [data-theme="dark"] .form-select:focus,
+        [data-theme="dark"] .form-textarea:focus {
+            background: #1a1a1a;
+        }
+        
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .file-upload {
+            border: 2px dashed #ddd;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .file-upload:hover {
+            border-color: #0066FF;
+            background: #e6f0ff20;
+        }
+        
+        .file-upload i {
+            font-size: 2rem;
+            color: #0066FF;
+            margin-bottom: 0.5rem;
+        }
+        
+        .file-upload p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .file-upload small {
+            color: #999;
+            font-size: 0.8rem;
+        }
+        
+        .file-upload input {
+            display: none;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            cursor: pointer;
+        }
+        
+        .checkbox-group label {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .checkbox-group a {
+            color: #0066FF;
+            text-decoration: none;
+        }
+        
+        .checkbox-group a:hover {
+            text-decoration: underline;
+        }
+        
+        .btn-submit {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #0066FF, #0044CC);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 102, 255, 0.3);
+        }
+        
+        .btn-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            padding: 4rem 1rem;
+            background: linear-gradient(135deg, #0066FF, #0044CC);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .cta-content h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-content p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        
+        .btn-cta {
+            background: white;
+            color: #0066FF;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        /* ===== FOOTER ===== */
+        .enterprise-footer {
+            background: #111;
+            color: white;
+            padding: 3rem 1rem 1.5rem;
+        }
+        
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        @media (min-width: 640px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+        }
+        
+        .footer-about {
+            max-width: 300px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            text-decoration: none;
+        }
+        
+        .footer-logo .logo-mark {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #0066FF, #0044CC);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+        }
+        
+        .footer-logo span {
+            color: white;
+            font-weight: 800;
+            font-size: 1.25rem;
+        }
+        
+        .footer-description {
+            color: #aaa;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 0.75rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        
+        .social-link:hover {
+            background: #0066FF;
+            transform: translateY(-2px);
+        }
+        
+        .footer-column h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+        }
+        
+        .footer-links a:hover {
+            color: #0066FF;
+            transform: translateX(4px);
+            display: inline-block;
+        }
+        
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid #222;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+        }
+        
+        .footer-legal {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+        }
+        
+        .footer-legal a {
+            color: #666;
+            text-decoration: none;
+        }
+        
+        .footer-legal a:hover {
+            color: #0066FF;
+        }
+        
+        /* ===== TOAST NOTIFICATIONS ===== */
+        .toast-container {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            z-index: 9999;
+        }
+        
+        .toast {
+            background: white;
+            color: #333;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 0.5rem;
+            animation: slideUp 0.3s ease;
+            border-left: 4px solid #0066FF;
+        }
+        
+        .toast i {
+            color: #0066FF;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+    
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="applicationModal">
+        <div class="application-modal">
+            <div class="modal-header">
+                <h2 id="modalJobTitle">Apply for Position<br><span id="modalJobType">Full-time • Kaduna</span></h2>
+                <button class="modal-close" onclick="closeApplicationModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="applicationForm" onsubmit="submitApplication(event)">
+                    <!-- Hidden fields for job data -->
+                    <input type="hidden" id="jobId" name="jobId">
+                    <input type="hidden" id="jobTitle" name="jobTitle">
+                    <input type="hidden" id="jobDepartment" name="jobDepartment">
+                    
+                    <!-- Personal Information -->
+                    <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1.5rem; color: #0066FF;">
+                        <i class="fas fa-user"></i> Personal Information
+                    </h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label"><i class="fas fa-user"></i> First Name <span class="form-required">*</span></label>
+                            <input type="text" class="form-input" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label"><i class="fas fa-user"></i> Last Name <span class="form-required">*</span></label>
+                            <input type="text" class="form-input" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label"><i class="fas fa-envelope"></i> Email <span class="form-required">*</span></label>
+                            <input type="email" class="form-input" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label"><i class="fas fa-phone"></i> Phone <span class="form-required">*</span></label>
+                            <input type="tel" class="form-input" id="phone" name="phone" placeholder="+234 ___ ___ ____" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-map-marker-alt"></i> Location <span class="form-required">*</span></label>
+                        <input type="text" class="form-input" id="location" name="location" placeholder="City, State" required>
+                    </div>
+                    
+                    <!-- Professional Information -->
+                    <h3 style="font-size: 1.2rem; font-weight: 700; margin: 2rem 0 1.5rem; color: #0066FF;">
+                        <i class="fas fa-briefcase"></i> Professional Information
+                    </h3>
+                    
+                    <!-- Dynamic fields will be inserted here based on job role -->
+                    <div id="dynamicFormFields"></div>
+                    
+                    <!-- CV Upload -->
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-file-pdf"></i> CV/Resume <span class="form-required">*</span></label>
+                        <div class="file-upload" onclick="document.getElementById('cvFile').click()">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Click to upload or drag and drop</p>
+                            <small>PDF, DOC, DOCX (Max 5MB)</small>
+                            <input type="file" id="cvFile" name="cv" accept=".pdf,.doc,.docx" required>
+                        </div>
+                    </div>
+                    
+                    <!-- Cover Letter -->
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-comment"></i> Cover Letter</label>
+                        <textarea class="form-textarea" id="coverLetter" name="coverLetter" placeholder="Tell us why you're interested in this role..."></textarea>
+                    </div>
+                    
+                    <!-- Portfolio (for design roles) - Will be shown dynamically -->
+                    <div id="portfolioField" style="display: none;" class="form-group">
+                        <label class="form-label"><i class="fas fa-link"></i> Portfolio URL</label>
+                        <input type="url" class="form-input" id="portfolio" name="portfolio" placeholder="https://yourportfolio.com">
+                    </div>
+                    
+                    <!-- GitHub (for developer roles) - Will be shown dynamically -->
+                    <div id="githubField" style="display: none;" class="form-group">
+                        <label class="form-label"><i class="fab fa-github"></i> GitHub Profile</label>
+                        <input type="url" class="form-input" id="github" name="github" placeholder="https://github.com/username">
+                    </div>
+                    
+                    <!-- LinkedIn -->
+                    <div class="form-group">
+                        <label class="form-label"><i class="fab fa-linkedin"></i> LinkedIn Profile</label>
+                        <input type="url" class="form-input" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/username">
+                    </div>
+                    
+                    <!-- How did you hear about us? -->
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-info-circle"></i> How did you hear about this position?</label>
+                        <select class="form-select" id="referral" name="referral">
+                            <option value="">Select an option</option>
+                            <option value="LinkedIn">LinkedIn</option>
+                            <option value="Twitter">Twitter</option>
+                            <option value="Facebook">Facebook</option>
+                            <option value="Instagram">Instagram</option>
+                            <option value="Friend">Friend/Referral</option>
+                            <option value="University">University</option>
+                            <option value="Job Board">Job Board</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Consent -->
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="consent" name="consent" required>
+                        <label for="consent">I confirm that the information provided is accurate and I agree to the <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms of Service</a>.</label>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit" id="submitApplicationBtn">
+                        <i class="fas fa-paper-plane"></i> Submit Application
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ===== ENTERPRISE NAVIGATION ===== -->
+    <nav class="enterprise-nav">
+        <div class="nav-container">
+            <!-- Logo -->
+            <a href="index.html" class="logo-wrapper">
+    <img src="logo.png" alt="Primer Technologies" class="logo-image" style="height: 40px; width: auto;">
+                <div class="logo-text">
+                    <h1>Primer</h1>
+                    <p>technologies</p>
+                </div>
+            </a>
+            
+            <!-- Desktop Navigation Links -->
+            <div class="nav-links-desktop">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="how-it-works.html" class="nav-link">How It Works</a>
+                <a href="for-tenants.html" class="nav-link">For Tenants</a>
+                <a href="for-landlords.html" class="nav-link">For Landlords</a>
+                <a href="pricing.html" class="nav-link">Pricing</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="faqs.html" class="nav-link">FAQs</a>
+                <a href="careers.html" class="nav-link active">Careers</a>
+            </div>
+            
+            <!-- Desktop Actions -->
+            <div class="nav-actions-desktop">
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="explore.html" class="btn-properties">
+                    <i class="fas fa-building"></i>
+                    <span>Explore</span>
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu Panel -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-nav-links">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="how-it-works.html" class="mobile-nav-link">How It Works</a>
+            <a href="for-tenants.html" class="mobile-nav-link">For Tenants</a>
+            <a href="for-landlords.html" class="mobile-nav-link">For Landlords</a>
+            <a href="pricing.html" class="mobile-nav-link">Pricing</a>
+            <a href="about.html" class="mobile-nav-link">About</a>
+            <a href="contact.html" class="mobile-nav-link">Contact</a>
+            <a href="faqs.html" class="mobile-nav-link">FAQs</a>
+            <a href="careers.html" class="mobile-nav-link">Careers</a>
+        </div>
+        <div class="mobile-actions">
+            <button class="theme-toggle" onclick="toggleTheme()" style="width: 100%;">
+                <i class="fas fa-moon"></i> Dark Mode
+            </button>
+            <a href="explore.html" class="mobile-btn-properties">
+                <i class="fas fa-building"></i> Explore
+            </a>
+        </div>
+    </div>
+    
+    <!-- ===== PAGE HEADER WITH BACKGROUND IMAGE ===== -->
+    <section class="page-header">
+        <div class="header-image">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600" alt="Primer team" loading="lazy">
+        </div>
+        <div class="header-overlay"></div>
+        
+        <div class="header-content">
+            <div class="header-badge fade-in-up">
+                <i class="fas fa-briefcase"></i>
+                <span>CAREERS</span>
+            </div>
+            <h1 class="header-title fade-in-up">Join the Primer Team</h1>
+            <p class="header-description fade-in-up">
+                Help us transform Nigerian housing. We're looking for passionate individuals to join our growing team.
+            </p>
+        </div>
+    </section>
+    
+    <!-- ===== JOBS SECTION ===== -->
+    <section class="jobs-section">
+        <div class="section-header">
+            <span class="section-badge">OPEN POSITIONS</span>
+            <h2 class="section-title">Current Opportunities</h2>
+            <p class="section-description">
+                Join us in making housing smarter across Nigeria.
+            </p>
+        </div>
+        
+        <div id="jobsContainer" class="jobs-grid">
+            <div class="loading-spinner">
+                <i class="fas fa-circle-notch fa-spin"></i>
+                <p style="margin-top: 1rem;">Loading job listings...</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== WHY JOIN US SECTION ===== -->
+    <section class="benefits-section">
+        <div class="section-header">
+            <span class="section-badge">WHY JOIN US</span>
+            <h2 class="section-title">Life at Primer</h2>
+            <p class="section-description">
+                We're building something special, and we want you to be part of it.
+            </p>
+        </div>
+        
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h3>Growth Opportunity</h3>
+                <p>Be part of a fast-growing startup with real impact on Nigerian housing.</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Great Team</h3>
+                <p>Work with passionate, driven individuals committed to our mission.</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-laptop-house"></i>
+                </div>
+                <h3>Flexible Work</h3>
+                <p>Remote options and flexible hours to support work-life balance.</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Make Impact</h3>
+                <p>Your work will directly help thousands find safe, verified housing.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== CTA SECTION ===== -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Don't See the Right Role?</h2>
+            <p>We're always looking for talented individuals. Send us your CV and we'll keep you in mind for future opportunities.</p>
+            <a href="mailto:get.primer@proton.me" class="btn-cta">
+                <i class="fas fa-paper-plane"></i> Send Your CV
+            </a>
+        </div>
+    </section>
+    
+    <!-- ===== FOOTER ===== -->
+    <footer class="enterprise-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="footer-logo">
+    <img src="logo.png" alt="Primer Technologies" class="footer-logo-image" style="height: 40px; width: auto;">
+                        <span>Primer</span>
+                    </a>
+                    <p class="footer-description">
+                        Making housing smarter in Nigeria since 2025. We connect verified tenants with verified properties.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="for-tenants.html">For Tenants</a></li>
+                        <li><a href="for-landlords.html">For Landlords</a></li>
+                        <li><a href="explore.html?type=student">Student Housing</a></li>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Renting Guides</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div>© 2026 Primer Technologies. All rights reserved.</div>
+                <div class="footer-legal">
+                    <a href="terms.html">Terms</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // ===== THEME TOGGLE =====
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme') || 'light';
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            const icon = document.querySelector('.theme-toggle i');
+            if (icon) {
+                icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            }
+            
+            // Update theme icon in mobile menu too
+            const mobileIcon = document.querySelector('.mobile-actions .theme-toggle i');
+            if (mobileIcon) {
+                mobileIcon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            }
+        }
+        
+        // Apply saved theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        
+        // ===== MOBILE MENU =====
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+            
+            const icon = document.querySelector('.mobile-menu-btn i');
+            if (menu.classList.contains('active')) {
+                icon.className = 'fas fa-times';
+            } else {
+                icon.className = 'fas fa-bars';
+            }
+        }
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-nav-link, .mobile-actions a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.remove('active');
+                const icon = document.querySelector('.mobile-menu-btn i');
+                if (icon) icon.className = 'fas fa-bars';
+            });
+        });
+        
+        // ===== TOAST NOTIFICATION =====
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            
+            let icon = 'fa-check-circle';
+            if (type === 'error') icon = 'fa-exclamation-circle';
+            if (type === 'info') icon = 'fa-info-circle';
+            
+            toast.innerHTML = `
+                <i class="fas ${icon}"></i>
+                <span>${message}</span>
+            `;
+            
+            container.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(20px)';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+        
+        // ===== FORMAT DATE =====
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString('en-NG', options);
+        }
+        
+        // ===== STORE JOBS DATA GLOBALLY =====
+        let jobsData = [];
+        
+        // ===== LOAD JOBS FROM GITHUB =====
+        async function loadJobs() {
+            try {
+                // Load from careers.json on GitHub
+                const response = await fetch('https://raw.githubusercontent.com/Uppar-ng/Uppar-ng/main/careers.json');
+                const data = await response.json();
+                
+                // Store jobs globally
+                jobsData = data.jobs.filter(job => job.status === 'active');
+                
+                displayJobs(jobsData);
+            } catch (error) {
+                console.error('Error loading jobs:', error);
+                showToast('Could not load job listings', 'error');
+                
+                // Show fallback message
+                document.getElementById('jobsContainer').innerHTML = `
+                    <div class="no-jobs">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <h3>Unable to Load Jobs</h3>
+                        <p>We're having trouble loading our job listings. Please check back later or contact us directly.</p>
+                        <a href="contact.html" class="btn">Contact Us</a>
+                    </div>
+                `;
+            }
+        }
+        
+        // ===== DISPLAY JOBS =====
+        function displayJobs(jobs) {
+            const container = document.getElementById('jobsContainer');
+            
+            if (!jobs || jobs.length === 0) {
+                container.innerHTML = `
+                    <div class="no-jobs">
+                        <i class="fas fa-briefcase"></i>
+                        <h3>No Open Positions</h3>
+                        <p>We don't have any open positions right now, but we're always looking for talented individuals.</p>
+                        <a href="mailto:careers@primer.ng" class="btn">Send Your CV</a>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = jobs.map(job => {
+                // Determine badge class based on job type
+                let badgeClass = 'full-time';
+                if (job.type.toLowerCase().includes('intern')) {
+                    badgeClass = 'internship';
+                } else if (job.type.toLowerCase().includes('contract') || job.type.toLowerCase().includes('remote')) {
+                    badgeClass = 'contract';
+                }
+                
+                // Format requirements as list items
+                const requirementsList = job.requirements.map(req => 
+                    `<li><i class="fas fa-check-circle"></i> ${req}</li>`
+                ).join('');
+                
+                return `
+                    <div class="job-card fade-in-up">
+                        <span class="job-badge ${badgeClass}">${job.type}</span>
+                        <div class="job-content">
+                            <h3 class="job-title">${job.title}</h3>
+                            <div class="job-meta">
+                                <span><i class="fas fa-building"></i> ${job.department}</span>
+                                <span><i class="fas fa-map-marker-alt"></i> ${job.location}</span>
+                            </div>
+                            <p class="job-description">${job.description}</p>
+                            <div class="job-requirements">
+                                <h4>Requirements:</h4>
+                                <ul>
+                                    ${requirementsList}
+                                </ul>
+                            </div>
+                            <div class="job-footer">
+                                <span class="job-date"><i class="far fa-calendar-alt"></i> Posted: ${formatDate(job.postedDate)}</span>
+                                <button onclick="openApplicationModal(${job.id})" class="btn-apply">
+                                    Apply <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        // ===== OPEN APPLICATION MODAL =====
+        function openApplicationModal(jobId) {
+            // Find the job from stored data
+            const job = jobsData.find(j => j.id === jobId);
+            if (!job) return;
+            
+            // Set modal header with job details
+            document.getElementById('modalJobTitle').innerHTML = `Apply for ${job.title}<br><span id="modalJobType">${job.type} • ${job.location}</span>`;
+            
+            // Set hidden fields
+            document.getElementById('jobId').value = job.id;
+            document.getElementById('jobTitle').value = job.title;
+            document.getElementById('jobDepartment').value = job.department;
+            
+            // Generate dynamic fields based on job role
+            generateDynamicFields(job);
+            
+            // Show modal
+            document.getElementById('applicationModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // ===== CLOSE APPLICATION MODAL =====
+        function closeApplicationModal() {
+            document.getElementById('applicationModal').classList.remove('active');
+            document.body.style.overflow = '';
+            
+            // Reset form
+            document.getElementById('applicationForm').reset();
+            
+            // Hide dynamic fields
+            document.getElementById('portfolioField').style.display = 'none';
+            document.getElementById('githubField').style.display = 'none';
+        }
+        
+        // ===== GENERATE DYNAMIC FIELDS BASED ON JOB ROLE =====
+        function generateDynamicFields(job) {
+            const dynamicFields = document.getElementById('dynamicFormFields');
+            const portfolioField = document.getElementById('portfolioField');
+            const githubField = document.getElementById('githubField');
+            
+            // Clear existing dynamic fields
+            dynamicFields.innerHTML = '';
+            
+            // Common fields for all roles
+            let additionalFields = '';
+            
+            // Role-specific fields
+            if (job.title.toLowerCase().includes('social media') || job.title.toLowerCase().includes('marketing')) {
+                // Social Media Manager specific fields
+                portfolioField.style.display = 'block';
+                githubField.style.display = 'none';
+                
+                additionalFields = `
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-hashtag"></i> Social Media Handles</label>
+                        <input type="text" class="form-input" id="socialHandles" name="socialHandles" placeholder="Instagram, Twitter, LinkedIn URLs">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-paint-brush"></i> Design Software Proficiency</label>
+                        <select class="form-select" id="designTools" name="designTools">
+                            <option value="">Select your primary tools</option>
+                            <option value="Canva">Canva</option>
+                            <option value="Photoshop">Adobe Photoshop</option>
+                            <option value="Illustrator">Adobe Illustrator</option>
+                            <option value="Figma">Figma</option>
+                            <option value="Multiple">Multiple tools</option>
+                        </select>
+                    </div>
+                `;
+            } 
+            else if (job.title.toLowerCase().includes('django') || job.title.toLowerCase().includes('developer')) {
+                // Developer specific fields
+                githubField.style.display = 'block';
+                portfolioField.style.display = 'none';
+                
+                additionalFields = `
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-code"></i> Years of Experience</label>
+                        <select class="form-select" id="experience" name="experience" required>
+                            <option value="">Select experience</option>
+                            <option value="0-2">0-2 years</option>
+                            <option value="3-5">3-5 years</option>
+                            <option value="5-8">5-8 years</option>
+                            <option value="8+">8+ years</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-tools"></i> Tech Stack</label>
+                        <input type="text" class="form-input" id="techStack" name="techStack" placeholder="Python, Django, PostgreSQL, etc.">
+                    </div>
+                `;
+            } 
+            else if (job.title.toLowerCase().includes('intern')) {
+                // Intern specific fields
+                portfolioField.style.display = 'none';
+                githubField.style.display = 'none';
+                
+                additionalFields = `
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-graduation-cap"></i> Current Status</label>
+                        <select class="form-select" id="studentStatus" name="studentStatus" required>
+                            <option value="">Select status</option>
+                            <option value="Final Year">Final Year Student</option>
+                            <option value="Recent Graduate">Recent Graduate (within 1 year)</option>
+                            <option value="NYSC">NYSC Participant</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-university"></i> University/Institution</label>
+                        <input type="text" class="form-input" id="university" name="university" placeholder="Name of your university">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-book"></i> Course of Study</label>
+                        <input type="text" class="form-input" id="course" name="course" placeholder="e.g., Computer Science, Marketing">
+                    </div>
+                `;
+            }
+            
+            // Add the generated fields
+            dynamicFields.innerHTML = additionalFields;
+        }
+        
+        // ===== SUBMIT APPLICATION TO FORMSPREE =====
+        function submitApplication(event) {
+            event.preventDefault();
+            
+            const submitBtn = document.getElementById('submitApplicationBtn');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+            
+            // Collect form data
+            const formData = new FormData(event.target);
+            
+            // Convert to JSON for Formspree
+            const formDataObj = {};
+            formData.forEach((value, key) => {
+                formDataObj[key] = value;
+            });
+            
+            // Add file handling - Formspree supports file uploads
+            const cvFile = document.getElementById('cvFile').files[0];
+            if (cvFile) {
+                formDataObj['cv_filename'] = cvFile.name;
+                formDataObj['cv_size'] = cvFile.size;
+            }
+            
+            // Send to Formspree (replace with your actual Formspree endpoint)
+            fetch('https://formspree.io/f/your-form-id', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formDataObj)
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error('Network response was not ok');
+            })
+            .then(data => {
+                showToast('Application submitted successfully! We\'ll be in touch soon.', 'success');
+                closeApplicationModal();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showToast('There was an error submitting your application. Please try again.', 'error');
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Application';
+            });
+        }
+        
+        // ===== FILE UPLOAD HANDLER =====
+        document.addEventListener('DOMContentLoaded', function() {
+            const fileInput = document.getElementById('cvFile');
+            if (fileInput) {
+                fileInput.addEventListener('change', function(e) {
+                    const fileName = e.target.files[0]?.name;
+                    if (fileName) {
+                        const uploadDiv = document.querySelector('.file-upload p');
+                        uploadDiv.innerHTML = `Selected: ${fileName}`;
+                    }
+                });
+            }
+            
+            // Load jobs on page load
+            loadJobs();
+            
+            setTimeout(() => {
+                showToast('Join our team! Check out open positions.', 'info');
+            }, 1500);
+        });
+        
+        // Close modal when clicking outside
+        document.getElementById('applicationModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeApplicationModal();
+            }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeApplicationModal();
+            }
+        });
+    </script>
+</body>
+</html>

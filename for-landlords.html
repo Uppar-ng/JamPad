@@ -1,0 +1,2318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Enterprise Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="For Landlords - List your properties on Primer. Contact us to upload your spaces. Reach thousands of qualified tenants across Nigeria.">
+    <meta name="keywords" content="landlords, list property Nigeria, rental income, property management, contact us to list, tenant matching">
+    <meta name="author" content="Primer Technologies">
+    <meta property="og:title" content="For Landlords - List Your Property | Primer Technologies">
+    <meta property="og:description" content="Contact us to list your properties. We'll help you reach qualified tenants across Nigeria.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://primert.vercel.app/for-landlords">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <title>For Landlords | Primer Technologies - List Your Property in Nigeria</title>
+    
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://images.unsplash.com">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="enterprise-design-system.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <style>
+        /* ===== MOBILE-FIRST ENTERPRISE STYLES ===== */
+        
+        /* CSS Custom Properties - Landlord Theme (Amber Accents) */
+        :root {
+            --container-padding: 1rem;
+            --grid-gap: 1rem;
+            --primary-50: #eff6ff;
+            --primary-100: #dbeafe;
+            --primary-500: #0066FF;
+            --primary-600: #2563eb;
+            --primary-700: #1d4ed8;
+            --primary-800: #1e40af;
+            --accent-50: #fff7ed;
+            --accent-100: #ffedd5;
+            --accent-500: #F59E0B;
+            --accent-600: #f97316;
+            --accent-700: #c2410c;
+            --success-500: #10B981;
+            --warning-500: #F59E0B;
+        }
+        
+        @media (min-width: 640px) {
+            :root {
+                --container-padding: 1.5rem;
+                --grid-gap: 1.5rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            :root {
+                --container-padding: 2rem;
+                --grid-gap: 2rem;
+            }
+        }
+        
+        /* Base Container */
+        .enterprise-container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+        }
+        
+        /* ===== NAVIGATION (Same as previous) ===== */
+        .enterprise-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            height: 64px;
+            display: flex;
+            align-items: center;
+        }
+        
+        [data-theme="dark"] .enterprise-nav {
+            background: rgba(10, 10, 10, 0.98);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 1rem;
+        }
+        
+        @media (min-width: 1024px) {
+            .nav-container {
+                padding: 0 2rem;
+            }
+        }
+        
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+        
+        .logo-mark {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #0066FF, #0044CC);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 1.25rem;
+            transition: transform 0.2s ease;
+        }
+        
+        .logo-text {
+            display: none;
+        }
+        
+        @media (min-width: 640px) {
+            .logo-text {
+                display: block;
+            }
+            .logo-text h1 {
+                font-size: 1.25rem;
+                font-weight: 800;
+                background: linear-gradient(135deg, #0066FF, #0044CC);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                line-height: 1.2;
+            }
+            .logo-text p {
+                font-size: 0.7rem;
+                color: #666;
+                font-weight: 500;
+            }
+        }
+        
+        .mobile-menu-btn {
+            display: block;
+            background: none;
+            border: none;
+            color: #333;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        @media (min-width: 1024px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+        }
+        
+        [data-theme="dark"] .mobile-menu-btn {
+            color: #fff;
+        }
+        
+        .nav-links-desktop {
+            display: none;
+        }
+        
+        @media (min-width: 1024px) {
+            .nav-links-desktop {
+                display: flex;
+                align-items: center;
+                gap: 2rem;
+            }
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+            position: relative;
+        }
+        
+        [data-theme="dark"] .nav-link {
+            color: #aaa;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            color: #F59E0B;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #F59E0B;
+            transition: width 0.2s;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .nav-actions-desktop {
+            display: none;
+        }
+        
+        @media (min-width: 1024px) {
+            .nav-actions-desktop {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+        }
+        
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f5f5f5;
+            border: none;
+            color: #333;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        
+        [data-theme="dark"] .theme-toggle {
+            background: #222;
+            color: #fff;
+        }
+        
+        .btn-properties {
+            background: linear-gradient(135deg, #F59E0B, #f97316);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        
+        .btn-properties:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+        }
+        
+        .btn-contact {
+            background: linear-gradient(135deg, #F59E0B, #f97316);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-contact:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn-contact i {
+            transition: transform 0.3s ease;
+        }
+        
+        .btn-contact:hover i {
+            transform: translateX(5px);
+        }
+        
+        .mobile-menu {
+            position: fixed;
+            top: 64px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: white;
+            z-index: 999;
+            padding: 2rem;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            overflow-y: auto;
+        }
+        
+        [data-theme="dark"] .mobile-menu {
+            background: #111;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        @media (min-width: 1024px) {
+            .mobile-menu {
+                display: none;
+            }
+        }
+        
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .mobile-nav-link {
+            text-decoration: none;
+            color: #333;
+            font-size: 1.25rem;
+            font-weight: 600;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        [data-theme="dark"] .mobile-nav-link {
+            color: #fff;
+            border-bottom-color: #333;
+        }
+        
+        .mobile-actions {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .mobile-btn-properties {
+            background: linear-gradient(135deg, #F59E0B, #f97316);
+            color: white;
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        /* ===== PAGE HEADER WITH BACKGROUND IMAGE ===== */
+        .page-header {
+            position: relative;
+            min-height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+        
+        .header-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+        
+        .header-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .header-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(245,158,11,0.95), rgba(249,115,22,0.95));
+            z-index: 1;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 4rem 1rem;
+        }
+        
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .header-badge i {
+            color: #FFD700;
+        }
+        
+        .header-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .header-title {
+                font-size: 3.5rem;
+            }
+        }
+        
+        .header-description {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        .header-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .header-stat {
+            text-align: center;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.2);
+            min-width: 150px;
+        }
+        
+        .header-stat .number {
+            font-size: 2rem;
+            font-weight: 900;
+            display: block;
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+        
+        .header-stat .label {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+        
+        .loading-spinner {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .loading-spinner i {
+            font-size: 2rem;
+            color: #F59E0B;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* ===== SECTION HEADERS ===== */
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            padding: 0 1rem;
+        }
+        
+        .section-badge {
+            display: inline-block;
+            background: #fff7ed;
+            color: #F59E0B;
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        [data-theme="dark"] .section-badge {
+            background: rgba(245,158,11,0.2);
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #F59E0B, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+        
+        .section-description {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        [data-theme="dark"] .section-description {
+            color: #aaa;
+        }
+        
+        /* ===== BENEFITS GRID ===== */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        @media (min-width: 640px) {
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .benefits-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .benefit-card {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            border: 1px solid #eee;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        [data-theme="dark"] .benefit-card {
+            background: #1a1a1a;
+            border-color: #333;
+        }
+        
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #F59E0B, #f97316);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .benefit-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background: #fff7ed;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .benefit-icon i {
+            font-size: 2rem;
+            color: #F59E0B;
+        }
+        
+        .benefit-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        
+        .benefit-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* ===== CONTACT CARD ===== */
+        .contact-card {
+            background: linear-gradient(135deg, #F59E0B, #f97316);
+            border-radius: 32px;
+            padding: 3rem 2rem;
+            color: white;
+            text-align: center;
+            max-width: 800px;
+            margin: 2rem auto;
+            box-shadow: 0 30px 60px rgba(245,158,11,0.3);
+        }
+        
+        .contact-card h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-card p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 400px;
+            margin: 2rem auto 0;
+        }
+        
+        @media (min-width: 640px) {
+            .contact-methods {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+        
+        .contact-method {
+            flex: 1;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: white;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .contact-method:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .contact-method i {
+            font-size: 1.5rem;
+        }
+        
+        .contact-method span {
+            font-weight: 600;
+        }
+        
+        /* ===== STATS BANNER ===== */
+        .stats-banner {
+            background: linear-gradient(135deg, #F59E0B, #f97316);
+            padding: 3rem 1rem;
+            margin: 2rem 0;
+            color: white;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        @media (min-width: 640px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        .stat-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem 1rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .stat-card .number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            display: block;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-card .label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* ===== HOW IT WORKS FOR LANDLORDS ===== */
+        .landlord-steps {
+            padding: 4rem 0;
+        }
+        
+        .steps-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .landlord-step {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            border: 1px solid #eee;
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        @media (min-width: 768px) {
+            .landlord-step {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+        }
+        
+        [data-theme="dark"] .landlord-step {
+            background: #1a1a1a;
+            border-color: #333;
+        }
+        
+        .landlord-step:hover {
+            transform: translateX(8px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-color: #F59E0B;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #F59E0B, #f97316);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 900;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            box-shadow: 0 10px 20px rgba(245,158,11,0.3);
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .step-content h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #F59E0B;
+        }
+        
+        .step-content p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .step-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        
+        .step-feature {
+            background: #fff7ed;
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #F59E0B;
+        }
+        
+        [data-theme="dark"] .step-feature {
+            background: rgba(245,158,11,0.2);
+        }
+        
+        .step-feature i {
+            font-size: 0.75rem;
+        }
+        
+        /* ===== DASHBOARD PREVIEW ===== */
+        .dashboard-preview {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+        
+        [data-theme="dark"] .dashboard-preview {
+            background: #111;
+        }
+        
+        .dashboard-container {
+            max-width: 1000px;
+            margin: 2rem auto 0;
+            padding: 0 1rem;
+        }
+        
+        .dashboard-card {
+            background: white;
+            border-radius: 32px;
+            padding: 2rem;
+            border: 1px solid #eee;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        [data-theme="dark"] .dashboard-card {
+            background: #1a1a1a;
+            border-color: #333;
+        }
+        
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .dashboard-title h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #666;
+        }
+        
+        .dashboard-title h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #F59E0B;
+        }
+        
+        .dashboard-date {
+            background: #f8f9fa;
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        [data-theme="dark"] .dashboard-date {
+            background: #222;
+            color: #ccc;
+        }
+        
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        @media (min-width: 640px) {
+            .dashboard-stats {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .dashboard-stat {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        [data-theme="dark"] .dashboard-stat {
+            background: #222;
+        }
+        
+        .dashboard-stat .value {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #F59E0B;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        
+        .dashboard-stat .label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .dashboard-chart {
+            height: 200px;
+            background: linear-gradient(90deg, #F59E0B20, #f9731620);
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            padding: 1rem;
+            gap: 1rem;
+        }
+        
+        .chart-bar {
+            flex: 1;
+            background: linear-gradient(to top, #F59E0B, #f97316);
+            border-radius: 8px 8px 0 0;
+            min-height: 40px;
+            height: var(--height);
+            transition: height 0.3s;
+            position: relative;
+        }
+        
+        .chart-bar::after {
+            content: attr(data-label);
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.75rem;
+            color: #666;
+            white-space: nowrap;
+        }
+        
+        .dashboard-properties {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        
+        @media (min-width: 640px) {
+            .dashboard-properties {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .property-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+            transition: all 0.2s;
+        }
+        
+        [data-theme="dark"] .property-row {
+            background: #222;
+        }
+        
+        .property-row:hover {
+            background: #fff7ed;
+            transform: translateX(4px);
+        }
+        
+        .property-preview {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #e6f0ff;
+        }
+        
+        .property-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .property-details {
+            flex: 1;
+        }
+        
+        .property-details h5 {
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        
+        .property-details p {
+            font-size: 0.85rem;
+            color: #666;
+        }
+        
+        .property-status {
+            padding: 0.25rem 0.75rem;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .status-active {
+            background: #10B98120;
+            color: #10B981;
+        }
+        
+        .status-pending {
+            background: #F59E0B20;
+            color: #F59E0B;
+        }
+        
+        /* ===== CONTACT FORM SECTION ===== */
+        .contact-form-section {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+        
+        [data-theme="dark"] .contact-form-section {
+            background: #111;
+        }
+        
+        .contact-form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .contact-form {
+            background: white;
+            border-radius: 32px;
+            padding: 2rem;
+            border: 1px solid #eee;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+        }
+        
+        [data-theme="dark"] .contact-form {
+            background: #1a1a1a;
+            border-color: #333;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        [data-theme="dark"] .form-label {
+            color: #fff;
+        }
+        
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.2s;
+            background: white;
+        }
+        
+        [data-theme="dark"] .form-input,
+        [data-theme="dark"] .form-textarea {
+            background: #222;
+            border-color: #444;
+            color: #fff;
+        }
+        
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: #F59E0B;
+            box-shadow: 0 0 0 3px rgba(245,158,11,0.1);
+        }
+        
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-submit {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #F59E0B, #f97316);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(245,158,11,0.3);
+        }
+        
+        /* ===== FAQ SECTION ===== */
+        .faq-section {
+            padding: 4rem 0;
+        }
+        
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            max-width: 900px;
+            margin: 2rem auto 0;
+            padding: 0 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .faq-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid #eee;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        [data-theme="dark"] .faq-item {
+            background: #1a1a1a;
+            border-color: #333;
+        }
+        
+        .faq-item:hover {
+            border-color: #F59E0B;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        .faq-question i {
+            color: #F59E0B;
+            transition: transform 0.3s;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            margin-top: 1rem;
+            color: #666;
+            line-height: 1.6;
+            display: none;
+        }
+        
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        
+        /* ===== CTA SECTION WITH BACKGROUND ===== */
+        .cta-section {
+            position: relative;
+            padding: 5rem 1rem;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .cta-background {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        
+        .cta-background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .cta-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(245,158,11,0.95), rgba(249,115,22,0.95));
+            z-index: 1;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .cta-content h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-content p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        @media (min-width: 640px) {
+            .cta-buttons {
+                flex-direction: row;
+            }
+        }
+        
+        .btn-cta-primary {
+            background: white;
+            color: #F59E0B;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.2s;
+        }
+        
+        .btn-cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .btn-cta-secondary {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.2s;
+        }
+        
+        .btn-cta-secondary:hover {
+            background: white;
+            color: #F59E0B;
+        }
+        
+        /* ===== FOOTER ===== */
+        .enterprise-footer {
+            background: #111;
+            color: white;
+            padding: 3rem 1rem 1.5rem;
+        }
+        
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        @media (min-width: 640px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+        }
+        
+        .footer-about {
+            max-width: 300px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            text-decoration: none;
+        }
+        
+        .footer-logo .logo-mark {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #F59E0B, #f97316);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+        }
+        
+        .footer-logo span {
+            color: white;
+            font-weight: 800;
+            font-size: 1.25rem;
+        }
+        
+        .footer-description {
+            color: #aaa;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 0.75rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        
+        .social-link:hover {
+            background: #F59E0B;
+            transform: translateY(-2px);
+        }
+        
+        .footer-column h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+        }
+        
+        .footer-links a:hover {
+            color: #F59E0B;
+            transform: translateX(4px);
+            display: inline-block;
+        }
+        
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid #222;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+        }
+        
+        .footer-legal {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+        }
+        
+        .footer-legal a {
+            color: #666;
+            text-decoration: none;
+        }
+        
+        .footer-legal a:hover {
+            color: #F59E0B;
+        }
+        
+        /* ===== TOAST NOTIFICATIONS ===== */
+        .toast-container {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            z-index: 9999;
+        }
+        
+        .toast {
+            background: white;
+            color: #333;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 0.5rem;
+            animation: slideUp 0.3s ease;
+            border-left: 4px solid #F59E0B;
+        }
+        
+        .toast i {
+            color: #F59E0B;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        /* ===== UTILITY CLASSES ===== */
+        .bg-secondary {
+            background: #f8f9fa;
+        }
+        
+        [data-theme="dark"] .bg-secondary {
+            background: #111;
+        }
+    </style>
+</head>
+<body>
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+    
+    <!-- ===== ENTERPRISE NAVIGATION ===== -->
+    <nav class="enterprise-nav">
+        <div class="nav-container">
+            <!-- Logo -->
+            <a href="index.html" class="logo-wrapper">
+    <img src="logo.png" alt="Primer Technologies" class="logo-image" style="height: 40px; width: auto;">
+                <div class="logo-text">
+                    <h1>Primer</h1>
+                    <p>technologies</p>
+                </div>
+            </a>
+            
+            <!-- Desktop Navigation Links -->
+            <div class="nav-links-desktop">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="how-it-works.html" class="nav-link">How It Works</a>
+                <a href="for-tenants.html" class="nav-link">For Tenants</a>
+                <a href="for-landlords.html" class="nav-link active">For Landlords</a>
+                <a href="pricing.html" class="nav-link">Pricing</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            
+            <!-- Desktop Actions -->
+            <div class="nav-actions-desktop">
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="explore.html" class="btn-properties">
+                    <i class="fas fa-building"></i>
+                    <span>Explore</span>
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu Panel -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-nav-links">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="how-it-works.html" class="mobile-nav-link">How It Works</a>
+            <a href="for-tenants.html" class="mobile-nav-link">For Tenants</a>
+            <a href="for-landlords.html" class="mobile-nav-link">For Landlords</a>
+            <a href="pricing.html" class="mobile-nav-link">Pricing</a>
+            <a href="about.html" class="mobile-nav-link">About</a>
+            <a href="contact.html" class="mobile-nav-link">Contact</a>
+        </div>
+        <div class="mobile-actions">
+            <button class="theme-toggle" onclick="toggleTheme()" style="width: 100%;">
+                <i class="fas fa-moon"></i> Dark Mode
+            </button>
+            <a href="explore.html" class="mobile-btn-properties">
+                <i class="fas fa-building"></i> Explore
+            </a>
+        </div>
+    </div>
+    
+    <!-- ===== PAGE HEADER WITH BACKGROUND IMAGE ===== -->
+    <section class="page-header">
+        <div class="header-image">
+            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1600" alt="Modern property building" loading="lazy">
+        </div>
+        <div class="header-overlay"></div>
+        
+        <div class="header-content">
+            <div class="header-badge fade-in-up">
+                <i class="fas fa-key"></i>
+                <span>FOR LANDLORDS</span>
+            </div>
+            <h1 class="header-title fade-in-up">List Your Property,<br>Reach Thousands of Tenants</h1>
+            <p class="header-description fade-in-up">
+                Contact us to upload your spaces. We'll help you list your properties and reach qualified tenants across Nigeria.
+            </p>
+            
+            <!-- Header Stats with Real Data -->
+            <div class="header-stats fade-in-up" id="headerStats">
+                <div class="loading-spinner">
+                    <i class="fas fa-circle-notch fa-spin"></i>
+                </div>
+            </div>
+            
+            <!-- Contact Button (replaces search bar) -->
+            <a href="#contact-form" class="btn-contact fade-in-up">
+                Contact Us to List <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+    
+    <!-- ===== CONTACT CARD ===== -->
+    <div class="contact-card" id="contact-card">
+        <h3>Ready to List Your Property?</h3>
+        <p>Our team will help you upload your spaces and get them verified. Contact us today to get started.</p>
+        
+        <div class="contact-methods">
+            <a href="tel:+2348100590574" class="contact-method" onclick="showToast('Call us at +234 800 PRIMER', 'info')">
+                <i class="fas fa-phone-alt"></i>
+                <span>Call Us</span>
+            </a>
+            <a href="mailto:get.primer@proton.me" class="contact-method" onclick="showToast('Email us at get.primer@proton.me', 'info')">
+                <i class="fas fa-envelope"></i>
+                <span>Email Us</span>
+            </a>
+            <a href="https://wa.me/2348100590574" class="contact-method" onclick="showToast('WhatsApp coming soon', 'info')">
+                <i class="fab fa-whatsapp"></i>
+                <span>WhatsApp</span>
+            </a>
+        </div>
+    </div>
+    
+    <!-- ===== STATS BANNER WITH REAL DATA ===== -->
+    <div class="stats-banner" id="statsBanner">
+        <div class="stats-grid">
+            <div class="loading-spinner">
+                <i class="fas fa-circle-notch fa-spin"></i>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ===== BENEFITS SECTION ===== -->
+    <section style="padding: 4rem 0;">
+        <div class="section-header">
+            <span class="section-badge">WHY LIST WITH PRIMER</span>
+            <h2 class="section-title">Designed for Landlords</h2>
+            <p class="section-description">
+                Everything you need to manage your properties and find quality tenants.
+            </p>
+        </div>
+        
+        <div class="benefits-grid">
+            <div class="benefit-card fade-in-up">
+                <div class="benefit-icon">
+                    <i class="fas fa-wallet"></i>
+                </div>
+                <h3>Free Consultation</h3>
+                <p>Contact us for a free consultation on how to best list and market your properties.</p>
+            </div>
+            
+            <div class="benefit-card fade-in-up" style="animation-delay: 0.1s;">
+                <div class="benefit-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Qualified Tenants</h3>
+                <p>Reach thousands of verified tenants actively looking for housing near universities.</p>
+            </div>
+            
+            <div class="benefit-card fade-in-up" style="animation-delay: 0.2s;">
+                <div class="benefit-icon">
+                    <i class="fas fa-camera"></i>
+                </div>
+                <h3>Professional Photography</h3>
+                <p>We can arrange professional photography to make your properties stand out.</p>
+            </div>
+            
+            <div class="benefit-card fade-in-up" style="animation-delay: 0.3s;">
+                <div class="benefit-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Verification Service</h3>
+                <p>Get your properties verified by our team to build trust with potential tenants.</p>
+            </div>
+            
+            <div class="benefit-card fade-in-up" style="animation-delay: 0.4s;">
+                <div class="benefit-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Performance Reports</h3>
+                <p>Receive regular reports on how your properties are performing on our platform.</p>
+            </div>
+            
+            <div class="benefit-card fade-in-up" style="animation-delay: 0.5s;">
+                <div class="benefit-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3>Dedicated Support</h3>
+                <p>Our landlord support team is always available to help with your listings.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== HOW IT WORKS FOR LANDLORDS ===== -->
+    <section class="landlord-steps">
+        <div class="section-header">
+            <span class="section-badge">SIMPLE PROCESS</span>
+            <h2 class="section-title">List Your Property in 4 Steps</h2>
+            <p class="section-description">
+                From contact to listing - we handle the heavy lifting.
+            </p>
+        </div>
+        
+        <div class="steps-container">
+            <div class="landlord-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Contact Us</h3>
+                    <p>Reach out via phone, email, or the contact form below. Tell us about your property and we'll guide you through the process.</p>
+                    <div class="step-features">
+                        <span class="step-feature"><i class="fas fa-check"></i> Free consultation</span>
+                        <span class="step-feature"><i class="fas fa-check"></i> No obligation</span>
+                        <span class="step-feature"><i class="fas fa-check"></i> Quick response</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="landlord-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Share Property Details</h3>
+                    <p>Send us photos, property information, pricing, and amenities. Our team will help prepare your listing.</p>
+                    <div class="step-features">
+                        <span class="step-feature"><i class="fas fa-check"></i> Professional photography available</span>
+                        <span class="step-feature"><i class="fas fa-check"></i> Amenities listing</span>
+                        <span class="step-feature"><i class="fas fa-check"></i> Pricing guidance</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="landlord-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Verification</h3>
+                    <p>Our team will verify your property and identity to ensure trust and authenticity for tenants.</p>
+                    <div class="step-features">
+                        <span class="step-feature"><i class="fas fa-check"></i> Physical verification</span>
+                        <span class="step-feature"><i class="fas fa-check"></i> Identity confirmation</span>
+                        <span class="step-feature"><i class="fas fa-check"></i> Verified badge</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="landlord-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>Listing Goes Live</h3>
+                    <p>Your property is published on Primer and visible to thousands of potential tenants.</p>
+                    <div class="step-features">
+                        <span class="step-feature"><i class="fas fa-check"></i> Real-time inquiries</span>
+                        <span class="step-feature"><i class="fas fa-check"></i> Performance tracking</span>
+                        <span class="step-feature"><i class="fas fa-check"></i> Direct tenant contact</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== DASHBOARD PREVIEW ===== -->
+    <section class="dashboard-preview">
+        <div class="section-header">
+            <span class="section-badge">POWERFUL TOOLS</span>
+            <h2 class="section-title">Your Landlord Dashboard</h2>
+            <p class="section-description">
+                Once your properties are listed, you'll have access to your dashboard.
+            </p>
+        </div>
+        
+        <div class="dashboard-container">
+            <div class="dashboard-card">
+                <div class="dashboard-header">
+                    <div class="dashboard-title">
+                        <h4>Welcome back,</h4>
+                        <h3>Property Owner</h3>
+                    </div>
+                    <div class="dashboard-date">
+                        <i class="far fa-calendar"></i>
+                        <span id="currentDate"></span>
+                    </div>
+                </div>
+                
+                <div class="dashboard-stats">
+                    <div class="dashboard-stat">
+                        <span class="value" id="totalViews">-</span>
+                        <span class="label">Total Views</span>
+                    </div>
+                    <div class="dashboard-stat">
+                        <span class="value" id="totalInquiries">-</span>
+                        <span class="label">Inquiries</span>
+                    </div>
+                    <div class="dashboard-stat">
+                        <span class="value" id="activeListings">-</span>
+                        <span class="label">Active Listings</span>
+                    </div>
+                </div>
+                
+                <!-- Chart Visualization -->
+                <div class="dashboard-chart">
+                    <div class="chart-bar" style="height: 120px;" data-label="Mon"></div>
+                    <div class="chart-bar" style="height: 180px;" data-label="Tue"></div>
+                    <div class="chart-bar" style="height: 90px;" data-label="Wed"></div>
+                    <div class="chart-bar" style="height: 210px;" data-label="Thu"></div>
+                    <div class="chart-bar" style="height: 150px;" data-label="Fri"></div>
+                    <div class="chart-bar" style="height: 75px;" data-label="Sat"></div>
+                    <div class="chart-bar" style="height: 45px;" data-label="Sun"></div>
+                </div>
+                
+                <div class="dashboard-properties" id="dashboardProperties">
+                    <!-- Will be populated with real data -->
+                    <div class="loading-spinner">
+                        <i class="fas fa-circle-notch fa-spin"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#contact-form" class="btn-properties" style="display: inline-flex;">
+                    Contact Us to Get Started <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== CONTACT FORM SECTION ===== -->
+    <section class="contact-form-section" id="contact-form">
+        <div class="section-header">
+            <span class="section-badge">GET STARTED</span>
+            <h2 class="section-title">Contact Us to List Your Property</h2>
+            <p class="section-description">
+                Fill out the form below and our team will reach out to help you list your spaces.
+            </p>
+        </div>
+        
+        <div class="contact-form-container">
+            <form class="contact-form" id="landlordContactForm" onsubmit="submitLandlordForm(event)">
+                <div class="form-group">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-input" placeholder="Your name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Phone Number</label>
+                    <input type="tel" class="form-input" placeholder="+234 800 000 0000" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-input" placeholder="you@example.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Property Location</label>
+                    <input type="text" class="form-input" placeholder="e.g., Maitama, Abuja" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Property Type</label>
+                    <select class="form-input" required>
+                        <option value="">Select property type</option>
+                        <option value="apartment">Apartment</option>
+                        <option value="house">House</option>
+                        <option value="hostel">Student Hostel</option>
+                        <option value="studio">Studio</option>
+                        <option value="commercial">Commercial Space</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Number of Units</label>
+                    <input type="number" class="form-input" placeholder="e.g., 1, 5, 10" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Additional Information</label>
+                    <textarea class="form-textarea" placeholder="Tell us more about your property..."></textarea>
+                </div>
+                
+                <button type="submit" class="form-submit">
+                    Submit Inquiry <i class="fas fa-paper-plane" style="margin-left: 0.5rem;"></i>
+                </button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- ===== FAQ SECTION ===== -->
+    <section class="faq-section">
+        <div class="section-header">
+            <span class="section-badge">QUESTIONS?</span>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-description">
+                Common questions from landlords like you.
+            </p>
+        </div>
+        
+        <div class="faq-grid">
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    How do I list my property?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Simply contact us via phone, email, or the form above. Our team will guide you through the process and help upload your property details.
+                </div>
+            </div>
+            
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    Is there a cost to list?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Contact us for current pricing information. We offer flexible options for landlords of all sizes.
+                </div>
+            </div>
+            
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    How does verification work?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Our team will schedule a visit to your property, verify ownership documentation, and confirm all listed amenities. This builds trust with potential tenants.
+                </div>
+            </div>
+            
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    How do I receive inquiries?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Once your property is listed, tenants can contact you directly via phone through the app. You'll receive notifications for new inquiries.
+                </div>
+            </div>
+            
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    Can I list multiple properties?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Absolutely! You can list any number of properties. Contact us to discuss bulk listing options.
+                </div>
+            </div>
+            
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    What if I need help?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Our landlord support team is available via phone, email, and live chat. We're here to help you succeed.
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="faqs.html" class="btn-properties" style="display: inline-flex; background: transparent; border: 2px solid #F59E0B; color: #F59E0B;">
+                View All FAQs <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
+            </a>
+        </div>
+    </section>
+    
+    <!-- ===== CTA SECTION WITH BACKGROUND IMAGE ===== -->
+    <section class="cta-section">
+        <div class="cta-background">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600" alt="Modern building" loading="lazy">
+        </div>
+        <div class="cta-overlay"></div>
+        
+        <div class="cta-content">
+            <h2>Ready to List Your Property?</h2>
+            <p>Contact us today to get started. Our team will help you reach thousands of qualified tenants.</p>
+            
+            <div class="cta-buttons">
+                <a href="#contact-form" class="btn-cta-primary">
+                    <i class="fas fa-plus-circle"></i> Contact Us
+                </a>
+                <a href="contact.html" class="btn-cta-secondary">
+                    <i class="fas fa-headset"></i> Talk to Us
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== FOOTER ===== -->
+    <footer class="enterprise-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="footer-logo">
+    <img src="logo.png" alt="Primer Technologies" class="footer-logo-image" style="height: 40px; width: auto;">
+                        <span>Primer</span>
+                    </a>
+                    <p class="footer-description">
+                        Making housing smarter in Nigeria since 2025. We connect verified tenants with verified properties.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="for-tenants.html">For Tenants</a></li>
+                        <li><a href="for-landlords.html">For Landlords</a></li>
+                        <li><a href="explore.html?type=student">Student Housing</a></li>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Renting Guides</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div>© 2026 Primer Technologies. All rights reserved.</div>
+                <div class="footer-legal">
+                    <a href="terms.html">Terms</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // ===== THEME TOGGLE =====
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme') || 'light';
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            const icon = document.querySelector('.theme-toggle i');
+            if (icon) {
+                icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            }
+            
+            // Update theme icon in mobile menu too
+            const mobileIcon = document.querySelector('.mobile-actions .theme-toggle i');
+            if (mobileIcon) {
+                mobileIcon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            }
+        }
+        
+        // Apply saved theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        
+        // ===== MOBILE MENU =====
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+            
+            const icon = document.querySelector('.mobile-menu-btn i');
+            if (menu.classList.contains('active')) {
+                icon.className = 'fas fa-times';
+            } else {
+                icon.className = 'fas fa-bars';
+            }
+        }
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-nav-link, .mobile-actions a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.remove('active');
+                const icon = document.querySelector('.mobile-menu-btn i');
+                if (icon) icon.className = 'fas fa-bars';
+            });
+        });
+        
+        // ===== TOAST NOTIFICATION =====
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            
+            let icon = 'fa-info-circle';
+            if (type === 'success') icon = 'fa-check-circle';
+            
+            toast.innerHTML = `
+                <i class="fas ${icon}"></i>
+                <span>${message}</span>
+            `;
+            
+            container.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(20px)';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+        
+        // ===== FAQ TOGGLE =====
+        function toggleFaq(element) {
+            element.classList.toggle('active');
+        }
+        
+        // ===== FORMAT CURRENCY =====
+        function formatNaira(amount) {
+            return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        }
+        
+        // ===== LOAD PROPERTIES DATA FROM GITHUB =====
+        let properties = [];
+        let schools = [];
+        
+        async function loadPropertiesData() {
+            try {
+                const response = await fetch('https://raw.githubusercontent.com/Uppar-ng/Uppar-ng/main/properties.json');
+                const data = await response.json();
+                
+                properties = Array.isArray(data.properties) ? data.properties : [];
+                schools = Array.isArray(data.schools) ? data.schools : [];
+                
+                console.log(`Loaded ${properties.length} properties and ${schools.length} schools`);
+                
+                // Update all sections with real data
+                updateHeaderStats();
+                updateStatsBanner();
+                updateDashboardPreview();
+                
+            } catch (error) {
+                console.error('Error loading properties:', error);
+                showToast('Could not load property data', 'error');
+                
+                // Fallback data
+                properties = [];
+                schools = [];
+                updateHeaderStats();
+                updateStatsBanner();
+                updateDashboardPreview();
+            }
+        }
+        
+        // ===== UPDATE HEADER STATS WITH REAL DATA =====
+        function updateHeaderStats() {
+            const headerStats = document.getElementById('headerStats');
+            
+            // Count unique universities from properties
+            const uniqueUniversities = new Set();
+            properties.forEach(prop => {
+                if (prop.school) uniqueUniversities.add(prop.school);
+            });
+            
+            // Count active landlords (unique landlords from properties)
+            const uniqueLandlords = new Set();
+            properties.forEach(prop => {
+                if (prop.landlord?.name) uniqueLandlords.add(prop.landlord.name);
+            });
+            
+            headerStats.innerHTML = `
+                <div class="header-stat">
+                    <span class="number">${properties.length}</span>
+                    <span class="label">Properties</span>
+                </div>
+                <div class="header-stat">
+                    <span class="number">${uniqueUniversities.size}</span>
+                    <span class="label">Universities</span>
+                </div>
+                <div class="header-stat">
+                    <span class="number">${uniqueLandlords.size}</span>
+                    <span class="label">Landlords</span>
+                </div>
+            `;
+        }
+        
+        // ===== UPDATE STATS BANNER WITH REAL DATA =====
+        function updateStatsBanner() {
+            const statsBanner = document.getElementById('statsBanner');
+            const statsGrid = statsBanner.querySelector('.stats-grid');
+            
+            // Calculate total annual rental income (estimate)
+            let totalAnnualIncome = 0;
+            properties.forEach(prop => {
+                if (prop.price) {
+                    totalAnnualIncome += prop.price * 12; // Monthly * 12 months
+                }
+            });
+            
+            // Count unique landlords
+            const uniqueLandlords = new Set();
+            properties.forEach(prop => {
+                if (prop.landlord?.name) uniqueLandlords.add(prop.landlord.name);
+            });
+            
+            // Count properties with high occupancy (placeholder)
+            const highOccupancyProperties = Math.floor(properties.length * 0.85); // 85% of properties
+            
+            statsGrid.innerHTML = `
+                <div class="stat-card">
+                    <span class="number">₦${formatNaira(totalAnnualIncome / 1000000)}k+</span>
+                    <span class="label">Annual Rental Value</span>
+                </div>
+                <div class="stat-card">
+                    <span class="number">${uniqueLandlords.size}+</span>
+                    <span class="label">Active Landlords</span>
+                </div>
+                <div class="stat-card">
+                    <span class="number">85%</span>
+                    <span class="label">Avg Occupancy</span>
+                </div>
+                <div class="stat-card">
+                    <span class="number">4.8★</span>
+                    <span class="label">Landlord Rating</span>
+                </div>
+            `;
+        }
+        
+        // ===== UPDATE DASHBOARD PREVIEW WITH REAL DATA =====
+        function updateDashboardPreview() {
+            const dashboardProperties = document.getElementById('dashboardProperties');
+            
+            // Get top 4 properties by price
+            const topProperties = [...properties]
+                .sort((a, b) => (b.price || 0) - (a.price || 0))
+                .slice(0, 4);
+            
+            if (topProperties.length === 0) {
+                dashboardProperties.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align: center; padding: 2rem;">
+                        <p>Property data loading...</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Update stats
+            const totalViews = properties.length * 234; // Estimate
+            const totalInquiries = properties.length * 12; // Estimate
+            const activeListings = properties.length;
+            
+            document.getElementById('totalViews').textContent = formatNaira(totalViews);
+            document.getElementById('totalInquiries').textContent = totalInquiries;
+            document.getElementById('activeListings').textContent = activeListings;
+            
+            // Set current date
+            const now = new Date();
+            const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            document.getElementById('currentDate').textContent = `${months[now.getMonth()]} ${now.getFullYear()}`;
+            
+            // Populate properties
+            dashboardProperties.innerHTML = topProperties.map(prop => `
+                <div class="property-row">
+                    <div class="property-preview">
+                        <img src="${prop.images?.[0] || 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=100'}" alt="${prop.title}" onerror="this.src='https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=100'">
+                    </div>
+                    <div class="property-details">
+                        <h5>${prop.title || 'Property'}</h5>
+                        <p>₦${formatNaira(prop.price)}/month • ${prop.views || 0} views</p>
+                    </div>
+                    <span class="property-status status-active">Active</span>
+                </div>
+            `).join('');
+        }
+        
+        // ===== CONTACT FORM SUBMISSION =====
+        function submitLandlordForm(event) {
+            event.preventDefault();
+            
+            // In a real implementation, this would send data to your backend
+            showToast('Thank you! Our team will contact you soon.', 'success');
+            
+            // Reset form
+            event.target.reset();
+        }
+        
+        // ===== INITIALIZE =====
+        document.addEventListener('DOMContentLoaded', () => {
+            loadPropertiesData();
+            setTimeout(() => {
+                showToast('Welcome, Landlord! Contact us to list your property.', 'success');
+            }, 1500);
+        });
+    </script>
+</body>
+</html>

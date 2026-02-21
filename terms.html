@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Enterprise Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Terms of Service for Primer Technologies - Legal terms and conditions for using our housing platform in Nigeria.">
+    <meta name="keywords" content="terms of service, legal terms, user agreement, rental platform terms, Primer legal">
+    <meta name="author" content="Primer Technologies">
+    <meta property="og:title" content="Terms of Service | Primer Technologies">
+    <meta property="og:description" content="Read our terms of service for using Primer's housing platform in Nigeria.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://primert.vercel.app/terms">
+    
+    <title>Terms of Service | Primer Technologies - Legal Agreement</title>
+    
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="enterprise-design-system.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <style>
+        /* ===== MOBILE-FIRST ENTERPRISE STYLES ===== */
+        
+        /* CSS Custom Properties */
+        :root {
+            --container-padding: 1rem;
+            --grid-gap: 1rem;
+            --primary-50: #eff6ff;
+            --primary-100: #dbeafe;
+            --primary-500: #0066FF;
+            --primary-600: #2563eb;
+            --primary-700: #1d4ed8;
+            --primary-800: #1e40af;
+            --accent-500: #F59E0B;
+            --success-500: #10B981;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+        }
+        
+        @media (min-width: 640px) {
+            :root {
+                --container-padding: 1.5rem;
+                --grid-gap: 1.5rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            :root {
+                --container-padding: 2rem;
+                --grid-gap: 2rem;
+            }
+        }
+        
+        /* Base Container */
+        .enterprise-container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+        }
+        
+        /* ===== NAVIGATION (Consistent with other pages) ===== */
+        .enterprise-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            height: 64px;
+            display: flex;
+            align-items: center;
+        }
+        
+        [data-theme="dark"] .enterprise-nav {
+            background: rgba(10, 10, 10, 0.98);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 1rem;
+        }
+        
+        @media (min-width: 1024px) {
+            .nav-container {
+                padding: 0 2rem;
+            }
+        }
+        
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+        
+        .logo-mark {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #0066FF, #0044CC);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 1.25rem;
+            transition: transform 0.2s ease;
+        }
+        
+        .logo-text {
+            display: none;
+        }
+        
+        @media (min-width: 640px) {
+            .logo-text {
+                display: block;
+            }
+            .logo-text h1 {
+                font-size: 1.25rem;
+                font-weight: 800;
+                background: linear-gradient(135deg, #0066FF, #0044CC);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                line-height: 1.2;
+            }
+            .logo-text p {
+                font-size: 0.7rem;
+                color: #666;
+                font-weight: 500;
+            }
+        }
+        
+        .mobile-menu-btn {
+            display: block;
+            background: none;
+            border: none;
+            color: #333;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        @media (min-width: 1024px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+        }
+        
+        [data-theme="dark"] .mobile-menu-btn {
+            color: #fff;
+        }
+        
+        .nav-links-desktop {
+            display: none;
+        }
+        
+        @media (min-width: 1024px) {
+            .nav-links-desktop {
+                display: flex;
+                align-items: center;
+                gap: 2rem;
+            }
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+            position: relative;
+        }
+        
+        [data-theme="dark"] .nav-link {
+            color: #aaa;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            color: #0066FF;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #0066FF;
+            transition: width 0.2s;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .nav-actions-desktop {
+            display: none;
+        }
+        
+        @media (min-width: 1024px) {
+            .nav-actions-desktop {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+        }
+        
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f5f5f5;
+            border: none;
+            color: #333;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        
+        [data-theme="dark"] .theme-toggle {
+            background: #222;
+            color: #fff;
+        }
+        
+        .btn-properties {
+            background: linear-gradient(135deg, #0066FF, #0044CC);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        
+        .btn-properties:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 102, 255, 0.3);
+        }
+        
+        .mobile-menu {
+            position: fixed;
+            top: 64px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: white;
+            z-index: 999;
+            padding: 2rem;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            overflow-y: auto;
+        }
+        
+        [data-theme="dark"] .mobile-menu {
+            background: #111;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        @media (min-width: 1024px) {
+            .mobile-menu {
+                display: none;
+            }
+        }
+        
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .mobile-nav-link {
+            text-decoration: none;
+            color: #333;
+            font-size: 1.25rem;
+            font-weight: 600;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        [data-theme="dark"] .mobile-nav-link {
+            color: #fff;
+            border-bottom-color: #333;
+        }
+        
+        .mobile-actions {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .mobile-btn-properties {
+            background: linear-gradient(135deg, #0066FF, #0044CC);
+            color: white;
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        /* ===== PAGE HEADER ===== */
+        .page-header {
+            background: linear-gradient(135deg, #0066FF, #0044CC);
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .header-badge i {
+            color: #FFD700;
+        }
+        
+        .header-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .header-title {
+                font-size: 3.5rem;
+            }
+        }
+        
+        .header-description {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .last-updated {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* ===== SECTION HEADERS ===== */
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            padding: 0 1rem;
+        }
+        
+        .section-badge {
+            display: inline-block;
+            background: #e6f0ff;
+            color: #0066FF;
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        [data-theme="dark"] .section-badge {
+            background: rgba(0,102,255,0.2);
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #0066FF, #0044CC);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+        
+        .section-description {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        [data-theme="dark"] .section-description {
+            color: #aaa;
+        }
+        
+        /* ===== LEGAL CONTENT ===== */
+        .legal-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 1rem;
+        }
+        
+        .legal-section {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #eee;
+            transition: all 0.2s;
+        }
+        
+        [data-theme="dark"] .legal-section {
+            background: #1a1a1a;
+            border-color: #333;
+        }
+        
+        .legal-section:hover {
+            border-color: #0066FF;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        
+        .legal-section h2 {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: #0066FF;
+        }
+        
+        .legal-section h2 i {
+            font-size: 1.5rem;
+        }
+        
+        .legal-section h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 1.5rem 0 1rem;
+            color: #333;
+        }
+        
+        [data-theme="dark"] .legal-section h3 {
+            color: #fff;
+        }
+        
+        .legal-section h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 1rem 0 0.5rem;
+            color: #444;
+        }
+        
+        [data-theme="dark"] .legal-section h4 {
+            color: #ddd;
+        }
+        
+        .legal-section p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        
+        [data-theme="dark"] .legal-section p {
+            color: #aaa;
+        }
+        
+        .legal-section ul,
+        .legal-section ol {
+            margin: 1rem 0 1rem 1.5rem;
+            color: #666;
+        }
+        
+        [data-theme="dark"] .legal-section ul,
+        [data-theme="dark"] .legal-section ol {
+            color: #aaa;
+        }
+        
+        .legal-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        
+        .legal-section a {
+            color: #0066FF;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .legal-section a:hover {
+            text-decoration: underline;
+        }
+        
+        .legal-section .highlight {
+            background: #e6f0ff;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            color: #0066FF;
+            font-weight: 600;
+        }
+        
+        .legal-section .note-box {
+            background: #f8f9fa;
+            border-left: 4px solid #0066FF;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+        }
+        
+        [data-theme="dark"] .legal-section .note-box {
+            background: #222;
+        }
+        
+        .legal-section .note-box p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Table of Contents */
+        .toc-container {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border: 1px solid #eee;
+        }
+        
+        [data-theme="dark"] .toc-container {
+            background: #1a1a1a;
+            border-color: #333;
+        }
+        
+        .toc-container h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+        }
+        
+        @media (min-width: 768px) {
+            .toc-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .toc-item {
+            padding: 0.5rem;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        [data-theme="dark"] .toc-item {
+            border-bottom-color: #333;
+        }
+        
+        .toc-item a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.2s;
+        }
+        
+        .toc-item a:hover {
+            color: #0066FF;
+        }
+        
+        .toc-item i {
+            font-size: 0.8rem;
+            color: #0066FF;
+        }
+        
+        /* Definition List */
+        .definition-list {
+            margin: 1.5rem 0;
+        }
+        
+        .definition-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        @media (min-width: 640px) {
+            .definition-item {
+                flex-direction: row;
+                gap: 2rem;
+            }
+        }
+        
+        [data-theme="dark"] .definition-item {
+            border-bottom-color: #333;
+        }
+        
+        .definition-term {
+            font-weight: 700;
+            color: #0066FF;
+            min-width: 150px;
+        }
+        
+        .definition-desc {
+            color: #666;
+            flex: 1;
+        }
+        
+        /* Agreement Footer */
+        .agreement-footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 24px;
+        }
+        
+        [data-theme="dark"] .agreement-footer {
+            background: #222;
+        }
+        
+        .agreement-footer p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        
+        .agreement-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        @media (min-width: 640px) {
+            .agreement-buttons {
+                flex-direction: row;
+            }
+        }
+        
+        .btn-accept {
+            background: #0066FF;
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        
+        .btn-accept:hover {
+            background: #0044CC;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,102,255,0.3);
+        }
+        
+        .btn-decline {
+            background: transparent;
+            border: 2px solid #ccc;
+            color: #666;
+            padding: 0.75rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        
+        .btn-decline:hover {
+            border-color: #999;
+            color: #333;
+        }
+        
+        /* ===== FOOTER ===== */
+        .enterprise-footer {
+            background: #111;
+            color: white;
+            padding: 3rem 1rem 1.5rem;
+        }
+        
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        @media (min-width: 640px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+        }
+        
+        .footer-about {
+            max-width: 300px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            text-decoration: none;
+        }
+        
+        .footer-logo .logo-mark {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #0066FF, #0044CC);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+        }
+        
+        .footer-logo span {
+            color: white;
+            font-weight: 800;
+            font-size: 1.25rem;
+        }
+        
+        .footer-description {
+            color: #aaa;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 0.75rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        
+        .social-link:hover {
+            background: #0066FF;
+            transform: translateY(-2px);
+        }
+        
+        .footer-column h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+        }
+        
+        .footer-links a:hover {
+            color: #0066FF;
+            transform: translateX(4px);
+            display: inline-block;
+        }
+        
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid #222;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+        }
+        
+        .footer-legal {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+        }
+        
+        .footer-legal a {
+            color: #666;
+            text-decoration: none;
+        }
+        
+        .footer-legal a:hover {
+            color: #0066FF;
+        }
+        
+        /* ===== TOAST NOTIFICATIONS ===== */
+        .toast-container {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            z-index: 9999;
+        }
+        
+        .toast {
+            background: white;
+            color: #333;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 0.5rem;
+            animation: slideUp 0.3s ease;
+            border-left: 4px solid #0066FF;
+        }
+        
+        .toast i {
+            color: #0066FF;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+    
+    <!-- ===== ENTERPRISE NAVIGATION ===== -->
+    <nav class="enterprise-nav">
+        <div class="nav-container">
+            <!-- Logo -->
+            <a href="index.html" class="logo-wrapper">
+    <img src="logo.png" alt="Primer Technologies" class="logo-image" style="height: 40px; width: auto;">
+
+                <div class="logo-text">
+                    <h1>Primer</h1>
+                    <p>technologies</p>
+                </div>
+            </a>
+            
+            <!-- Desktop Navigation Links -->
+            <div class="nav-links-desktop">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="how-it-works.html" class="nav-link">How It Works</a>
+                <a href="for-tenants.html" class="nav-link">For Tenants</a>
+                <a href="for-landlords.html" class="nav-link">For Landlords</a>
+                <a href="#" class="nav-link">Pricing</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="faqs.html" class="nav-link">FAQs</a>
+                <a href="terms.html" class="nav-link active">Terms</a>
+                <a href="privacy.html" class="nav-link">Privacy</a>
+            </div>
+            
+            <!-- Desktop Actions -->
+            <div class="nav-actions-desktop">
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="explore.html" target="_blank" class="btn-properties">
+                    <i class="fas fa-building"></i>
+                    <span>Explore</span>
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu Panel -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-nav-links">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="how-it-works.html" class="mobile-nav-link">How It Works</a>
+            <a href="for-tenants.html" class="mobile-nav-link">For Tenants</a>
+            <a href="for-landlords.html" class="mobile-nav-link">For Landlords</a>
+            <a href="#" class="mobile-nav-link">Pricing</a>
+            <a href="about.html" class="mobile-nav-link">About</a>
+            <a href="contact.html" class="mobile-nav-link">Contact</a>
+            <a href="faqs.html" class="mobile-nav-link">FAQs</a>
+            <a href="terms.html" class="mobile-nav-link">Terms</a>
+            <a href="privacy.html" class="mobile-nav-link">Privacy</a>
+        </div>
+        <div class="mobile-actions">
+            <button class="theme-toggle" onclick="toggleTheme()" style="width: 100%;">
+                <i class="fas fa-moon"></i> Dark Mode
+            </button>
+            <a href="explore.html" target="_blank" class="mobile-btn-properties">
+                <i class="fas fa-building"></i> Explore
+            </a>
+        </div>
+    </div>
+    
+    <!-- ===== PAGE HEADER ===== -->
+    <section class="page-header">
+        <div class="header-content">
+            <div class="header-badge fade-in-up">
+                <i class="fas fa-gavel"></i>
+                <span>LEGAL</span>
+            </div>
+            <h1 class="header-title fade-in-up">Terms of Service</h1>
+            <p class="header-description fade-in-up">
+                Please read these terms carefully before using Primer's platform
+            </p>
+            <div class="last-updated fade-in-up">
+                <i class="far fa-calendar-alt"></i> Last Updated: 1,January 2026
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== LEGAL CONTENT ===== -->
+    <div class="legal-content">
+        <!-- Table of Contents -->
+        <div class="toc-container">
+            <h3><i class="fas fa-list" style="color: #0066FF;"></i> Table of Contents</h3>
+            <div class="toc-grid">
+                <div class="toc-item"><a href="#acceptance"><i class="fas fa-angle-right"></i> 1. Acceptance</a></div>
+                <div class="toc-item"><a href="#definitions"><i class="fas fa-angle-right"></i> 2. Definitions</a></div>
+                <div class="toc-item"><a href="#eligibility"><i class="fas fa-angle-right"></i> 3. Eligibility</a></div>
+                <div class="toc-item"><a href="#accounts"><i class="fas fa-angle-right"></i> 4. User Accounts</a></div>
+                <div class="toc-item"><a href="#listings"><i class="fas fa-angle-right"></i> 5. Property Listings</a></div>
+                <div class="toc-item"><a href="#verification"><i class="fas fa-angle-right"></i> 6. Verification</a></div>
+                <div class="toc-item"><a href="#payments"><i class="fas fa-angle-right"></i> 7. Payments</a></div>
+                <div class="toc-item"><a href="#conduct"><i class="fas fa-angle-right"></i> 8. User Conduct</a></div>
+                <div class="toc-item"><a href="#intellectual"><i class="fas fa-angle-right"></i> 9. Intellectual Property</a></div>
+                <div class="toc-item"><a href="#privacy"><i class="fas fa-angle-right"></i> 10. Privacy</a></div>
+                <div class="toc-item"><a href="#disclaimers"><i class="fas fa-angle-right"></i> 11. Disclaimers</a></div>
+                <div class="toc-item"><a href="#limitation"><i class="fas fa-angle-right"></i> 12. Limitation of Liability</a></div>
+                <div class="toc-item"><a href="#indemnification"><i class="fas fa-angle-right"></i> 13. Indemnification</a></div>
+                <div class="toc-item"><a href="#termination"><i class="fas fa-angle-right"></i> 14. Termination</a></div>
+                <div class="toc-item"><a href="#governing"><i class="fas fa-angle-right"></i> 15. Governing Law</a></div>
+                <div class="toc-item"><a href="#changes"><i class="fas fa-angle-right"></i> 16. Changes</a></div>
+                <div class="toc-item"><a href="#contact"><i class="fas fa-angle-right"></i> 17. Contact</a></div>
+            </div>
+        </div>
+        
+        <!-- Section 1: Acceptance -->
+        <section id="acceptance" class="legal-section">
+            <h2><i class="fas fa-check-circle"></i> 1. Acceptance of Terms</h2>
+            <p>Welcome to Primer Technologies ("Company," "we," "our," "us"). By accessing or using our website, mobile application, or any services provided by Primer (collectively, the "Services"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use our Services.</p>
+            
+            <div class="note-box">
+                <p><strong>Important:</strong> These Terms contain important information regarding your legal rights, remedies, and obligations. They include various disclaimers and limitations of liability.</p>
+            </div>
+            
+            <p>By using our Services, you represent that you have read, understood, and agree to be bound by these Terms, whether or not you have created an account with Primer.</p>
+        </section>
+        
+        <!-- Section 2: Definitions -->
+        <section id="definitions" class="legal-section">
+            <h2><i class="fas fa-book-open"></i> 2. Definitions</h2>
+            
+            <div class="definition-list">
+                <div class="definition-item">
+                    <span class="definition-term">"Platform"</span>
+                    <span class="definition-desc">Refers to the Primer website, mobile application, and all associated services.</span>
+                </div>
+                <div class="definition-item">
+                    <span class="definition-term">"User"</span>
+                    <span class="definition-desc">Any person who accesses or uses the Platform, whether registered or not.</span>
+                </div>
+                <div class="definition-item">
+                    <span class="definition-term">"Tenant"</span>
+                    <span class="definition-desc">A User seeking to rent or inquire about properties listed on the Platform.</span>
+                </div>
+                <div class="definition-item">
+                    <span class="definition-term">"Landlord"</span>
+                    <span class="definition-desc">A User who lists properties for rent on the Platform, including property owners and authorized agents.</span>
+                </div>
+                <div class="definition-item">
+                    <span class="definition-term">"Property Listing"</span>
+                    <span class="definition-desc">Any rental property advertised on the Platform by a Landlord.</span>
+                </div>
+                <div class="definition-item">
+                    <span class="definition-term">"Verified"</span>
+                    <span class="definition-desc">A Property Listing that has undergone our physical verification process and meets our criteria.</span>
+                </div>
+                <div class="definition-item">
+                    <span class="definition-term">"Content"</span>
+                    <span class="definition-desc">All text, images, photos, videos, listings, reviews, and other materials on the Platform.</span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 3: Eligibility -->
+        <section id="eligibility" class="legal-section">
+            <h2><i class="fas fa-user-check"></i> 3. Eligibility</h2>
+            <p>By using our Services, you represent and warrant that:</p>
+            <ul>
+                <li>You are at least 18 years of age or the age of majority in your jurisdiction</li>
+                <li>You have the legal capacity to enter into binding contracts</li>
+                <li>You are not located in a country that is subject to Nigerian government sanctions</li>
+                <li>You have not been previously suspended or removed from our Services</li>
+                <li>All information you provide is accurate, current, and complete</li>
+            </ul>
+            
+            <div class="note-box">
+                <p><i class="fas fa-info-circle"></i> If you are using the Platform on behalf of a business or entity, you represent that you have authority to bind that entity to these Terms.</p>
+            </div>
+        </section>
+        
+        <!-- Section 4: User Accounts -->
+        <section id="accounts" class="legal-section">
+            <h2><i class="fas fa-user-circle"></i> 4. User Accounts</h2>
+            
+            <h3>4.1 Account Creation</h3>
+            <p>To access certain features, you may need to create an account. You agree to:</p>
+            <ul>
+                <li>Provide accurate and complete information</li>
+                <li>Keep your login credentials secure and confidential</li>
+                <li>Notify us immediately of any unauthorized use</li>
+                <li>Accept responsibility for all activities under your account</li>
+            </ul>
+            
+            <h3>4.2 Account Types</h3>
+            <ul>
+                <li><strong>Tenant Account:</strong> Free account for property seekers</li>
+                <li><strong>Landlord Account:</strong> Account for property owners/agents (free basic listing, premium options available)</li>
+            </ul>
+            
+            <h3>4.3 Account Security</h3>
+            <p>We implement security measures to protect your account, but you are ultimately responsible for maintaining the confidentiality of your password. We are not liable for any loss or damage arising from unauthorized access to your account.</p>
+        </section>
+        
+        <!-- Section 5: Property Listings -->
+        <section id="listings" class="legal-section">
+            <h2><i class="fas fa-home"></i> 5. Property Listings</h2>
+            
+            <h3>5.1 Landlord Obligations</h3>
+            <p>If you list a property on Primer, you agree to:</p>
+            <ul>
+                <li>Ensure you have the legal right to rent the property</li>
+                <li>Provide accurate, current, and complete information</li>
+                <li>Use genuine, recent photographs of the actual property</li>
+                <li>Disclose all material facts about the property</li>
+                <li>Respond to tenant inquiries in a timely manner</li>
+                <li>Keep listing information updated</li>
+                <li>Comply with all applicable laws and regulations</li>
+            </ul>
+            
+            <h3>5.2 Prohibited Listings</h3>
+            <p>You may not list:</p>
+            <ul>
+                <li>Properties you do not own or have authority to rent</li>
+                <li>Fake or non-existent properties</li>
+                <li>Properties with misleading photographs or information</li>
+                <li>Illegal or unauthorized rental units</li>
+                <li>Properties requiring illegal activities</li>
+            </ul>
+            
+            <h3>5.3 Listing Accuracy</h3>
+            <p>We rely on landlords to provide accurate information. While we verify properties, we do not guarantee that every listing is 100% accurate at all times. If you discover an inaccuracy, please report it immediately.</p>
+            
+            <div class="note-box">
+                <p><strong>Note:</strong> Primer is a platform for connecting landlords and tenants. We are not a party to any rental agreement between landlords and tenants. All rental agreements are solely between the landlord and tenant.</p>
+            </div>
+        </section>
+        
+        <!-- Section 6: Verification -->
+        <section id="verification" class="legal-section">
+            <h2><i class="fas fa-shield-alt"></i> 6. Verification Process</h2>
+            
+            <h3>6.1 What We Verify</h3>
+            <p>Our verification process includes:</p>
+            <ul>
+                <li>Physical visit to the property address</li>
+                <li>Verification of ownership or agency documentation</li>
+                <li>Confirmation of listed amenities</li>
+                <li>Photographic evidence</li>
+                <li>Landlord identity verification</li>
+            </ul>
+            
+            <h3>6.2 Verification Limitations</h3>
+            <p>While we strive for accuracy, our verification:</p>
+            <ul>
+                <li>Is a snapshot in time - conditions may change after verification</li>
+                <li>Does not guarantee future availability or condition</li>
+                <li>Does not constitute an endorsement or warranty</li>
+                <li>Is not a substitute for your own due diligence</li>
+            </ul>
+            
+            <h3>6.3 Verified Badge</h3>
+            <p>Properties that pass our verification receive a "Verified" badge. This indicates the property met our criteria at the time of verification. However, we recommend tenants always conduct their own inspection before entering any rental agreement.</p>
+        </section>
+        
+        <!-- Section 7: Payments -->
+        <section id="payments" class="legal-section">
+            <h2><i class="fas fa-credit-card"></i> 7. Payments & Subscriptions</h2>
+            
+            <h3>7.1 Free Services</h3>
+            <p>The following services are free:</p>
+            <ul>
+                <li>Browsing property listings</li>
+                <li>Contacting landlords (basic)</li>
+                <li>Saving favorites</li>
+                <li></li>
+            </ul>
+            
+            <h3>7.2 Paid Services</h3>
+            <p>Premium services for landlords include:</p>
+            <ul>
+                <li><strong>Premium Plan:</strong> ₦15,000/year - up to 10 properties, enhanced features</li>
+                <li><strong>Professional Plan:</strong> ₦35,000/year - unlimited properties, all features</li>
+            </ul>
+            
+            <h3>7.3 Payment Terms</h3>
+            <ul>
+                <li>All fees are in Nigerian Naira (₦)</li>
+                <li>Payments are processed securely through our payment partners</li>
+                <li>Subscriptions auto-renew unless cancelled</li>
+                <li>You can cancel anytime through your account settings</li>
+            </ul>
+            
+            <h3>7.4 Refund Policy</h3>
+            <p>We offer a <span class="highlight">5-days money-back guarantee</span> on all paid plans. If you're not satisfied within the first 30 days of your paid subscription, contact us for a full refund. After 5 days, we do not offer refunds for partial months.</p>
+        </section>
+        
+        <!-- Section 8: User Conduct -->
+        <section id="conduct" class="legal-section">
+            <h2><i class="fas fa-gavel"></i> 8. User Conduct</h2>
+            <p>You agree not to:</p>
+            <ul>
+                <li>Use the Platform for any illegal purpose</li>
+                <li>Harass, abuse, or harm other users</li>
+                <li>Post false, misleading, or fraudulent information</li>
+                <li>Impersonate any person or entity</li>
+                <li>Attempt to gain unauthorized access to our systems</li>
+                <li>Interfere with the proper functioning of the Platform</li>
+                <li>Scrape, copy, or reproduce content without permission</li>
+                <li>Use automated bots or scripts</li>
+                <li>Post spam or unsolicited advertisements</li>
+                <li>Circumvent any security measures</li>
+            </ul>
+            
+            <h3>8.1 Reporting Violations</h3>
+            <p>If you encounter any violation of these Terms, please report it immediately to <a href="mailto:get.primer@proton.me">get.primer@proton.me</a>.</p>
+        </section>
+        
+        <!-- Section 9: Intellectual Property -->
+        <section id="intellectual" class="legal-section">
+            <h2><i class="fas fa-copyright"></i> 9. Intellectual Property</h2>
+            
+            <h3>9.1 Our Content</h3>
+            <p>The Platform, including its design, layout, graphics, logos, and software, is owned by Primer Technologies and protected by Nigerian and international copyright, trademark, and other intellectual property laws.</p>
+            
+            <h3>9.2 User Content</h3>
+            <p>By posting content on our Platform (including property listings, photos, and reviews), you grant Primer a non-exclusive, worldwide, royalty-free license to use, reproduce, modify, and display such content in connection with operating the Platform.</p>
+            
+            <h3>9.3 Your Ownership</h3>
+            <p>You retain ownership of your content. We claim no ownership over your property listings or personal information.</p>
+        </section>
+        
+        <!-- Section 10: Privacy -->
+        <section id="privacy" class="legal-section">
+            <h2><i class="fas fa-lock"></i> 10. Privacy Policy</h2>
+            <p>Our <a href="privacy.html">Privacy Policy</a> explains how we collect, use, and protect your personal information. By using our Services, you consent to our data practices as described in the Privacy Policy.</p>
+            
+            <p>Key privacy points:</p>
+            <ul>
+                <li>We never sell your personal information</li>
+                <li>Your phone number is only shown to verified users</li>
+                <li>We use encryption to protect your data</li>
+                <li>You can request deletion of your data</li>
+            </ul>
+        </section>
+        
+        <!-- Section 11: Disclaimers -->
+        <section id="disclaimers" class="legal-section">
+            <h2><i class="fas fa-exclamation-triangle"></i> 11. Disclaimers</h2>
+            
+            <div class="note-box">
+                <p><strong>THE PLATFORM IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED.</strong></p>
+            </div>
+            
+            <p>To the fullest extent permitted by law, Primer disclaims all warranties, including:</p>
+            <ul>
+                <li>Implied warranties of merchantability, fitness for a particular purpose, and non-infringement</li>
+                <li>That the Platform will be uninterrupted, error-free, or secure</li>
+                <li>That defects will be corrected</li>
+                <li>That the Platform is free of viruses or other harmful components</li>
+            </ul>
+            
+            <p>We do not warrant, endorse, guarantee, or assume responsibility for any product or service advertised or offered by a third party through the Platform.</p>
+        </section>
+        
+        <!-- Section 12: Limitation of Liability -->
+        <section id="limitation" class="legal-section">
+            <h2><i class="fas fa-balance-scale"></i> 12. Limitation of Liability</h2>
+            
+            <p>To the maximum extent permitted by law, Primer Technologies shall not be liable for:</p>
+            <ul>
+                <li>Indirect, incidental, special, consequential, or punitive damages</li>
+                <li>Loss of profits, revenue, data, or business opportunities</li>
+                <li>Damages resulting from your use or inability to use the Platform</li>
+                <li>Any disputes between users (landlords and tenants)</li>
+                <li>Any rental agreements entered into through the Platform</li>
+            </ul>
+            
+            <p>Our total liability to you shall not exceed the amount you paid to us (if any) in the past 12 months.</p>
+        </section>
+        
+        <!-- Section 13: Indemnification -->
+        <section id="indemnification" class="legal-section">
+            <h2><i class="fas fa-shield"></i> 13. Indemnification</h2>
+            <p>You agree to indemnify, defend, and hold harmless Primer Technologies, its officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses arising out of or in any way connected with:</p>
+            <ul>
+                <li>Your use of the Platform</li>
+                <li>Your violation of these Terms</li>
+                <li>Your violation of any third-party rights</li>
+                <li>Your content or property listings</li>
+                <li>Any rental agreements you enter into</li>
+            </ul>
+        </section>
+        
+        <!-- Section 14: Termination -->
+        <section id="termination" class="legal-section">
+            <h2><i class="fas fa-stop-circle"></i> 14. Termination</h2>
+            
+            <h3>14.1 Termination by You</h3>
+            <p>You may terminate your account at any time through account settings or by contacting us. Your content may remain visible until removed.</p>
+            
+            <h3>14.2 Termination by Us</h3>
+            <p>We may suspend or terminate your access to the Platform at any time, with or without cause, including for violation of these Terms.</p>
+            
+            <h3>14.3 Effect of Termination</h3>
+            <p>Upon termination, your right to use the Platform ceases immediately. Sections that by their nature should survive termination (including intellectual property, disclaimers, and limitations of liability) shall survive.</p>
+        </section>
+        
+        <!-- Section 15: Governing Law -->
+        <section id="governing" class="legal-section">
+            <h2><i class="fas fa-gavel"></i> 15. Governing Law</h2>
+            <p>These Terms shall be governed by and construed in accordance with the laws of the Federal Republic of Nigeria, without regard to its conflict of law provisions.</p>
+            <p>Any disputes arising under these Terms shall be resolved exclusively by the courts of Kaduna State, Nigeria.</p>
+        </section>
+        
+        <!-- Section 16: Changes -->
+        <section id="changes" class="legal-section">
+            <h2><i class="fas fa-edit"></i> 16. Changes to Terms</h2>
+            <p>We may modify these Terms at any time. We will notify you of material changes by:</p>
+            <ul>
+                <li>Posting the updated Terms on the Platform</li>
+                <li>Sending email notifications (for registered users)</li>
+                <li>Displaying a notice on the Platform</li>
+            </ul>
+            <p>Your continued use of the Platform after changes constitutes acceptance of the modified Terms. If you do not agree to the changes, you must stop using the Platform.</p>
+            
+            <div class="note-box">
+                <p><i class="fas fa-history"></i> The "Last Updated" date at the top of this page indicates when these Terms were last revised.</p>
+            </div>
+        </section>
+        
+        <!-- Section 17: Contact -->
+        <section id="contact" class="legal-section">
+            <h2><i class="fas fa-envelope"></i> 17. Contact Information</h2>
+            <p>If you have any questions about these Terms, please contact us:</p>
+            
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:get.primer@proton.me">get.primer@proton.me</a></li>
+                <li><strong>Phone:</strong> +2348100590574</li>
+                <li><strong>Address:</strong> 23 Ahmadu Bello Way, Kaduna, Kaduna State, Nigeria</li>
+                <li><strong>Website:</strong> <a href="https://primert.vercel.app" target="_blank">primert.vercel.app</a></li>
+            </ul>
+            
+            <p>For legal notices, please send to our registered address marked "Legal Department".</p>
+        </section>
+        
+        <!-- Agreement Footer -->
+        <div class="agreement-footer">
+            <p>By using Primer, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.</p>
+            <div class="agreement-buttons">
+                <a href="#" class="btn-accept" onclick="showToast('Terms accepted', 'success'); return false;">Accept Terms</a>
+                <a href="#" class="btn-decline">Decline</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ===== FOOTER ===== -->
+    <footer class="enterprise-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="footer-logo">
+    <img src="logo.png" alt="Primer Technologies" class="footer-logo-image" style="height: 40px; width: auto;">
+                        <span>Primer</span>
+                    </a>
+                    <p class="footer-description">
+                        Making housing smarter in Nigeria since 2025. We connect verified tenants with verified properties.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="for-tenants.html">For Tenants</a></li>
+                        <li><a href="for-landlords.html">For Landlords</a></li>
+                        <li><a href="student-housing.html">Student Housing</a></li>
+                        <li><a href="#">Short Lets</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Renting Guides</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div>© 2026 Primer Technologies. All rights reserved.</div>
+                <div class="footer-legal">
+                    <a href="terms.ht">Terms</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // ===== THEME TOGGLE =====
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme') || 'light';
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            const icon = document.querySelector('.theme-toggle i');
+            if (icon) {
+                icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            }
+        }
+        
+        // Apply saved theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        
+        // ===== MOBILE MENU =====
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+            
+            const icon = document.querySelector('.mobile-menu-btn i');
+            if (menu.classList.contains('active')) {
+                icon.className = 'fas fa-times';
+            } else {
+                icon.className = 'fas fa-bars';
+            }
+        }
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-nav-link, .mobile-actions a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.remove('active');
+                const icon = document.querySelector('.mobile-menu-btn i');
+                if (icon) icon.className = 'fas fa-bars';
+            });
+        });
+        
+        // ===== TOAST NOTIFICATION =====
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            
+            let icon = 'fa-check-circle';
+            if (type === 'error') icon = 'fa-exclamation-circle';
+            if (type === 'info') icon = 'fa-info-circle';
+            
+            toast.innerHTML = `
+                <i class="fas ${icon}"></i>
+                <span>${message}</span>
+            `;
+            
+            container.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(20px)';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+        
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+        
+        // ===== INITIALIZE =====
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                showToast('Please read our terms carefully', 'info');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

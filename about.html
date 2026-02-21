@@ -1,0 +1,1818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Enterprise Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="About Primer Technologies - Nigeria's most trusted housing platform. Learn about our mission and journey since November 2025.">
+    <meta name="keywords" content="about Primer, company mission, Nigeria, housing platform, property technology">
+    <meta name="author" content="Primer Technologies">
+    <meta property="og:title" content="About Us | Primer Technologies - Our Mission">
+    <meta property="og:description" content="Making housing smarter in Nigeria since November 2025. Learn about our journey.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://primert.vercel.app/about">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <title>About Us | Primer Technologies - Our Mission</title>
+    
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://images.unsplash.com">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="enterprise-design-system.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <style>
+        /* ===== MOBILE-FIRST ENTERPRISE STYLES ===== */
+        
+        /* CSS Custom Properties */
+        :root {
+            --container-padding: 1rem;
+            --grid-gap: 1rem;
+            --primary-50: #eff6ff;
+            --primary-100: #dbeafe;
+            --primary-500: #0066FF;
+            --primary-600: #2563eb;
+            --primary-700: #1d4ed8;
+            --primary-800: #1e40af;
+            --accent-500: #F59E0B;
+            --success-500: #10B981;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+        }
+        
+        @media (min-width: 640px) {
+            :root {
+                --container-padding: 1.5rem;
+                --grid-gap: 1.5rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            :root {
+                --container-padding: 2rem;
+                --grid-gap: 2rem;
+            }
+        }
+        
+        /* Base Container */
+        .enterprise-container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+        }
+        
+        /* ===== NAVIGATION (Consistent with other pages) ===== */
+        .enterprise-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            height: 64px;
+            display: flex;
+            align-items: center;
+        }
+        
+        [data-theme="dark"] .enterprise-nav {
+            background: rgba(10, 10, 10, 0.98);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 1rem;
+        }
+        
+        @media (min-width: 1024px) {
+            .nav-container {
+                padding: 0 2rem;
+            }
+        }
+        
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+        
+        .logo-mark {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #0066FF, #0044CC);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 1.25rem;
+            transition: transform 0.2s ease;
+        }
+        
+        .logo-text {
+            display: none;
+        }
+        
+        @media (min-width: 640px) {
+            .logo-text {
+                display: block;
+            }
+            .logo-text h1 {
+                font-size: 1.25rem;
+                font-weight: 800;
+                background: linear-gradient(135deg, #0066FF, #0044CC);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                line-height: 1.2;
+            }
+            .logo-text p {
+                font-size: 0.7rem;
+                color: #666;
+                font-weight: 500;
+            }
+        }
+        
+        .mobile-menu-btn {
+            display: block;
+            background: none;
+            border: none;
+            color: #333;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        @media (min-width: 1024px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+        }
+        
+        [data-theme="dark"] .mobile-menu-btn {
+            color: #fff;
+        }
+        
+        .nav-links-desktop {
+            display: none;
+        }
+        
+        @media (min-width: 1024px) {
+            .nav-links-desktop {
+                display: flex;
+                align-items: center;
+                gap: 2rem;
+            }
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+            position: relative;
+        }
+        
+        [data-theme="dark"] .nav-link {
+            color: #aaa;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            color: #0066FF;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #0066FF;
+            transition: width 0.2s;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .nav-actions-desktop {
+            display: none;
+        }
+        
+        @media (min-width: 1024px) {
+            .nav-actions-desktop {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+        }
+        
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f5f5f5;
+            border: none;
+            color: #333;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        
+        [data-theme="dark"] .theme-toggle {
+            background: #222;
+            color: #fff;
+        }
+        
+        .btn-properties {
+            background: linear-gradient(135deg, #0066FF, #0044CC);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        
+        .btn-properties:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 102, 255, 0.3);
+        }
+        
+        .mobile-menu {
+            position: fixed;
+            top: 64px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: white;
+            z-index: 999;
+            padding: 2rem;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            overflow-y: auto;
+        }
+        
+        [data-theme="dark"] .mobile-menu {
+            background: #111;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        @media (min-width: 1024px) {
+            .mobile-menu {
+                display: none;
+            }
+        }
+        
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .mobile-nav-link {
+            text-decoration: none;
+            color: #333;
+            font-size: 1.25rem;
+            font-weight: 600;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        [data-theme="dark"] .mobile-nav-link {
+            color: #fff;
+            border-bottom-color: #333;
+        }
+        
+        .mobile-actions {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .mobile-btn-properties {
+            background: linear-gradient(135deg, #0066FF, #0044CC);
+            color: white;
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        /* ===== PAGE HEADER WITH BACKGROUND IMAGE ===== */
+        .page-header {
+            position: relative;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+        
+        .header-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+        
+        .header-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .header-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0,102,255,0.9), rgba(0,68,204,0.9));
+            z-index: 1;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 4rem 1rem;
+        }
+        
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .header-badge i {
+            color: #FFD700;
+        }
+        
+        .header-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .header-title {
+                font-size: 3.5rem;
+            }
+        }
+        
+        .header-description {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* ===== LOADING SPINNER ===== */
+        .loading-spinner {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .loading-spinner i {
+            font-size: 2rem;
+            color: #0066FF;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* ===== SECTION HEADERS ===== */
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            padding: 0 1rem;
+        }
+        
+        .section-badge {
+            display: inline-block;
+            background: #e6f0ff;
+            color: #0066FF;
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        [data-theme="dark"] .section-badge {
+            background: rgba(0,102,255,0.2);
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #0066FF, #0044CC);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+        
+        .section-description {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        [data-theme="dark"] .section-description {
+            color: #aaa;
+        }
+        
+        /* ===== MISSION SECTION ===== */
+        .mission-section {
+            padding: 4rem 0;
+        }
+        
+        .mission-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            text-align: center;
+        }
+        
+        .mission-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #0066FF, #0044CC);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            color: white;
+            font-size: 3rem;
+            box-shadow: 0 20px 40px rgba(0,102,255,0.3);
+        }
+        
+        .mission-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 3rem;
+        }
+        
+        [data-theme="dark"] .mission-text {
+            color: #ccc;
+        }
+        
+        .mission-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+        
+        @media (min-width: 768px) {
+            .mission-stats {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #0066FF;
+            display: block;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* ===== STORY SECTION WITH IMAGES ===== */
+        .story-section {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+        
+        [data-theme="dark"] .story-section {
+            background: #111;
+        }
+        
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            align-items: center;
+        }
+        
+        @media (min-width: 1024px) {
+            .story-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+            }
+        }
+        
+        .story-image {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+            height: 400px;
+        }
+        
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .story-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .story-content h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: #0066FF;
+        }
+        
+        .story-content p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        [data-theme="dark"] .story-content p {
+            color: #ccc;
+        }
+        
+        .story-quote {
+            background: white;
+            border-left: 4px solid #0066FF;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+            font-style: italic;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        
+        [data-theme="dark"] .story-quote {
+            background: #1a1a1a;
+        }
+        
+        .story-quote p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .story-quote .author {
+            font-weight: 700;
+            color: #0066FF;
+            font-style: normal;
+        }
+        
+        /* ===== VALUES SECTION ===== */
+        .values-section {
+            padding: 4rem 0;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        @media (min-width: 640px) {
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .values-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        .value-card {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            border: 1px solid #eee;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        
+        [data-theme="dark"] .value-card {
+            background: #1a1a1a;
+            border-color: #333;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-color: #0066FF;
+        }
+        
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            background: #e6f0ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .value-icon i {
+            font-size: 2rem;
+            color: #0066FF;
+        }
+        
+        .value-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .value-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* ===== TIMELINE SECTION ===== */
+        .timeline-section {
+            padding: 4rem 0;
+        }
+        
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #0066FF, #0044CC);
+            opacity: 0.3;
+        }
+        
+        @media (min-width: 768px) {
+            .timeline::before {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 50px;
+        }
+        
+        @media (min-width: 768px) {
+            .timeline-item {
+                width: 50%;
+                padding-left: 0;
+            }
+            
+            .timeline-item:nth-child(odd) {
+                margin-left: 0;
+                padding-right: 50px;
+                text-align: right;
+            }
+            
+            .timeline-item:nth-child(even) {
+                margin-left: 50%;
+                padding-left: 50px;
+                text-align: left;
+            }
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 10px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border: 4px solid #0066FF;
+            border-radius: 50%;
+            z-index: 2;
+        }
+        
+        @media (min-width: 768px) {
+            .timeline-dot {
+                left: auto;
+                right: -10px;
+            }
+            
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: -10px;
+                right: auto;
+            }
+        }
+        
+        .timeline-date {
+            display: inline-block;
+            background: #0066FF;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .timeline-content {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid #eee;
+        }
+        
+        [data-theme="dark"] .timeline-content {
+            background: #1a1a1a;
+            border-color: #333;
+        }
+        
+        .timeline-content h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #0066FF;
+        }
+        
+        .timeline-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* ===== KADUNA OFFICE SECTION ===== */
+        .office-section {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+        
+        [data-theme="dark"] .office-section {
+            background: #111;
+        }
+        
+        .office-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .office-card {
+            background: white;
+            border-radius: 32px;
+            overflow: hidden;
+            border: 1px solid #eee;
+            transition: all 0.3s;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+        }
+        
+        [data-theme="dark"] .office-card {
+            background: #1a1a1a;
+            border-color: #333;
+        }
+        
+        .office-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(0,102,255,0.2);
+        }
+        
+        .office-image {
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .office-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .office-card:hover .office-image img {
+            transform: scale(1.05);
+        }
+        
+        .office-info {
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .office-info h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: #0066FF;
+        }
+        
+        .office-address {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+        
+        .office-hours {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            color: #0066FF;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+        
+        .office-phone {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            background: linear-gradient(135deg, #0066FF, #0044CC);
+            padding: 0.75rem 2rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        
+        .office-phone:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,102,255,0.3);
+        }
+        
+        /* ===== PARTNERS SECTION ===== */
+        .partners-section {
+            padding: 4rem 0;
+        }
+        
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        @media (min-width: 640px) {
+            .partners-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .partners-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+        
+        .partner-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem 1rem;
+            text-align: center;
+            border: 1px solid #eee;
+            transition: all 0.3s;
+        }
+        
+        [data-theme="dark"] .partner-card {
+            background: #1a1a1a;
+            border-color: #333;
+        }
+        
+        .partner-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: #0066FF;
+        }
+        
+        .partner-logo {
+            width: 80px;
+            height: 80px;
+            background: #e6f0ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+        
+        .partner-logo i {
+            font-size: 2.5rem;
+            color: #0066FF;
+        }
+        
+        .partner-card h4 {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        
+        /* ===== CTA SECTION WITH BACKGROUND ===== */
+        .cta-section {
+            position: relative;
+            padding: 5rem 1rem;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .cta-background {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        
+        .cta-background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .cta-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0,102,255,0.95), rgba(0,68,204,0.95));
+            z-index: 1;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .cta-content h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-content p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        @media (min-width: 640px) {
+            .cta-buttons {
+                flex-direction: row;
+            }
+        }
+        
+        .btn-cta-primary {
+            background: white;
+            color: #0066FF;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.2s;
+        }
+        
+        .btn-cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .btn-cta-secondary {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.2s;
+        }
+        
+        .btn-cta-secondary:hover {
+            background: white;
+            color: #0066FF;
+        }
+        
+        /* ===== FOOTER ===== */
+        .enterprise-footer {
+            background: #111;
+            color: white;
+            padding: 3rem 1rem 1.5rem;
+        }
+        
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        @media (min-width: 640px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+        }
+        
+        .footer-about {
+            max-width: 300px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            text-decoration: none;
+        }
+        
+        .footer-logo .logo-mark {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #0066FF, #0044CC);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+        }
+        
+        .footer-logo span {
+            color: white;
+            font-weight: 800;
+            font-size: 1.25rem;
+        }
+        
+        .footer-description {
+            color: #aaa;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 0.75rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        
+        .social-link:hover {
+            background: #0066FF;
+            transform: translateY(-2px);
+        }
+        
+        .footer-column h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+        }
+        
+        .footer-links a:hover {
+            color: #0066FF;
+            transform: translateX(4px);
+            display: inline-block;
+        }
+        
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid #222;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+        }
+        
+        .footer-legal {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+        }
+        
+        .footer-legal a {
+            color: #666;
+            text-decoration: none;
+        }
+        
+        .footer-legal a:hover {
+            color: #0066FF;
+        }
+        
+        /* ===== TOAST NOTIFICATIONS ===== */
+        .toast-container {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            z-index: 9999;
+        }
+        
+        .toast {
+            background: white;
+            color: #333;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 0.5rem;
+            animation: slideUp 0.3s ease;
+            border-left: 4px solid #0066FF;
+        }
+        
+        .toast i {
+            color: #0066FF;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+    
+    <!-- ===== ENTERPRISE NAVIGATION ===== -->
+    <nav class="enterprise-nav">
+        <div class="nav-container">
+            <!-- Logo -->
+            <a href="index.html" class="logo-wrapper">
+    <img src="logo.png" alt="Primer Technologies" class="logo-image" style="height: 40px; width: auto;">
+                <div class="logo-text">
+                    <h1>Primer</h1>
+                    <p>technologies</p>
+                </div>
+            </a>
+            
+            <!-- Desktop Navigation Links -->
+            <div class="nav-links-desktop">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="how-it-works.html" class="nav-link">How It Works</a>
+                <a href="for-tenants.html" class="nav-link">For Tenants</a>
+                <a href="for-landlords.html" class="nav-link">For Landlords</a>
+                <a href="pricing.html" class="nav-link">Pricing</a>
+                <a href="about.html" class="nav-link active">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            
+            <!-- Desktop Actions -->
+            <div class="nav-actions-desktop">
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="explore.html" class="btn-properties">
+                    <i class="fas fa-building"></i>
+                    <span>Explore</span>
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu Panel -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-nav-links">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="how-it-works.html" class="mobile-nav-link">How It Works</a>
+            <a href="for-tenants.html" class="mobile-nav-link">For Tenants</a>
+            <a href="for-landlords.html" class="mobile-nav-link">For Landlords</a>
+            <a href="pricing.html" class="mobile-nav-link">Pricing</a>
+            <a href="about.html" class="mobile-nav-link">About</a>
+            <a href="contact.html" class="mobile-nav-link">Contact</a>
+        </div>
+        <div class="mobile-actions">
+            <button class="theme-toggle" onclick="toggleTheme()" style="width: 100%;">
+                <i class="fas fa-moon"></i> Dark Mode
+            </button>
+            <a href="explore.html" class="mobile-btn-properties">
+                <i class="fas fa-building"></i> Explore
+            </a>
+        </div>
+    </div>
+    
+    <!-- ===== PAGE HEADER WITH BACKGROUND IMAGE ===== -->
+    <section class="page-header">
+        <div class="header-image">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600" alt="Primer team collaboration" loading="lazy">
+        </div>
+        <div class="header-overlay"></div>
+        
+        <div class="header-content">
+            <div class="header-badge fade-in-up">
+                <i class="fas fa-users"></i>
+                <span>ABOUT US</span>
+            </div>
+            <h1 class="header-title fade-in-up">Making Housing Smarter in Nigeria</h1>
+            <p class="header-description fade-in-up">
+                We're on a mission to transform the Nigerian housing market through transparency, verification, and technology.
+            </p>
+        </div>
+    </section>
+    
+    <!-- ===== MISSION SECTION ===== -->
+    <section class="mission-section">
+        <div class="mission-container">
+            <div class="mission-icon">
+                <i class="fas fa-bullseye"></i>
+            </div>
+            <h2 class="section-title">Our Mission</h2>
+            <p class="mission-text">
+                "To create a trusted platform that connects verified tenants with verified properties, 
+                eliminating scams and making the rental process transparent, efficient, and accessible for everyone in Nigeria."
+            </p>
+            
+            <div class="mission-stats" id="missionStats">
+                <div class="loading-spinner">
+                    <i class="fas fa-circle-notch fa-spin"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== STORY SECTION WITH IMAGE ===== -->
+    <section class="story-section">
+        <div class="story-grid">
+            <div class="story-image">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800" alt="Primer founding story" loading="lazy">
+            </div>
+            <div class="story-content">
+                <h2>Our Story</h2>
+                <p>
+                    Primer Technologies was born from a simple observation: finding quality housing in Nigeria, 
+                    especially for students and young professionals, was unnecessarily difficult. Scams, fake listings, 
+                    unreliable landlords, and lack of transparency made the process stressful and time-consuming.
+                </p>
+                <p>
+                    In November 2025, our founder experienced this firsthand while helping a younger sibling find accommodation 
+                    near Kaduna State University. After weeks of frustration, wasted time, and near-scams, the idea for Primer was born.
+                </p>
+                <p>
+                    Since launching on <strong>November 14, 2025</strong>, we've grown rapidly, connecting multiple tenants 
+                    with verified properties across Kaduna State. Today, just three months later, we're proud to be Nigeria's 
+                    fastest-growing trusted housing platform.
+                </p>
+                <div class="story-quote">
+                    <p>"I knew there had to be a better way. Nigerians deserve a housing platform they can trust. That's why we built Primer."</p>
+                    <div class="author">— Alamin Ahmed, Founder</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== VALUES SECTION ===== -->
+    <section class="values-section">
+        <div class="section-header">
+            <span class="section-badge">OUR VALUES</span>
+            <h2 class="section-title">What We Stand For</h2>
+            <p class="section-description">
+                These core principles guide everything we do at Primer.
+            </p>
+        </div>
+        
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Trust</h3>
+                <p>Every property is physically verified. We build trust through transparency and accountability.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-hand-holding-heart"></i>
+                </div>
+                <h3>Integrity</h3>
+                <p>We do what's right, not what's easy. No hidden fees, no misleading listings.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Community</h3>
+                <p>We're building more than a platform—we're building a community of trusted landlords and tenants.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3>Innovation</h3>
+                <p>We continuously improve our platform to make housing smarter and more accessible.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== TIMELINE SECTION ===== -->
+    <section class="timeline-section">
+        <div class="section-header">
+            <span class="section-badge">OUR JOURNEY</span>
+            <h2 class="section-title">The Primer Timeline</h2>
+            <p class="section-description">
+                How we grew from an idea to Nigeria's trusted housing platform.
+            </p>
+        </div>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">November 14, 2025</div>
+                <div class="timeline-content">
+                    <h3>Company Founded</h3>
+                    <p>Primer Technologies was officially founded with a mission to transform Nigerian housing.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">December 2025</div>
+                <div class="timeline-content">
+                    <h3>First Properties Listed</h3>
+                    <p>Listed our first 10 properties in Kaduna, all physically verified by the team.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">January 2026</div>
+                <div class="timeline-content">
+                    <h3>Agent Partnerships</h3>
+                    <p>Partnered with agents to provide verified student housing options.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">February 2026</div>
+                <div class="timeline-content">
+                    <h3>Today</h3>
+                    <p>Growing strong, connecting tenants with verified properties across Kaduna State.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== KADUNA OFFICE SECTION ===== -->
+    <section class="office-section">
+        <div class="section-header">
+            <span class="section-badge">OUR LOCATION</span>
+            <h2 class="section-title">Visit Our Headquarters</h2>
+            <p class="section-description">
+                We're based in Kaduna, serving landlords and tenants across the state.
+            </p>
+        </div>
+        
+        <div class="office-container">
+            <div class="office-card">
+                <div class="office-image">
+                    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800" alt="Kaduna headquarters" loading="lazy">
+                </div>
+                <div class="office-info">
+                    <h3>Kaduna Headquarters</h3>
+                    <p class="office-address">
+                        23 Ahmadu Bello Way<br>
+                        Kaduna, Kaduna State
+                    </p>
+                    <div class="office-hours">
+                        <i class="far fa-clock"></i>
+                        <span>Mon-Fri: 9AM - 6PM</span>
+                    </div>
+                    <a href="tel:+2348100590574" class="office-phone">
+                        <i class="fas fa-phone"></i> +2348100590574
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== PARTNERS SECTION ===== -->
+    <section class="partners-section">
+        <div class="section-header">
+            <span class="section-badge">OUR PARTNERS</span>
+            <h2 class="section-title">Trusted By</h2>
+            <p class="section-description">
+                We're proud to work with these institutions.
+            </p>
+        </div>
+        
+        <div class="partners-grid">
+            <div class="partner-card">
+                <div class="partner-logo">
+                    <i class="fas fa-university"></i>
+                </div>
+                <h4>KD investment</h4>
+            </div>
+            
+            <div class="partner-card">
+                <div class="partner-logo">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h4>Kaduna Real Estate</h4>
+            </div>
+            
+            <div class="partner-card">
+                <div class="partner-logo">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h4>Zaria Property Group</h4>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== CTA SECTION WITH BACKGROUND IMAGE ===== -->
+    <section class="cta-section">
+        <div class="cta-background">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600" alt="Modern cityscape" loading="lazy">
+        </div>
+        <div class="cta-overlay"></div>
+        
+        <div class="cta-content">
+            <h2>Join the Primer Community</h2>
+            <p>Whether you're looking for a home or have one to list, we're here to help.</p>
+            
+            <div class="cta-buttons">
+                <a href="https://b98ce7b9.mobsted.com/pwa/?appid=17" target="_blank" class="btn-cta-primary">
+                    <i class="fas fa-download"></i> Install App
+                </a>
+                <a href="contact.html" class="btn-cta-secondary">
+                    <i class="fas fa-headset"></i> Contact Us
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== FOOTER ===== -->
+    <footer class="enterprise-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="footer-logo">
+    <img src="logo.png" alt="Primer Technologies" class="footer-logo-image" style="height: 40px; width: auto;">
+                        <span>Primer</span>
+                    </a>
+                    <p class="footer-description">
+                        Making housing smarter in Nigeria since 2025. We connect verified tenants with verified properties.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="for-tenants.html">For Tenants</a></li>
+                        <li><a href="for-landlords.html">For Landlords</a></li>
+                        <li><a href="explore.html?type=student">Student Housing</a></li>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Renting Guides</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div>© 2026 Primer Technologies. All rights reserved.</div>
+                <div class="footer-legal">
+                    <a href="terms.html">Terms</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // ===== THEME TOGGLE =====
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme') || 'light';
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            const icon = document.querySelector('.theme-toggle i');
+            if (icon) {
+                icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            }
+            
+            // Update theme icon in mobile menu too
+            const mobileIcon = document.querySelector('.mobile-actions .theme-toggle i');
+            if (mobileIcon) {
+                mobileIcon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            }
+        }
+        
+        // Apply saved theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        
+        // ===== MOBILE MENU =====
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+            
+            const icon = document.querySelector('.mobile-menu-btn i');
+            if (menu.classList.contains('active')) {
+                icon.className = 'fas fa-times';
+            } else {
+                icon.className = 'fas fa-bars';
+            }
+        }
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-nav-link, .mobile-actions a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.remove('active');
+                const icon = document.querySelector('.mobile-menu-btn i');
+                if (icon) icon.className = 'fas fa-bars';
+            });
+        });
+        
+        // ===== TOAST NOTIFICATION =====
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            
+            let icon = 'fa-info-circle';
+            if (type === 'success') icon = 'fa-check-circle';
+            
+            toast.innerHTML = `
+                <i class="fas ${icon}"></i>
+                <span>${message}</span>
+            `;
+            
+            container.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(20px)';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+        
+        // ===== FORMAT NUMBERS =====
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        }
+        
+        // ===== LOAD PROPERTIES DATA FROM GITHUB =====
+        let properties = [];
+        let schools = [];
+        
+        async function loadPropertiesData() {
+            try {
+                const response = await fetch('https://raw.githubusercontent.com/Uppar-ng/Uppar-ng/main/properties.json');
+                const data = await response.json();
+                
+                properties = Array.isArray(data.properties) ? data.properties : [];
+                schools = Array.isArray(data.schools) ? data.schools : [];
+                
+                console.log(`Loaded ${properties.length} properties and ${schools.length} schools`);
+                
+                // Update mission stats with real data
+                updateMissionStats();
+                
+            } catch (error) {
+                console.error('Error loading properties:', error);
+                
+                // Fallback data
+                properties = [];
+                schools = [];
+                updateMissionStats();
+            }
+        }
+        
+        // ===== UPDATE MISSION STATS WITH REAL DATA =====
+        function updateMissionStats() {
+            const missionStats = document.getElementById('missionStats');
+            
+            // Count unique universities from properties
+            const uniqueUniversities = new Set();
+            properties.forEach(prop => {
+                if (prop.school) uniqueUniversities.add(prop.school);
+            });
+            
+            // Count unique landlords
+            const uniqueLandlords = new Set();
+            properties.forEach(prop => {
+                if (prop.landlord?.name) uniqueLandlords.add(prop.landlord.name);
+            });
+            
+            missionStats.innerHTML = `
+                <div class="stat-item">
+                    <span class="stat-number">${properties.length}+</span>
+                    <span class="stat-label">Properties Listed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">${uniqueLandlords.size}+</span>
+                    <span class="stat-label">Landlords</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">${uniqueUniversities.size}+</span>
+                    <span class="stat-label">Universities</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">${Math.floor(properties.length * 20)}+</span>
+                    <span class="stat-label">Happy Tenants</span>
+                </div>
+            `;
+        }
+        
+        // ===== INITIALIZE =====
+        document.addEventListener('DOMContentLoaded', () => {
+            loadPropertiesData();
+            setTimeout(() => {
+                showToast('Making housing smarter since November 2025', 'success');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

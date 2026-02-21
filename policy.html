@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Enterprise Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Privacy Policy for Primer Technologies - Learn how we collect, use, and protect your personal information in Nigeria.">
+    <meta name="keywords" content="privacy policy, data protection, personal information, GDPR, NDPR, Primer privacy">
+    <meta name="author" content="Primer Technologies">
+    <meta property="og:title" content="Privacy Policy | Primer Technologies">
+    <meta property="og:description" content="Read our privacy policy to understand how we protect your personal information.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://primert.vercel.app/privacy">
+    
+    <title>Privacy Policy | Primer Technologies - Data Protection</title>
+    
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="enterprise-design-system.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <style>
+        /* ===== MOBILE-FIRST ENTERPRISE STYLES ===== */
+        
+        /* CSS Custom Properties */
+        :root {
+            --container-padding: 1rem;
+            --grid-gap: 1rem;
+            --primary-50: #eff6ff;
+            --primary-100: #dbeafe;
+            --primary-500: #0066FF;
+            --primary-600: #2563eb;
+            --primary-700: #1d4ed8;
+            --primary-800: #1e40af;
+            --accent-500: #F59E0B;
+            --success-500: #10B981;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+        }
+        
+        @media (min-width: 640px) {
+            :root {
+                --container-padding: 1.5rem;
+                --grid-gap: 1.5rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            :root {
+                --container-padding: 2rem;
+                --grid-gap: 2rem;
+            }
+        }
+        
+        /* Base Container */
+        .enterprise-container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+        }
+        
+        /* ===== NAVIGATION (Consistent with terms page) ===== */
+        .enterprise-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            height: 64px;
+            display: flex;
+            align-items: center;
+        }
+        
+        [data-theme="dark"] .enterprise-nav {
+            background: rgba(10, 10, 10, 0.98);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 1rem;
+        }
+        
+        @media (min-width: 1024px) {
+            .nav-container {
+                padding: 0 2rem;
+            }
+        }
+        
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+        
+        .logo-mark {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #0066FF, #0044CC);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 1.25rem;
+            transition: transform 0.2s ease;
+        }
+        
+        .logo-text {
+            display: none;
+        }
+        
+        @media (min-width: 640px) {
+            .logo-text {
+                display: block;
+            }
+            .logo-text h1 {
+                font-size: 1.25rem;
+                font-weight: 800;
+                background: linear-gradient(135deg, #0066FF, #0044CC);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                line-height: 1.2;
+            }
+            .logo-text p {
+                font-size: 0.7rem;
+                color: #666;
+                font-weight: 500;
+            }
+        }
+        
+        .mobile-menu-btn {
+            display: block;
+            background: none;
+            border: none;
+            color: #333;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        @media (min-width: 1024px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+        }
+        
+        [data-theme="dark"] .mobile-menu-btn {
+            color: #fff;
+        }
+        
+        .nav-links-desktop {
+            display: none;
+        }
+        
+        @media (min-width: 1024px) {
+            .nav-links-desktop {
+                display: flex;
+                align-items: center;
+                gap: 2rem;
+            }
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+            position: relative;
+        }
+        
+        [data-theme="dark"] .nav-link {
+            color: #aaa;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            color: #0066FF;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #0066FF;
+            transition: width 0.2s;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .nav-actions-desktop {
+            display: none;
+        }
+        
+        @media (min-width: 1024px) {
+            .nav-actions-desktop {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+        }
+        
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f5f5f5;
+            border: none;
+            color: #333;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        
+        [data-theme="dark"] .theme-toggle {
+            background: #222;
+            color: #fff;
+        }
+        
+        .btn-properties {
+            background: linear-gradient(135deg, #0066FF, #0044CC);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        
+        .btn-properties:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 102, 255, 0.3);
+        }
+        
+        .mobile-menu {
+            position: fixed;
+            top: 64px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: white;
+            z-index: 999;
+            padding: 2rem;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            overflow-y: auto;
+        }
+        
+        [data-theme="dark"] .mobile-menu {
+            background: #111;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        @media (min-width: 1024px) {
+            .mobile-menu {
+                display: none;
+            }
+        }
+        
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .mobile-nav-link {
+            text-decoration: none;
+            color: #333;
+            font-size: 1.25rem;
+            font-weight: 600;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        [data-theme="dark"] .mobile-nav-link {
+            color: #fff;
+            border-bottom-color: #333;
+        }
+        
+        .mobile-actions {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .mobile-btn-properties {
+            background: linear-gradient(135deg, #0066FF, #0044CC);
+            color: white;
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        /* ===== PAGE HEADER ===== */
+        .page-header {
+            background: linear-gradient(135deg, #0066FF, #0044CC);
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .header-badge i {
+            color: #FFD700;
+        }
+        
+        .header-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .header-title {
+                font-size: 3.5rem;
+            }
+        }
+        
+        .header-description {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .last-updated {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* ===== LEGAL CONTENT (Reusing styles from terms) ===== */
+        .legal-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 1rem;
+        }
+        
+        .legal-section {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #eee;
+            transition: all 0.2s;
+        }
+        
+        [data-theme="dark"] .legal-section {
+            background: #1a1a1a;
+            border-color: #333;
+        }
+        
+        .legal-section:hover {
+            border-color: #0066FF;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        
+        .legal-section h2 {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: #0066FF;
+        }
+        
+        .legal-section h2 i {
+            font-size: 1.5rem;
+        }
+        
+        .legal-section h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 1.5rem 0 1rem;
+            color: #333;
+        }
+        
+        [data-theme="dark"] .legal-section h3 {
+            color: #fff;
+        }
+        
+        .legal-section p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        
+        [data-theme="dark"] .legal-section p {
+            color: #aaa;
+        }
+        
+        .legal-section ul,
+        .legal-section ol {
+            margin: 1rem 0 1rem 1.5rem;
+            color: #666;
+        }
+        
+        [data-theme="dark"] .legal-section ul,
+        [data-theme="dark"] .legal-section ol {
+            color: #aaa;
+        }
+        
+        .legal-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        
+        .legal-section a {
+            color: #0066FF;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .legal-section a:hover {
+            text-decoration: underline;
+        }
+        
+        .legal-section .highlight {
+            background: #e6f0ff;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            color: #0066FF;
+            font-weight: 600;
+        }
+        
+        .legal-section .note-box {
+            background: #f8f9fa;
+            border-left: 4px solid #0066FF;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+        }
+        
+        [data-theme="dark"] .legal-section .note-box {
+            background: #222;
+        }
+        
+        /* Table of Contents */
+        .toc-container {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border: 1px solid #eee;
+        }
+        
+        [data-theme="dark"] .toc-container {
+            background: #1a1a1a;
+            border-color: #333;
+        }
+        
+        .toc-container h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+        }
+        
+        @media (min-width: 768px) {
+            .toc-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .toc-item {
+            padding: 0.5rem;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        [data-theme="dark"] .toc-item {
+            border-bottom-color: #333;
+        }
+        
+        .toc-item a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.2s;
+        }
+        
+        .toc-item a:hover {
+            color: #0066FF;
+        }
+        
+        .toc-item i {
+            font-size: 0.8rem;
+            color: #0066FF;
+        }
+        
+        /* Data Grid */
+        .data-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        @media (min-width: 640px) {
+            .data-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .data-card {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid #eee;
+        }
+        
+        [data-theme="dark"] .data-card {
+            background: #222;
+            border-color: #333;
+        }
+        
+        .data-card h4 {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #0066FF;
+        }
+        
+        .data-card ul {
+            margin: 0;
+            list-style-type: none;
+        }
+        
+        .data-card li {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        /* Rights Grid */
+        .rights-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        @media (min-width: 640px) {
+            .rights-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .right-card {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background: #f8f9fa;
+            border-radius: 16px;
+            border: 1px solid #eee;
+        }
+        
+        [data-theme="dark"] .right-card {
+            background: #222;
+            border-color: #333;
+        }
+        
+        .right-card i {
+            font-size: 2rem;
+            color: #0066FF;
+            margin-bottom: 0.75rem;
+        }
+        
+        .right-card h5 {
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        
+        .right-card p {
+            font-size: 0.85rem;
+            margin-bottom: 0;
+        }
+        
+        /* Cookie Table */
+        .cookie-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        .cookie-table th {
+            background: #e6f0ff;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 700;
+            color: #0066FF;
+        }
+        
+        [data-theme="dark"] .cookie-table th {
+            background: #1a3a6a;
+        }
+        
+        .cookie-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+            color: #666;
+        }
+        
+        [data-theme="dark"] .cookie-table td {
+            border-bottom-color: #333;
+            color: #aaa;
+        }
+        
+        .cookie-table tr:hover td {
+            background: #f8f9fa;
+        }
+        
+        [data-theme="dark"] .cookie-table tr:hover td {
+            background: #222;
+        }
+        
+        /* Contact Card */
+        .contact-card {
+            background: linear-gradient(135deg, #f8f9fa, #fff);
+            border-radius: 24px;
+            padding: 2rem;
+            margin-top: 2rem;
+            border: 1px solid #eee;
+        }
+        
+        [data-theme="dark"] .contact-card {
+            background: linear-gradient(135deg, #222, #1a1a1a);
+            border-color: #333;
+        }
+        
+        .contact-details {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        @media (min-width: 640px) {
+            .contact-details {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .contact-item i {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0066FF;
+            font-size: 1.2rem;
+        }
+        
+        [data-theme="dark"] .contact-item i {
+            background: #333;
+        }
+        
+        .contact-item span {
+            color: #666;
+        }
+        
+        .contact-item strong {
+            display: block;
+            color: #333;
+            font-weight: 700;
+        }
+        
+        [data-theme="dark"] .contact-item strong {
+            color: #fff;
+        }
+        
+        /* ===== FOOTER (Same as terms) ===== */
+        .enterprise-footer {
+            background: #111;
+            color: white;
+            padding: 3rem 1rem 1.5rem;
+        }
+        
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        @media (min-width: 640px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+        }
+        
+        .footer-about {
+            max-width: 300px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            text-decoration: none;
+        }
+        
+        .footer-logo .logo-mark {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #0066FF, #0044CC);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+        }
+        
+        .footer-logo span {
+            color: white;
+            font-weight: 800;
+            font-size: 1.25rem;
+        }
+        
+        .footer-description {
+            color: #aaa;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 0.75rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        
+        .social-link:hover {
+            background: #0066FF;
+            transform: translateY(-2px);
+        }
+        
+        .footer-column h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+        }
+        
+        .footer-links a:hover {
+            color: #0066FF;
+            transform: translateX(4px);
+            display: inline-block;
+        }
+        
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid #222;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+        }
+        
+        .footer-legal {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+        }
+        
+        .footer-legal a {
+            color: #666;
+            text-decoration: none;
+        }
+        
+        .footer-legal a:hover {
+            color: #0066FF;
+        }
+        
+        /* ===== TOAST NOTIFICATIONS ===== */
+        .toast-container {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            z-index: 9999;
+        }
+        
+        .toast {
+            background: white;
+            color: #333;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 0.5rem;
+            animation: slideUp 0.3s ease;
+            border-left: 4px solid #0066FF;
+        }
+        
+        .toast i {
+            color: #0066FF;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+    
+    <!-- ===== ENTERPRISE NAVIGATION ===== -->
+    <nav class="enterprise-nav">
+        <div class="nav-container">
+            <!-- Logo -->
+            <a href="index.html" class="logo-wrapper">
+    <img src="logo.png" alt="Primer Technologies" class="logo-image" style="height: 40px; width: auto;">
+                <div class="logo-text">
+                    <h1>Primer</h1>
+                    <p>technologies</p>
+                </div>
+            </a>
+            
+            <!-- Desktop Navigation Links -->
+            <div class="nav-links-desktop">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/how-it-works" class="nav-link">How It Works</a>
+                <a href="/for-tenants" class="nav-link">For Tenants</a>
+                <a href="/for-landlords" class="nav-link">For Landlords</a>
+                <a href="/pricing" class="nav-link">Pricing</a>
+                <a href="/about" class="nav-link">About</a>
+                <a href="/contact" class="nav-link">Contact</a>
+                <a href="/faqs" class="nav-link">FAQs</a>
+                <a href="/terms" class="nav-link">Terms</a>
+                <a href="/privacy" class="nav-link active">Privacy</a>
+            </div>
+            
+            <!-- Desktop Actions -->
+            <div class="nav-actions-desktop">
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="https://primert.vercel.app" target="_blank" class="btn-properties">
+                    <i class="fas fa-building"></i>
+                    <span>Browse Properties</span>
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu Panel -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-nav-links">
+            <a href="/" class="mobile-nav-link">Home</a>
+            <a href="/how-it-works" class="mobile-nav-link">How It Works</a>
+            <a href="/for-tenants" class="mobile-nav-link">For Tenants</a>
+            <a href="/for-landlords" class="mobile-nav-link">For Landlords</a>
+            <a href="/pricing" class="mobile-nav-link">Pricing</a>
+            <a href="/about" class="mobile-nav-link">About</a>
+            <a href="/contact" class="mobile-nav-link">Contact</a>
+            <a href="/faqs" class="mobile-nav-link">FAQs</a>
+            <a href="/terms" class="mobile-nav-link">Terms</a>
+            <a href="/privacy" class="mobile-nav-link">Privacy</a>
+        </div>
+        <div class="mobile-actions">
+            <button class="theme-toggle" onclick="toggleTheme()" style="width: 100%;">
+                <i class="fas fa-moon"></i> Dark Mode
+            </button>
+            <a href="https://primert.vercel.app" target="_blank" class="mobile-btn-properties">
+                <i class="fas fa-building"></i> Browse Properties
+            </a>
+        </div>
+    </div>
+    
+    <!-- ===== PAGE HEADER ===== -->
+    <section class="page-header">
+        <div class="header-content">
+            <div class="header-badge fade-in-up">
+                <i class="fas fa-lock"></i>
+                <span>PRIVACY</span>
+            </div>
+            <h1 class="header-title fade-in-up">Privacy Policy</h1>
+            <p class="header-description fade-in-up">
+                How we collect, use, and protect your personal information
+            </p>
+            <div class="last-updated fade-in-up">
+                <i class="far fa-calendar-alt"></i> Last Updated: March 1, 2025
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== LEGAL CONTENT ===== -->
+    <div class="legal-content">
+        <!-- Table of Contents -->
+        <div class="toc-container">
+            <h3><i class="fas fa-list" style="color: #0066FF;"></i> Table of Contents</h3>
+            <div class="toc-grid">
+                <div class="toc-item"><a href="#introduction"><i class="fas fa-angle-right"></i> 1. Introduction</a></div>
+                <div class="toc-item"><a href="#information"><i class="fas fa-angle-right"></i> 2. Information We Collect</a></div>
+                <div class="toc-item"><a href="#use"><i class="fas fa-angle-right"></i> 3. How We Use Information</a></div>
+                <div class="toc-item"><a href="#sharing"><i class="fas fa-angle-right"></i> 4. Information Sharing</a></div>
+                <div class="toc-item"><a href="#cookies"><i class="fas fa-angle-right"></i> 5. Cookies</a></div>
+                <div class="toc-item"><a href="#security"><i class="fas fa-angle-right"></i> 6. Data Security</a></div>
+                <div class="toc-item"><a href="#rights"><i class="fas fa-angle-right"></i> 7. Your Rights</a></div>
+                <div class="toc-item"><a href="#retention"><i class="fas fa-angle-right"></i> 8. Data Retention</a></div>
+                <div class="toc-item"><a href="#children"><i class="fas fa-angle-right"></i> 9. Children's Privacy</a></div>
+                <div class="toc-item"><a href="#international"><i class="fas fa-angle-right"></i> 10. International Transfers</a></div>
+                <div class="toc-item"><a href="#changes"><i class="fas fa-angle-right"></i> 11. Changes to Policy</a></div>
+                <div class="toc-item"><a href="#contact"><i class="fas fa-angle-right"></i> 12. Contact Us</a></div>
+            </div>
+        </div>
+        
+        <!-- Section 1: Introduction -->
+        <section id="introduction" class="legal-section">
+            <h2><i class="fas fa-info-circle"></i> 1. Introduction</h2>
+            <p>Primer Technologies ("Company," "we," "our," "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our website, mobile application, and services (collectively, the "Platform").</p>
+            
+            <div class="note-box">
+                <p><strong>Our Commitment:</strong> We believe in transparency and trust. We never sell your personal information to third parties. Your data is yours, and we're just temporary custodians helping you find or list properties.</p>
+            </div>
+            
+            <p>By using the Platform, you consent to the data practices described in this policy. If you do not agree with any part of this policy, please do not use our services.</p>
+        </section>
+        
+        <!-- Section 2: Information We Collect -->
+        <section id="information" class="legal-section">
+            <h2><i class="fas fa-database"></i> 2. Information We Collect</h2>
+            
+            <h3>2.1 Information You Provide Directly</h3>
+            <div class="data-grid">
+                <div class="data-card">
+                    <h4><i class="fas fa-user"></i> Account Information</h4>
+                    <ul>
+                        <li>Full name</li>
+                        <li>Email address</li>
+                        <li>Phone number</li>
+                        <li>Password (encrypted)</li>
+                        <li>Profile photo (optional)</li>
+                    </ul>
+                </div>
+                
+                <div class="data-card">
+                    <h4><i class="fas fa-home"></i> Property Listings</h4>
+                    <ul>
+                        <li>Property address</li>
+                        <li>Property photos</li>
+                        <li>Rental price</li>
+                        <li>Property details</li>
+                        <li>Amenities list</li>
+                    </ul>
+                </div>
+                
+                <div class="data-card">
+                    <h4><i class="fas fa-credit-card"></i> Payment Information</h4>
+                    <ul>
+                        <li>Payment card details (processed securely)</li>
+                        <li>Billing address</li>
+                        <li>Transaction history</li>
+                    </ul>
+                </div>
+                
+                <div class="data-card">
+                    <h4><i class="fas fa-comment"></i> Communications</h4>
+                    <ul>
+                        <li>Messages to landlords/tenants</li>
+                        <li>Customer support inquiries</li>
+                        <li>Feedback and reviews</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>2.2 Information Collected Automatically</h3>
+            <div class="data-grid">
+                <div class="data-card">
+                    <h4><i class="fas fa-mobile-alt"></i> Device Information</h4>
+                    <ul>
+                        <li>Device type and model</li>
+                        <li>Operating system</li>
+                        <li>Unique device identifiers</li>
+                        <li>Mobile network information</li>
+                    </ul>
+                </div>
+                
+                <div class="data-card">
+                    <h4><i class="fas fa-globe"></i> Usage Information</h4>
+                    <ul>
+                        <li>Pages viewed</li>
+                        <li>Search queries</li>
+                        <li>Properties viewed/saved</li>
+                        <li>Time spent on Platform</li>
+                    </ul>
+                </div>
+                
+                <div class="data-card">
+                    <h4><i class="fas fa-map-marker-alt"></i> Location Information</h4>
+                    <ul>
+                        <li>Approximate location (from IP)</li>
+                        <li>Exact location (with permission)</li>
+                        <li>Search locations</li>
+                    </ul>
+                </div>
+                
+                <div class="data-card">
+                    <h4><i class="fas fa-cookie"></i> Cookie Data</h4>
+                    <ul>
+                        <li>Browser cookies</li>
+                        <li>Local storage</li>
+                        <li>Session data</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 3: How We Use Information -->
+        <section id="use" class="legal-section">
+            <h2><i class="fas fa-cogs"></i> 3. How We Use Your Information</h2>
+            
+            <p>We use your information for the following purposes:</p>
+            
+            <ul>
+                <li><strong>To Provide Services:</strong> Enable property search, listings, and communication between landlords and tenants</li>
+                <li><strong>To Improve Our Platform:</strong> Analyze usage patterns, fix bugs, and develop new features</li>
+                <li><strong>To Communicate:</strong> Send updates, respond to inquiries, and provide customer support</li>
+                <li><strong>To Process Payments:</strong> Handle subscriptions and premium features securely</li>
+                <li><strong>To Verify Listings:</strong> Confirm property authenticity and landlord identity</li>
+                <li><strong>To Personalize Experience:</strong> Show relevant property recommendations</li>
+                <li><strong>To Ensure Security:</strong> Detect and prevent fraud, abuse, and unauthorized access</li>
+                <li><strong>To Comply with Law:</strong> Meet legal obligations and regulatory requirements</li>
+            </ul>
+            
+            <div class="note-box">
+                <p><i class="fas fa-check-circle"></i> We only use your information for purposes that are necessary, proportionate, and consistent with this policy.</p>
+            </div>
+        </section>
+        
+        <!-- Section 4: Information Sharing -->
+        <section id="sharing" class="legal-section">
+            <h2><i class="fas fa-share-alt"></i> 4. Information Sharing</h2>
+            
+            <p><strong>We never sell your personal information.</strong> We only share information in these limited circumstances:</p>
+            
+            <h3>4.1 With Other Users</h3>
+            <ul>
+                <li><strong>Landlords:</strong> Your name and phone number are visible to tenants who view your listings</li>
+                <li><strong>Tenants:</strong> Your name and inquiry details are shared with landlords you contact</li>
+                <li><strong>Reviews:</strong> Your reviews are public but can be anonymous</li>
+            </ul>
+            
+            <h3>4.2 With Service Providers</h3>
+            <p>We share information with trusted third parties who help us operate:</p>
+            <ul>
+                <li><strong>Payment processors:</strong> To handle transactions securely</li>
+                <li><strong>Cloud hosting:</strong> To store data</li>
+                <li><strong>Analytics:</strong> To understand platform usage</li>
+                <li><strong>Customer support:</strong> To manage support tickets</li>
+            </ul>
+            
+            <h3>4.3 Legal Requirements</h3>
+            <p>We may disclose information if required by law, court order, or to protect our rights and safety of users.</p>
+        </section>
+        
+        <!-- Section 5: Cookies -->
+        <section id="cookies" class="legal-section">
+            <h2><i class="fas fa-cookie-bite"></i> 5. Cookies & Tracking</h2>
+            
+            <p>We use cookies and similar technologies to enhance your experience. Here's what we use:</p>
+            
+            <table class="cookie-table">
+                <thead>
+                    <tr>
+                        <th>Cookie Type</th>
+                        <th>Purpose</th>
+                        <th>Duration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Preference Cookies</strong></td>
+                        <td>Remember your settings (theme, filters, favorites)</td>
+                        <td>1 year</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Analytics Cookies</strong></td>
+                        <td>Track usage to improve our platform</td>
+                        <td>2 years</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Marketing Cookies</strong></td>
+                        <td>Personalize ads (opt-out available)</td>
+                        <td>90 days</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Managing Cookies</h3>
+            <p>You can control cookies through your browser settings. However, disabling essential cookies may affect platform functionality.</p>
+            
+            <div class="note-box">
+                <p><i class="fas fa-info-circle"></i> By continuing to use our Platform, you consent to our use of cookies as described in this policy.</p>
+            </div>
+        </section>
+        
+        <!-- Section 6: Data Security -->
+        <section id="security" class="legal-section">
+            <h2><i class="fas fa-lock"></i> 6. Data Security</h2>
+            
+            <p>We implement industry-standard security measures to protect your information:</p>
+            
+            <ul>
+                <li><strong>Encryption:</strong> All data transmitted using SSL/TLS (HTTPS)</li>
+                <li><strong>Password Security:</strong> Passwords are hashed and salted, never stored in plain text</li>
+                <li><strong>Access Controls:</strong> Strict internal access controls and authentication</li>
+                <li><strong>Regular Audits:</strong> Security reviews and vulnerability testing</li>
+                <li><strong>Data Minimization:</strong> We only collect what's necessary</li>
+            </ul>
+            
+            <p>While we take reasonable precautions, no method of transmission over the Internet is 100% secure. We cannot guarantee absolute security, but we continuously work to improve our protections.</p>
+        </section>
+        
+        <!-- Section 7: Your Rights -->
+        <section id="rights" class="legal-section">
+            <h2><i class="fas fa-hand-peace"></i> 7. Your Privacy Rights</h2>
+            
+            <p>You have the following rights regarding your personal information:</p>
+            
+            <div class="rights-grid">
+                <div class="right-card">
+                    <i class="fas fa-eye"></i>
+                    <h5>Access</h5>
+                    <p>Request a copy of your data</p>
+                </div>
+                <div class="right-card">
+                    <i class="fas fa-edit"></i>
+                    <h5>Rectification</h5>
+                    <p>Correct inaccurate information</p>
+                </div>
+                <div class="right-card">
+                    <i class="fas fa-trash"></i>
+                    <h5>Deletion</h5>
+                    <p>Request deletion of your data</p>
+                </div>
+                <div class="right-card">
+                    <i class="fas fa-ban"></i>
+                    <h5>Restriction</h5>
+                    <p>Limit how we use your data</p>
+                </div>
+                <div class="right-card">
+                    <i class="fas fa-download"></i>
+                    <h5>Portability</h5>
+                    <p>Receive your data in portable format</p>
+                </div>
+                <div class="right-card">
+                    <i class="fas fa-times-circle"></i>
+                    <h5>Objection</h5>
+                    <p>Object to certain processing</p>
+                </div>
+            </div>
+            
+            <h3>How to Exercise Your Rights</h3>
+            <p>To exercise any of these rights:</p>
+            <ol>
+                <li>Go to Account Settings (for direct access to some data)</li>
+                <li>Email us at <a href="mailto:get.primer@proton.me">get.primer@proton.me</a></li>
+                <li>Contact our Data Protection Officer</li>
+            </ol>
+            
+            <p>We will respond to all legitimate requests within 30 days. Some information may be retained for legal or legitimate business purposes.</p>
+        </section>
+        
+        <!-- Section 8: Data Retention -->
+        <section id="retention" class="legal-section">
+            <h2><i class="fas fa-clock"></i> 8. Data Retention</h2>
+            
+            <p>We retain your information for as long as necessary to:</p>
+            
+            <ul>
+                <li>Provide you with services</li>
+                <li>Comply with legal obligations</li>
+                <li>Resolve disputes</li>
+                <li>Enforce our agreements</li>
+            </ul>
+            
+            <p><strong>Account Data:</strong> Retained until you delete your account. After deletion, we may retain limited information as required by law.</p>
+            <p><strong>Listing Data:</strong> Retained while your listing is active and for a reasonable period after deactivation for record-keeping.</p>
+        </section>
+        
+        <!-- Section 9: Children's Privacy -->
+        <section id="children" class="legal-section">
+            <h2><i class="fas fa-child"></i> 9. Children's Privacy</h2>
+            
+            <p>Our Platform is not intended for individuals under the age of 18. We do not knowingly collect personal information from minors. If you become aware that a minor has provided us with personal information, please contact us immediately.</p>
+            <p>If we learn that we have collected personal information from a minor without verification of parental consent, we will take steps to delete that information.</p>
+        </section>
+        
+        <!-- Section 10: International Transfers -->
+        <section id="international" class="legal-section">
+            <h2><i class="fas fa-globe-africa"></i> 10. International Transfers</h2>
+            
+            <p>Your information may be transferred to and processed in countries other than Nigeria, where our servers and service providers are located. These countries may have different data protection laws.</p>
+            <p>When we transfer data internationally, we ensure appropriate safeguards are in place, including standard contractual clauses and data processing agreements.</p>
+            <p>By using our Platform, you consent to such transfers.</p>
+        </section>
+        
+        <!-- Section 11: Changes to Policy -->
+        <section id="changes" class="legal-section">
+            <h2><i class="fas fa-edit"></i> 11. Changes to This Policy</h2>
+            
+            <p>We may update this Privacy Policy from time to time. We will notify you of material changes by:</p>
+            
+            <ul>
+                <li>Posting the new policy on this page</li>
+                <li>Updating the "Last Updated" date</li>
+                <li>Sending email notifications (for significant changes)</li>
+                <li>Displaying a notice on the Platform</li>
+            </ul>
+            
+            <p>We encourage you to review this policy periodically. Your continued use of the Platform after changes constitutes acceptance of the revised policy.</p>
+        </section>
+        
+        <!-- Section 12: Contact Us -->
+        <section id="contact" class="legal-section">
+            <h2><i class="fas fa-envelope"></i> 12. Contact Us</h2>
+            
+            <p>If you have questions or concerns about this Privacy Policy or our data practices:</p>
+            
+            <div class="contact-card">
+                <h4 style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+                    <i class="fas fa-headset" style="color: #0066FF;"></i> Privacy Contact
+                </h4>
+                
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email</strong>
+                            <span><a href="mailto:get.primer@proton.me">get.primer@proton.me</a></span>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <strong>Phone</strong>
+                            <span>+2348100590574</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-building"></i>
+                        <div>
+                            <strong>Address</strong>
+                            <span>23 Ahmadu Bello Way<br>Kaduna, Kaduna State</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-user-tie"></i>
+                        <div>
+                            <strong>Data Protection Officer</strong>
+                            <span>get.primer@proton.me</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="note-box" style="margin-top: 1.5rem;">
+                <p><strong>For urgent privacy concerns, please contact us immediately. We take your privacy seriously and will respond as quickly as possible.</strong></p>
+            </div>
+        </section>
+    </div>
+    
+    <!-- ===== FOOTER ===== -->
+    <footer class="enterprise-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="footer-logo">
+    <img src="logo.png" alt="Primer Technologies" class="footer-logo-image" style="height: 40px; width: auto;">
+                        <span>Primer</span>
+                    </a>
+                    <p class="footer-description">
+                        Making housing smarter in Nigeria since 2025. We connect verified tenants with verified properties.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="for-tenants.html">For Tenants</a></li>
+                        <li><a href="for-landlords.html">For Landlords</a></li>
+                        <li><a href="/student-housing.html">Student Housing</a></li>
+                        <li><a href="#">Short Lets</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Renting Guides</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div>© 2026 Primer Technologies. All rights reserved.</div>
+                <div class="footer-legal">
+                    <a href="terms.html">Terms</a>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // ===== THEME TOGGLE =====
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme') || 'light';
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            const icon = document.querySelector('.theme-toggle i');
+            if (icon) {
+                icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            }
+        }
+        
+        // Apply saved theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        
+        // ===== MOBILE MENU =====
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+            
+            const icon = document.querySelector('.mobile-menu-btn i');
+            if (menu.classList.contains('active')) {
+                icon.className = 'fas fa-times';
+            } else {
+                icon.className = 'fas fa-bars';
+            }
+        }
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-nav-link, .mobile-actions a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.remove('active');
+                const icon = document.querySelector('.mobile-menu-btn i');
+                if (icon) icon.className = 'fas fa-bars';
+            });
+        });
+        
+        // ===== TOAST NOTIFICATION =====
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            
+            let icon = 'fa-check-circle';
+            if (type === 'error') icon = 'fa-exclamation-circle';
+            if (type === 'info') icon = 'fa-info-circle';
+            
+            toast.innerHTML = `
+                <i class="fas ${icon}"></i>
+                <span>${message}</span>
+            `;
+            
+            container.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(20px)';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+        
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+        
+        // ===== INITIALIZE =====
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                showToast('Your privacy matters to us', 'info');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
