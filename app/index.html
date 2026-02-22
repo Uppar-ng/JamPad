@@ -1,108 +1,66 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <meta name="theme-color" content="#0066FF">
-    
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="logo.png">
-    
-    <title>Primer • Smart Housing</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="ll">
-<script src="https://cdn.jsdelivr.net/npm/ol@v7.3.0/dist/ol.js"></script>
-
-    <link rel="stylesheet" href="style.css">
+    <!-- Optimised viewport: allows zoom but locks scale to prevent layout jumps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+    <title>Primer • Housing & Accommodations</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Loading Screen -->
+    <!-- Loading Screen with Logo -->
     <div class="loading-screen" id="loadingScreen">
         <div class="loading-logo">
-            <img src="logo.png" alt="Primer" 
-                 style="width: 100%; height: 100%; object-fit: contain; border-radius: 20px;"
-                 onerror="this.style.display='none'; this.parentElement.innerHTML='primer'; this.parentElement.style.background='var(--primary-gradient)'; this.parentElement.style.color='white';">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%232563EB' rx='20'/%3E%3Ctext x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3EP%3C/text%3E%3C/svg%3E" alt="Primer Logo" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
-        <div class="loader"></div>
-        <p style="color: white; margin-top: 1rem; font-size: 1rem; font-weight: 500;">Loading Primer...</p>
+        <div class="loading-spinner"></div>
     </div>
 
-    <!-- Gallery Modal -->
-    <div class="gallery-modal" id="galleryModal">
-        <div class="gallery-header">
-            <h3 style="color: white;">Property Gallery</h3>
-            <button class="btn btn-ghost" onclick="app.closeGallery()" style="color: white;">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="gallery-main">
-            <img class="gallery-image" id="galleryImage" alt="Property Image">
-        </div>
-        <div class="gallery-controls" id="galleryDots"></div>
-    </div>
+    <!-- App Container -->
+    <div id="app"></div>
 
-    <!-- Edit Profile Modal -->
-    <div class="edit-profile-modal hidden" id="editProfileModal">
-        <div class="edit-profile-content">
-            <div class="edit-profile-header">
-                <h2 style="color: white; margin-bottom: var(--space-md);">Edit Profile</h2>
-                <p style="color: rgba(255, 255, 255, 0.9);">Update your information</p>
+    <!-- Floating Action Buttons Container (Mobile Only) - Animated menu -->
+    <div class="fab-container mobile-only" id="fabContainer">
+        <!-- Main FAB that expands/collapses -->
+        <div class="fab fab-main" onclick="app.toggleFabMenu()" id="fabMain">
+            <i class="fas fa-plus" id="fabMainIcon"></i>
+            <span class="fab-label">Menu</span>
+        </div>
+        
+        <!-- Expandable FAB menu items -->
+        <div class="fab-menu" id="fabMenu">
+            <div class="fab fab-menu-item" onclick="app.navigate('home')" id="fabHome">
+                <i class="fas fa-home"></i>
+                <span class="fab-label">Home</span>
             </div>
-            <div class="edit-profile-body" id="editProfileFormContent"></div>
+            <div class="fab fab-menu-item" onclick="app.navigate('explore')" id="fabExplore">
+                <i class="fas fa-compass"></i>
+                <span class="fab-label">Explore</span>
+            </div>
+            <div class="fab fab-menu-item" onclick="app.navigate('favorites')" id="fabFavorites">
+                <i class="fas fa-heart"></i>
+                <span class="fab-badge" id="favoritesFabBadge">0</span>
+                <span class="fab-label">Saved</span>
+            </div>
+            <div class="fab fab-menu-item" onclick="app.navigate('profile')" id="fabProfile">
+                <i class="fas fa-user"></i>
+                <span class="fab-label">Profile</span>
+            </div>
+            <div class="fab fab-menu-item" onclick="app.scrollToTop()" id="fabScrollTop" style="display: none;">
+                <i class="fas fa-arrow-up"></i>
+                <span class="fab-label">Scroll to top</span>
+            </div>
         </div>
-    </div>
-
-    <!-- Main App Container -->
-    <div class="app-container">
-        <div id="app"></div>
-    </div>
-
-    <!-- Floating Call Button -->
-    <div class="floating-call-btn hidden" id="floatingCallBtn" onclick="app.callPrimer()">
-        <i class="fas fa-phone"></i>
     </div>
 
     <!-- Modals -->
     <div class="modal-backdrop" id="modalBackdrop"></div>
-    <div class="bottom-modal" id="bottomModal"></div>
+    <div class="modal-sheet" id="modalSheet"></div>
 
-    <!-- Bottom Navigation -->
-    <nav class="bottom-nav">
-        <a href="#home" class="nav-item active" onclick="app.navigate('home')">
-            <div class="nav-icon">
-                <i class="fas fa-home"></i>
-            </div>
-            <span class="nav-label">Home</span>
-        </a>
-        
-        <a href="#browse" class="nav-item" onclick="app.navigate('browse')">
-            <div class="nav-icon">
-                <i class="fas fa-search"></i>
-            </div>
-            <span class="nav-label">Browse</span>
-        </a>
-        
-                
-        <a href="#favorites" class="nav-item" onclick="app.navigate('favorites')">
-            <div class="nav-icon">
-                <i class="fas fa-heart"></i>
-            </div>
-            <span class="nav-label">Favorites</span>
-        </a>
-        
-        <a href="#profile" class="nav-item" onclick="app.navigate('profile')">
-            <div class="nav-icon">
-                <i class="fas fa-user"></i>
-            </div>
-            <span class="nav-label">Profile</span>
-        </a>
-    </nav>
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
 
-    <!-- Leaflet JS -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="app.js"></script>
-    
 </body>
 </html>
