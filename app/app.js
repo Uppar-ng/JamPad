@@ -22,7 +22,7 @@ const app = {
     bannerInterval: null,
     scrollTimeout: null,
     
-    // State for animated FAB
+    // FAB state
     fabMenuOpen: false,
 
     async init() {
@@ -330,6 +330,39 @@ const app = {
             .replace(/>/g, '&gt;')
             .replace(/"/g, '&quot;')
             .replace(/'/g, '&#039;');
+    },
+
+    // New method to update only the property grid and result count
+    updatePropertyGrid() {
+        if (this.currentPage !== 'explore') return; // For now only explore page supports partial updates
+        
+        const container = document.getElementById('app');
+        if (!container) return;
+        
+        const grid = container.querySelector('.property-grid');
+        const countSpan = container.querySelector('.section-header span');
+        
+        if (!grid) return;
+        
+        const filteredProps = this.filterProperties();
+        
+        // Update result count if exists
+        if (countSpan) {
+            countSpan.innerHTML = `<i class="fas fa-home"></i> ${filteredProps.length} properties found`;
+        }
+        
+        // Update grid with new cards
+        grid.innerHTML = filteredProps.length > 0 
+            ? this.renderPropertyCards(filteredProps) 
+            : this.renderEmptyState();
+    },
+
+    // Keep input value in sync without re-rendering
+    updateSearchInput() {
+        const input = document.querySelector('.search-input');
+        if (input) {
+            input.value = this.searchQuery;
+        }
     },
 
     render() {
@@ -740,12 +773,17 @@ const app = {
                             <a href="#" class="social-link" onclick="event.preventDefault(); window.open('https://twitter.com/primertech', '_blank')">
                                 <i class="fab fa-twitter"></i>
                             </a>
-                            <a href="#" class="social-link" onclick="event.preventDefault(); window.open('https://instagram.com/primertech', '_blank')">
+                            <a href="#" class="social-link" onclick="event.preventDefault(); window.open('https://instagram.com/primertech0', '_blank')">
                                 <i class="fab fa-instagram"></i>
                             </a>
                             <a href="#" class="social-link" onclick="event.preventDefault(); window.open('https://linkedin.com/company/primertech', '_blank')">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
+                            <a href="#"
+                            class="social-link" onclick="event.preventDefault();
+ window.open('tel:+2348100590574', '_blank')" >
+    <i class="fas fa-phone-alt"></i>
+</a>
                         </div>
                     </div>
 
@@ -777,7 +815,7 @@ const app = {
                                 <i class="fas fa-chevron-right" style="color: var(--text-tertiary);"></i>
                             </div>
 
-                            <div class="link-item" onclick="window.location.href='terms.html'">
+                            <div class="link-item" onclick="window.location.href='https://primert.vercel.app/terms.html'">
                                 <div class="link-item-left">
                                     <i class="fas fa-file-contract"></i>
                                     <span>Terms of Service</span>
@@ -785,7 +823,7 @@ const app = {
                                 <i class="fas fa-chevron-right" style="color: var(--text-tertiary);"></i>
                             </div>
 
-                            <div class="link-item" onclick="window.location.href='policy.html'">
+                            <div class="link-item" onclick="window.location.href='https://primert.vercel.app/policy.html'">
                                 <div class="link-item-left">
                                     <i class="fas fa-shield-alt"></i>
                                     <span>Privacy Policy</span>
@@ -793,7 +831,7 @@ const app = {
                                 <i class="fas fa-chevron-right" style="color: var(--text-tertiary);"></i>
                             </div>
 
-                            <div class="link-item" onclick="window.location.href='about.html'">
+                            <div class="link-item" onclick="window.location.href='https://primert.vercel.app/about.html'">
                                 <div class="link-item-left">
                                     <i class="fas fa-info-circle"></i>
                                     <span>About</span>
@@ -935,7 +973,7 @@ const app = {
                             <i class="fas fa-chevron-right" style="color: var(--text-tertiary);"></i>
                         </div>
 
-                        <div class="link-item" onclick="window.location.href='terms.html'">
+                        <div class="link-item" onclick="window.location.href='https://primert.vercel.app/terms.html'">
                             <div class="link-item-left">
                                 <i class="fas fa-file-contract"></i>
                                 <span>Terms of Service</span>
@@ -943,7 +981,7 @@ const app = {
                             <i class="fas fa-chevron-right" style="color: var(--text-tertiary);"></i>
                         </div>
 
-                        <div class="link-item" onclick="window.location.href='policy.html'">
+                        <div class="link-item" onclick="window.location.href='https://primert.vercel.app/policy.html'">
                             <div class="link-item-left">
                                 <i class="fas fa-shield-alt"></i>
                                 <span>Privacy Policy</span>
@@ -951,7 +989,7 @@ const app = {
                             <i class="fas fa-chevron-right" style="color: var(--text-tertiary);"></i>
                         </div>
 
-                        <div class="link-item" onclick="window.location.href='about.html'">
+                        <div class="link-item" onclick="window.location.href='https://primert.vercel.app/about.html'">
                             <div class="link-item-left">
                                 <i class="fas fa-info-circle"></i>
                                 <span>About</span>
@@ -1446,9 +1484,8 @@ const app = {
         }
         this.searchTimeout = setTimeout(() => {
             this.searchQuery = value;
-            if (this.currentPage === 'explore' || this.currentPage === 'home') {
-                this.render();
-            }
+            // Update only the property grid, not the whole page
+            this.updatePropertyGrid();
         }, 300);
     },
 
@@ -1463,31 +1500,31 @@ const app = {
         if (this.currentPage !== 'explore') {
             this.navigate('explore');
         } else {
-            this.render();
+            this.updatePropertyGrid();
         }
     },
 
     filterByType(type) {
         this.filters.propertyType = type;
-        this.render();
+        this.updatePropertyGrid();
     },
 
     setMaxPrice(price) {
         this.filters.maxPrice = price === 'null' ? null : price;
         this.closeModal();
-        this.render();
+        this.updatePropertyGrid();
     },
 
     setBedrooms(bed) {
         this.filters.bedrooms = bed;
         this.closeModal();
-        this.render();
+        this.updatePropertyGrid();
     },
 
     setPropertyType(type) {
         this.filters.propertyType = this.filters.propertyType === type ? null : type;
         this.closeModal();
-        this.render();
+        this.updatePropertyGrid();
     },
 
     clearFilters() {
@@ -1499,8 +1536,13 @@ const app = {
             bedrooms: 'any'
         };
         this.searchQuery = '';
+        this.updateSearchInput(); // sync input field
         this.closeModal();
-        this.render();
+        if (this.currentPage === 'explore') {
+            this.updatePropertyGrid();
+        } else {
+            this.render(); // fallback for other pages
+        }
         this.showToast('Filters cleared', 'info');
     },
 
@@ -1569,7 +1611,6 @@ const app = {
     },
 
     navigate(page, direction = 'left') {
-        // Close FAB menu if open
         if (this.fabMenuOpen) {
             this.toggleFabMenu();
         }
@@ -1664,7 +1705,7 @@ const app = {
             this.scrollTimeout = setTimeout(() => {
                 this.checkScroll();
             }, 50);
-        });
+        }, { passive: true });
         
         const backdrop = document.getElementById('modalBackdrop');
         if (backdrop) {
@@ -1676,7 +1717,6 @@ const app = {
             sheet.addEventListener('click', (e) => e.stopPropagation());
         }
 
-        // Close FAB menu when clicking outside
         document.addEventListener('click', (e) => {
             const fabContainer = document.getElementById('fabContainer');
             if (this.fabMenuOpen && fabContainer && !fabContainer.contains(e.target)) {
@@ -1686,7 +1726,6 @@ const app = {
     }
 };
 
-// Initialize
 document.addEventListener('DOMContentLoaded', () => {
     window.app = app;
     app.init();
