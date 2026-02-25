@@ -1,0 +1,119 @@
+{
+  "services": [
+    {
+      "id": "moving",
+      "name": "Moving & Logistics",
+      "icon": "truck",
+      "description": "Professional moving services across Kaduna State"
+    },
+    {
+      "id": "repair",
+      "name": "Repair Services",
+      "icon": "tools",
+      "description": "Expert repairs for electronics, appliances, and more"
+    },
+    {
+      "id": "handyman",
+      "name": "Handyman",
+      "icon": "wrench",
+      "description": "General home maintenance and repairs"
+    },
+    {
+      "id": "laundry",
+      "name": "Laundry Services",
+      "icon": "soap",
+      "description": "Professional laundry with pickup & delivery"
+    }
+  ],
+  "movingSizes": [
+    "Studio / Single Room",
+    "1 Bedroom Flat",
+    "2 Bedroom Flat",
+    "3 Bedroom Flat",
+    "4 Bedroom House",
+    "Office / Commercial",
+    "Industrial Equipment"
+  ],
+  "vehicleTypes": [
+    "Pickup Truck (Small moves)",
+    "Small Van (1.5 tons)",
+    "Large Van (3 tons)",
+    "Truck (5 tons)",
+    "Flatbed Truck (Furniture/Equipment)",
+    "Mini Bus (Passenger + Luggage)"
+  ],
+  "repairDevices": [
+    "Smartphone",
+    "Tablet/iPad",
+    "Laptop/Computer",
+    "Television",
+    "Refrigerator/Freezer",
+    "Air Conditioner",
+    "Washing Machine",
+    "Generator",
+    "Microwave/Oven",
+    "Furniture",
+    "Plumbing",
+    "Electrical Wiring",
+    "Other"
+  ],
+  "handymanTasks": [
+    "Plumbing (Leaky pipes, faucets)",
+    "Electrical (Lights, switches, sockets)",
+    "Painting (Interior/Exterior)",
+    "Furniture Assembly",
+    "TV/Shelf Mounting",
+    "Door & Lock Repair",
+    "Tile & Floor Repair",
+    "Ceiling & Roof Repair",
+    "Fence/Gate Repair",
+    "Pest Control",
+    "Gardening & Landscaping",
+    "General Maintenance",
+    "Other"
+  ],
+  "laundryServices": [
+    "Wash & Fold (Regular)",
+    "Dry Cleaning",
+    "Ironing Only",
+    "Stain Treatment",
+    "Wedding/Formal Wear",
+    "Curtains & Drapes",
+    "Bedsheets & Linens",
+    "Full Service (Wash + Iron + Fold)"
+  ],
+  "cities": [
+    "Kaduna North (Kawo, Ungwan Rimi, Ungwan Sarki)",
+    "Kaduna South (Barnawa, Tudun Wada, Sabon Gari)",
+    "Chikun (Narayi, Goni Gora, Kudenda)",
+    "Igabi (Rigasa, Afaka, Mando)",
+    "Zaria (Samaru, Sabon Gari Zaria, Kwangila)",
+    "Kafanchan (Kafanchan Town, Ungwan Rimi, Maigizo)"
+  ],
+  "contactTimes": [
+    "Morning (8am - 12pm)",
+    "Afternoon (12pm - 4pm)",
+    "Evening (4pm - 8pm)",
+    "Anytime"
+  ],
+  "urgencyOptions": [
+    "Emergency (Within 2 hours)",
+    "Urgent (Within 24 hours)",
+    "This Week",
+    "Next Week",
+    "Flexible / No rush"
+  ],
+  "timeSlots": [
+    "08:00 AM",
+    "09:00 AM",
+    "10:00 AM",
+    "11:00 AM",
+    "12:00 PM",
+    "01:00 PM",
+    "02:00 PM",
+    "03:00 PM",
+    "04:00 PM",
+    "05:00 PM",
+    "06:00 PM"
+  ]
+}

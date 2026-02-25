@@ -12,7 +12,7 @@
     <!-- Loading Screen with Logo -->
     <div class="loading-screen" id="loadingScreen">
         <div class="loading-logo">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%232563EB' rx='20'/%3E%3Ctext x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3EP%3C/text%3E%3C/svg%3E" alt="Primer Logo" style="width: 100%; height: 100%; object-fit: cover;">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%232563EB' rx='20'/%3E%3Ctext x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3EP%3C/textclass=""%3E%3C/svg%3E" alt="Primer Logo" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         <div class="loading-spinner"></div>
     </div>
@@ -24,7 +24,7 @@
     <div class="fab-container mobile-only" id="fabContainer">
         <!-- Main FAB that expands/collapses -->
         <div class="fab fab-main" onclick="app.toggleFabMenu()" id="fabMain">
-            <i class="fas fa-plus" id="fabMainIcon"></i>
+            <i class="fas fa-bars" id="fabMainIcon"></i>
             <span class="fab-label">Menu</span>
         </div>
         
@@ -43,6 +43,10 @@
                 <span class="fab-badge" id="favoritesFabBadge">0</span>
                 <span class="fab-label">Saved</span>
             </div>
+            <div class="fab fab-menu-item" onclick="window.location.href='services.html'" id="fabServices">
+    <i class="fas fa-hands-helping"></i>
+    <span class="fab-label">Services</span>
+</div>
             <div class="fab fab-menu-item" onclick="app.navigate('profile')" id="fabProfile">
                 <i class="fas fa-user"></i>
                 <span class="fab-label">Profile</span>

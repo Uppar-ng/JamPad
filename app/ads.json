@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "icon": "fa-truck",
+    "title": "Moving Special - Kaduna",
+    "description": "15% off moving services in Kaduna South. Professional movers ready to help!",
+    "buttonText": "Book Now",
+    "buttonLink": "#",
+    "location": "Kaduna South",
+    "validUntil": "2026-12-31"
+  },
+  {
+    "id": 2,
+    "icon": "fa-tools",
+    "title": "Repair Experts in Barnawa",
+    "description": "24/7 emergency repair services. Fixed prices starting from ₦5,000",
+    "buttonText": "Call Now",
+    "buttonLink": "#",
+    "location": "Barnawa",
+    "validUntil": "2026-12-31"
+  },
+  {
+    "id": 3,
+    "icon": "fa-wrench",
+    "title": "Handyman Services - Kawo",
+    "description": "Experienced handymen for all your home fixes. Same-day service available!",
+    "buttonText": "Learn More",
+    "buttonLink": "#",
+    "location": "Kawo",
+    "validUntil": "2026-12-31"
+  },
+  {
+    "id": 4,
+    "icon": "fa-soap",
+    "title": "Laundry Express - Ungwan Rimi",
+    "description": "Free pickup & delivery. 24hr turnaround. First time customers get 20% off!",
+    "buttonText": "Schedule Pickup",
+    "buttonLink": "#",
+    "location": "Ungwan Rimi",
+    "validUntil": "2026-12-31"
+  },
+  {
+    "id": 5,
+    "icon": "fa-truck-moving",
+    "title": "Moving to Kaduna? We can help!",
+    "description": "Inter-state moving services. Safe & reliable. Get a free quote today.",
+    "buttonText": "Get Quote",
+    "buttonLink": "#",
+    "location": "Kaduna State",
+    "validUntil": "2026-12-31"
+  },
+  {
+    "id": 6,
+    "icon": "fa-bolt",
+    "title": "Emergency Electrical Repairs",
+    "description": "Licensed electricians in Malali. Available 24/7 for emergencies.",
+    "buttonText": "Call Now",
+    "buttonLink": "#",
+    "location": "Malali",
+    "validUntil": "2026-12-31"
+  },
+  {
+    "id": 7,
+    "icon": "fa-paint-roller",
+    "title": "Painting Services - Tudun Wada",
+    "description": "Professional painters. Quality work, affordable rates. Free consultation.",
+    "buttonText": "Book Now",
+    "buttonLink": "#",
+    "location": "Tudun Wada",
+    "validUntil": "2026-12-31"
+  },
+  {
+    "id": 8,
+    "icon": "fa-snowplow",
+    "title": "Heavy Equipment Moving",
+    "description": "Specialized moving for industrial equipment. Serving Kaduna industrial areas.",
+    "buttonText": "Contact Us",
+    "buttonLink": "#",
+    "location": "Kaduna Industrial Area",
+    "validUntil": "2026-12-31"
+  }
+]

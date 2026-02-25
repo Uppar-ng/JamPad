@@ -431,13 +431,10 @@ const app = {
                     </div>
                     <div class="header-actions">
                         <a href="services.html" class="btn btn-service" onclick="event.preventDefault(); window.location.href='services.html';">
-                            <i class="fas fa-bolt"></i>
+                            <i class="fas fa-hands-helping"></i>
                             <span class="desktop-only">Services</span>
                         </a>
-                        <a href="app.html" class="btn btn-primary" onclick="event.preventDefault(); window.location.href='app.html';">
-                            <i class="fas fa-mobile-alt"></i>
-                            <span class="desktop-only">Get App</span>
-                        </a>
+                        
                         <button class="icon-btn" onclick="app.toggleTheme()">
                             <i class="fas ${this.user.preferences.darkMode ? 'fa-sun' : 'fa-moon'}"></i>
                         </button>
@@ -770,18 +767,16 @@ const app = {
                             <a href="#" class="social-link" onclick="event.preventDefault(); window.open('https://facebook.com/primertech', '_blank')">
                                 <i class="fab fa-facebook-f"></i>
                             </a>
-                            <a href="#" class="social-link" onclick="event.preventDefault(); window.open('https://twitter.com/primertech', '_blank')">
+                            <a href="#" class="social-link" onclick="event.preventDefault(); window.open('https://x.com/primertech', '_blank')">
                                 <i class="fab fa-twitter"></i>
                             </a>
                             <a href="#" class="social-link" onclick="event.preventDefault(); window.open('https://instagram.com/primertech0', '_blank')">
                                 <i class="fab fa-instagram"></i>
                             </a>
-                            <a href="#" class="social-link" onclick="event.preventDefault(); window.open('https://linkedin.com/company/primertech', '_blank')">
-                                <i class="fab fa-linkedin-in"></i>
+                            <a href="#" class="social-link" onclick="event.preventDefault(); window.open('https://YouTube.com/@primertech', '_blank')">
+                                <i class="fab fa-youtube"></i>
                             </a>
-                            <a href="#"
-                            class="social-link" onclick="event.preventDefault();
- window.open('tel:+2348100590574', '_blank')" >
+                            <a href="tel:+2348100590574" class="social-link">
     <i class="fas fa-phone-alt"></i>
 </a>
                         </div>
@@ -809,7 +804,7 @@ const app = {
 
                             <div class="link-item" onclick="window.location.href='services.html'">
                                 <div class="link-item-left">
-                                    <i class="fas fa-bolt"></i>
+                                    <i class="fas fa-hands-helping"></i>
                                     <span>Services</span>
                                 </div>
                                 <i class="fas fa-chevron-right" style="color: var(--text-tertiary);"></i>
@@ -935,15 +930,19 @@ const app = {
                         <a href="#" class="social-link" onclick="event.preventDefault(); window.open('https://facebook.com/primertech', '_blank')">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="social-link" onclick="event.preventDefault(); window.open('https://twitter.com/primertech', '_blank')">
+                        <a href="#" class="social-link" onclick="event.preventDefault(); window.open('https://twitter.com/primertech0', '_blank')">
                             <i class="fab fa-twitter"></i>
                         </a>
                         <a href="#" class="social-link" onclick="event.preventDefault(); window.open('https://instagram.com/primertech', '_blank')">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="social-link" onclick="event.preventDefault(); window.open('https://linkedin.com/company/primertech', '_blank')">
-                            <i class="fab fa-linkedin-in"></i>
+                        <a href="#" class="social-link" onclick="event.preventDefault(); window.open('https://YouTube.com/@primertech', '_blank')">
+                            <i class="fab fa-youtube"></i>
                         </a>
+                        
+                        <a href="tel:+2348100590574" class="social-link">
+    <i class="fas fa-phone-alt"></i>
+</a>
                     </div>
                 </div>
 
@@ -967,7 +966,7 @@ const app = {
 
                         <div class="link-item" onclick="window.location.href='services.html'">
                             <div class="link-item-left">
-                                <i class="fas fa-bolt"></i>
+                                <i class="fas fa-hands-helping"></i>
                                 <span>Services</span>
                             </div>
                             <i class="fas fa-chevron-right" style="color: var(--text-tertiary);"></i>

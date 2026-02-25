@@ -1,0 +1,1744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+    <title>Primer • request service</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* -------------------- exact same design language as app (original) -------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        :root {
+            --primary: #2563EB;
+            --primary-dark: #1D4ED8;
+            --primary-light: #DBEAFE;
+            --secondary: #059669;
+            --accent: #7C3AED;
+            --background: #F9FAFB;
+            --surface: #FFFFFF;
+            --surface-hover: #F3F4F6;
+            --text-primary: #111827;
+            --text-secondary: #6B7280;
+            --text-tertiary: #9CA3AF;
+            --border: #E5E7EB;
+            --shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+            --header-height: 70px;
+        }
+        [data-theme="dark"] {
+            --primary: #3B82F6;
+            --primary-light: #1E3A8A;
+            --background: #111827;
+            --surface: #1F2937;
+            --surface-hover: #374151;
+            --text-primary: #F9FAFB;
+            --text-secondary: #D1D5DB;
+            --text-tertiary: #9CA3AF;
+            --border: #374151;
+        }
+        body {
+            background: var(--background);
+            color: var(--text-primary);
+            min-height: 100vh;
+            transition: background 0.2s, color 0.2s;
+            line-height: 1.5;
+            overflow-x: hidden;
+            position: relative;
+        }
+        /* floating background icons – enhanced visibility with colors */
+.bg-icons {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.115; /* Increased from 0.08 to 0.25 for better visibility */
+    overflow: hidden;
+}
+
+.bg-icons i {
+    position: absolute;
+    font-size: 4.5rem; /* Slightly larger */
+    animation: float 22s infinite linear;
+    user-select: none;
+    filter: drop-shadow(0 0 5px rgba(37, 99, 235, 0.3)); /* Add subtle glow */
+}
+
+/* Different colors for each icon */
+.bg-icons i:nth-child(1) { 
+    left: 5%; 
+    color: #2563EB; /* Primary blue */
+    animation-duration: 18s; 
+    opacity: 0.8;
+}
+.bg-icons i:nth-child(2) { 
+    left: 15%; 
+    color: #059669; /* Green */
+    animation-duration: 25s; 
+    animation-delay: 2s;
+    opacity: 0.35;
+}
+.bg-icons i:nth-child(3) { 
+    left: 30%; 
+    color: #7C3AED; /* Purple */
+    animation-duration: 22s; 
+    animation-delay: 5s;
+    opacity: 0.4;
+}
+.bg-icons i:nth-child(4) { 
+    left: 50%; 
+    color: #DC2626; /* Red */
+    animation-duration: 30s; 
+    animation-delay: 1s;
+    opacity: 0.3;
+}
+.bg-icons i:nth-child(5) { 
+    left: 70%; 
+    color: #F59E0B; /* Amber */
+    animation-duration: 20s; 
+    animation-delay: 8s;
+    opacity: 0.4;
+    font-size: 4rem;
+}
+.bg-icons i:nth-child(6) { 
+    left: 85%; 
+    color: #2563EB; /* Blue */
+    animation-duration: 28s; 
+    animation-delay: 3s;
+    opacity: 0.35;
+}
+.bg-icons i:nth-child(7) { 
+    left: 40%; 
+    color: #059669; /* Green */
+    animation-duration: 24s; 
+    animation-delay: 12s;
+    opacity: 0.4;
+    font-size: 4rem;
+}
+.bg-icons i:nth-child(8) { 
+    left: 95%; 
+    color: #7C3AED; /* Purple */
+    animation-duration: 26s; 
+    animation-delay: 6s;
+    opacity: 0.35;
+}
+
+/* Animation keyframes with scaling effect */
+@keyframes float {
+    0% { 
+        transform: translateY(100vh) rotate(0deg) scale(1); 
+        opacity: 0; 
+    }
+    10% { 
+        opacity: 0.5; 
+        transform: translateY(80vh) rotate(36deg) scale(1.1);
+    }
+    30% { 
+        opacity: 0.6; 
+        transform: translateY(60vh) rotate(108deg) scale(1.2);
+    }
+    50% { 
+        opacity: 0.7; 
+        transform: translateY(40vh) rotate(180deg) scale(1.1);
+    }
+    70% { 
+        opacity: 0.6; 
+        transform: translateY(20vh) rotate(252deg) scale(1);
+    }
+    90% { 
+        opacity: 0.4; 
+        transform: translateY(5vh) rotate(324deg) scale(0.9);
+    }
+    100% { 
+        transform: translateY(-20vh) rotate(360deg) scale(0.8); 
+        opacity: 0; 
+    }
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .bg-icons i {
+    filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.5));
+}
+
+[data-theme="dark"] .bg-icons i:nth-child(1) { color: #3B82F6; }
+[data-theme="dark"] .bg-icons i:nth-child(2) { color: #10B981; }
+[data-theme="dark"] .bg-icons i:nth-child(3) { color: #8B5CF6; }
+[data-theme="dark"] .bg-icons i:nth-child(4) { color: #EF4444; }
+[data-theme="dark"] .bg-icons i:nth-child(5) { color: #F59E0B; }
+[data-theme="dark"] .bg-icons i:nth-child(6) { color: #3B82F6; }
+[data-theme="dark"] .bg-icons i:nth-child(7) { color: #10B981; }
+[data-theme="dark"] .bg-icons i:nth-child(8) { color: #8B5CF6; }
+
+/* Additional floating icons for more variety */
+.bg-icons i:nth-child(9) { 
+    left: 20%; 
+    color: #DC2626; 
+    animation-duration: 23s; 
+    animation-delay: 4s;
+    opacity: 0.3;
+    font-size: 3.2rem;
+    content: "\f0c2"; /* cloud icon */
+}
+.bg-icons i:nth-child(10) { 
+    left: 65%; 
+    color: #F59E0B; 
+    animation-duration: 27s; 
+    animation-delay: 9s;
+    opacity: 0.35;
+    font-size: 3.8rem;
+}
+
+/* Make icons slightly more visible on mobile */
+@media (max-width: 768px) {
+    .bg-icons {
+        opacity: 0.2;
+    }
+    .bg-icons i {
+        font-size: 3rem;
+    }
+}
+
+/* Reduce animation on devices that prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .bg-icons i {
+        animation: none;
+        display: none;
+    }
+}
+
+        #app {
+            position: relative;
+            z-index: 2;
+            min-height: 100vh;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        .app-header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            width: 100%;
+            backdrop-filter: blur(8px);
+            background: rgba(255,255,255,0.7);
+        }
+        [data-theme="dark"] .app-header {
+            background: rgba(31,41,55,0.8);
+        }
+        .header-content {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-image {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+        }
+        .logo-text {
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--text-primary);
+        }
+        .header-actions {
+            display: flex;
+            gap: 8px;
+        }
+        .icon-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--surface-hover);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        .profile-warning {
+            background: #FEF3C7;
+            border: 1px solid #F59E0B;
+            color: #92400E;
+            padding: 12px 16px;
+            border-radius: var(--radius-lg);
+            margin: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+        }
+        [data-theme="dark"] .profile-warning {
+            background: #451A03;
+            border-color: #F59E0B;
+            color: #FCD34D;
+        }
+        .profile-warning i {
+            font-size: 20px;
+            color: #F59E0B;
+        }
+        .profile-warning a {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            margin-left: auto;
+        }
+        /* banner ad */
+        .banner-ad {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: var(--radius-xl);
+            padding: 20px;
+            margin: 20px 16px 24px;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+        .banner-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .banner-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        .banner-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .banner-description {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        .banner-btn {
+            background: white;
+            color: var(--primary);
+            border: none;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            align-self: flex-start;
+        }
+        /* service grid */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            padding: 16px 16px 8px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .service-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 16px 4px 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .service-card i {
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+        .service-card span {
+            font-size: 12px;
+            font-weight: 600;
+            display: block;
+        }
+        .service-card.active {
+            border: 2px solid var(--primary);
+            background: var(--primary-light);
+        }
+        /* previous bookings section */
+        .previous-bookings {
+            background: var(--surface);
+            border-radius: var(--radius-2xl);
+            margin: 24px 16px;
+            padding: 20px;
+            border: 1px solid var(--border);
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .bookings-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .booking-item {
+            background: var(--surface-hover);
+            border-radius: var(--radius-lg);
+            padding: 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid var(--border);
+        }
+        .booking-item:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+        .booking-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        .booking-service {
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .booking-date {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        .booking-details {
+            font-size: 13px;
+            color: var(--text-secondary);
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .booking-details i {
+            width: 16px;
+            color: var(--primary);
+        }
+        .empty-bookings {
+            text-align: center;
+            padding: 32px;
+            color: var(--text-tertiary);
+        }
+        .empty-bookings i {
+            font-size: 48px;
+            margin-bottom: 12px;
+        }
+        /* how it works with animations */
+        .how-it-works {
+            background: var(--surface);
+            border-radius: var(--radius-2xl);
+            margin: 24px 16px;
+            padding: 24px 16px;
+            border: 1px solid var(--border);
+            animation: fadeInUp 0.6s ease-out;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .step {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            animation: slideInRight 0.5s ease-out forwards;
+            opacity: 0;
+        }
+        .step:nth-child(1) { animation-delay: 0.1s; }
+        .step:nth-child(2) { animation-delay: 0.3s; }
+        .step:nth-child(3) { animation-delay: 0.5s; }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        .step-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 22px;
+            font-weight: 700;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .step-text h4 {
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .step-text p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+        /* modal sheet */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+        .modal-backdrop.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-sheet {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            max-width: 480px;
+            margin: 0 auto;
+            background: var(--surface);
+            border-top-left-radius: var(--radius-2xl);
+            border-top-right-radius: var(--radius-2xl);
+            z-index: 1001;
+            transform: translateY(100%);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-lg);
+        }
+        .modal-sheet.active {
+            transform: translateY(0);
+        }
+        .modal-header {
+            position: sticky;
+            top: 0;
+            background: var(--surface);
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .modal-header h3 {
+            font-size: 20px;
+            font-weight: 700;
+        }
+        .modal-close {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--surface-hover);
+            border: none;
+            color: var(--text-primary);
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .modal-content {
+            padding: 24px 20px 32px;
+        }
+        /* form elements */
+        .form-group {
+            margin-bottom: 22px;
+        }
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+        }
+        .form-label i {
+            color: var(--primary);
+            margin-right: 4px;
+        }
+        .profile-filled {
+            background: var(--primary-light);
+            border-left: 3px solid var(--primary);
+        }
+        .custom-dropdown {
+            position: relative;
+        }
+        .dropdown-selected {
+            width: 100%;
+            padding: 16px 18px;
+            background: var(--surface-hover);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .dropdown-selected i {
+            transition: transform 0.2s;
+        }
+        .dropdown-selected.active i {
+            transform: rotate(180deg);
+        }
+        .dropdown-options {
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 0;
+            right: 0;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            max-height: 220px;
+            overflow-y: auto;
+            z-index: 30;
+            display: none;
+            box-shadow: var(--shadow-lg);
+        }
+        .dropdown-options.show {
+            display: block;
+        }
+        .dropdown-option {
+            padding: 14px 18px;
+            cursor: pointer;
+            transition: background 0.1s;
+        }
+        .dropdown-option:hover {
+            background: var(--surface-hover);
+        }
+        .dropdown-option.selected {
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+        .custom-calendar {
+            background: var(--surface-hover);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 16px;
+        }
+        .calendar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+        .calendar-month {
+            font-weight: 700;
+        }
+        .calendar-weekdays {
+            display: grid;
+            grid-template-columns: repeat(7,1fr);
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-tertiary);
+            margin-bottom: 8px;
+        }
+        .calendar-days {
+            display: grid;
+            grid-template-columns: repeat(7,1fr);
+            gap: 4px;
+        }
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            border-radius: 50%;
+            cursor: pointer;
+            background: var(--surface);
+            border: 1px solid transparent;
+        }
+        .calendar-day.selected {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+        .calendar-day:not(.empty):hover {
+            border-color: var(--primary);
+        }
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 16px 18px;
+            background: var(--surface-hover);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            font-size: 15px;
+            color: var(--text-primary);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .form-input:focus, .form-textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-light);
+            outline: none;
+        }
+        .form-textarea {
+            min-height: 90px;
+            resize: vertical;
+        }
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+        }
+        .checkbox-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--primary);
+        }
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+        .info-note {
+            background: var(--primary-light);
+            padding: 14px 18px;
+            border-radius: var(--radius-lg);
+            margin-bottom: 24px;
+            font-size: 14px;
+            color: var(--primary-dark);
+            border: 1px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .info-note i {
+            font-size: 20px;
+        }
+        .btn-submit {
+            width: 100%;
+            padding: 18px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 17px;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 16px;
+            box-shadow: 0 10px 20px -5px var(--primary);
+        }
+        .btn-submit:disabled {
+            opacity: 0.6;
+        }
+        .btn-secondary {
+            width: 100%;
+            padding: 14px;
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            margin-top: 12px;
+            transition: all 0.2s;
+        }
+        .btn-secondary:hover {
+            background: var(--primary-light);
+        }
+        .toast-container {
+            position: fixed;
+            bottom: 30px;
+            left: 20px;
+            right: 20px;
+            max-width: 380px;
+            margin: 0 auto;
+            z-index: 2000;
+        }
+        .toast {
+            background: var(--surface);
+            color: var(--text-primary);
+            padding: 16px 22px;
+            border-radius: 60px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            border-left: 6px solid var(--primary);
+            animation: slideUp 0.2s;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.6s infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+    <!-- floating background icons (enhanced with more colors) -->
+<div class="bg-icons">
+    <i class="fas fa-truck"></i>
+    <i class="fas fa-tools"></i>
+    <i class="fas fa-wrench"></i>
+    <i class="fas fa-soap"></i>
+    <i class="fas fa-box"></i>
+    <i class="fas fa-paint-roller"></i>
+    <i class="fas fa-bolt"></i>
+    <i class="fas fa-broom"></i>
+    <i class="fas fa-snowplow"></i>
+    <i class="fas fa-tshirt"></i>
+    <i class="fas fa-couch"></i>
+    <i class="fas fa-chair"></i>
+</div>
+
+    <div id="app">
+        <header class="app-header">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html" class="icon-btn" style="text-decoration: none; margin-right: 8px;">
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                    
+                    <span class="logo-text">Request Services</span>
+                </div>
+                <div class="header-actions">
+                    <button class="icon-btn" id="themeToggle"><i class="fas fa-moon"></i></button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Profile warning (shows if profile incomplete) -->
+        <div id="profileWarning" class="profile-warning" style="display: none;">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span>Complete your profile for faster booking</span>
+            <a href="index.html#profile">Update Profile →</a>
+        </div>
+
+        <!-- dynamic banner from ads.json -->
+        <div class="banner-ad" id="dynamicBanner">
+            <div class="banner-content">
+                <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+                    <div class="banner-icon"><i class="fas fa-spinner fa-pulse"></i></div>
+                    <div class="banner-text">
+                        <h3 class="banner-title">Loading ads...</h3>
+                        <p class="banner-description">Please wait</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- service grid -->
+        <div class="service-grid" id="serviceGrid">
+            <div class="service-card"><i class="fas fa-spinner fa-pulse"></i><span>Loading...</span></div>
+        </div>
+
+        <!-- Previous Bookings Section -->
+        <div class="previous-bookings" id="previousBookings">
+            <div class="section-title">
+                <i class="fas fa-history" style="color: var(--primary);"></i>
+                Previous Bookings
+            </div>
+            <div class="bookings-list" id="bookingsList">
+                <!-- Will be populated dynamically -->
+            </div>
+        </div>
+
+        <!-- how it works section (animated) -->
+        <div class="how-it-works">
+            <div class="section-title">How it works</div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">1</div>
+                    <div class="step-text">
+                        <h4>Request a service</h4>
+                        <p>Choose what you need – moving, repair, handyman, or laundry.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-icon">2</div>
+                    <div class="step-text">
+                        <h4>We review & contact you</h4>
+                        <p>Our team reaches out within 30 mins to confirm details.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-icon">3</div>
+                    <div class="step-text">
+                        <h4>Worker arrives</h4>
+                        <p>We assign a qualified gig worker who goes to your location.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal sheet -->
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-sheet" id="modalSheet">
+        <div class="modal-header">
+            <h3 id="modalTitle">Service</h3>
+            <button class="modal-close" id="closeModalBtn"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="modal-content" id="modalContent"></div>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script>
+        (function() {
+            // ---------- SYNC DARK MODE WITH APP.JS ----------
+            const themeToggle = document.getElementById('themeToggle');
+            const html = document.documentElement;
+            
+            // Listen for theme changes from app.js (via localStorage)
+            function syncThemeWithApp() {
+                const appTheme = localStorage.getItem('primer_theme') || 'light';
+                html.setAttribute('data-theme', appTheme);
+                themeToggle.innerHTML = appTheme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+            }
+            
+            // Initial sync
+            syncThemeWithApp();
+            
+            // Watch for theme changes from app.js
+            window.addEventListener('storage', (e) => {
+                if (e.key === 'primer_theme') {
+                    syncThemeWithApp();
+                }
+            });
+            
+            // Toggle theme (syncs with app.js)
+            themeToggle.addEventListener('click', () => {
+                const current = html.getAttribute('data-theme') || 'light';
+                const next = current === 'light' ? 'dark' : 'light';
+                html.setAttribute('data-theme', next);
+                localStorage.setItem('primer_theme', next);
+                themeToggle.innerHTML = next === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+                
+                // Trigger storage event for app.js to detect
+                window.dispatchEvent(new StorageEvent('storage', {
+                    key: 'primer_theme',
+                    newValue: next
+                }));
+            });
+
+            // ---------- LOAD USER DATA FROM APP.JS ----------
+            function loadUserFromApp() {
+                try {
+                    const savedUser = localStorage.getItem('primer_user');
+                    if (savedUser) {
+                        return JSON.parse(savedUser);
+                    }
+                } catch (e) {
+                    console.warn('Failed to load user data');
+                }
+                return {
+                    name: '',
+                    email: '',
+                    phone: '',
+                    address: ''
+                };
+            }
+
+            let userData = loadUserFromApp();
+
+            // Check if profile is complete
+            function isProfileComplete() {
+                return userData.name && userData.phone && userData.name !== 'Guest User';
+            }
+
+            // Show profile warning if incomplete
+            const profileWarning = document.getElementById('profileWarning');
+            if (!isProfileComplete()) {
+                profileWarning.style.display = 'flex';
+            }
+
+            // ---------- LOAD PREVIOUS BOOKINGS ----------
+            function loadPreviousBookings() {
+                try {
+                    const bookings = JSON.parse(localStorage.getItem('primer_bookings') || '[]');
+                    const bookingsList = document.getElementById('bookingsList');
+                    
+                    if (bookings.length === 0) {
+                        bookingsList.innerHTML = `
+                            <div class="empty-bookings">
+                                <i class="fas fa-calendar-times"></i>
+                                <p>No previous bookings yet</p>
+                            </div>
+                        `;
+                        return;
+                    }
+
+                    // Show last 5 bookings
+                    const recentBookings = bookings.slice(-5).reverse();
+                    bookingsList.innerHTML = recentBookings.map(booking => `
+                        <div class="booking-item" onclick="window.editBooking('${booking.id}')">
+                            <div class="booking-header">
+                                <span class="booking-service">
+                                    <i class="fas fa-${getServiceIcon(booking.service)}"></i>
+                                    ${booking.service.charAt(0).toUpperCase() + booking.service.slice(1)}
+                                </span>
+                                <span class="booking-date">${new Date(booking.timestamp).toLocaleDateString()}</span>
+                            </div>
+                            <div class="booking-details">
+                                <span><i class="fas fa-user"></i> ${booking.name || 'Name not set'}</span>
+                                <span><i class="fas fa-map-pin"></i> ${booking.city || 'City not set'}</span>
+                            </div>
+                        </div>
+                    `).join('');
+                } catch (e) {
+                    console.warn('Failed to load bookings');
+                }
+            }
+
+            function getServiceIcon(service) {
+                const icons = {
+                    moving: 'truck',
+                    repair: 'tools',
+                    handyman: 'wrench',
+                    laundry: 'soap'
+                };
+                return icons[service] || 'clipboard-list';
+            }
+
+            // ---------- SAVE BOOKING TO HISTORY ----------
+            function saveBookingToHistory(service, formData) {
+                try {
+                    const bookings = JSON.parse(localStorage.getItem('primer_bookings') || '[]');
+                    const booking = {
+                        id: Date.now().toString(),
+                        service: service,
+                        timestamp: new Date().toISOString(),
+                        name: formData.get('name'),
+                        phone: formData.get('phone'),
+                        city: formData.get('city'),
+                        address: formData.get('address'),
+                        ...Object.fromEntries(formData)
+                    };
+                    bookings.push(booking);
+                    localStorage.setItem('primer_bookings', JSON.stringify(bookings));
+                    loadPreviousBookings(); // Refresh the list
+                } catch (e) {
+                    console.warn('Failed to save booking');
+                }
+            }
+
+            // ---------- EDIT EXISTING BOOKING ----------
+            window.editBooking = function(bookingId) {
+                try {
+                    const bookings = JSON.parse(localStorage.getItem('primer_bookings') || '[]');
+                    const booking = bookings.find(b => b.id === bookingId);
+                    if (booking) {
+                        // Pre-fill form with booking data and open modal
+                        openModalWithData(booking.service, booking);
+                    }
+                } catch (e) {
+                    showToast('Could not load booking data', 'error');
+                }
+            };
+
+            // ---------- LOAD SERVICES.JSON AND ADS.JSON ----------
+            let servicesData = null;
+            let adsData = null;
+
+            function loadData() {
+                Promise.all([
+                    fetch('services.json').then(res => res.json()).catch(() => {
+                        return {
+                            services: [
+                                { id: 'moving', name: 'Moving', icon: 'truck' },
+                                { id: 'repair', name: 'Repair', icon: 'tools' },
+                                { id: 'handyman', name: 'Handyman', icon: 'wrench' },
+                                { id: 'laundry', name: 'Laundry', icon: 'soap' }
+                            ],
+                            movingSizes: ['Studio (1 room)', '1-bedroom', '2-bedroom', '3+ bedroom', 'Office'],
+                            vehicleTypes: ['Pickup truck', 'Small van', 'Large van', 'Truck'],
+                            repairDevices: ['Smartphone', 'Laptop', 'Appliance', 'Furniture', 'Other'],
+                            handymanTasks: ['Plumbing', 'Electrical', 'Painting', 'Assembly', 'Mounting', 'Other'],
+                            laundryServices: ['Wash & fold', 'Dry cleaning', 'Ironing only', 'Stain treatment'],
+                            cities: ['Ikeja', 'Yaba', 'Surulere', 'VI', 'Lekki', 'Ajah'],
+                            contactTimes: ['Morning', 'Afternoon', 'Evening', 'Anytime'],
+                            urgencyOptions: ['Within 24h', 'This week', 'Flexible'],
+                            timeSlots: ['08:00 AM', '09:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '01:00 PM', '02:00 PM', '03:00 PM', '04:00 PM', '05:00 PM']
+                        };
+                    }),
+                    fetch('ads.json').then(res => res.json()).catch(() => {
+                        return [
+                            { id: 1, icon: 'fa-tags', title: 'Weekend Discount', description: '20% off on moving & laundry', buttonText: 'Book now', buttonLink: '#' },
+                            { id: 2, icon: 'fa-bolt', title: 'Emergency Repair', description: '24/7 handyman service', buttonText: 'Call now', buttonLink: '#' },
+                            { id: 3, icon: 'fa-soap', title: 'Laundry Special', description: 'Free pickup & delivery', buttonText: 'Learn more', buttonLink: '#' }
+                        ];
+                    })
+                ]).then(([services, ads]) => {
+                    servicesData = services;
+                    adsData = ads;
+                    
+                    renderServiceCards();
+                    startBannerRotation();
+                    attachCardEvents();
+                    loadPreviousBookings();
+                });
+            }
+
+            // Banner rotation
+            let currentAdIndex = 0;
+            let bannerInterval = null;
+
+            function renderBanner() {
+                const banner = document.getElementById('dynamicBanner');
+                if (!adsData || adsData.length === 0) return;
+                
+                const ad = adsData[currentAdIndex];
+                banner.innerHTML = `
+                    <div class="banner-content">
+                        <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+                            <div class="banner-icon"><i class="fas ${ad.icon}"></i></div>
+                            <div class="banner-text">
+                                <h3 class="banner-title">${ad.title}</h3>
+                                <p class="banner-description">${ad.description}</p>
+                            </div>
+                        </div>
+                        <a href="${ad.buttonLink}" class="banner-btn">${ad.buttonText} <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                `;
+            }
+
+            function startBannerRotation() {
+                if (bannerInterval) clearInterval(bannerInterval);
+                if (!adsData || adsData.length <= 1) return;
+                
+                renderBanner();
+                bannerInterval = setInterval(() => {
+                    currentAdIndex = (currentAdIndex + 1) % adsData.length;
+                    renderBanner();
+                }, 5000);
+            }
+
+            function renderServiceCards() {
+                const grid = document.getElementById('serviceGrid');
+                if (!servicesData) return;
+                
+                grid.innerHTML = servicesData.services.map(s => `
+                    <div class="service-card" data-service="${s.id}">
+                        <i class="fas fa-${s.icon}"></i>
+                        <span>${s.name}</span>
+                    </div>
+                `).join('');
+            }
+
+            // ---------- MODAL CONTROL ----------
+            const backdrop = document.getElementById('modalBackdrop');
+            const modalSheet = document.getElementById('modalSheet');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalContent = document.getElementById('modalContent');
+            const closeBtn = document.getElementById('closeModalBtn');
+            let activeService = null;
+
+            function openModal(serviceId) {
+                // Check if profile is complete before opening modal
+                if (!isProfileComplete()) {
+                    showToast('Please complete your profile in the app first', 'warning');
+                    return;
+                }
+                
+                activeService = serviceId;
+                const srv = servicesData.services.find(s => s.id === serviceId);
+                modalTitle.innerText = srv.name;
+                renderForm(serviceId);
+                backdrop.classList.add('active');
+                modalSheet.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function openModalWithData(serviceId, bookingData) {
+                activeService = serviceId;
+                const srv = servicesData.services.find(s => s.id === serviceId);
+                modalTitle.innerText = `Edit ${srv.name}`;
+                renderForm(serviceId, bookingData);
+                backdrop.classList.add('active');
+                modalSheet.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeModal() {
+                backdrop.classList.remove('active');
+                modalSheet.classList.remove('active');
+                document.body.style.overflow = '';
+                activeService = null;
+            }
+
+            backdrop.addEventListener('click', closeModal);
+            closeBtn.addEventListener('click', closeModal);
+
+            function attachCardEvents() {
+                document.querySelectorAll('.service-card').forEach(card => {
+                    card.addEventListener('click', () => {
+                        document.querySelectorAll('.service-card').forEach(c => c.classList.remove('active'));
+                        card.classList.add('active');
+                        openModal(card.dataset.service);
+                    });
+                });
+            }
+
+            // ---------- RENDER FORM WITH PROFILE DATA ----------
+            function renderForm(serviceId, existingData = null) {
+                if (!servicesData) return;
+
+                // Use existing data or profile data
+                const nameValue = existingData?.name || userData.name || '';
+                const phoneValue = existingData?.phone || userData.phone || '';
+                const addressValue = existingData?.address || userData.address || '';
+                const cityValue = existingData?.city || '';
+
+                // Common expectation note
+                let commonNote = `
+                    <div class="info-note">
+                        <i class="fas fa-clock"></i>
+                        <span>After booking, our team will contact you within 30 mins to confirm details and schedule the worker.</span>
+                    </div>
+                `;
+
+                // Common fields with profile data
+                let commonFields = `
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-user"></i> Full name</label>
+                        <input type="text" class="form-input ${nameValue ? 'profile-filled' : ''}" id="${serviceId}Name" placeholder="e.g. John Doe" value="${nameValue}">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-phone"></i> Phone number</label>
+                        <input type="tel" class="form-input ${phoneValue ? 'profile-filled' : ''}" id="${serviceId}Phone" placeholder="+234 800 000 0000" value="${phoneValue}">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Preferred contact method</label>
+                        <div class="radio-group" id="${serviceId}ContactMethod">
+                            <label class="radio-item"><input type="radio" name="${serviceId}ContactMethod" value="Phone call" ${existingData?.contactMethod === 'Phone call' ? 'checked' : 'checked'}> Phone call</label>
+                            <label class="radio-item"><input type="radio" name="${serviceId}ContactMethod" value="WhatsApp" ${existingData?.contactMethod === 'WhatsApp' ? 'checked' : ''}> WhatsApp</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Best time to contact you</label>
+                        <div class="custom-dropdown" id="drop${serviceId}ContactTime">
+                            <div class="dropdown-selected" data-target="${serviceId}ContactTime">${existingData?.bestTime || 'Select time'} <i class="fas fa-chevron-down"></i></div>
+                            <div class="dropdown-options">
+                                ${servicesData.contactTimes.map(t => `<div class="dropdown-option" data-value="${t}">${t}</div>`).join('')}
+                            </div>
+                        </div>
+                        <input type="hidden" id="${serviceId}ContactTimeInput" value="${existingData?.bestTime || ''}">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">How soon do you need this?</label>
+                        <div class="custom-dropdown" id="drop${serviceId}Urgency">
+                            <div class="dropdown-selected" data-target="${serviceId}Urgency">${existingData?.urgency || 'Select urgency'} <i class="fas fa-chevron-down"></i></div>
+                            <div class="dropdown-options">
+                                ${servicesData.urgencyOptions.map(u => `<div class="dropdown-option" data-value="${u}">${u}</div>`).join('')}
+                            </div>
+                        </div>
+                        <input type="hidden" id="${serviceId}UrgencyInput" value="${existingData?.urgency || ''}">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-city"></i> City / area</label>
+                        <div class="custom-dropdown" id="drop${serviceId}City">
+                            <div class="dropdown-selected" data-target="${serviceId}City">${cityValue || 'Select city'} <i class="fas fa-chevron-down"></i></div>
+                            <div class="dropdown-options">
+                                ${servicesData.cities.map(c => `<div class="dropdown-option" data-value="${c}">${c}</div>`).join('')}
+                            </div>
+                        </div>
+                        <input type="hidden" id="${serviceId}CityInput" value="${cityValue}">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-map-marked-alt"></i> Full address</label>
+                        <textarea class="form-textarea ${addressValue ? 'profile-filled' : ''}" id="${serviceId}Address" placeholder="Street, building, landmark, gate code etc.">${addressValue}</textarea>
+                    </div>
+                `;
+
+                // Service-specific fields
+                let specificFields = '';
+                
+                if (serviceId === 'moving') {
+                    specificFields = `
+                        <div class="form-group">
+                            <label class="form-label">Pickup address</label>
+                            <textarea class="form-textarea" id="movePickup" placeholder="Where items are">${existingData?.pickup || ''}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Destination address</label>
+                            <textarea class="form-textarea" id="moveDropoff" placeholder="Where to deliver">${existingData?.destination || ''}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Move size</label>
+                            <div class="custom-dropdown" id="dropMoveSize">
+                                <div class="dropdown-selected" data-target="moveSize">${existingData?.moveSize || 'Select size'} <i class="fas fa-chevron-down"></i></div>
+                                <div class="dropdown-options">
+                                    ${servicesData.movingSizes.map(sz => `<div class="dropdown-option" data-value="${sz}">${sz}</div>`).join('')}
+                                </div>
+                            </div>
+                            <input type="hidden" id="moveSizeInput" value="${existingData?.moveSize || ''}">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Vehicle type</label>
+                            <div class="custom-dropdown" id="dropVehicle">
+                                <div class="dropdown-selected" data-target="vehicle">${existingData?.vehicle || 'Select vehicle'} <i class="fas fa-chevron-down"></i></div>
+                                <div class="dropdown-options">
+                                    ${servicesData.vehicleTypes.map(v => `<div class="dropdown-option" data-value="${v}">${v}</div>`).join('')}
+                                </div>
+                            </div>
+                            <input type="hidden" id="vehicleInput" value="${existingData?.vehicle || ''}">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Preferred date</label>
+                            <div class="custom-calendar" id="moveCalendar"></div>
+                            <input type="hidden" id="moveDateInput" value="${existingData?.date || ''}">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Preferred time</label>
+                            <div class="custom-dropdown" id="dropMoveTime">
+                                <div class="dropdown-selected" data-target="moveTime">${existingData?.time || 'Select time'} <i class="fas fa-chevron-down"></i></div>
+                                <div class="dropdown-options">
+                                    ${servicesData.timeSlots.map(t => `<div class="dropdown-option" data-value="${t}">${t}</div>`).join('')}
+                                </div>
+                            </div>
+                            <input type="hidden" id="moveTimeInput" value="${existingData?.time || ''}">
+                        </div>
+                    `;
+                } else if (serviceId === 'repair') {
+                    specificFields = `
+                        <div class="form-group">
+                            <label class="form-label">Device / item type</label>
+                            <div class="custom-dropdown" id="dropRepairType">
+                                <div class="dropdown-selected" data-target="repairType">${existingData?.device || 'Select device'} <i class="fas fa-chevron-down"></i></div>
+                                <div class="dropdown-options">
+                                    ${servicesData.repairDevices.map(d => `<div class="dropdown-option" data-value="${d}">${d}</div>`).join('')}
+                                </div>
+                            </div>
+                            <input type="hidden" id="repairTypeInput" value="${existingData?.device || ''}">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Describe the issue</label>
+                            <textarea class="form-textarea" id="repairIssue" placeholder="Exact issue, brand, model">${existingData?.description || ''}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Preferred date</label>
+                            <div class="custom-calendar" id="repairCalendar"></div>
+                            <input type="hidden" id="repairDateInput" value="${existingData?.date || ''}">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Preferred time</label>
+                            <div class="custom-dropdown" id="dropRepairTime">
+                                <div class="dropdown-selected" data-target="repairTime">${existingData?.time || 'Select time'} <i class="fas fa-chevron-down"></i></div>
+                                <div class="dropdown-options">
+                                    ${servicesData.timeSlots.map(t => `<div class="dropdown-option" data-value="${t}">${t}</div>`).join('')}
+                                </div>
+                            </div>
+                            <input type="hidden" id="repairTimeInput" value="${existingData?.time || ''}">
+                        </div>
+                    `;
+                } else if (serviceId === 'handyman') {
+                    specificFields = `
+                        <div class="form-group">
+                            <label class="form-label">Tasks</label>
+                            <div class="checkbox-group" id="handyTasks">
+                                ${servicesData.handymanTasks.map(t => `
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" value="${t}" ${existingData?.tasks?.includes(t) ? 'checked' : ''}> ${t}
+                                    </label>
+                                `).join('')}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Description</label>
+                            <textarea class="form-textarea" id="handyDescription" placeholder="Additional details">${existingData?.description || ''}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Preferred date</label>
+                            <div class="custom-calendar" id="handyCalendar"></div>
+                            <input type="hidden" id="handyDateInput" value="${existingData?.date || ''}">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Preferred time</label>
+                            <div class="custom-dropdown" id="dropHandyTime">
+                                <div class="dropdown-selected" data-target="handyTime">${existingData?.time || 'Select time'} <i class="fas fa-chevron-down"></i></div>
+                                <div class="dropdown-options">
+                                    ${servicesData.timeSlots.map(t => `<div class="dropdown-option" data-value="${t}">${t}</div>`).join('')}
+                                </div>
+                            </div>
+                            <input type="hidden" id="handyTimeInput" value="${existingData?.time || ''}">
+                        </div>
+                    `;
+                } else if (serviceId === 'laundry') {
+                    specificFields = `
+                        <div class="form-group">
+                            <label class="form-label">Service type</label>
+                            <div class="custom-dropdown" id="dropLaundryType">
+                                <div class="dropdown-selected" data-target="laundryType">${existingData?.laundryType || 'Select service'} <i class="fas fa-chevron-down"></i></div>
+                                <div class="dropdown-options">
+                                    ${servicesData.laundryServices.map(ls => `<div class="dropdown-option" data-value="${ls}">${ls}</div>`).join('')}
+                                </div>
+                            </div>
+                            <input type="hidden" id="laundryTypeInput" value="${existingData?.laundryType || ''}">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Where should the laundry be done?</label>
+                            <div class="radio-group" id="laundryLocation">
+                                <label class="radio-item"><input type="radio" name="laundryLocation" value="At my home" ${existingData?.laundryLocation === 'At my home' ? 'checked' : 'checked'}> At my home</label>
+                                <label class="radio-item"><input type="radio" name="laundryLocation" value="Worker's location" ${existingData?.laundryLocation === 'Worker\'s location' ? 'checked' : ''}> Worker's location</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Pickup address</label>
+                            <textarea class="form-textarea" id="laundryPickup" placeholder="If different from your address">${existingData?.pickupAddress || ''}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Special instructions</label>
+                            <textarea class="form-textarea" id="laundryNotes" placeholder="e.g. delicate fabrics">${existingData?.notes || ''}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Preferred date</label>
+                            <div class="custom-calendar" id="laundryCalendar"></div>
+                            <input type="hidden" id="laundryDateInput" value="${existingData?.date || ''}">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Preferred time</label>
+                            <div class="custom-dropdown" id="dropLaundryTime">
+                                <div class="dropdown-selected" data-target="laundryTime">${existingData?.time || 'Select time'} <i class="fas fa-chevron-down"></i></div>
+                                <div class="dropdown-options">
+                                    ${servicesData.timeSlots.map(t => `<div class="dropdown-option" data-value="${t}">${t}</div>`).join('')}
+                                </div>
+                            </div>
+                            <input type="hidden" id="laundryTimeInput" value="${existingData?.time || ''}">
+                        </div>
+                    `;
+                }
+
+                modalContent.innerHTML = commonNote + commonFields + specificFields + `<button class="btn-submit" id="submit${serviceId}">${existingData ? 'Update & Book' : 'Request Service'}</button>`;
+
+                // Initialize calendars
+                if (serviceId === 'moving') initCalendar('moveCalendar', 'moveDateInput', existingData?.date);
+                if (serviceId === 'repair') initCalendar('repairCalendar', 'repairDateInput', existingData?.date);
+                if (serviceId === 'handyman') initCalendar('handyCalendar', 'handyDateInput', existingData?.date);
+                if (serviceId === 'laundry') initCalendar('laundryCalendar', 'laundryDateInput', existingData?.date);
+
+                attachDropdowns(serviceId);
+                attachSubmit(serviceId, !!existingData);
+            }
+
+            // Calendar initializer
+            function initCalendar(containerId, inputId, existingDate = null) {
+                const container = document.getElementById(containerId);
+                if (!container) return;
+                
+                const today = new Date();
+                const year = today.getFullYear();
+                const month = today.getMonth();
+                const daysInMonth = new Date(year, month + 1, 0).getDate();
+                const firstDay = new Date(year, month, 1).getDay();
+                
+                let html = `
+                    <div class="calendar-header">
+                        <span class="calendar-month">${today.toLocaleString('default', { month: 'long' })} ${year}</span>
+                    </div>
+                    <div class="calendar-weekdays">
+                        <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+                    </div>
+                    <div class="calendar-days">
+                `;
+                
+                for (let i = 0; i < firstDay; i++) {
+                    html += '<div class="calendar-day empty"></div>';
+                }
+                
+                for (let d = 1; d <= daysInMonth; d++) {
+                    const isSelected = existingDate ? 
+                        parseInt(existingDate.split('-')[2]) === d : 
+                        d === today.getDate();
+                    const selectedClass = isSelected ? 'selected' : '';
+                    html += `<div class="calendar-day ${selectedClass}" data-day="${d}">${d}</div>`;
+                }
+                
+                html += '</div>';
+                container.innerHTML = html;
+                
+                // Set date value
+                if (existingDate) {
+                    document.getElementById(inputId).value = existingDate;
+                } else {
+                    const monthVal = (month + 1).toString().padStart(2, '0');
+                    const dayVal = today.getDate().toString().padStart(2, '0');
+                    document.getElementById(inputId).value = `${year}-${monthVal}-${dayVal}`;
+                }
+                
+                container.querySelectorAll('.calendar-day[data-day]').forEach(day => {
+                    day.addEventListener('click', () => {
+                        container.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('selected'));
+                        day.classList.add('selected');
+                        const selectedDay = day.dataset.day.padStart(2, '0');
+                        const monthVal = (month + 1).toString().padStart(2, '0');
+                        document.getElementById(inputId).value = `${year}-${monthVal}-${selectedDay}`;
+                    });
+                });
+            }
+
+            function attachDropdowns(serviceId) {
+                document.querySelectorAll('.custom-dropdown').forEach(drop => {
+                    const selected = drop.querySelector('.dropdown-selected');
+                    const options = drop.querySelector('.dropdown-options');
+                    const opts = drop.querySelectorAll('.dropdown-option');
+                    
+                    if (!selected) return;
+                    
+                    selected.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        document.querySelectorAll('.dropdown-options.show').forEach(o => {
+                            if (o !== options) o.classList.remove('show');
+                        });
+                        document.querySelectorAll('.dropdown-selected.active').forEach(s => {
+                            if (s !== selected) s.classList.remove('active');
+                        });
+                        
+                        options.classList.toggle('show');
+                        selected.classList.toggle('active');
+                    });
+                    
+                    opts.forEach(opt => {
+                        opt.addEventListener('click', () => {
+                            selected.innerHTML = `${opt.innerText} <i class="fas fa-chevron-down"></i>`;
+                            options.classList.remove('show');
+                            selected.classList.remove('active');
+                            
+                            const target = selected.dataset.target;
+                            
+                            const inputMap = {
+                                'moveSize': 'moveSizeInput',
+                                'vehicle': 'vehicleInput',
+                                'moveTime': 'moveTimeInput',
+                                'repairType': 'repairTypeInput',
+                                'repairTime': 'repairTimeInput',
+                                'handyTime': 'handyTimeInput',
+                                'laundryType': 'laundryTypeInput',
+                                'laundryTime': 'laundryTimeInput',
+                                [`${serviceId}ContactTime`]: `${serviceId}ContactTimeInput`,
+                                [`${serviceId}Urgency`]: `${serviceId}UrgencyInput`,
+                                [`${serviceId}City`]: `${serviceId}CityInput`
+                            };
+                            
+                            if (inputMap[target]) {
+                                document.getElementById(inputMap[target]).value = opt.dataset.value;
+                            }
+                        });
+                    });
+                });
+            }
+
+            function attachSubmit(service, isEdit = false) {
+                const btn = document.getElementById('submit' + service);
+                if (!btn) return;
+                
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    const formData = new FormData();
+                    formData.append('_subject', `${isEdit ? 'Updated' : 'New'} ${service} booking`);
+                    
+                    // Common fields
+                    formData.append('name', document.getElementById(service + 'Name')?.value || '');
+                    formData.append('phone', document.getElementById(service + 'Phone')?.value || '');
+                    
+                    const contactMethod = document.querySelector(`input[name="${service}ContactMethod"]:checked`)?.value || '';
+                    formData.append('contactMethod', contactMethod);
+                    
+                    formData.append('bestTime', document.getElementById(service + 'ContactTimeInput')?.value || '');
+                    formData.append('urgency', document.getElementById(service + 'UrgencyInput')?.value || '');
+                    formData.append('city', document.getElementById(service + 'CityInput')?.value || '');
+                    formData.append('address', document.getElementById(service + 'Address')?.value || '');
+                    
+                    // Service-specific fields
+                    if (service === 'moving') {
+                        formData.append('pickup', document.getElementById('movePickup')?.value || '');
+                        formData.append('destination', document.getElementById('moveDropoff')?.value || '');
+                        formData.append('moveSize', document.getElementById('moveSizeInput')?.value || '');
+                        formData.append('vehicle', document.getElementById('vehicleInput')?.value || '');
+                        formData.append('date', document.getElementById('moveDateInput')?.value || '');
+                        formData.append('time', document.getElementById('moveTimeInput')?.value || '');
+                    }
+                    
+                    if (service === 'repair') {
+                        formData.append('device', document.getElementById('repairTypeInput')?.value || '');
+                        formData.append('description', document.getElementById('repairIssue')?.value || '');
+                        formData.append('date', document.getElementById('repairDateInput')?.value || '');
+                        formData.append('time', document.getElementById('repairTimeInput')?.value || '');
+                    }
+                    
+                    if (service === 'handyman') {
+                        const tasks = Array.from(document.querySelectorAll('#handyTasks input:checked'))
+                            .map(cb => cb.value).join(', ');
+                        formData.append('tasks', tasks);
+                        formData.append('description', document.getElementById('handyDescription')?.value || '');
+                        formData.append('date', document.getElementById('handyDateInput')?.value || '');
+                        formData.append('time', document.getElementById('handyTimeInput')?.value || '');
+                    }
+                    
+                    if (service === 'laundry') {
+                        formData.append('laundryType', document.getElementById('laundryTypeInput')?.value || '');
+                        const laundryLoc = document.querySelector('input[name="laundryLocation"]:checked')?.value || '';
+                        formData.append('laundryLocation', laundryLoc);
+                        formData.append('pickupAddress', document.getElementById('laundryPickup')?.value || '');
+                        formData.append('notes', document.getElementById('laundryNotes')?.value || '');
+                        formData.append('date', document.getElementById('laundryDateInput')?.value || '');
+                        formData.append('time', document.getElementById('laundryTimeInput')?.value || '');
+                    }
+                    
+                    // Save to history
+                    saveBookingToHistory(service, formData);
+                    
+                    // Send to Formspree
+                    const endpoint = 'https://formspree.io/f/your-endpoint'; // REPLACE THIS
+                    
+                    showToast('Sending request...', 'info');
+                    btn.disabled = true;
+                    btn.innerHTML = '<span class="loading-spinner"></span> Sending...';
+                    
+                    fetch(endpoint, {
+                        method: 'POST',
+                        body: formData,
+                        headers: { 'Accept': 'application/json' }
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            showToast(`${isEdit ? 'Booking updated' : 'Request sent'}! Our team will contact you within 30 mins.`, 'success');
+                            closeModal();
+                        } else {
+                            showToast('Error sending request. Please try again.', 'error');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        showToast('Network error. Please check your connection.', 'error');
+                    })
+                    .finally(() => {
+                        btn.disabled = false;
+                        btn.innerHTML = isEdit ? 'Update & Book' : 'Request Service';
+                    });
+                });
+            }
+
+            // Toast notification
+            const toastContainer = document.getElementById('toastContainer');
+            function showToast(message, type = 'info') {
+                const toast = document.createElement('div');
+                toast.className = 'toast';
+                
+                let icon = 'fa-info-circle';
+                if (type === 'success') icon = 'fa-check-circle';
+                if (type === 'error') icon = 'fa-exclamation-circle';
+                if (type === 'warning') icon = 'fa-exclamation-triangle';
+                
+                toast.innerHTML = `<i class="fas ${icon}"></i><span>${message}</span>`;
+                toastContainer.appendChild(toast);
+                
+                setTimeout(() => {
+                    toast.style.opacity = '0';
+                    setTimeout(() => toast.remove(), 300);
+                }, 4000);
+            }
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', () => {
+                document.querySelectorAll('.dropdown-options.show').forEach(o => o.classList.remove('show'));
+                document.querySelectorAll('.dropdown-selected.active').forEach(s => s.classList.remove('active'));
+            });
+
+            // Initialize
+            loadData();
+
+            // Refresh user data when returning to page
+            window.addEventListener('focus', () => {
+                userData = loadUserFromApp();
+                if (!isProfileComplete()) {
+                    profileWarning.style.display = 'flex';
+                } else {
+                    profileWarning.style.display = 'none';
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
