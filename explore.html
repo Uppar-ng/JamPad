@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="description" content="Explore properties on Primer - Find verified apartments, houses, and student accommodations across Nigeria with 24/7 electricity guarantee.">
-    <meta name="keywords" content="property search, Nigeria apartments, student housing, verified properties, rent in Nigeria">
+    <meta name="keywords" content="property search Nigeria, apartments Lagos, student housing Abuja, verified properties, rent in Nigeria">
     <meta name="author" content="Primer Technologies">
     <meta property="og:title" content="Explore Properties | Primer Technologies">
     <meta property="og:description" content="Browse hundreds of verified properties across Nigeria. Filter by location, price, amenities, and more.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://primert.vercel.app/explore.html">
+    <meta property="og:url" content="https://primert.vercel.app/explore">
     <meta name="twitter:card" content="summary_large_image">
     
     <title>Explore Properties | Primer Technologies - Find Your Home in Nigeria</title>
@@ -27,7 +27,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="stylesheet" href="enterprise-design-system.css">
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -42,6 +41,7 @@
             font-size: 16px;
             scroll-behavior: smooth;
             overflow-x: hidden;
+            height: 100%;
         }
         
         body {
@@ -50,6 +50,7 @@
             color: #111827;
             line-height: 1.5;
             overflow-x: hidden;
+            height: 100%;
         }
         
         /* ===== DARK MODE VARIABLES ===== */
@@ -96,54 +97,58 @@
             color: #f8fafc;
         }
         
-        /* ===== NAVIGATION ===== */
-        .explore-nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: white;
-            border-bottom: 1px solid var(--gray-200);
-            height: 70px;
+        /* ===== APP LAYOUT ===== */
+        .app {
+            height: 100vh;
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            overflow: hidden;
         }
         
-        [data-theme="dark"] .explore-nav {
+        /* ===== TOP NAVIGATION ===== */
+        .top-nav {
+            background: white;
+            border-bottom: 1px solid var(--gray-200);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 100;
+        }
+        
+        [data-theme="dark"] .top-nav {
             background: #0f172a;
             border-bottom-color: #1e293b;
         }
         
-        .nav-container {
-            max-width: 100%;
-            width: 100%;
-            padding: 0 1.5rem;
+        .nav-left {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            gap: 2rem;
         }
         
-        .logo-wrapper {
+        .logo {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.5rem;
             text-decoration: none;
         }
         
         .logo-mark {
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             background: var(--gradient-primary);
-            border-radius: 12px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-weight: 800;
-            font-size: 1.25rem;
+            font-size: 1.1rem;
         }
         
         .logo-text h1 {
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             font-weight: 800;
             background: var(--gradient-primary);
             -webkit-background-clip: text;
@@ -152,20 +157,44 @@
         }
         
         .logo-text p {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: var(--gray-500);
             font-weight: 500;
         }
         
-        .nav-actions {
+        .nav-links {
+            display: none;
+        }
+        
+        @media (min-width: 1024px) {
+            .nav-links {
+                display: flex;
+                gap: 1.5rem;
+            }
+            
+            .nav-link {
+                text-decoration: none;
+                color: var(--gray-600);
+                font-weight: 500;
+                font-size: 0.9rem;
+                transition: color 0.2s;
+            }
+            
+            .nav-link:hover,
+            .nav-link.active {
+                color: var(--primary);
+            }
+        }
+        
+        .nav-right {
             display: flex;
             align-items: center;
             gap: 1rem;
         }
         
         .theme-toggle {
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             background: var(--gray-100);
             border: none;
@@ -182,10 +211,10 @@
             transform: rotate(15deg);
         }
         
-        .btn-home {
+        .btn-primary {
             background: var(--gradient-primary);
             color: white;
-            padding: 0.6rem 1.5rem;
+            padding: 0.5rem 1.25rem;
             border-radius: 100px;
             font-weight: 600;
             font-size: 0.9rem;
@@ -193,82 +222,120 @@
             align-items: center;
             gap: 0.5rem;
             text-decoration: none;
+            border: none;
+            cursor: pointer;
             transition: all 0.2s;
+            white-space: nowrap;
         }
         
-        .btn-home:hover {
+        .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(0,102,255,0.3);
         }
         
-        /* ===== HERO SECTION ===== */
-        .explore-hero {
-            position: relative;
-            height: 300px;
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-        }
-        
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(0,102,255,0.9), rgba(0,68,204,0.9));
-            z-index: 1;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            padding: 0 1rem;
-        }
-        
-        .hero-content h1 {
-            font-size: 2.5rem;
-            font-weight: 900;
-            margin-bottom: 0.5rem;
-        }
-        
-        .hero-content p {
-            font-size: 1.1rem;
-            opacity: 0.95;
-        }
-        
-        /* ===== FILTER BAR ===== */
-        .filter-bar {
+        /* ===== SEARCH BAR ===== */
+        .search-section {
             background: white;
             border-bottom: 1px solid var(--gray-200);
             padding: 1rem 1.5rem;
-            position: sticky;
-            top: 70px;
-            z-index: 900;
+            z-index: 99;
         }
         
-        [data-theme="dark"] .filter-bar {
+        [data-theme="dark"] .search-section {
             background: #0f172a;
             border-bottom-color: #1e293b;
         }
         
-        .filter-container {
-            max-width: 100%;
-            margin: 0 auto;
+        .search-container {
             display: flex;
             align-items: center;
-            justify-content: space-between;
             gap: 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            flex-wrap: wrap;
         }
         
-        .filter-toggle {
+        .location-search {
+            flex: 2;
+            min-width: 280px;
+            position: relative;
+        }
+        
+        .location-search i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray-400);
+            pointer-events: none;
+        }
+        
+        .location-search input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 12px;
+            font-size: 0.95rem;
+            background: white;
+            transition: all 0.2s;
+        }
+        
+        [data-theme="dark"] .location-search input {
+            background: #1e293b;
+            border-color: #334155;
+            color: white;
+        }
+        
+        .location-search input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-light);
+        }
+        
+        .price-range {
+            flex: 1;
+            min-width: 200px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--gray-100);
+            padding: 0.25rem;
+            border-radius: 12px;
+        }
+        
+        .price-range select {
+            flex: 1;
+            padding: 0.5rem;
+            border: none;
+            background: transparent;
+            font-size: 0.9rem;
+            color: var(--gray-700);
+            cursor: pointer;
+        }
+        
+        [data-theme="dark"] .price-range select {
+            color: white;
+            background: #1e293b;
+        }
+        
+        .price-range select:focus {
+            outline: none;
+        }
+        
+        .filter-chips {
+            flex: 2;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .chip {
+            padding: 0.5rem 1rem;
             background: var(--gray-100);
             border: 1px solid var(--gray-200);
-            padding: 0.75rem 1.5rem;
             border-radius: 100px;
-            font-weight: 600;
+            font-size: 0.85rem;
+            font-weight: 500;
             color: var(--gray-700);
             cursor: pointer;
             display: flex;
@@ -278,96 +345,77 @@
             white-space: nowrap;
         }
         
-        [data-theme="dark"] .filter-toggle {
+        [data-theme="dark"] .chip {
             background: #1e293b;
             border-color: #334155;
             color: #e2e8f0;
         }
         
-        .filter-toggle:hover {
+        .chip:hover,
+        .chip.active {
             background: var(--primary);
             color: white;
             border-color: var(--primary);
         }
         
-        .filter-toggle i {
-            font-size: 1rem;
+        .chip i {
+            font-size: 0.75rem;
         }
         
-        .results-count {
-            font-weight: 600;
-            color: var(--gray-600);
-        }
-        
-        .results-count span {
-            color: var(--primary);
-            font-weight: 700;
-        }
-        
-        .view-toggle {
-            display: flex;
-            gap: 0.5rem;
-            background: var(--gray-100);
-            padding: 4px;
-            border-radius: 100px;
-        }
-        
-        [data-theme="dark"] .view-toggle {
-            background: #1e293b;
-        }
-        
-        .view-btn {
-            width: 40px;
-            height: 40px;
-            border: none;
+        .more-filters {
+            padding: 0.5rem 1rem;
             background: transparent;
-            border-radius: 50%;
-            color: var(--gray-500);
+            border: 1px solid var(--gray-300);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--gray-700);
             cursor: pointer;
             display: flex;
             align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
+            gap: 0.5rem;
+            white-space: nowrap;
         }
         
-        .view-btn.active {
-            background: white;
+        [data-theme="dark"] .more-filters {
+            border-color: #334155;
+            color: #e2e8f0;
+        }
+        
+        .more-filters:hover {
+            border-color: var(--primary);
             color: var(--primary);
-            box-shadow: var(--shadow-sm);
         }
         
-        [data-theme="dark"] .view-btn.active {
-            background: #0f172a;
-        }
-        
-        /* ===== FILTERS DRAWER ===== */
-        .filters-drawer {
+        /* ===== FILTERS PANEL ===== */
+        .filters-panel {
             background: white;
             border-bottom: 1px solid var(--gray-200);
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease-out;
+            z-index: 98;
         }
         
-        [data-theme="dark"] .filters-drawer {
+        [data-theme="dark"] .filters-panel {
             background: #0f172a;
             border-bottom-color: #1e293b;
         }
         
-        .filters-drawer.open {
+        .filters-panel.open {
             max-height: 500px;
             overflow-y: auto;
         }
         
         .filters-content {
-            padding: 2rem 1.5rem;
-            max-width: 1280px;
+            padding: 1.5rem;
+            max-width: 1400px;
             margin: 0 auto;
         }
         
         .filters-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 1.5rem;
             margin-bottom: 1.5rem;
         }
@@ -376,12 +424,13 @@
             font-weight: 600;
             margin-bottom: 1rem;
             color: var(--gray-700);
+            font-size: 0.9rem;
         }
         
         .filter-group label {
             display: block;
             margin-bottom: 0.5rem;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--gray-600);
             cursor: pointer;
         }
@@ -389,20 +438,6 @@
         .filter-group input[type="checkbox"] {
             margin-right: 0.5rem;
             accent-color: var(--primary);
-        }
-        
-        .price-inputs {
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-        }
-        
-        .price-inputs input {
-            width: 100%;
-            padding: 0.5rem;
-            border: 1px solid var(--gray-300);
-            border-radius: 8px;
-            font-size: 0.9rem;
         }
         
         .filter-actions {
@@ -414,9 +449,10 @@
         .btn-clear {
             background: transparent;
             border: 2px solid var(--gray-300);
-            padding: 0.75rem 1.5rem;
+            padding: 0.6rem 1.5rem;
             border-radius: 100px;
             font-weight: 600;
+            font-size: 0.9rem;
             color: var(--gray-600);
             cursor: pointer;
             transition: all 0.2s;
@@ -431,9 +467,10 @@
             background: var(--gradient-primary);
             color: white;
             border: none;
-            padding: 0.75rem 1.5rem;
+            padding: 0.6rem 1.5rem;
             border-radius: 100px;
             font-weight: 600;
+            font-size: 0.9rem;
             cursor: pointer;
             transition: all 0.2s;
         }
@@ -444,48 +481,82 @@
         }
         
         /* ===== MAIN CONTENT ===== */
-        .explore-main {
+        .main-content {
+            flex: 1;
             display: flex;
-            height: calc(100vh - 70px - 70px - 300px);
-            min-height: 600px;
-        }
-        
-        .properties-list {
-            width: 100%;
-            overflow-y: auto;
-            padding: 1.5rem;
-            background: var(--gray-50);
-        }
-        
-        [data-theme="dark"] .properties-list {
-            background: #0f172a;
-        }
-        
-        .map-view {
-            width: 0;
             overflow: hidden;
+            position: relative;
+        }
+        
+        /* ===== PROPERTIES PANEL ===== */
+        .properties-panel {
+            width: 100%;
+            background: var(--gray-50);
+            overflow-y: auto;
             transition: width 0.3s ease;
         }
         
-        .map-view.show {
-            width: 50%;
+        [data-theme="dark"] .properties-panel {
+            background: #0f172a;
         }
         
-        .properties-list.list-only {
-            width: 100%;
+        .properties-panel.with-map {
+            width: 40%;
         }
         
-        .properties-list.split-view {
-            width: 50%;
+        @media (max-width: 1024px) {
+            .properties-panel.with-map {
+                width: 100%;
+                height: 50%;
+            }
         }
         
-        #map {
-            height: 100%;
-            width: 100%;
+        .panel-header {
+            padding: 1.5rem 1.5rem 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .results-info h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        
+        .results-info p {
+            color: var(--gray-500);
+            font-size: 0.9rem;
+        }
+        
+        .results-info p span {
+            color: var(--primary);
+            font-weight: 700;
+        }
+        
+        .sort-select {
+            padding: 0.5rem 2rem 0.5rem 1rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            background: white;
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+        }
+        
+        [data-theme="dark"] .sort-select {
+            background-color: #1e293b;
+            border-color: #334155;
+            color: white;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
         }
         
         /* ===== PROPERTY GRID ===== */
         .properties-grid {
+            padding: 1.5rem;
             display: grid;
             grid-template-columns: 1fr;
             gap: 1.5rem;
@@ -499,7 +570,7 @@
         
         @media (min-width: 1200px) {
             .properties-grid {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
         }
         
@@ -508,8 +579,10 @@
             border-radius: 16px;
             overflow: hidden;
             border: 1px solid var(--gray-200);
-            transition: all 0.3s;
+            transition: all 0.2s;
             cursor: pointer;
+            display: flex;
+            flex-direction: column;
         }
         
         [data-theme="dark"] .property-card {
@@ -518,14 +591,14 @@
         }
         
         .property-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-xl);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
             border-color: var(--primary);
         }
         
         .property-image {
             position: relative;
-            height: 200px;
+            height: 180px;
             overflow: hidden;
         }
         
@@ -533,7 +606,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s;
+            transition: transform 0.3s;
         }
         
         .property-card:hover .property-image img {
@@ -542,98 +615,55 @@
         
         .property-badge {
             position: absolute;
-            top: 1rem;
-            left: 1rem;
+            top: 0.75rem;
+            left: 0.75rem;
             background: var(--gradient-primary);
             color: white;
-            padding: 0.25rem 1rem;
+            padding: 0.2rem 0.75rem;
             border-radius: 100px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 600;
             z-index: 2;
         }
         
-        .property-type {
+        .property-favorite {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: rgba(0,0,0,0.7);
-            color: white;
-            padding: 0.25rem 1rem;
-            border-radius: 100px;
-            font-size: 0.75rem;
-            font-weight: 600;
+            top: 0.75rem;
+            right: 0.75rem;
+            width: 32px;
+            height: 32px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-600);
+            cursor: pointer;
+            transition: all 0.2s;
             z-index: 2;
+            border: none;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .property-favorite:hover {
+            color: var(--primary);
+            transform: scale(1.1);
+        }
+        
+        .property-favorite.active {
+            color: #ff4444;
         }
         
         .property-content {
-            padding: 1.5rem;
-        }
-        
-        .property-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-        
-        .property-location {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--gray-500);
-            font-size: 0.9rem;
-            margin-bottom: 0.75rem;
-        }
-        
-        .property-school {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--gray-500);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-        
-        .property-features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-        }
-        
-        .property-feature {
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-            font-size: 0.8rem;
-            color: var(--gray-600);
-            background: var(--gray-100);
-            padding: 0.25rem 0.75rem;
-            border-radius: 100px;
-        }
-        
-        [data-theme="dark"] .property-feature {
-            background: #0f172a;
-        }
-        
-        .property-feature i {
-            color: var(--primary);
-            font-size: 0.7rem;
-        }
-        
-        .property-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--gray-200);
+            padding: 1rem;
+            flex: 1;
         }
         
         .property-price {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 800;
             color: var(--primary);
+            margin-bottom: 0.25rem;
         }
         
         .property-price span {
@@ -642,34 +672,125 @@
             color: var(--gray-500);
         }
         
+        .property-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--gray-900);
+        }
+        
+        [data-theme="dark"] .property-title {
+            color: white;
+        }
+        
+        .property-location {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            color: var(--gray-500);
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .property-location i {
+            font-size: 0.7rem;
+        }
+        
+        .property-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .property-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.75rem;
+            color: var(--gray-600);
+            background: var(--gray-100);
+            padding: 0.2rem 0.6rem;
+            border-radius: 100px;
+        }
+        
+        [data-theme="dark"] .property-feature {
+            background: #0f172a;
+        }
+        
+        .property-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 0.5rem;
+            border-top: 1px solid var(--gray-200);
+        }
+        
         .property-rating {
             display: flex;
             align-items: center;
             gap: 0.25rem;
             background: var(--success);
             color: white;
-            padding: 0.25rem 0.75rem;
+            padding: 0.2rem 0.6rem;
             border-radius: 100px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 600;
         }
         
-        /* ===== LOADING SPINNER ===== */
-        .loading-spinner {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 4rem 0;
+        .property-distance {
+            color: var(--gray-500);
+            font-size: 0.75rem;
         }
         
-        .loading-spinner i {
-            font-size: 3rem;
-            color: var(--primary);
-            animation: spin 1s linear infinite;
+        /* ===== MAP PANEL ===== */
+        .map-panel {
+            width: 0;
+            overflow: hidden;
+            transition: width 0.3s ease;
+            background: var(--gray-100);
         }
         
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+        .map-panel.show {
+            width: 60%;
+        }
+        
+        @media (max-width: 1024px) {
+            .map-panel.show {
+                width: 100%;
+                height: 50%;
+            }
+        }
+        
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+        
+        /* ===== MOBILE TOGGLE ===== */
+        .mobile-map-toggle {
+            display: none;
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 100px;
+            font-weight: 600;
+            box-shadow: var(--shadow-xl);
+            z-index: 1000;
+            cursor: pointer;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        
+        @media (max-width: 1024px) {
+            .mobile-map-toggle {
+                display: flex;
+            }
         }
         
         /* ===== MODAL ===== */
@@ -694,7 +815,7 @@
         
         .property-modal {
             background: white;
-            border-radius: 32px;
+            border-radius: 24px;
             max-width: 900px;
             width: 100%;
             max-height: 90vh;
@@ -710,8 +831,8 @@
             position: absolute;
             top: 1rem;
             right: 1rem;
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             background: white;
             border: none;
@@ -720,7 +841,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1rem;
             box-shadow: var(--shadow-lg);
             z-index: 10;
             transition: all 0.2s;
@@ -733,7 +854,7 @@
         }
         
         .modal-gallery {
-            height: 400px;
+            height: 300px;
             position: relative;
         }
         
@@ -747,8 +868,8 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             background: white;
             border: none;
@@ -757,7 +878,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1rem;
             box-shadow: var(--shadow-lg);
             transition: all 0.2s;
         }
@@ -781,13 +902,13 @@
             right: 1rem;
             background: rgba(0,0,0,0.7);
             color: white;
-            padding: 0.25rem 1rem;
+            padding: 0.2rem 1rem;
             border-radius: 100px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
         }
         
         .modal-content {
-            padding: 2rem;
+            padding: 1.5rem;
         }
         
         .modal-header {
@@ -795,11 +916,13 @@
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
         
         .modal-title h2 {
-            font-size: 1.8rem;
-            font-weight: 800;
+            font-size: 1.5rem;
+            font-weight: 700;
             margin-bottom: 0.5rem;
         }
         
@@ -808,6 +931,8 @@
             align-items: center;
             gap: 0.5rem;
             color: var(--gray-500);
+            font-size: 0.9rem;
+            flex-wrap: wrap;
         }
         
         .modal-price {
@@ -815,15 +940,14 @@
         }
         
         .modal-price .amount {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 800;
             color: var(--primary);
-            display: block;
             line-height: 1;
         }
         
         .modal-price .period {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--gray-500);
         }
         
@@ -833,8 +957,9 @@
             gap: 1rem;
             background: var(--gray-100);
             padding: 1rem;
-            border-radius: 16px;
-            margin-bottom: 2rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
         }
         
         [data-theme="dark"] .modal-landlord {
@@ -842,31 +967,32 @@
         }
         
         .landlord-avatar {
-            width: 60px;
-            height: 60px;
+            width: 48px;
+            height: 48px;
             background: var(--primary-light);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--primary);
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 700;
         }
         
         .landlord-info {
             flex: 1;
+            min-width: 150px;
         }
         
         .landlord-info h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
+            font-size: 1rem;
+            font-weight: 600;
             margin-bottom: 0.25rem;
         }
         
         .landlord-info p {
             color: var(--gray-500);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
         
         .landlord-rating {
@@ -880,14 +1006,16 @@
         .btn-call {
             background: var(--success);
             color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 12px;
+            padding: 0.6rem 1.25rem;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
+            font-size: 0.9rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
             transition: all 0.2s;
+            white-space: nowrap;
         }
         
         .btn-call:hover {
@@ -897,18 +1025,18 @@
         }
         
         .modal-section {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
         
         .modal-section h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
+            font-size: 1.1rem;
+            font-weight: 600;
             margin-bottom: 1rem;
         }
         
         .amenities-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
             gap: 0.75rem;
         }
         
@@ -919,7 +1047,7 @@
             background: var(--gray-100);
             padding: 0.5rem 1rem;
             border-radius: 100px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
         
         [data-theme="dark"] .amenity-item {
@@ -933,13 +1061,14 @@
         .features-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
+            gap: 0.75rem;
         }
         
         .feature-item {
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            font-size: 0.9rem;
         }
         
         .feature-item i {
@@ -949,16 +1078,17 @@
         .modal-footer {
             display: flex;
             gap: 1rem;
-            margin-top: 2rem;
+            margin-top: 1.5rem;
         }
         
         .btn-favorite {
             flex: 1;
             background: transparent;
             border: 2px solid var(--gray-300);
-            padding: 1rem;
-            border-radius: 12px;
+            padding: 0.75rem;
+            border-radius: 8px;
             font-weight: 600;
+            font-size: 0.9rem;
             color: var(--gray-600);
             cursor: pointer;
             display: flex;
@@ -979,6 +1109,24 @@
             color: var(--primary);
         }
         
+        /* ===== LOADING SPINNER ===== */
+        .loading-spinner {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 4rem 0;
+        }
+        
+        .loading-spinner i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
         /* ===== TOAST NOTIFICATIONS ===== */
         .toast-container {
             position: fixed;
@@ -990,15 +1138,16 @@
         .toast {
             background: white;
             color: #333;
-            padding: 1rem 1.5rem;
+            padding: 0.75rem 1.5rem;
             border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            box-shadow: var(--shadow-xl);
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.75rem;
             margin-top: 0.5rem;
             animation: slideUp 0.3s ease;
             border-left: 4px solid var(--primary);
+            font-size: 0.9rem;
         }
         
         [data-theme="dark"] .toast {
@@ -1016,188 +1165,181 @@
                 transform: translateY(0);
             }
         }
-        
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 1024px) {
-            .explore-main {
-                flex-direction: column;
-                height: auto;
-            }
-            
-            .properties-list.split-view,
-            .properties-list.list-only {
-                width: 100%;
-            }
-            
-            .map-view.show {
-                width: 100%;
-                height: 400px;
-            }
-            
-            .filter-container {
-                flex-wrap: wrap;
-            }
-            
-            .results-count {
-                order: -1;
-                width: 100%;
-                text-align: center;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 1.8rem;
-            }
-            
-            .modal-header {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .modal-price {
-                text-align: left;
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .modal-landlord {
-                flex-wrap: wrap;
-            }
-            
-            .btn-call {
-                width: 100%;
-                justify-content: center;
-            }
-        }
     </style>
 </head>
 <body>
-    <!-- Toast Container -->
-    <div id="toastContainer" class="toast-container"></div>
-    
-    <!-- Modal Overlay -->
-    <div class="modal-overlay" id="propertyModal">
-        <div class="property-modal" id="modalContent">
-            <!-- Modal content will be dynamically inserted here -->
+    <div class="app">
+        <!-- Toast Container -->
+        <div id="toastContainer" class="toast-container"></div>
+        
+        <!-- Modal Overlay -->
+        <div class="modal-overlay" id="propertyModal">
+            <div class="property-modal" id="modalContent"></div>
         </div>
-    </div>
-    
-    <!-- Navigation -->
-    <nav class="explore-nav">
-        <div class="nav-container">
-            <a href="index.html" class="logo-wrapper">
-    <img src="logo.png" alt="Primer Technologies" class="logo-image" style="height: 40px; width: auto;">
-                <div class="logo-text">
-                    <h1>Primer</h1>
-                    <p>technologies</p>
+        
+        <!-- Mobile Map Toggle -->
+        <button class="mobile-map-toggle" id="mobileMapToggle" onclick="toggleMobileMap()">
+            <i class="fas fa-map"></i> Show Map
+        </button>
+        
+        <!-- Top Navigation -->
+        <nav class="top-nav">
+            <div class="nav-left">
+                <a href="index.html" class="logo">
+                    <div class="logo-mark">P</div>
+                    <div class="logo-text">
+                        <h1>Primer</h1>
+                        <p>technologies</p>
+                    </div>
+                </a>
+                
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="how-it-works.html" class="nav-link">How It Works</a>
+                    <a href="for-tenants.html" class="nav-link">For Tenants</a>
+                    <a href="for-landlords.html" class="nav-link">For Landlords</a>
                 </div>
-            </a>
+            </div>
             
-            <div class="nav-actions">
+            <div class="nav-right">
                 <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
                     <i class="fas fa-moon"></i>
                 </button>
-                <a href="index.html" class="btn-home">
+                <a href="index.html" class="btn-primary">
                     <i class="fas fa-home"></i> Home
                 </a>
             </div>
-        </div>
-    </nav>
-    
-    <!-- Hero Section -->
-    <section class="explore-hero" style="background-image: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1600');">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>Find Your Perfect Home</h1>
-            <p>Browse hundreds of verified properties across Nigeria</p>
-        </div>
-    </section>
-    
-    <!-- Filter Bar -->
-    <div class="filter-bar">
-        <div class="filter-container">
-            <button class="filter-toggle" onclick="toggleFilters()">
-                <i class="fas fa-sliders-h"></i> Filters
-            </button>
-            
-            <div class="results-count" id="resultsCount">
-                <span id="propertyCount">0</span> properties found
-            </div>
-            
-            <div class="view-toggle">
-                <button class="view-btn active" onclick="setView('list')" title="List view">
-                    <i class="fas fa-list"></i>
-                </button>
-                <button class="view-btn" onclick="setView('split')" title="Split view">
-                    <i class="fas fa-map"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Filters Drawer -->
-    <div class="filters-drawer" id="filtersDrawer">
-        <div class="filters-content">
-            <div class="filters-grid">
-                <div class="filter-group">
-                    <h4>Price Range (₦/month)</h4>
-                    <div class="price-inputs">
-                        <input type="number" id="minPrice" placeholder="Min" min="0" step="10000">
-                        <span>to</span>
-                        <input type="number" id="maxPrice" placeholder="Max" min="0" step="10000">
-                    </div>
+        </nav>
+        
+        <!-- Search Bar -->
+        <div class="search-section">
+            <div class="search-container">
+                <div class="location-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="locationInput" placeholder="Search by city, neighborhood, or school..." value="Lagos, Nigeria">
                 </div>
                 
-                <div class="filter-group">
-                    <h4>Property Type</h4>
-                    <label><input type="checkbox" value="apartment"> Apartment</label>
-                    <label><input type="checkbox" value="house"> House</label>
-                    <label><input type="checkbox" value="studio"> Studio</label>
-                    <label><input type="checkbox" value="hostel"> Hostel</label>
+                <div class="price-range">
+                    <select id="minPriceSelect">
+                        <option value="0">Min Price</option>
+                        <option value="50000">₦50k</option>
+                        <option value="100000">₦100k</option>
+                        <option value="150000">₦150k</option>
+                        <option value="200000">₦200k</option>
+                        <option value="300000">₦300k</option>
+                        <option value="500000">₦500k</option>
+                    </select>
+                    <span>-</span>
+                    <select id="maxPriceSelect">
+                        <option value="10000000">Max Price</option>
+                        <option value="100000">₦100k</option>
+                        <option value="150000">₦150k</option>
+                        <option value="200000">₦200k</option>
+                        <option value="300000">₦300k</option>
+                        <option value="500000">₦500k</option>
+                        <option value="1000000">₦1M</option>
+                    </select>
                 </div>
                 
-                <div class="filter-group">
-                    <h4>Bedrooms</h4>
-                    <label><input type="checkbox" value="1"> 1 Bedroom</label>
-                    <label><input type="checkbox" value="2"> 2 Bedrooms</label>
-                    <label><input type="checkbox" value="3"> 3 Bedrooms</label>
-                    <label><input type="checkbox" value="4"> 4+ Bedrooms</label>
-                </div>
-                
-                <div class="filter-group">
-                    <h4>Amenities</h4>
-                    <label><input type="checkbox" value="electricity"> 24/7 Electricity</label>
-                    <label><input type="checkbox" value="security"> Security</label>
-                    <label><input type="checkbox" value="wifi"> WiFi</label>
-                    <label><input type="checkbox" value="parking"> Parking</label>
-                </div>
-            </div>
-            
-            <div class="filter-actions">
-                <button class="btn-clear" onclick="clearFilters()">Clear All</button>
-                <button class="btn-apply" onclick="applyFilters()">Apply Filters</button>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Main Content -->
-    <div class="explore-main">
-        <!-- Properties List -->
-        <div class="properties-list" id="propertiesList">
-            <div class="properties-grid" id="propertiesGrid">
-                <div class="loading-spinner">
-                    <i class="fas fa-circle-notch fa-spin"></i>
-                    <p style="margin-top: 1rem;">Loading properties...</p>
+                <div class="filter-chips">
+                    <span class="chip active" onclick="filterByType('apartment')">
+                        <i class="fas fa-building"></i> Apartments
+                    </span>
+                    <span class="chip" onclick="filterByType('house')">
+                        <i class="fas fa-home"></i> Houses
+                    </span>
+                    <span class="chip" onclick="filterByAmenity('electricity')">
+                        <i class="fas fa-bolt"></i> 24/7 Light
+                    </span>
+                    <span class="chip" onclick="filterByType('student')">
+                        <i class="fas fa-graduation-cap"></i> Student
+                    </span>
+                    <button class="more-filters" onclick="toggleFilters()">
+                        <i class="fas fa-sliders-h"></i> All Filters
+                    </button>
                 </div>
             </div>
         </div>
         
-        <!-- Map View -->
-        <div class="map-view" id="mapView">
-            <div id="map"></div>
+        <!-- Filters Panel -->
+        <div class="filters-panel" id="filtersPanel">
+            <div class="filters-content">
+                <div class="filters-grid">
+                    <div class="filter-group">
+                        <h4>Property Type</h4>
+                        <label><input type="checkbox" value="apartment"> Apartment</label>
+                        <label><input type="checkbox" value="house"> House</label>
+                        <label><input type="checkbox" value="studio"> Studio</label>
+                        <label><input type="checkbox" value="hostel"> Hostel</label>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h4>Bedrooms</h4>
+                        <label><input type="checkbox" value="1"> 1 Bedroom</label>
+                        <label><input type="checkbox" value="2"> 2 Bedrooms</label>
+                        <label><input type="checkbox" value="3"> 3 Bedrooms</label>
+                        <label><input type="checkbox" value="4"> 4+ Bedrooms</label>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h4>Amenities</h4>
+                        <label><input type="checkbox" value="electricity"> 24/7 Electricity</label>
+                        <label><input type="checkbox" value="security"> 24/7 Security</label>
+                        <label><input type="checkbox" value="wifi"> WiFi</label>
+                        <label><input type="checkbox" value="parking"> Parking</label>
+                        <label><input type="checkbox" value="generator"> Generator</label>
+                        <label><input type="checkbox" value="water"> Borehole Water</label>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h4>Nearby Schools</h4>
+                        <label><input type="checkbox" value="kasu"> KASU</label>
+                        <label><input type="checkbox" value="kdPoly"> Kaduna Poly</label>
+                        <label><input type="checkbox" value="afit"> AFIT</label>
+                        <label><input type="checkbox" value="abu"> ABU Zaria</label>
+                        <label><input type="checkbox" value="unilag"> UNILAG</label>
+                        <label><input type="checkbox" value="ui"> UI</label>
+                    </div>
+                </div>
+                
+                <div class="filter-actions">
+                    <button class="btn-clear" onclick="clearAllFilters()">Clear All</button>
+                    <button class="btn-apply" onclick="applyAdvancedFilters()">Apply Filters</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Properties Panel -->
+            <div class="properties-panel with-map" id="propertiesPanel">
+                <div class="panel-header">
+                    <div class="results-info">
+                        <h2>Properties in Nigeria</h2>
+                        <p><span id="propertyCount">0</span> homes available</p>
+                    </div>
+                    
+                    <select class="sort-select" id="sortSelect" onchange="sortProperties()">
+                        <option value="recommended">Recommended</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="newest">Newest</option>
+                        <option value="rating">Top Rated</option>
+                    </select>
+                </div>
+                
+                <div class="properties-grid" id="propertiesGrid">
+                    <div class="loading-spinner">
+                        <i class="fas fa-circle-notch fa-spin"></i>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Loading properties...</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Map Panel -->
+            <div class="map-panel show" id="mapPanel">
+                <div id="map"></div>
+            </div>
         </div>
     </div>
     
@@ -1220,19 +1362,61 @@
             }
         }
         
-        // Apply saved theme
         const savedTheme = localStorage.getItem('theme') || 'light';
         document.documentElement.setAttribute('data-theme', savedTheme);
+        
+        // ===== MOBILE MAP TOGGLE =====
+        let mapVisible = true;
+        
+        function toggleMobileMap() {
+            const mapPanel = document.getElementById('mapPanel');
+            const propertiesPanel = document.getElementById('propertiesPanel');
+            const toggleBtn = document.getElementById('mobileMapToggle');
+            
+            mapVisible = !mapVisible;
+            
+            if (mapVisible) {
+                mapPanel.classList.add('show');
+                propertiesPanel.classList.add('with-map');
+                toggleBtn.innerHTML = '<i class="fas fa-list"></i> Show List';
+                
+                setTimeout(() => {
+                    if (map) map.invalidateSize();
+                }, 300);
+            } else {
+                mapPanel.classList.remove('show');
+                propertiesPanel.classList.remove('with-map');
+                toggleBtn.innerHTML = '<i class="fas fa-map"></i> Show Map';
+            }
+        }
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 1024) {
+                document.getElementById('mapPanel').classList.add('show');
+                document.getElementById('propertiesPanel').classList.add('with-map');
+                mapVisible = true;
+            }
+            
+            if (map) {
+                setTimeout(() => map.invalidateSize(), 100);
+            }
+        });
         
         // ===== GLOBAL VARIABLES =====
         let properties = [];
         let filteredProperties = [];
         let map = null;
         let markers = [];
-        let currentView = 'list'; // 'list' or 'split'
         let currentProperty = null;
         let currentGalleryIndex = 0;
         let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        
+        // Nigerian cities coordinates
+        const nigeriaBounds = {
+            southWest: [4.0, 2.0],
+            northEast: [14.0, 15.0]
+        };
         
         // ===== TOAST NOTIFICATION =====
         function showToast(message, type = 'info') {
@@ -1260,38 +1444,7 @@
         
         // ===== FILTERS TOGGLE =====
         function toggleFilters() {
-            const drawer = document.getElementById('filtersDrawer');
-            drawer.classList.toggle('open');
-        }
-        
-        // ===== VIEW TOGGLE =====
-        function setView(view) {
-            currentView = view;
-            
-            const listView = document.getElementById('propertiesList');
-            const mapView = document.getElementById('mapView');
-            const viewBtns = document.querySelectorAll('.view-btn');
-            
-            viewBtns.forEach(btn => btn.classList.remove('active'));
-            
-            if (view === 'list') {
-                viewBtns[0].classList.add('active');
-                listView.classList.remove('split-view');
-                listView.classList.add('list-only');
-                mapView.classList.remove('show');
-            } else {
-                viewBtns[1].classList.add('active');
-                listView.classList.remove('list-only');
-                listView.classList.add('split-view');
-                mapView.classList.add('show');
-                
-                // Refresh map if needed
-                if (map) {
-                    setTimeout(() => {
-                        map.invalidateSize();
-                    }, 300);
-                }
-            }
+            document.getElementById('filtersPanel').classList.toggle('open');
         }
         
         // ===== FORMAT CURRENCY =====
@@ -1299,7 +1452,7 @@
             return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
         }
         
-        // ===== EXTRACT FEATURE LABEL =====
+        // ===== EXTRACT FEATURE INFO =====
         function getFeatureLabel(feature) {
             if (typeof feature === 'string') return feature;
             return feature.label || '';
@@ -1310,13 +1463,30 @@
             return feature.icon || 'fa-check-circle';
         }
         
-        // ===== LOAD PROPERTIES FROM GITHUB =====
+        // ===== LOAD PROPERTIES =====
         async function loadProperties() {
             try {
                 const response = await fetch('https://raw.githubusercontent.com/Uppar-ng/Uppar-ng/main/properties.json');
                 const data = await response.json();
                 
                 properties = data.properties || [];
+                
+                // Add coordinates for Nigerian cities if missing
+                properties = properties.map(p => {
+                    if (!p.coordinates) {
+                        // Assign approximate coordinates based on location
+                        const location = (p.location || '').toLowerCase();
+                        if (location.includes('lagos')) p.coordinates = [6.5244, 3.3792];
+                        else if (location.includes('abuja')) p.coordinates = [9.0765, 7.3986];
+                        else if (location.includes('kaduna')) p.coordinates = [10.5264, 7.4388];
+                        else if (location.includes('kano')) p.coordinates = [12.0022, 8.5920];
+                        else if (location.includes('ibadan')) p.coordinates = [7.3776, 3.9470];
+                        else if (location.includes('portharcourt')) p.coordinates = [4.8156, 7.0498];
+                        else p.coordinates = [9.0820, 8.6753]; // Center of Nigeria
+                    }
+                    return p;
+                });
+                
                 filteredProperties = [...properties];
                 
                 updateResultsCount();
@@ -1328,10 +1498,13 @@
                 showToast('Could not load properties', 'error');
                 
                 document.getElementById('propertiesGrid').innerHTML = `
-                    <div class="no-jobs" style="grid-column: 1/-1; text-align: center; padding: 4rem;">
+                    <div style="grid-column: 1/-1; text-align: center; padding: 4rem;">
                         <i class="fas fa-exclamation-circle" style="font-size: 3rem; color: var(--gray-400);"></i>
                         <h3 style="margin: 1rem 0;">Failed to Load Properties</h3>
-                        <p style="color: var(--gray-500);">Please check your connection and try again.</p>
+                        <p style="color: var(--gray-500);">Please check your connection and refresh.</p>
+                        <button class="btn-primary" style="margin-top: 1rem;" onclick="location.reload()">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
                     </div>
                 `;
             }
@@ -1348,19 +1521,20 @@
             
             if (filteredProperties.length === 0) {
                 grid.innerHTML = `
-                    <div class="no-jobs" style="grid-column: 1/-1; text-align: center; padding: 4rem;">
+                    <div style="grid-column: 1/-1; text-align: center; padding: 4rem;">
                         <i class="fas fa-home" style="font-size: 3rem; color: var(--gray-400);"></i>
                         <h3 style="margin: 1rem 0;">No Properties Found</h3>
                         <p style="color: var(--gray-500);">Try adjusting your filters</p>
-                        <button class="btn-clear" style="margin-top: 1rem;" onclick="clearFilters()">Clear Filters</button>
+                        <button class="btn-clear" style="margin-top: 1rem;" onclick="clearAllFilters()">Clear Filters</button>
                     </div>
                 `;
                 return;
             }
             
             grid.innerHTML = filteredProperties.map(property => {
-                const isNew = property.isNew || (new Date(property.addedDate) > new Date(Date.now() - 7 * 24 * 60 * 60 * 1000));
-                const features = (property.features || []).slice(0, 3).map(f => `
+                const isNew = property.isNew || (property.addedDate && new Date(property.addedDate) > new Date(Date.now() - 7 * 24 * 60 * 60 * 1000));
+                const isFavorite = favorites.includes(property.id);
+                const features = (property.features || []).slice(0, 2).map(f => `
                     <span class="property-feature">
                         <i class="fas fa-${getFeatureIcon(f)}"></i> ${getFeatureLabel(f)}
                     </span>
@@ -1371,33 +1545,35 @@
                         <div class="property-image">
                             <img src="${property.images?.[0] || 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=500'}" 
                                  alt="${property.title}"
+                                 loading="lazy"
                                  onerror="this.src='https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=500'">
                             ${isNew ? '<span class="property-badge">NEW</span>' : ''}
-                            <span class="property-type">${property.type || 'Apartment'}</span>
+                            <button class="property-favorite ${isFavorite ? 'active' : ''}" onclick="event.stopPropagation(); toggleFavorite('${property.id}')">
+                                <i class="fas fa-heart"></i>
+                            </button>
                         </div>
                         <div class="property-content">
+                            <div class="property-price">
+                                ₦${formatNaira(property.price)}<span>/mo</span>
+                            </div>
                             <h3 class="property-title">${property.title}</h3>
                             <div class="property-location">
                                 <i class="fas fa-map-marker-alt"></i>
-                                <span>${property.location || 'Location available'}</span>
-                            </div>
-                            <div class="property-school">
-                                <i class="fas fa-university"></i>
-                                <span>${property.school || 'Near campus'}</span>
+                                <span>${property.location || 'Nigeria'}</span>
                             </div>
                             <div class="property-features">
                                 ${features}
-                                ${property.features?.length > 3 ? `<span class="property-feature"><i class="fas fa-plus-circle"></i> +${property.features.length - 3}</span>` : ''}
+                                ${property.features?.length > 2 ? `<span class="property-feature"><i class="fas fa-plus-circle"></i> +${property.features.length - 2}</span>` : ''}
                             </div>
                             <div class="property-footer">
-                                <div class="property-price">
-                                    ₦${formatNaira(property.price)}<span>/month</span>
-                                </div>
                                 ${property.landlord?.rating ? `
                                     <div class="property-rating">
                                         <i class="fas fa-star"></i> ${property.landlord.rating}
                                     </div>
                                 ` : ''}
+                                <div class="property-distance">
+                                    <i class="fas fa-graduation-cap"></i> ${property.distance || 'Near campus'}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1407,15 +1583,28 @@
             updateMapMarkers();
         }
         
-        // ===== INITIALIZE MAP =====
+        // ===== INITIALIZE MAP (Nigeria focused) =====
         function initMap() {
             // Center of Nigeria
             const nigeriaCenter = [9.0820, 8.6753];
             
-            map = L.map('map').setView(nigeriaCenter, 6);
+            map = L.map('map', {
+                maxBounds: L.latLngBounds([4.0, 2.0], [14.0, 15.0]),
+                maxBoundsViscosity: 1.0
+            }).setView(nigeriaCenter, 6);
             
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+                minZoom: 6,
+                maxZoom: 18
+            }).addTo(map);
+            
+            // Add Nigeria boundary (approximate)
+            L.rectangle(L.latLngBounds([4.0, 2.0], [14.0, 15.0]), {
+                color: "#0066FF",
+                weight: 2,
+                fill: false,
+                dashArray: "5, 5"
             }).addTo(map);
             
             updateMapMarkers();
@@ -1432,15 +1621,21 @@
             // Add markers for filtered properties
             filteredProperties.forEach(property => {
                 if (property.coordinates && property.coordinates.length === 2) {
-                    const marker = L.marker(property.coordinates).addTo(map);
+                    const marker = L.marker(property.coordinates, {
+                        icon: L.divIcon({
+                            className: 'custom-marker',
+                            html: `<div style="background: var(--primary); width: 30px; height: 30px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 10px rgba(0,0,0,0.2);"></div>`,
+                            iconSize: [30, 30],
+                            iconAnchor: [15, 15]
+                        })
+                    }).addTo(map);
                     
-                    // Create popup content
                     const popupContent = `
                         <div style="min-width: 200px; cursor: pointer;" onclick="openPropertyModal('${property.id}')">
                             <img src="${property.images?.[0] || 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=200'}" 
                                  style="width: 100%; height: 120px; object-fit: cover; border-radius: 8px; margin-bottom: 8px;">
-                            <h4 style="margin: 0 0 4px; font-weight: 700;">${property.title}</h4>
-                            <p style="margin: 0 0 4px; font-size: 0.9rem;">${property.location}</p>
+                            <h4 style="margin: 0 0 4px; font-weight: 700; font-size: 1rem;">${property.title}</h4>
+                            <p style="margin: 0 0 4px; font-size: 0.85rem; color: #666;">${property.location || 'Nigeria'}</p>
                             <p style="margin: 0; font-weight: 700; color: #0066FF;">₦${formatNaira(property.price)}/month</p>
                         </div>
                     `;
@@ -1458,8 +1653,110 @@
             // Fit bounds to show all markers
             if (markers.length > 0) {
                 const group = L.featureGroup(markers);
-                map.fitBounds(group.getBounds().pad(0.1));
+                map.fitBounds(group.getBounds().pad(0.1), {
+                    maxZoom: 14
+                });
             }
+        }
+        
+        // ===== FILTER FUNCTIONS =====
+        function filterByType(type) {
+            const chips = document.querySelectorAll('.chip');
+            chips.forEach(chip => chip.classList.remove('active'));
+            
+            const clickedChip = event.currentTarget;
+            clickedChip.classList.add('active');
+            
+            if (type === 'apartment') {
+                filteredProperties = properties.filter(p => p.type === 'apartment');
+            } else if (type === 'house') {
+                filteredProperties = properties.filter(p => p.type === 'house');
+            } else if (type === 'student') {
+                filteredProperties = properties.filter(p => p.category === 'student');
+            }
+            
+            updateResultsCount();
+            displayProperties();
+        }
+        
+        function filterByAmenity(amenity) {
+            const chips = document.querySelectorAll('.chip');
+            chips.forEach(chip => chip.classList.remove('active'));
+            
+            const clickedChip = event.currentTarget;
+            clickedChip.classList.add('active');
+            
+            filteredProperties = properties.filter(p => {
+                const amenities = (p.amenities || []).map(a => a.toLowerCase());
+                return amenities.some(a => a.includes(amenity));
+            });
+            
+            updateResultsCount();
+            displayProperties();
+        }
+        
+        function applyAdvancedFilters() {
+            const propertyTypes = Array.from(document.querySelectorAll('.filter-group input[type="checkbox"]'))
+                .filter(cb => cb.checked)
+                .map(cb => cb.value);
+            
+            filteredProperties = properties.filter(property => {
+                // Price filter from selects
+                const minPrice = parseInt(document.getElementById('minPriceSelect').value) || 0;
+                const maxPrice = parseInt(document.getElementById('maxPriceSelect').value) || Infinity;
+                
+                if (property.price < minPrice || property.price > maxPrice) return false;
+                
+                // Property type filter
+                if (propertyTypes.length > 0) {
+                    if (!propertyTypes.includes(property.type)) return false;
+                }
+                
+                return true;
+            });
+            
+            updateResultsCount();
+            displayProperties();
+            toggleFilters(); // Close panel
+            
+            showToast(`Found ${filteredProperties.length} properties`, 'success');
+        }
+        
+        function clearAllFilters() {
+            document.querySelectorAll('.filter-group input[type="checkbox"]').forEach(cb => {
+                cb.checked = false;
+            });
+            
+            document.getElementById('minPriceSelect').value = '0';
+            document.getElementById('maxPriceSelect').value = '10000000';
+            
+            filteredProperties = [...properties];
+            updateResultsCount();
+            displayProperties();
+        }
+        
+        function sortProperties() {
+            const sortBy = document.getElementById('sortSelect').value;
+            
+            switch(sortBy) {
+                case 'price-low':
+                    filteredProperties.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-high':
+                    filteredProperties.sort((a, b) => b.price - a.price);
+                    break;
+                case 'newest':
+                    filteredProperties.sort((a, b) => new Date(b.addedDate || 0) - new Date(a.addedDate || 0));
+                    break;
+                case 'rating':
+                    filteredProperties.sort((a, b) => (b.landlord?.rating || 0) - (a.landlord?.rating || 0));
+                    break;
+                default:
+                    // Recommended - keep original order
+                    break;
+            }
+            
+            displayProperties();
         }
         
         // ===== OPEN PROPERTY MODAL =====
@@ -1473,7 +1770,6 @@
             const modal = document.getElementById('modalContent');
             const isFavorite = favorites.includes(property.id);
             
-            // Format features
             const featuresHtml = (property.features || []).map(f => `
                 <div class="feature-item">
                     <i class="fas fa-${getFeatureIcon(f)}"></i>
@@ -1481,7 +1777,6 @@
                 </div>
             `).join('');
             
-            // Format amenities
             const amenitiesHtml = (property.amenities || []).map(amenity => `
                 <span class="amenity-item">
                     <i class="fas fa-check-circle"></i> ${amenity}
@@ -1514,7 +1809,7 @@
                         <div class="modal-title">
                             <h2>${property.title}</h2>
                             <p>
-                                <i class="fas fa-map-marker-alt"></i> ${property.location || 'Location available'}
+                                <i class="fas fa-map-marker-alt"></i> ${property.location || 'Nigeria'}
                                 <span style="margin-left: 1rem;"><i class="fas fa-university"></i> ${property.school || 'Near campus'}</span>
                             </p>
                         </div>
@@ -1526,19 +1821,19 @@
                     
                     <div class="modal-landlord">
                         <div class="landlord-avatar">
-                            ${property.landlord?.name?.charAt(0) || 'L'}
+                            ${property.landlord?.name?.charAt(0) || 'P'}
                         </div>
                         <div class="landlord-info">
                             <h3>${property.landlord?.name || 'Property Manager'}</h3>
-                            <p>${property.distance || 'Property Manager'}</p>
+                            <p>${property.landlord?.phone || 'Contact for details'}</p>
                             ${property.landlord?.rating ? `
                                 <div class="landlord-rating">
-                                    <i class="fas fa-star"></i> ${property.landlord.rating} · Verified Landlord
+                                    <i class="fas fa-star"></i> ${property.landlord.rating} · Verified
                                 </div>
                             ` : ''}
                         </div>
                         <a href="tel:${property.landlord?.phone || '+234800000000'}" class="btn-call">
-                            <i class="fas fa-phone-alt"></i> Call Landlord
+                            <i class="fas fa-phone-alt"></i> Call
                         </a>
                     </div>
                     
@@ -1618,9 +1913,17 @@
             
             localStorage.setItem('favorites', JSON.stringify(favorites));
             
+            // Update all favorite buttons for this property
+            document.querySelectorAll('.property-favorite').forEach(btn => {
+                const btnOnClick = btn.getAttribute('onclick');
+                if (btnOnClick && btnOnClick.includes(propertyId)) {
+                    btn.classList.toggle('active');
+                }
+            });
+            
             // Update modal button if open
             const favBtn = document.querySelector('.btn-favorite');
-            if (favBtn) {
+            if (favBtn && favBtn.getAttribute('onclick')?.includes(propertyId)) {
                 if (favorites.includes(propertyId)) {
                     favBtn.classList.add('active');
                     favBtn.innerHTML = '<i class="fas fa-heart"></i> Saved';
@@ -1631,69 +1934,34 @@
             }
         }
         
-        // ===== APPLY FILTERS =====
-        function applyFilters() {
-            const minPrice = parseInt(document.getElementById('minPrice').value) || 0;
-            const maxPrice = parseInt(document.getElementById('maxPrice').value) || Infinity;
-            
-            const propertyTypes = Array.from(document.querySelectorAll('.filter-group input[type="checkbox"]:checked'))
-                .map(cb => cb.value);
-            
-            filteredProperties = properties.filter(property => {
-                // Price filter
-                if (property.price < minPrice || property.price > maxPrice) return false;
-                
-                // Property type filter
-                if (propertyTypes.length > 0 && !propertyTypes.includes(property.type)) return false;
-                
-                // Amenities filter
-                const amenityFilters = Array.from(document.querySelectorAll('.filter-group:last-child input:checked'))
-                    .map(cb => cb.value);
-                
-                if (amenityFilters.length > 0) {
-                    const propertyAmenities = (property.amenities || []).map(a => a.toLowerCase());
-                    const hasAll = amenityFilters.every(filter => 
-                        propertyAmenities.some(a => a.includes(filter))
-                    );
-                    if (!hasAll) return false;
-                }
-                
-                return true;
-            });
-            
-            updateResultsCount();
-            displayProperties();
-            toggleFilters(); // Close drawer
-            
-            showToast(`Found ${filteredProperties.length} properties`, 'success');
-        }
-        
-        // ===== CLEAR FILTERS =====
-        function clearFilters() {
-            document.getElementById('minPrice').value = '';
-            document.getElementById('maxPrice').value = '';
-            
-            document.querySelectorAll('.filter-group input[type="checkbox"]').forEach(cb => {
-                cb.checked = false;
-            });
-            
-            filteredProperties = [...properties];
-            updateResultsCount();
-            displayProperties();
-        }
-        
-        // ===== CLOSE MODAL WITH ESCAPE KEY =====
+        // ===== EVENT LISTENERS =====
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeModal();
             }
         });
         
-        // Close modal when clicking outside
         document.getElementById('propertyModal').addEventListener('click', function(e) {
             if (e.target === this) {
                 closeModal();
             }
+        });
+        
+        document.getElementById('locationInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            if (searchTerm.length < 2) {
+                filteredProperties = [...properties];
+            } else {
+                filteredProperties = properties.filter(p => 
+                    (p.location && p.location.toLowerCase().includes(searchTerm)) ||
+                    (p.title && p.title.toLowerCase().includes(searchTerm)) ||
+                    (p.school && p.school.toLowerCase().includes(searchTerm))
+                );
+            }
+            
+            updateResultsCount();
+            displayProperties();
         });
         
         // ===== INITIALIZE =====
