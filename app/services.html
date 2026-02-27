@@ -66,49 +66,49 @@
     height: 100%;
     z-index: 0;
     pointer-events: none;
-    opacity: 0.115; /* Increased from 0.08 to 0.25 for better visibility */
+    opacity: 0.115;
     overflow: hidden;
 }
 
 .bg-icons i {
     position: absolute;
-    font-size: 4.5rem; /* Slightly larger */
+    font-size: 4.5rem;
     animation: float 22s infinite linear;
     user-select: none;
-    filter: drop-shadow(0 0 5px rgba(37, 99, 235, 0.3)); /* Add subtle glow */
+    filter: drop-shadow(0 0 5px rgba(37, 99, 235, 0.3));
 }
 
 /* Different colors for each icon */
 .bg-icons i:nth-child(1) { 
     left: 5%; 
-    color: #2563EB; /* Primary blue */
+    color: #2563EB;
     animation-duration: 18s; 
     opacity: 0.8;
 }
 .bg-icons i:nth-child(2) { 
     left: 15%; 
-    color: #059669; /* Green */
+    color: #059669;
     animation-duration: 25s; 
     animation-delay: 2s;
     opacity: 0.35;
 }
 .bg-icons i:nth-child(3) { 
     left: 30%; 
-    color: #7C3AED; /* Purple */
+    color: #7C3AED;
     animation-duration: 22s; 
     animation-delay: 5s;
     opacity: 0.4;
 }
 .bg-icons i:nth-child(4) { 
     left: 50%; 
-    color: #DC2626; /* Red */
+    color: #DC2626;
     animation-duration: 30s; 
     animation-delay: 1s;
     opacity: 0.3;
 }
 .bg-icons i:nth-child(5) { 
     left: 70%; 
-    color: #F59E0B; /* Amber */
+    color: #F59E0B;
     animation-duration: 20s; 
     animation-delay: 8s;
     opacity: 0.4;
@@ -116,14 +116,14 @@
 }
 .bg-icons i:nth-child(6) { 
     left: 85%; 
-    color: #2563EB; /* Blue */
+    color: #2563EB;
     animation-duration: 28s; 
     animation-delay: 3s;
     opacity: 0.35;
 }
 .bg-icons i:nth-child(7) { 
     left: 40%; 
-    color: #059669; /* Green */
+    color: #059669;
     animation-duration: 24s; 
     animation-delay: 12s;
     opacity: 0.4;
@@ -131,13 +131,42 @@
 }
 .bg-icons i:nth-child(8) { 
     left: 95%; 
-    color: #7C3AED; /* Purple */
+    color: #7C3AED;
     animation-duration: 26s; 
     animation-delay: 6s;
     opacity: 0.35;
 }
+.bg-icons i:nth-child(9) { 
+    left: 20%; 
+    color: #DC2626; 
+    animation-duration: 23s; 
+    animation-delay: 4s;
+    opacity: 0.3;
+    font-size: 3.2rem;
+}
+.bg-icons i:nth-child(10) { 
+    left: 65%; 
+    color: #F59E0B; 
+    animation-duration: 27s; 
+    animation-delay: 9s;
+    opacity: 0.35;
+    font-size: 3.8rem;
+}
+.bg-icons i:nth-child(11) { 
+    left: 45%; 
+    color: #2563EB; 
+    animation-duration: 21s; 
+    animation-delay: 7s;
+    opacity: 0.3;
+}
+.bg-icons i:nth-child(12) { 
+    left: 75%; 
+    color: #10B981; 
+    animation-duration: 29s; 
+    animation-delay: 11s;
+    opacity: 0.35;
+}
 
-/* Animation keyframes with scaling effect */
 @keyframes float {
     0% { 
         transform: translateY(100vh) rotate(0deg) scale(1); 
@@ -169,7 +198,6 @@
     }
 }
 
-/* Dark mode adjustments */
 [data-theme="dark"] .bg-icons i {
     filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.5));
 }
@@ -183,26 +211,6 @@
 [data-theme="dark"] .bg-icons i:nth-child(7) { color: #10B981; }
 [data-theme="dark"] .bg-icons i:nth-child(8) { color: #8B5CF6; }
 
-/* Additional floating icons for more variety */
-.bg-icons i:nth-child(9) { 
-    left: 20%; 
-    color: #DC2626; 
-    animation-duration: 23s; 
-    animation-delay: 4s;
-    opacity: 0.3;
-    font-size: 3.2rem;
-    content: "\f0c2"; /* cloud icon */
-}
-.bg-icons i:nth-child(10) { 
-    left: 65%; 
-    color: #F59E0B; 
-    animation-duration: 27s; 
-    animation-delay: 9s;
-    opacity: 0.35;
-    font-size: 3.8rem;
-}
-
-/* Make icons slightly more visible on mobile */
 @media (max-width: 768px) {
     .bg-icons {
         opacity: 0.2;
@@ -212,7 +220,6 @@
     }
 }
 
-/* Reduce animation on devices that prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
     .bg-icons i {
         animation: none;
@@ -320,7 +327,6 @@
             text-decoration: none;
             margin-left: auto;
         }
-        /* banner ad */
         .banner-ad {
             background: linear-gradient(135deg, var(--primary), var(--accent));
             border-radius: var(--radius-xl);
@@ -371,7 +377,6 @@
             text-decoration: none;
             align-self: flex-start;
         }
-        /* service grid */
         .service-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -403,7 +408,6 @@
             border: 2px solid var(--primary);
             background: var(--primary-light);
         }
-        /* previous bookings section */
         .previous-bookings {
             background: var(--surface);
             border-radius: var(--radius-2xl);
@@ -460,6 +464,16 @@
             width: 16px;
             color: var(--primary);
         }
+        .booking-id-badge {
+            font-size: 11px;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 2px 8px;
+            border-radius: 30px;
+            display: inline-block;
+            margin-top: 6px;
+            border: 1px solid var(--primary);
+        }
         .empty-bookings {
             text-align: center;
             padding: 32px;
@@ -469,7 +483,6 @@
             font-size: 48px;
             margin-bottom: 12px;
         }
-        /* how it works with animations */
         .how-it-works {
             background: var(--surface);
             border-radius: var(--radius-2xl);
@@ -501,8 +514,9 @@
             opacity: 0;
         }
         .step:nth-child(1) { animation-delay: 0.1s; }
-        .step:nth-child(2) { animation-delay: 0.3s; }
-        .step:nth-child(3) { animation-delay: 0.5s; }
+        .step:nth-child(2) { animation-delay: 0.2s; }
+        .step:nth-child(3) { animation-delay: 0.3s; }
+        .step:nth-child(4) { animation-delay: 0.4s; }
         
         @keyframes slideInRight {
             from {
@@ -539,7 +553,6 @@
             color: var(--text-secondary);
             font-size: 14px;
         }
-        /* modal sheet */
         .modal-backdrop {
             position: fixed;
             inset: 0;
@@ -601,7 +614,6 @@
         .modal-content {
             padding: 24px 20px 32px;
         }
-        /* form elements */
         .form-group {
             margin-bottom: 22px;
         }
@@ -763,6 +775,51 @@
             gap: 6px;
             cursor: pointer;
         }
+        .counter-control {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: var(--surface-hover);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 8px 12px;
+            width: fit-content;
+        }
+        .counter-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--primary);
+            font-size: 20px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.1s;
+            user-select: none;
+        }
+        .counter-btn:active {
+            background: var(--primary-light);
+            transform: scale(0.95);
+        }
+        .counter-btn.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .counter-value {
+            font-size: 20px;
+            font-weight: 600;
+            min-width: 40px;
+            text-align: center;
+        }
+        .counter-hint {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            margin-top: 4px;
+        }
         .info-note {
             background: var(--primary-light);
             padding: 14px 18px;
@@ -847,33 +904,51 @@
             animation: spin 0.6s infinite;
         }
         @keyframes spin { to { transform: rotate(360deg); } }
+
+        .floating-call-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(37,99,235,0.5);
+            z-index: 500;
+            cursor: pointer;
+            transition: transform 0.2s, opacity 0.2s;
+            border: 2px solid white;
+            font-size: 26px;
+            text-decoration: none;
+        }
+        .floating-call-btn:hover {
+            transform: scale(1.08);
+        }
+        .floating-call-btn.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        [data-theme="dark"] .floating-call-btn {
+            border-color: #1F2937;
+        }
     </style>
 </head>
 <body>
-    <!-- floating background icons (enhanced with more colors) -->
-<div class="bg-icons">
-    <i class="fas fa-truck"></i>
-    <i class="fas fa-tools"></i>
-    <i class="fas fa-wrench"></i>
-    <i class="fas fa-soap"></i>
-    <i class="fas fa-box"></i>
-    <i class="fas fa-paint-roller"></i>
-    <i class="fas fa-bolt"></i>
-    <i class="fas fa-broom"></i>
-    <i class="fas fa-snowplow"></i>
-    <i class="fas fa-tshirt"></i>
-    <i class="fas fa-couch"></i>
-    <i class="fas fa-chair"></i>
-</div>
+    <div class="bg-icons">
+        <i class="fas fa-truck"></i><i class="fas fa-tools"></i><i class="fas fa-wrench"></i><i class="fas fa-soap"></i>
+        <i class="fas fa-box"></i><i class="fas fa-paint-roller"></i><i class="fas fa-bolt"></i><i class="fas fa-broom"></i>
+        <i class="fas fa-snowplow"></i><i class="fas fa-tshirt"></i><i class="fas fa-couch"></i><i class="fas fa-chair"></i>
+    </div>
 
     <div id="app">
         <header class="app-header">
             <div class="header-content">
                 <div class="logo">
-                    <a href="index.html" class="icon-btn" style="text-decoration: none; margin-right: 8px;">
-                        <i class="fas fa-arrow-left"></i>
-                    </a>
-                    
+                    <a href="index.html" class="icon-btn"><i class="fas fa-arrow-left"></i></a>
                     <span class="logo-text">Request Services</span>
                 </div>
                 <div class="header-actions">
@@ -882,43 +957,26 @@
             </div>
         </header>
 
-        <!-- Profile warning (shows if profile incomplete) -->
         <div id="profileWarning" class="profile-warning" style="display: none;">
             <i class="fas fa-exclamation-triangle"></i>
             <span>Complete your profile for faster booking</span>
             <a href="index.html#profile">Update Profile →</a>
         </div>
 
-        <!-- dynamic banner from ads.json -->
-        <div class="banner-ad" id="dynamicBanner">
-            <div class="banner-content">
-                <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
-                    <div class="banner-icon"><i class="fas fa-spinner fa-pulse"></i></div>
-                    <div class="banner-text">
-                        <h3 class="banner-title">Loading ads...</h3>
-                        <p class="banner-description">Please wait</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="banner-ad" id="dynamicBanner"></div>
 
-        <!-- service grid -->
         <div class="service-grid" id="serviceGrid">
             <div class="service-card"><i class="fas fa-spinner fa-pulse"></i><span>Loading...</span></div>
         </div>
 
-        <!-- Previous Bookings Section -->
         <div class="previous-bookings" id="previousBookings">
             <div class="section-title">
                 <i class="fas fa-history" style="color: var(--primary);"></i>
                 Previous Bookings
             </div>
-            <div class="bookings-list" id="bookingsList">
-                <!-- Will be populated dynamically -->
-            </div>
+            <div class="bookings-list" id="bookingsList"></div>
         </div>
 
-        <!-- how it works section (animated) -->
         <div class="how-it-works">
             <div class="section-title">How it works</div>
             <div class="steps">
@@ -943,11 +1001,17 @@
                         <p>We assign a qualified gig worker who goes to your location.</p>
                     </div>
                 </div>
+                <div class="step">
+                    <div class="step-icon">4</div>
+                    <div class="step-text">
+                        <h4>Secure access with Booking ID</h4>
+                        <p>Provider reads your unique booking ID. Only if it matches, they enter your home/office – ensuring your safety.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- modal sheet -->
     <div class="modal-backdrop" id="modalBackdrop"></div>
     <div class="modal-sheet" id="modalSheet">
         <div class="modal-header">
@@ -958,31 +1022,29 @@
     </div>
 
     <div class="toast-container" id="toastContainer"></div>
+    <a href="tel:+2348100590574" class="floating-call-btn" id="floatingCallBtn">
+        <i class="fas fa-phone-alt"></i>
+    </a>
 
     <script>
         (function() {
-            // ---------- SYNC DARK MODE WITH APP.JS ----------
             const themeToggle = document.getElementById('themeToggle');
             const html = document.documentElement;
             
-            // Listen for theme changes from app.js (via localStorage)
             function syncThemeWithApp() {
                 const appTheme = localStorage.getItem('primer_theme') || 'light';
                 html.setAttribute('data-theme', appTheme);
                 themeToggle.innerHTML = appTheme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
             }
             
-            // Initial sync
             syncThemeWithApp();
             
-            // Watch for theme changes from app.js
             window.addEventListener('storage', (e) => {
                 if (e.key === 'primer_theme') {
                     syncThemeWithApp();
                 }
             });
             
-            // Toggle theme (syncs with app.js)
             themeToggle.addEventListener('click', () => {
                 const current = html.getAttribute('data-theme') || 'light';
                 const next = current === 'light' ? 'dark' : 'light';
@@ -990,14 +1052,12 @@
                 localStorage.setItem('primer_theme', next);
                 themeToggle.innerHTML = next === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
                 
-                // Trigger storage event for app.js to detect
                 window.dispatchEvent(new StorageEvent('storage', {
                     key: 'primer_theme',
                     newValue: next
                 }));
             });
 
-            // ---------- LOAD USER DATA FROM APP.JS ----------
             function loadUserFromApp() {
                 try {
                     const savedUser = localStorage.getItem('primer_user');
@@ -1007,28 +1067,20 @@
                 } catch (e) {
                     console.warn('Failed to load user data');
                 }
-                return {
-                    name: '',
-                    email: '',
-                    phone: '',
-                    address: ''
-                };
+                return { name: '', email: '', phone: '', address: '' };
             }
 
             let userData = loadUserFromApp();
 
-            // Check if profile is complete
             function isProfileComplete() {
                 return userData.name && userData.phone && userData.name !== 'Guest User';
             }
 
-            // Show profile warning if incomplete
             const profileWarning = document.getElementById('profileWarning');
             if (!isProfileComplete()) {
                 profileWarning.style.display = 'flex';
             }
 
-            // ---------- LOAD PREVIOUS BOOKINGS ----------
             function loadPreviousBookings() {
                 try {
                     const bookings = JSON.parse(localStorage.getItem('primer_bookings') || '[]');
@@ -1044,67 +1096,63 @@
                         return;
                     }
 
-                    // Show last 5 bookings
                     const recentBookings = bookings.slice(-5).reverse();
-                    bookingsList.innerHTML = recentBookings.map(booking => `
+                    bookingsList.innerHTML = recentBookings.map(booking => {
+                        const bookingDate = new Date(booking.timestamp).toLocaleString('en-US', {
+                            month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit'
+                        });
+                        return `
                         <div class="booking-item" onclick="window.editBooking('${booking.id}')">
                             <div class="booking-header">
                                 <span class="booking-service">
                                     <i class="fas fa-${getServiceIcon(booking.service)}"></i>
                                     ${booking.service.charAt(0).toUpperCase() + booking.service.slice(1)}
                                 </span>
-                                <span class="booking-date">${new Date(booking.timestamp).toLocaleDateString()}</span>
+                                <span class="booking-date">${bookingDate}</span>
                             </div>
                             <div class="booking-details">
                                 <span><i class="fas fa-user"></i> ${booking.name || 'Name not set'}</span>
                                 <span><i class="fas fa-map-pin"></i> ${booking.city || 'City not set'}</span>
                             </div>
+                            <div class="booking-id-badge"><i class="fas fa-hashtag"></i> ID: ${booking.id}</div>
                         </div>
-                    `).join('');
+                    `}).join('');
                 } catch (e) {
                     console.warn('Failed to load bookings');
                 }
             }
 
             function getServiceIcon(service) {
-                const icons = {
-                    moving: 'truck',
-                    repair: 'tools',
-                    handyman: 'wrench',
-                    laundry: 'soap'
-                };
+                const icons = { moving: 'truck', repair: 'tools', handyman: 'wrench', laundry: 'soap' };
                 return icons[service] || 'clipboard-list';
             }
 
-            // ---------- SAVE BOOKING TO HISTORY ----------
-            function saveBookingToHistory(service, formData) {
+            function generateBookingId() {
+                return 'BKG-' + Date.now().toString(36).toUpperCase() + '-' + Math.random().toString(36).substring(2, 8).toUpperCase();
+            }
+
+            function saveBookingToHistory(service, formData, generatedId) {
                 try {
                     const bookings = JSON.parse(localStorage.getItem('primer_bookings') || '[]');
                     const booking = {
-                        id: Date.now().toString(),
+                        id: generatedId,
                         service: service,
                         timestamp: new Date().toISOString(),
-                        name: formData.get('name'),
-                        phone: formData.get('phone'),
-                        city: formData.get('city'),
-                        address: formData.get('address'),
                         ...Object.fromEntries(formData)
                     };
                     bookings.push(booking);
                     localStorage.setItem('primer_bookings', JSON.stringify(bookings));
-                    loadPreviousBookings(); // Refresh the list
+                    loadPreviousBookings();
                 } catch (e) {
                     console.warn('Failed to save booking');
                 }
             }
 
-            // ---------- EDIT EXISTING BOOKING ----------
             window.editBooking = function(bookingId) {
                 try {
                     const bookings = JSON.parse(localStorage.getItem('primer_bookings') || '[]');
                     const booking = bookings.find(b => b.id === bookingId);
                     if (booking) {
-                        // Pre-fill form with booking data and open modal
                         openModalWithData(booking.service, booking);
                     }
                 } catch (e) {
@@ -1112,7 +1160,6 @@
                 }
             };
 
-            // ---------- LOAD SERVICES.JSON AND ADS.JSON ----------
             let servicesData = null;
             let adsData = null;
 
@@ -1155,7 +1202,6 @@
                 });
             }
 
-            // Banner rotation
             let currentAdIndex = 0;
             let bannerInterval = null;
 
@@ -1201,16 +1247,16 @@
                 `).join('');
             }
 
-            // ---------- MODAL CONTROL ----------
             const backdrop = document.getElementById('modalBackdrop');
             const modalSheet = document.getElementById('modalSheet');
             const modalTitle = document.getElementById('modalTitle');
             const modalContent = document.getElementById('modalContent');
             const closeBtn = document.getElementById('closeModalBtn');
+            const floatingBtn = document.getElementById('floatingCallBtn');
             let activeService = null;
 
             function openModal(serviceId) {
-                // Check if profile is complete before opening modal
+                floatingBtn.classList.add('hidden');
                 if (!isProfileComplete()) {
                     showToast('Please complete your profile in the app first', 'warning');
                     return;
@@ -1226,6 +1272,7 @@
             }
 
             function openModalWithData(serviceId, bookingData) {
+                floatingBtn.classList.add('hidden');
                 activeService = serviceId;
                 const srv = servicesData.services.find(s => s.id === serviceId);
                 modalTitle.innerText = `Edit ${srv.name}`;
@@ -1236,6 +1283,7 @@
             }
 
             function closeModal() {
+                floatingBtn.classList.remove('hidden');
                 backdrop.classList.remove('active');
                 modalSheet.classList.remove('active');
                 document.body.style.overflow = '';
@@ -1255,17 +1303,100 @@
                 });
             }
 
-            // ---------- RENDER FORM WITH PROFILE DATA ----------
+            function initCalendar(containerId, inputId, existingDate = null) {
+                const container = document.getElementById(containerId);
+                if (!container) return;
+                
+                const today = new Date();
+                const year = today.getFullYear();
+                const month = today.getMonth();
+                const daysInMonth = new Date(year, month + 1, 0).getDate();
+                const firstDay = new Date(year, month, 1).getDay();
+                
+                let html = `
+                    <div class="calendar-header">
+                        <span class="calendar-month">${today.toLocaleString('default', { month: 'long' })} ${year}</span>
+                    </div>
+                    <div class="calendar-weekdays">
+                        <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+                    </div>
+                    <div class="calendar-days">
+                `;
+                
+                for (let i = 0; i < firstDay; i++) html += '<div class="calendar-day empty"></div>';
+                
+                for (let d = 1; d <= daysInMonth; d++) {
+                    const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+                    const isSelected = existingDate ? existingDate === dateStr : d === today.getDate();
+                    html += `<div class="calendar-day ${isSelected ? 'selected' : ''}" data-day="${d}" data-date="${dateStr}">${d}</div>`;
+                }
+                html += '</div>';
+                container.innerHTML = html;
+                
+                if (existingDate) {
+                    document.getElementById(inputId).value = existingDate;
+                } else {
+                    const monthVal = (month + 1).toString().padStart(2, '0');
+                    const dayVal = today.getDate().toString().padStart(2, '0');
+                    document.getElementById(inputId).value = `${year}-${monthVal}-${dayVal}`;
+                }
+                
+                container.querySelectorAll('.calendar-day[data-day]').forEach(day => {
+                    day.addEventListener('click', () => {
+                        container.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('selected'));
+                        day.classList.add('selected');
+                        document.getElementById(inputId).value = day.dataset.date;
+                    });
+                });
+            }
+
+            function attachDropdowns(serviceId) {
+                document.querySelectorAll('.custom-dropdown').forEach(drop => {
+                    const selected = drop.querySelector('.dropdown-selected');
+                    const options = drop.querySelector('.dropdown-options');
+                    const opts = drop.querySelectorAll('.dropdown-option');
+                    
+                    if (!selected) return;
+                    
+                    selected.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        document.querySelectorAll('.dropdown-options.show').forEach(o => { if (o !== options) o.classList.remove('show'); });
+                        document.querySelectorAll('.dropdown-selected.active').forEach(s => { if (s !== selected) s.classList.remove('active'); });
+                        options.classList.toggle('show');
+                        selected.classList.toggle('active');
+                    });
+                    
+                    opts.forEach(opt => {
+                        opt.addEventListener('click', () => {
+                            selected.innerHTML = `${opt.innerText} <i class="fas fa-chevron-down"></i>`;
+                            options.classList.remove('show');
+                            selected.classList.remove('active');
+                            
+                            const target = selected.dataset.target;
+                            const inputMap = {
+                                'moveSize': 'moveSizeInput', 'vehicle': 'vehicleInput', 'moveTime': 'moveTimeInput',
+                                'repairType': 'repairTypeInput', 'repairTime': 'repairTimeInput',
+                                'handyTime': 'handyTimeInput', 'laundryType': 'laundryTypeInput', 'laundryTime': 'laundryTimeInput',
+                                [`${serviceId}ContactTime`]: `${serviceId}ContactTimeInput`,
+                                [`${serviceId}Urgency`]: `${serviceId}UrgencyInput`,
+                                [`${serviceId}City`]: `${serviceId}CityInput`
+                            };
+                            if (inputMap[target]) {
+                                document.getElementById(inputMap[target]).value = opt.dataset.value;
+                            }
+                        });
+                    });
+                });
+            }
+
             function renderForm(serviceId, existingData = null) {
                 if (!servicesData) return;
 
-                // Use existing data or profile data
                 const nameValue = existingData?.name || userData.name || '';
                 const phoneValue = existingData?.phone || userData.phone || '';
                 const addressValue = existingData?.address || userData.address || '';
                 const cityValue = existingData?.city || '';
 
-                // Common expectation note
                 let commonNote = `
                     <div class="info-note">
                         <i class="fas fa-clock"></i>
@@ -1273,7 +1404,6 @@
                     </div>
                 `;
 
-                // Common fields with profile data
                 let commonFields = `
                     <div class="form-group">
                         <label class="form-label"><i class="fas fa-user"></i> Full name</label>
@@ -1287,7 +1417,7 @@
                     <div class="form-group">
                         <label class="form-label">Preferred contact method</label>
                         <div class="radio-group" id="${serviceId}ContactMethod">
-                            <label class="radio-item"><input type="radio" name="${serviceId}ContactMethod" value="Phone call" ${existingData?.contactMethod === 'Phone call' ? 'checked' : 'checked'}> Phone call</label>
+                            <label class="radio-item"><input type="radio" name="${serviceId}ContactMethod" value="Phone call" ${existingData?.contactMethod === 'Phone call' || !existingData ? 'checked' : ''}> Phone call</label>
                             <label class="radio-item"><input type="radio" name="${serviceId}ContactMethod" value="WhatsApp" ${existingData?.contactMethod === 'WhatsApp' ? 'checked' : ''}> WhatsApp</label>
                         </div>
                     </div>
@@ -1331,9 +1461,8 @@
                     </div>
                 `;
 
-                // Service-specific fields
                 let specificFields = '';
-                
+
                 if (serviceId === 'moving') {
                     specificFields = `
                         <div class="form-group">
@@ -1380,7 +1509,9 @@
                             <input type="hidden" id="moveTimeInput" value="${existingData?.time || ''}">
                         </div>
                     `;
-                } else if (serviceId === 'repair') {
+                }
+
+                if (serviceId === 'repair') {
                     specificFields = `
                         <div class="form-group">
                             <label class="form-label">Device / item type</label>
@@ -1412,7 +1543,9 @@
                             <input type="hidden" id="repairTimeInput" value="${existingData?.time || ''}">
                         </div>
                     `;
-                } else if (serviceId === 'handyman') {
+                }
+
+                if (serviceId === 'handyman') {
                     specificFields = `
                         <div class="form-group">
                             <label class="form-label">Tasks</label>
@@ -1444,7 +1577,10 @@
                             <input type="hidden" id="handyTimeInput" value="${existingData?.time || ''}">
                         </div>
                     `;
-                } else if (serviceId === 'laundry') {
+                }
+
+                if (serviceId === 'laundry') {
+                    const initialPieces = existingData?.pieces ? parseInt(existingData.pieces) : 5;
                     specificFields = `
                         <div class="form-group">
                             <label class="form-label">Service type</label>
@@ -1459,9 +1595,19 @@
                         <div class="form-group">
                             <label class="form-label">Where should the laundry be done?</label>
                             <div class="radio-group" id="laundryLocation">
-                                <label class="radio-item"><input type="radio" name="laundryLocation" value="At my home" ${existingData?.laundryLocation === 'At my home' ? 'checked' : 'checked'}> At my home</label>
-                                <label class="radio-item"><input type="radio" name="laundryLocation" value="Worker's location" ${existingData?.laundryLocation === 'Worker\'s location' ? 'checked' : ''}> Worker's location</label>
+                                <label class="radio-item"><input type="radio" name="laundryLocation" value="At my home" ${existingData?.laundryLocation === 'At my home' || !existingData ? 'checked' : ''}> At my home</label>
+                                <label class="radio-item"><input type="radio" name="laundryLocation" value="Worker's location" ${existingData?.laundryLocation === "Worker's location" ? 'checked' : ''}> Worker's location</label>
                             </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label"><i class="fas fa-tshirt"></i> Number of pieces (minimum 5)</label>
+                            <div class="counter-control">
+                                <span class="counter-btn" id="laundryPiecesMinus">−</span>
+                                <span class="counter-value" id="laundryPiecesDisplay">${initialPieces}</span>
+                                <span class="counter-btn" id="laundryPiecesPlus">+</span>
+                            </div>
+                            <input type="hidden" id="laundryPiecesInput" value="${initialPieces}">
+                            <div class="counter-hint">Minimum 5 pieces required</div>
                         </div>
                         <div class="form-group">
                             <label class="form-label">Pickup address</label>
@@ -1491,7 +1637,29 @@
 
                 modalContent.innerHTML = commonNote + commonFields + specificFields + `<button class="btn-submit" id="submit${serviceId}">${existingData ? 'Update & Book' : 'Request Service'}</button>`;
 
-                // Initialize calendars
+                if (serviceId === 'laundry') {
+                    const minus = document.getElementById('laundryPiecesMinus');
+                    const plus = document.getElementById('laundryPiecesPlus');
+                    const display = document.getElementById('laundryPiecesDisplay');
+                    const input = document.getElementById('laundryPiecesInput');
+                    
+                    if (minus && plus && display && input) {
+                        const updateCounter = (val) => {
+                            if (val < 5) val = 5;
+                            display.innerText = val;
+                            input.value = val;
+                        };
+                        
+                        minus.addEventListener('click', () => {
+                            updateCounter(parseInt(display.innerText) - 1);
+                        });
+                        
+                        plus.addEventListener('click', () => {
+                            updateCounter(parseInt(display.innerText) + 1);
+                        });
+                    }
+                }
+
                 if (serviceId === 'moving') initCalendar('moveCalendar', 'moveDateInput', existingData?.date);
                 if (serviceId === 'repair') initCalendar('repairCalendar', 'repairDateInput', existingData?.date);
                 if (serviceId === 'handyman') initCalendar('handyCalendar', 'handyDateInput', existingData?.date);
@@ -1501,113 +1669,6 @@
                 attachSubmit(serviceId, !!existingData);
             }
 
-            // Calendar initializer
-            function initCalendar(containerId, inputId, existingDate = null) {
-                const container = document.getElementById(containerId);
-                if (!container) return;
-                
-                const today = new Date();
-                const year = today.getFullYear();
-                const month = today.getMonth();
-                const daysInMonth = new Date(year, month + 1, 0).getDate();
-                const firstDay = new Date(year, month, 1).getDay();
-                
-                let html = `
-                    <div class="calendar-header">
-                        <span class="calendar-month">${today.toLocaleString('default', { month: 'long' })} ${year}</span>
-                    </div>
-                    <div class="calendar-weekdays">
-                        <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
-                    </div>
-                    <div class="calendar-days">
-                `;
-                
-                for (let i = 0; i < firstDay; i++) {
-                    html += '<div class="calendar-day empty"></div>';
-                }
-                
-                for (let d = 1; d <= daysInMonth; d++) {
-                    const isSelected = existingDate ? 
-                        parseInt(existingDate.split('-')[2]) === d : 
-                        d === today.getDate();
-                    const selectedClass = isSelected ? 'selected' : '';
-                    html += `<div class="calendar-day ${selectedClass}" data-day="${d}">${d}</div>`;
-                }
-                
-                html += '</div>';
-                container.innerHTML = html;
-                
-                // Set date value
-                if (existingDate) {
-                    document.getElementById(inputId).value = existingDate;
-                } else {
-                    const monthVal = (month + 1).toString().padStart(2, '0');
-                    const dayVal = today.getDate().toString().padStart(2, '0');
-                    document.getElementById(inputId).value = `${year}-${monthVal}-${dayVal}`;
-                }
-                
-                container.querySelectorAll('.calendar-day[data-day]').forEach(day => {
-                    day.addEventListener('click', () => {
-                        container.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('selected'));
-                        day.classList.add('selected');
-                        const selectedDay = day.dataset.day.padStart(2, '0');
-                        const monthVal = (month + 1).toString().padStart(2, '0');
-                        document.getElementById(inputId).value = `${year}-${monthVal}-${selectedDay}`;
-                    });
-                });
-            }
-
-            function attachDropdowns(serviceId) {
-                document.querySelectorAll('.custom-dropdown').forEach(drop => {
-                    const selected = drop.querySelector('.dropdown-selected');
-                    const options = drop.querySelector('.dropdown-options');
-                    const opts = drop.querySelectorAll('.dropdown-option');
-                    
-                    if (!selected) return;
-                    
-                    selected.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        document.querySelectorAll('.dropdown-options.show').forEach(o => {
-                            if (o !== options) o.classList.remove('show');
-                        });
-                        document.querySelectorAll('.dropdown-selected.active').forEach(s => {
-                            if (s !== selected) s.classList.remove('active');
-                        });
-                        
-                        options.classList.toggle('show');
-                        selected.classList.toggle('active');
-                    });
-                    
-                    opts.forEach(opt => {
-                        opt.addEventListener('click', () => {
-                            selected.innerHTML = `${opt.innerText} <i class="fas fa-chevron-down"></i>`;
-                            options.classList.remove('show');
-                            selected.classList.remove('active');
-                            
-                            const target = selected.dataset.target;
-                            
-                            const inputMap = {
-                                'moveSize': 'moveSizeInput',
-                                'vehicle': 'vehicleInput',
-                                'moveTime': 'moveTimeInput',
-                                'repairType': 'repairTypeInput',
-                                'repairTime': 'repairTimeInput',
-                                'handyTime': 'handyTimeInput',
-                                'laundryType': 'laundryTypeInput',
-                                'laundryTime': 'laundryTimeInput',
-                                [`${serviceId}ContactTime`]: `${serviceId}ContactTimeInput`,
-                                [`${serviceId}Urgency`]: `${serviceId}UrgencyInput`,
-                                [`${serviceId}City`]: `${serviceId}CityInput`
-                            };
-                            
-                            if (inputMap[target]) {
-                                document.getElementById(inputMap[target]).value = opt.dataset.value;
-                            }
-                        });
-                    });
-                });
-            }
-
             function attachSubmit(service, isEdit = false) {
                 const btn = document.getElementById('submit' + service);
                 if (!btn) return;
@@ -1615,10 +1676,11 @@
                 btn.addEventListener('click', (e) => {
                     e.preventDefault();
                     
+                    const bookingId = generateBookingId();
                     const formData = new FormData();
                     formData.append('_subject', `${isEdit ? 'Updated' : 'New'} ${service} booking`);
+                    formData.append('booking_id', bookingId);
                     
-                    // Common fields
                     formData.append('name', document.getElementById(service + 'Name')?.value || '');
                     formData.append('phone', document.getElementById(service + 'Phone')?.value || '');
                     
@@ -1630,7 +1692,6 @@
                     formData.append('city', document.getElementById(service + 'CityInput')?.value || '');
                     formData.append('address', document.getElementById(service + 'Address')?.value || '');
                     
-                    // Service-specific fields
                     if (service === 'moving') {
                         formData.append('pickup', document.getElementById('movePickup')?.value || '');
                         formData.append('destination', document.getElementById('moveDropoff')?.value || '');
@@ -1648,8 +1709,7 @@
                     }
                     
                     if (service === 'handyman') {
-                        const tasks = Array.from(document.querySelectorAll('#handyTasks input:checked'))
-                            .map(cb => cb.value).join(', ');
+                        const tasks = Array.from(document.querySelectorAll('#handyTasks input:checked')).map(cb => cb.value).join(', ');
                         formData.append('tasks', tasks);
                         formData.append('description', document.getElementById('handyDescription')?.value || '');
                         formData.append('date', document.getElementById('handyDateInput')?.value || '');
@@ -1658,19 +1718,20 @@
                     
                     if (service === 'laundry') {
                         formData.append('laundryType', document.getElementById('laundryTypeInput')?.value || '');
+                        
                         const laundryLoc = document.querySelector('input[name="laundryLocation"]:checked')?.value || '';
                         formData.append('laundryLocation', laundryLoc);
+                        
+                        formData.append('pieces', document.getElementById('laundryPiecesInput')?.value || '5');
                         formData.append('pickupAddress', document.getElementById('laundryPickup')?.value || '');
                         formData.append('notes', document.getElementById('laundryNotes')?.value || '');
                         formData.append('date', document.getElementById('laundryDateInput')?.value || '');
                         formData.append('time', document.getElementById('laundryTimeInput')?.value || '');
                     }
                     
-                    // Save to history
-                    saveBookingToHistory(service, formData);
+                    saveBookingToHistory(service, formData, bookingId);
                     
-                    // Send to Formspree
-                    const endpoint = 'https://formspree.io/f/your-endpoint'; // REPLACE THIS
+                    const endpoint = 'https://formspree.io/f/your-endpoint';
                     
                     showToast('Sending request...', 'info');
                     btn.disabled = true;
@@ -1683,7 +1744,7 @@
                     })
                     .then(response => {
                         if (response.ok) {
-                            showToast(`${isEdit ? 'Booking updated' : 'Request sent'}! Our team will contact you within 30 mins.`, 'success');
+                            showToast(`${isEdit ? 'Booking updated' : 'Request sent'}! Your ID: ${bookingId}`, 'success');
                             closeModal();
                         } else {
                             showToast('Error sending request. Please try again.', 'error');
@@ -1700,8 +1761,8 @@
                 });
             }
 
-            // Toast notification
             const toastContainer = document.getElementById('toastContainer');
+            
             function showToast(message, type = 'info') {
                 const toast = document.createElement('div');
                 toast.className = 'toast';
@@ -1720,22 +1781,25 @@
                 }, 4000);
             }
 
-            // Close dropdowns when clicking outside
             document.addEventListener('click', () => {
                 document.querySelectorAll('.dropdown-options.show').forEach(o => o.classList.remove('show'));
                 document.querySelectorAll('.dropdown-selected.active').forEach(s => s.classList.remove('active'));
             });
 
-            // Initialize
             loadData();
 
-            // Refresh user data when returning to page
             window.addEventListener('focus', () => {
                 userData = loadUserFromApp();
                 if (!isProfileComplete()) {
                     profileWarning.style.display = 'flex';
                 } else {
                     profileWarning.style.display = 'none';
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modalSheet.classList.contains('active')) {
+                    closeModal();
                 }
             });
         })();
