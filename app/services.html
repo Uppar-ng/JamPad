@@ -57,175 +57,71 @@
             overflow-x: hidden;
             position: relative;
         }
-        /* floating background icons – enhanced visibility with colors */
-.bg-icons {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    pointer-events: none;
-    opacity: 0.115;
-    overflow: hidden;
-}
+        .bg-icons {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.115;
+            overflow: hidden;
+        }
+        .bg-icons i {
+            position: absolute;
+            font-size: 4.5rem;
+            animation: float 22s infinite linear;
+            user-select: none;
+            filter: drop-shadow(0 0 5px rgba(37, 99, 235, 0.3));
+        }
+        .bg-icons i:nth-child(1) { left: 5%; color: #2563EB; animation-duration: 18s; opacity: 0.8; }
+        .bg-icons i:nth-child(2) { left: 15%; color: #059669; animation-duration: 25s; animation-delay: 2s; opacity: 0.35; }
+        .bg-icons i:nth-child(3) { left: 30%; color: #7C3AED; animation-duration: 22s; animation-delay: 5s; opacity: 0.4; }
+        .bg-icons i:nth-child(4) { left: 50%; color: #DC2626; animation-duration: 30s; animation-delay: 1s; opacity: 0.3; }
+        .bg-icons i:nth-child(5) { left: 70%; color: #F59E0B; animation-duration: 20s; animation-delay: 8s; opacity: 0.4; font-size: 4rem; }
+        .bg-icons i:nth-child(6) { left: 85%; color: #2563EB; animation-duration: 28s; animation-delay: 3s; opacity: 0.35; }
+        .bg-icons i:nth-child(7) { left: 40%; color: #059669; animation-duration: 24s; animation-delay: 12s; opacity: 0.4; font-size: 4rem; }
+        .bg-icons i:nth-child(8) { left: 95%; color: #7C3AED; animation-duration: 26s; animation-delay: 6s; opacity: 0.35; }
+        .bg-icons i:nth-child(9) { left: 20%; color: #DC2626; animation-duration: 23s; animation-delay: 4s; opacity: 0.3; font-size: 3.2rem; }
+        .bg-icons i:nth-child(10) { left: 65%; color: #F59E0B; animation-duration: 27s; animation-delay: 9s; opacity: 0.35; font-size: 3.8rem; }
+        .bg-icons i:nth-child(11) { left: 45%; color: #2563EB; animation-duration: 21s; animation-delay: 7s; opacity: 0.3; }
+        .bg-icons i:nth-child(12) { left: 75%; color: #10B981; animation-duration: 29s; animation-delay: 11s; opacity: 0.35; }
 
-.bg-icons i {
-    position: absolute;
-    font-size: 4.5rem;
-    animation: float 22s infinite linear;
-    user-select: none;
-    filter: drop-shadow(0 0 5px rgba(37, 99, 235, 0.3));
-}
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg) scale(1); opacity: 0; }
+            10% { opacity: 0.5; transform: translateY(80vh) rotate(36deg) scale(1.1); }
+            30% { opacity: 0.6; transform: translateY(60vh) rotate(108deg) scale(1.2); }
+            50% { opacity: 0.7; transform: translateY(40vh) rotate(180deg) scale(1.1); }
+            70% { opacity: 0.6; transform: translateY(20vh) rotate(252deg) scale(1); }
+            90% { opacity: 0.4; transform: translateY(5vh) rotate(324deg) scale(0.9); }
+            100% { transform: translateY(-20vh) rotate(360deg) scale(0.8); opacity: 0; }
+        }
 
-/* Different colors for each icon */
-.bg-icons i:nth-child(1) { 
-    left: 5%; 
-    color: #2563EB;
-    animation-duration: 18s; 
-    opacity: 0.8;
-}
-.bg-icons i:nth-child(2) { 
-    left: 15%; 
-    color: #059669;
-    animation-duration: 25s; 
-    animation-delay: 2s;
-    opacity: 0.35;
-}
-.bg-icons i:nth-child(3) { 
-    left: 30%; 
-    color: #7C3AED;
-    animation-duration: 22s; 
-    animation-delay: 5s;
-    opacity: 0.4;
-}
-.bg-icons i:nth-child(4) { 
-    left: 50%; 
-    color: #DC2626;
-    animation-duration: 30s; 
-    animation-delay: 1s;
-    opacity: 0.3;
-}
-.bg-icons i:nth-child(5) { 
-    left: 70%; 
-    color: #F59E0B;
-    animation-duration: 20s; 
-    animation-delay: 8s;
-    opacity: 0.4;
-    font-size: 4rem;
-}
-.bg-icons i:nth-child(6) { 
-    left: 85%; 
-    color: #2563EB;
-    animation-duration: 28s; 
-    animation-delay: 3s;
-    opacity: 0.35;
-}
-.bg-icons i:nth-child(7) { 
-    left: 40%; 
-    color: #059669;
-    animation-duration: 24s; 
-    animation-delay: 12s;
-    opacity: 0.4;
-    font-size: 4rem;
-}
-.bg-icons i:nth-child(8) { 
-    left: 95%; 
-    color: #7C3AED;
-    animation-duration: 26s; 
-    animation-delay: 6s;
-    opacity: 0.35;
-}
-.bg-icons i:nth-child(9) { 
-    left: 20%; 
-    color: #DC2626; 
-    animation-duration: 23s; 
-    animation-delay: 4s;
-    opacity: 0.3;
-    font-size: 3.2rem;
-}
-.bg-icons i:nth-child(10) { 
-    left: 65%; 
-    color: #F59E0B; 
-    animation-duration: 27s; 
-    animation-delay: 9s;
-    opacity: 0.35;
-    font-size: 3.8rem;
-}
-.bg-icons i:nth-child(11) { 
-    left: 45%; 
-    color: #2563EB; 
-    animation-duration: 21s; 
-    animation-delay: 7s;
-    opacity: 0.3;
-}
-.bg-icons i:nth-child(12) { 
-    left: 75%; 
-    color: #10B981; 
-    animation-duration: 29s; 
-    animation-delay: 11s;
-    opacity: 0.35;
-}
+        [data-theme="dark"] .bg-icons i {
+            filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.5));
+        }
 
-@keyframes float {
-    0% { 
-        transform: translateY(100vh) rotate(0deg) scale(1); 
-        opacity: 0; 
-    }
-    10% { 
-        opacity: 0.5; 
-        transform: translateY(80vh) rotate(36deg) scale(1.1);
-    }
-    30% { 
-        opacity: 0.6; 
-        transform: translateY(60vh) rotate(108deg) scale(1.2);
-    }
-    50% { 
-        opacity: 0.7; 
-        transform: translateY(40vh) rotate(180deg) scale(1.1);
-    }
-    70% { 
-        opacity: 0.6; 
-        transform: translateY(20vh) rotate(252deg) scale(1);
-    }
-    90% { 
-        opacity: 0.4; 
-        transform: translateY(5vh) rotate(324deg) scale(0.9);
-    }
-    100% { 
-        transform: translateY(-20vh) rotate(360deg) scale(0.8); 
-        opacity: 0; 
-    }
-}
+        [data-theme="dark"] .bg-icons i:nth-child(1) { color: #3B82F6; }
+        [data-theme="dark"] .bg-icons i:nth-child(2) { color: #10B981; }
+        [data-theme="dark"] .bg-icons i:nth-child(3) { color: #8B5CF6; }
+        [data-theme="dark"] .bg-icons i:nth-child(4) { color: #EF4444; }
+        [data-theme="dark"] .bg-icons i:nth-child(5) { color: #F59E0B; }
+        [data-theme="dark"] .bg-icons i:nth-child(6) { color: #3B82F6; }
+        [data-theme="dark"] .bg-icons i:nth-child(7) { color: #10B981; }
+        [data-theme="dark"] .bg-icons i:nth-child(8) { color: #8B5CF6; }
 
-[data-theme="dark"] .bg-icons i {
-    filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.5));
-}
+        @media (max-width: 768px) {
+            .bg-icons { opacity: 0.2; }
+            .bg-icons i { font-size: 3rem; }
+        }
 
-[data-theme="dark"] .bg-icons i:nth-child(1) { color: #3B82F6; }
-[data-theme="dark"] .bg-icons i:nth-child(2) { color: #10B981; }
-[data-theme="dark"] .bg-icons i:nth-child(3) { color: #8B5CF6; }
-[data-theme="dark"] .bg-icons i:nth-child(4) { color: #EF4444; }
-[data-theme="dark"] .bg-icons i:nth-child(5) { color: #F59E0B; }
-[data-theme="dark"] .bg-icons i:nth-child(6) { color: #3B82F6; }
-[data-theme="dark"] .bg-icons i:nth-child(7) { color: #10B981; }
-[data-theme="dark"] .bg-icons i:nth-child(8) { color: #8B5CF6; }
-
-@media (max-width: 768px) {
-    .bg-icons {
-        opacity: 0.2;
-    }
-    .bg-icons i {
-        font-size: 3rem;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .bg-icons i {
-        animation: none;
-        display: none;
-    }
-}
+        @media (prefers-reduced-motion: reduce) {
+            .bg-icons i {
+                animation: none;
+                display: none;
+            }
+        }
 
         #app {
             position: relative;
@@ -408,6 +304,55 @@
             border: 2px solid var(--primary);
             background: var(--primary-light);
         }
+        .service-badge {
+            font-size: 10px;
+            padding: 2px 6px;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-radius: 12px;
+            margin-top: 4px;
+            display: inline-block;
+        }
+        .company-badge {
+            background: var(--secondary);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+            margin-top: 4px;
+            display: inline-block;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+            padding: 8px 16px 16px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .action-btn {
+            flex: 1;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 40px;
+            padding: 14px 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .action-btn i {
+            color: var(--primary);
+            font-size: 16px;
+        }
+        .action-btn:hover {
+            background: var(--surface-hover);
+            border-color: var(--primary);
+        }
         .previous-bookings {
             background: var(--surface);
             border-radius: var(--radius-2xl);
@@ -489,17 +434,6 @@
             margin: 24px 16px;
             padding: 24px 16px;
             border: 1px solid var(--border);
-            animation: fadeInUp 0.6s ease-out;
-        }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
         .steps {
             display: flex;
@@ -510,23 +444,6 @@
             display: flex;
             gap: 16px;
             align-items: center;
-            animation: slideInRight 0.5s ease-out forwards;
-            opacity: 0;
-        }
-        .step:nth-child(1) { animation-delay: 0.1s; }
-        .step:nth-child(2) { animation-delay: 0.2s; }
-        .step:nth-child(3) { animation-delay: 0.3s; }
-        .step:nth-child(4) { animation-delay: 0.4s; }
-        
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
         }
         .step-icon {
             width: 48px;
@@ -539,11 +456,6 @@
             color: var(--primary);
             font-size: 22px;
             font-weight: 700;
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
         }
         .step-text h4 {
             font-weight: 700;
@@ -905,7 +817,7 @@
         }
         @keyframes spin { to { transform: rotate(360deg); } }
 
-        .floating-call-btn {
+        .primer-call-btn {
             position: fixed;
             bottom: 24px;
             right: 20px;
@@ -920,27 +832,378 @@
             box-shadow: 0 8px 20px rgba(37,99,235,0.5);
             z-index: 500;
             cursor: pointer;
-            transition: transform 0.2s, opacity 0.2s;
+            transition: transform 0.2s;
             border: 2px solid white;
             font-size: 26px;
             text-decoration: none;
         }
-        .floating-call-btn:hover {
+        .primer-call-btn:hover {
             transform: scale(1.08);
         }
-        .floating-call-btn.hidden {
-            opacity: 0;
-            pointer-events: none;
+        .primer-call-btn .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #DC2626;
+            color: white;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid white;
+            font-weight: 600;
         }
-        [data-theme="dark"] .floating-call-btn {
+        [data-theme="dark"] .primer-call-btn {
             border-color: #1F2937;
+        }
+        .provider-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 16px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .provider-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        .provider-header {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+            position: relative;
+        }
+        .provider-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+        .provider-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .verified-badge {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: #3B82F6;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--surface);
+        }
+        .provider-info {
+            flex: 1;
+        }
+        .provider-name {
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .provider-rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 13px;
+        }
+        .provider-rating i {
+            color: #FBBF24;
+            font-size: 12px;
+        }
+        .rating-value {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .jobs-count {
+            color: var(--text-tertiary);
+        }
+        .availability-badge {
+            padding: 4px 8px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        .availability-badge.available {
+            background: #D1FAE5;
+            color: #065F46;
+        }
+        .availability-badge.busy {
+            background: #FEE2E2;
+            color: #991B1B;
+        }
+        .provider-details {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 12px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .detail-item i {
+            width: 16px;
+            color: var(--primary);
+        }
+        .provider-actions {
+            display: flex;
+            gap: 10px;
+        }
+        .btn-view {
+            flex: 1;
+            padding: 10px;
+            background: var(--surface-hover);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+        .btn-view:hover {
+            background: var(--primary-light);
+            border-color: var(--primary);
+        }
+        .btn-call {
+            flex: 1;
+            padding: 10px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        .btn-call:hover {
+            background: var(--primary-dark);
+        }
+        .filter-bar {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 12px 16px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        .filter-bar::-webkit-scrollbar {
+            display: none;
+        }
+        .filter-chip {
+            padding: 8px 16px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            font-size: 13px;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .filter-chip:hover {
+            background: var(--surface-hover);
+        }
+        .filter-chip.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        .filter-chip i {
+            margin-left: 4px;
+            font-size: 12px;
+        }
+        .search-container {
+            padding: 16px 16px 8px;
+        }
+        .search-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 40px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: var(--shadow-sm);
+        }
+        .search-box i {
+            color: var(--text-tertiary);
+        }
+        .search-box input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            font-size: 15px;
+            color: var(--text-primary);
+            outline: none;
+        }
+        .search-box input::placeholder {
+            color: var(--text-tertiary);
+        }
+        .current-location {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px 0;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        .current-location i {
+            color: var(--primary);
+        }
+        .location-value {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .provider-section {
+            padding: 16px;
+        }
+        .provider-section.hidden {
+            display: none;
+        }
+        .provider-section-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .provider-section-title i {
+            color: var(--primary);
+        }
+        .provider-section-title span {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-left: auto;
+        }
+        .company-provider-card {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            margin: 16px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+        .company-provider-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            border-color: white;
+        }
+        .company-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        .company-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            overflow: hidden;
+        }
+        .company-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .company-info h4 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .company-info p {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+        .company-stats {
+            display: flex;
+            gap: 20px;
+        }
+        .company-stat {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+        }
+        .loading-providers {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-tertiary);
+        }
+        .loading-providers i {
+            font-size: 32px;
+            margin-bottom: 12px;
+            animation: spin 1s infinite linear;
+        }
+        .no-providers {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-tertiary);
+        }
+        .no-providers i {
+            font-size: 48px;
+            margin-bottom: 12px;
+            opacity: 0.5;
+        }
+        .recommended-badge {
+            background: var(--secondary);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+            margin-left: 8px;
         }
     </style>
 </head>
 <body>
     <div class="bg-icons">
         <i class="fas fa-truck"></i><i class="fas fa-tools"></i><i class="fas fa-wrench"></i><i class="fas fa-soap"></i>
-        <i class="fas fa-box"></i><i class="fas fa-paint-roller"></i><i class="fas fa-bolt"></i><i class="fas fa-broom"></i>
+        <i class="fas fa-camera"></i><i class="fas fa-paint-roller"></i><i class="fas fa-bolt"></i><i class="fas fa-broom"></i>
         <i class="fas fa-snowplow"></i><i class="fas fa-tshirt"></i><i class="fas fa-couch"></i><i class="fas fa-chair"></i>
     </div>
 
@@ -965,11 +1228,90 @@
 
         <div class="banner-ad" id="dynamicBanner"></div>
 
+        <!-- Search Bar with Location -->
+        <div class="search-container">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search for moving, repair, photography...">
+            </div>
+            <div class="current-location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Your location: </span>
+                <span class="location-value" id="currentLocationDisplay">Kaduna</span>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <div class="action-btn" id="howItWorksBtn">
+                <i class="fas fa-question-circle"></i>
+                <span>How it works</span>
+            </div>
+            <div class="action-btn" id="previousBookingsBtn">
+                <i class="fas fa-history"></i>
+                <span>Past bookings</span>
+            </div>
+        </div>
+
+        <!-- Service Grid -->
         <div class="service-grid" id="serviceGrid">
             <div class="service-card"><i class="fas fa-spinner fa-pulse"></i><span>Loading...</span></div>
         </div>
 
-        <div class="previous-bookings" id="previousBookings">
+        <!-- Primer Moving Services - Enhanced Card -->
+        <div class="company-provider-card" id="primerMovingCard" onclick="window.location.href='providers-list.html?service=moving&type=company'">
+            <div class="company-header">
+                <div class="company-icon">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23FFFFFF' rx='20'/%3E%3Ctext x='50' y='70' font-size='60' text-anchor='middle' fill='%232563EB' font-family='Arial' font-weight='bold'%3EP%3C/text%3E%3C/svg%3E" alt="Primer">
+                </div>
+                <div class="company-info">
+                    <h4>Primer Moving Services <span class="recommended-badge">RECOMMENDED</span></h4>
+                    <p>Company-owned • Fully vetted • 24/7 availability</p>
+                </div>
+            </div>
+            <div class="company-stats">
+                <div class="company-stat">
+                    <i class="fas fa-star"></i> 4.9 (1k+ reviews)
+                </div>
+                <div class="company-stat">
+                    <i class="fas fa-shield-alt"></i> Insured
+                </div>
+                <div class="company-stat">
+                    <i class="fas fa-clock"></i> Available now
+                </div>
+            </div>
+        </div>
+
+        <!-- Recommended Providers Section -->
+        <div class="provider-section" id="recommendedProvidersSection">
+            <div class="provider-section-title">
+                <i class="fas fa-thumbs-up"></i>
+                Recommended for you
+                <span id="recommendedCount"></span>
+            </div>
+            <div id="recommendedProvidersList"></div>
+        </div>
+
+        <!-- Independent Providers Section -->
+        <div class="provider-section" id="independentProvidersSection">
+            <div class="provider-section-title">
+                <i class="fas fa-users"></i>
+                Available Providers
+                <span id="providersCount">Loading...</span>
+            </div>
+            <div id="independentProvidersList"></div>
+            <div id="providersLoading" class="loading-providers">
+                <i class="fas fa-spinner fa-pulse"></i>
+                <p>Loading providers...</p>
+            </div>
+            <div id="noProvidersMessage" class="no-providers" style="display: none;">
+                <i class="fas fa-users-slash"></i>
+                <p>No providers available in Kaduna</p>
+            </div>
+        </div>
+
+        <!-- Previous Bookings (Hidden by default) -->
+        <div class="previous-bookings" id="previousBookings" style="display: none;">
             <div class="section-title">
                 <i class="fas fa-history" style="color: var(--primary);"></i>
                 Previous Bookings
@@ -977,35 +1319,36 @@
             <div class="bookings-list" id="bookingsList"></div>
         </div>
 
-        <div class="how-it-works">
+        <!-- How It Works (Hidden by default) -->
+        <div class="how-it-works" id="howItWorks" style="display: none;">
             <div class="section-title">How it works</div>
             <div class="steps">
                 <div class="step">
                     <div class="step-icon">1</div>
                     <div class="step-text">
-                        <h4>Request a service</h4>
-                        <p>Choose what you need – moving, repair, handyman, or laundry.</p>
+                        <h4>Choose a service</h4>
+                        <p>Select what you need – moving, repair, photography, or handyman.</p>
                     </div>
                 </div>
                 <div class="step">
                     <div class="step-icon">2</div>
                     <div class="step-text">
-                        <h4>We review & contact you</h4>
-                        <p>Our team reaches out within 30 mins to confirm details.</p>
+                        <h4>Pick a provider</h4>
+                        <p>Browse independent providers or choose Primer company services.</p>
                     </div>
                 </div>
                 <div class="step">
                     <div class="step-icon">3</div>
                     <div class="step-text">
-                        <h4>Worker arrives</h4>
-                        <p>We assign a qualified gig worker who goes to your location.</p>
+                        <h4>Call to book</h4>
+                        <p>Call the provider directly to arrange service.</p>
                     </div>
                 </div>
                 <div class="step">
                     <div class="step-icon">4</div>
                     <div class="step-text">
-                        <h4>Secure access with Booking ID</h4>
-                        <p>Provider reads your unique booking ID. Only if it matches, they enter your home/office – ensuring your safety.</p>
+                        <h4>Provider arrives</h4>
+                        <p>Your chosen provider arrives at your location.</p>
                     </div>
                 </div>
             </div>
@@ -1022,8 +1365,11 @@
     </div>
 
     <div class="toast-container" id="toastContainer"></div>
-    <a href="tel:+2348100590574" class="floating-call-btn" id="floatingCallBtn">
+    
+    <!-- Primer Call Button (clearly labeled) -->
+    <a href="tel:+2348100590574" class="primer-call-btn" id="primerCallBtn">
         <i class="fas fa-phone-alt"></i>
+        <span class="badge">Primer</span>
     </a>
 
     <script>
@@ -1038,12 +1384,6 @@
             }
             
             syncThemeWithApp();
-            
-            window.addEventListener('storage', (e) => {
-                if (e.key === 'primer_theme') {
-                    syncThemeWithApp();
-                }
-            });
             
             themeToggle.addEventListener('click', () => {
                 const current = html.getAttribute('data-theme') || 'light';
@@ -1067,10 +1407,14 @@
                 } catch (e) {
                     console.warn('Failed to load user data');
                 }
-                return { name: '', email: '', phone: '', address: '' };
+                return { name: 'Guest User', email: '', phone: '', address: '', city: 'Kaduna' };
             }
 
             let userData = loadUserFromApp();
+            let providersData = [];
+            let filteredProviders = [];
+            let currentFilter = 'all';
+            let searchTerm = '';
 
             function isProfileComplete() {
                 return userData.name && userData.phone && userData.name !== 'Guest User';
@@ -1080,6 +1424,26 @@
             if (!isProfileComplete()) {
                 profileWarning.style.display = 'flex';
             }
+
+            // Update location display to Kaduna (default)
+            const locationDisplay = document.getElementById('currentLocationDisplay');
+            locationDisplay.textContent = userData.city || 'Kaduna';
+
+            // Toggle sections
+            document.getElementById('howItWorksBtn').addEventListener('click', () => {
+                const howItWorks = document.getElementById('howItWorks');
+                const previousBookings = document.getElementById('previousBookings');
+                howItWorks.style.display = howItWorks.style.display === 'none' ? 'block' : 'none';
+                previousBookings.style.display = 'none';
+            });
+
+            document.getElementById('previousBookingsBtn').addEventListener('click', () => {
+                const previousBookings = document.getElementById('previousBookings');
+                const howItWorks = document.getElementById('howItWorks');
+                previousBookings.style.display = previousBookings.style.display === 'none' ? 'block' : 'none';
+                howItWorks.style.display = 'none';
+                loadPreviousBookings();
+            });
 
             function loadPreviousBookings() {
                 try {
@@ -1102,7 +1466,7 @@
                             month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit'
                         });
                         return `
-                        <div class="booking-item" onclick="window.editBooking('${booking.id}')">
+                        <div class="booking-item" onclick="window.location.href='provider-detail.html?id=${booking.providerId || ''}'">
                             <div class="booking-header">
                                 <span class="booking-service">
                                     <i class="fas fa-${getServiceIcon(booking.service)}"></i>
@@ -1112,7 +1476,7 @@
                             </div>
                             <div class="booking-details">
                                 <span><i class="fas fa-user"></i> ${booking.name || 'Name not set'}</span>
-                                <span><i class="fas fa-map-pin"></i> ${booking.city || 'City not set'}</span>
+                                <span><i class="fas fa-map-pin"></i> ${booking.city || 'Kaduna'}</span>
                             </div>
                             <div class="booking-id-badge"><i class="fas fa-hashtag"></i> ID: ${booking.id}</div>
                         </div>
@@ -1123,42 +1487,45 @@
             }
 
             function getServiceIcon(service) {
-                const icons = { moving: 'truck', repair: 'tools', handyman: 'wrench', laundry: 'soap' };
+                const icons = { 
+                    moving: 'truck', 
+                    repair: 'tools', 
+                    handyman: 'wrench', 
+                    laundry: 'soap',
+                    photography: 'camera',
+                    cleaning: 'broom',
+                    painting: 'paint-roller',
+                    plumbing: 'wrench',
+                    electrical: 'bolt'
+                };
                 return icons[service] || 'clipboard-list';
             }
 
-            function generateBookingId() {
-                return 'BKG-' + Date.now().toString(36).toUpperCase() + '-' + Math.random().toString(36).substring(2, 8).toUpperCase();
+            function sendCallNotification(provider, user) {
+                const formData = new FormData();
+                formData.append('_subject', `Call Request: ${provider.name}`);
+                formData.append('user_name', user.name || 'Guest User');
+                formData.append('user_phone', user.phone || 'Not provided');
+                formData.append('user_email', user.email || 'Not provided');
+                formData.append('user_city', user.city || 'Kaduna');
+                formData.append('provider_name', provider.name);
+                formData.append('provider_phone', provider.phone);
+                formData.append('provider_service', provider.services.join(', '));
+                formData.append('timestamp', new Date().toISOString());
+
+                fetch('https://formspree.io/f/your-endpoint', {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                }).catch(error => console.warn('Failed to send call notification:', error));
             }
 
-            function saveBookingToHistory(service, formData, generatedId) {
-                try {
-                    const bookings = JSON.parse(localStorage.getItem('primer_bookings') || '[]');
-                    const booking = {
-                        id: generatedId,
-                        service: service,
-                        timestamp: new Date().toISOString(),
-                        ...Object.fromEntries(formData)
-                    };
-                    bookings.push(booking);
-                    localStorage.setItem('primer_bookings', JSON.stringify(bookings));
-                    loadPreviousBookings();
-                } catch (e) {
-                    console.warn('Failed to save booking');
-                }
+            function handleCallClick(provider, event) {
+                event.stopPropagation();
+                sendCallNotification(provider, userData);
+                window.location.href = `tel:${provider.phone}`;
+                showToast(`Calling ${provider.name}...`, 'info');
             }
-
-            window.editBooking = function(bookingId) {
-                try {
-                    const bookings = JSON.parse(localStorage.getItem('primer_bookings') || '[]');
-                    const booking = bookings.find(b => b.id === bookingId);
-                    if (booking) {
-                        openModalWithData(booking.service, booking);
-                    }
-                } catch (e) {
-                    showToast('Could not load booking data', 'error');
-                }
-            };
 
             let servicesData = null;
             let adsData = null;
@@ -1168,38 +1535,132 @@
                     fetch('services.json').then(res => res.json()).catch(() => {
                         return {
                             services: [
-                                { id: 'moving', name: 'Moving', icon: 'truck' },
-                                { id: 'repair', name: 'Repair', icon: 'tools' },
-                                { id: 'handyman', name: 'Handyman', icon: 'wrench' },
-                                { id: 'laundry', name: 'Laundry', icon: 'soap' }
-                            ],
-                            movingSizes: ['Studio (1 room)', '1-bedroom', '2-bedroom', '3+ bedroom', 'Office'],
-                            vehicleTypes: ['Pickup truck', 'Small van', 'Large van', 'Truck'],
-                            repairDevices: ['Smartphone', 'Laptop', 'Appliance', 'Furniture', 'Other'],
-                            handymanTasks: ['Plumbing', 'Electrical', 'Painting', 'Assembly', 'Mounting', 'Other'],
-                            laundryServices: ['Wash & fold', 'Dry cleaning', 'Ironing only', 'Stain treatment'],
-                            cities: ['Ikeja', 'Yaba', 'Surulere', 'VI', 'Lekki', 'Ajah'],
-                            contactTimes: ['Morning', 'Afternoon', 'Evening', 'Anytime'],
-                            urgencyOptions: ['Within 24h', 'This week', 'Flexible'],
-                            timeSlots: ['08:00 AM', '09:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '01:00 PM', '02:00 PM', '03:00 PM', '04:00 PM', '05:00 PM']
+                                { id: 'moving', name: 'Moving', icon: 'truck', type: 'company' },
+                                { id: 'repair', name: 'Repair', icon: 'tools', type: 'independent' },
+                                { id: 'handyman', name: 'Handyman', icon: 'wrench', type: 'independent' },
+                                { id: 'laundry', name: 'Laundry', icon: 'soap', type: 'independent' },
+                                { id: 'photography', name: 'Photography', icon: 'camera', type: 'independent' },
+                                { id: 'cleaning', name: 'Cleaning', icon: 'broom', type: 'independent' },
+                                { id: 'painting', name: 'Painting', icon: 'paint-roller', type: 'independent' },
+                                { id: 'plumbing', name: 'Plumbing', icon: 'wrench', type: 'independent' }
+                            ]
                         };
                     }),
                     fetch('ads.json').then(res => res.json()).catch(() => {
                         return [
                             { id: 1, icon: 'fa-tags', title: 'Weekend Discount', description: '20% off on moving & laundry', buttonText: 'Book now', buttonLink: '#' },
-                            { id: 2, icon: 'fa-bolt', title: 'Emergency Repair', description: '24/7 handyman service', buttonText: 'Call now', buttonLink: '#' },
-                            { id: 3, icon: 'fa-soap', title: 'Laundry Special', description: 'Free pickup & delivery', buttonText: 'Learn more', buttonLink: '#' }
+                            { id: 2, icon: 'fa-bolt', title: 'Emergency Repair', description: '24/7 handyman service', buttonText: 'Call now', buttonLink: '#' }
                         ];
+                    }),
+                    fetch('providers.json').then(res => res.json()).catch(() => {
+                        return { providers: [] };
                     })
-                ]).then(([services, ads]) => {
+                ]).then(([services, ads, providers]) => {
                     servicesData = services;
                     adsData = ads;
+                    providersData = providers.providers || [];
                     
                     renderServiceCards();
                     startBannerRotation();
                     attachCardEvents();
                     loadPreviousBookings();
+                    loadProviders();
                 });
+            }
+
+            function loadProviders() {
+                const providersLoading = document.getElementById('providersLoading');
+                const providersList = document.getElementById('independentProvidersList');
+                const recommendedList = document.getElementById('recommendedProvidersList');
+                const noProvidersMessage = document.getElementById('noProvidersMessage');
+                const providersCount = document.getElementById('providersCount');
+                const recommendedCount = document.getElementById('recommendedCount');
+
+                // Filter providers based on user's city (Kaduna default)
+                const userCity = userData.city || 'Kaduna';
+                filteredProviders = providersData.filter(provider => 
+                    provider.serviceAreas && provider.serviceAreas.includes(userCity)
+                );
+
+                providersCount.textContent = `${filteredProviders.length} available`;
+
+                // Separate available and busy/recommended
+                const availableProviders = filteredProviders.filter(p => p.availability === 'available');
+                const busyProviders = filteredProviders.filter(p => p.availability !== 'available').slice(0, 3);
+                
+                // Show recommended (busy) providers
+                if (busyProviders.length > 0) {
+                    recommendedCount.textContent = `${busyProviders.length} similar`;
+                    recommendedList.innerHTML = renderProviderCards(busyProviders, true);
+                    document.getElementById('recommendedProvidersSection').style.display = 'block';
+                } else {
+                    document.getElementById('recommendedProvidersSection').style.display = 'none';
+                }
+
+                // Show available providers
+                if (availableProviders.length === 0) {
+                    providersLoading.style.display = 'none';
+                    if (filteredProviders.length === 0) {
+                        noProvidersMessage.style.display = 'block';
+                    }
+                    providersList.innerHTML = '';
+                    return;
+                }
+
+                providersLoading.style.display = 'none';
+                noProvidersMessage.style.display = 'none';
+                providersList.innerHTML = renderProviderCards(availableProviders, false);
+            }
+
+            function renderProviderCards(providers, isRecommended = false) {
+                return providers.map(provider => {
+                    const mainService = provider.services[0];
+                    const avatarSrc = provider.avatar || `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%232563EB' rx='50'/%3E%3Ctext x='50' y='70' font-size='50' text-anchor='middle' fill='white' font-family='Arial'%3E${provider.name.charAt(0)}%3C/text%3E%3C/svg%3E`;
+                    
+                    return `
+                    <div class="provider-card" onclick="window.location.href='provider-detail.html?id=${provider.id}'">
+                        <div class="provider-header">
+                            <div class="provider-avatar">
+                                <img src="${avatarSrc}" alt="${provider.name}">
+                                ${provider.verified ? '<span class="verified-badge"><i class="fas fa-check"></i></span>' : ''}
+                            </div>
+                            <div class="provider-info">
+                                <div class="provider-name">
+                                    ${provider.name}
+                                    ${isRecommended ? '<span class="recommended-badge">Similar</span>' : ''}
+                                </div>
+                                <div class="provider-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span class="rating-value">${provider.rating}</span>
+                                    <span class="jobs-count">(${provider.completedJobs} jobs)</span>
+                                </div>
+                            </div>
+                            <div class="availability-badge ${provider.availability}">
+                                ${provider.availability === 'available' ? 'Available now' : 'Busy'}
+                            </div>
+                        </div>
+                        <div class="provider-details">
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>${provider.currentLocation}</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>⏱️ ${provider.responseTime} min response</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-tools"></i>
+                                <span>${provider.services.map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(', ')}</span>
+                            </div>
+                        </div>
+                        <div class="provider-actions">
+                            <span class="btn-view" onclick="event.stopPropagation(); window.location.href='provider-detail.html?id=${provider.id}'">View Profile</span>
+                            <span class="btn-call" onclick="handleCallClick(${JSON.stringify(provider).replace(/"/g, '&quot;')}, event)">
+                                <i class="fas fa-phone-alt"></i> Call
+                            </span>
+                        </div>
+                    </div>
+                `}).join('');
             }
 
             let currentAdIndex = 0;
@@ -1240,9 +1701,12 @@
                 if (!servicesData) return;
                 
                 grid.innerHTML = servicesData.services.map(s => `
-                    <div class="service-card" data-service="${s.id}">
+                    <div class="service-card" data-service="${s.id}" data-type="${s.type}">
                         <i class="fas fa-${s.icon}"></i>
                         <span>${s.name}</span>
+                        ${s.type === 'company' ? 
+                            '<div class="company-badge">Primer</div>' : 
+                            '<div class="service-badge">Independent</div>'}
                     </div>
                 `).join('');
             }
@@ -1252,42 +1716,11 @@
             const modalTitle = document.getElementById('modalTitle');
             const modalContent = document.getElementById('modalContent');
             const closeBtn = document.getElementById('closeModalBtn');
-            const floatingBtn = document.getElementById('floatingCallBtn');
-            let activeService = null;
-
-            function openModal(serviceId) {
-                floatingBtn.classList.add('hidden');
-                if (!isProfileComplete()) {
-                    showToast('Please complete your profile in the app first', 'warning');
-                    return;
-                }
-                
-                activeService = serviceId;
-                const srv = servicesData.services.find(s => s.id === serviceId);
-                modalTitle.innerText = srv.name;
-                renderForm(serviceId);
-                backdrop.classList.add('active');
-                modalSheet.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-
-            function openModalWithData(serviceId, bookingData) {
-                floatingBtn.classList.add('hidden');
-                activeService = serviceId;
-                const srv = servicesData.services.find(s => s.id === serviceId);
-                modalTitle.innerText = `Edit ${srv.name}`;
-                renderForm(serviceId, bookingData);
-                backdrop.classList.add('active');
-                modalSheet.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-
+            
             function closeModal() {
-                floatingBtn.classList.remove('hidden');
                 backdrop.classList.remove('active');
                 modalSheet.classList.remove('active');
                 document.body.style.overflow = '';
-                activeService = null;
             }
 
             backdrop.addEventListener('click', closeModal);
@@ -1296,469 +1729,41 @@
             function attachCardEvents() {
                 document.querySelectorAll('.service-card').forEach(card => {
                     card.addEventListener('click', () => {
-                        document.querySelectorAll('.service-card').forEach(c => c.classList.remove('active'));
-                        card.classList.add('active');
-                        openModal(card.dataset.service);
+                        const serviceId = card.dataset.service;
+                        window.location.href = `providers-list.html?service=${serviceId}`;
                     });
                 });
             }
 
-            function initCalendar(containerId, inputId, existingDate = null) {
-                const container = document.getElementById(containerId);
-                if (!container) return;
-                
-                const today = new Date();
-                const year = today.getFullYear();
-                const month = today.getMonth();
-                const daysInMonth = new Date(year, month + 1, 0).getDate();
-                const firstDay = new Date(year, month, 1).getDay();
-                
-                let html = `
-                    <div class="calendar-header">
-                        <span class="calendar-month">${today.toLocaleString('default', { month: 'long' })} ${year}</span>
-                    </div>
-                    <div class="calendar-weekdays">
-                        <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
-                    </div>
-                    <div class="calendar-days">
-                `;
-                
-                for (let i = 0; i < firstDay; i++) html += '<div class="calendar-day empty"></div>';
-                
-                for (let d = 1; d <= daysInMonth; d++) {
-                    const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
-                    const isSelected = existingDate ? existingDate === dateStr : d === today.getDate();
-                    html += `<div class="calendar-day ${isSelected ? 'selected' : ''}" data-day="${d}" data-date="${dateStr}">${d}</div>`;
+            // Search functionality
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', (e) => {
+                searchTerm = e.target.value;
+                applySearch();
+            });
+
+            function applySearch() {
+                if (!searchTerm) {
+                    loadProviders();
+                    return;
                 }
-                html += '</div>';
-                container.innerHTML = html;
                 
-                if (existingDate) {
-                    document.getElementById(inputId).value = existingDate;
+                const userCity = userData.city || 'Kaduna';
+                const searchResults = providersData.filter(provider => 
+                    provider.serviceAreas && provider.serviceAreas.includes(userCity) &&
+                    (provider.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                     provider.services.some(s => s.toLowerCase().includes(searchTerm.toLowerCase())))
+                );
+                
+                document.getElementById('providersLoading').style.display = 'none';
+                document.getElementById('independentProvidersList').innerHTML = renderProviderCards(searchResults, false);
+                document.getElementById('providersCount').textContent = `${searchResults.length} available`;
+                
+                if (searchResults.length === 0) {
+                    document.getElementById('noProvidersMessage').style.display = 'block';
                 } else {
-                    const monthVal = (month + 1).toString().padStart(2, '0');
-                    const dayVal = today.getDate().toString().padStart(2, '0');
-                    document.getElementById(inputId).value = `${year}-${monthVal}-${dayVal}`;
+                    document.getElementById('noProvidersMessage').style.display = 'none';
                 }
-                
-                container.querySelectorAll('.calendar-day[data-day]').forEach(day => {
-                    day.addEventListener('click', () => {
-                        container.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('selected'));
-                        day.classList.add('selected');
-                        document.getElementById(inputId).value = day.dataset.date;
-                    });
-                });
-            }
-
-            function attachDropdowns(serviceId) {
-                document.querySelectorAll('.custom-dropdown').forEach(drop => {
-                    const selected = drop.querySelector('.dropdown-selected');
-                    const options = drop.querySelector('.dropdown-options');
-                    const opts = drop.querySelectorAll('.dropdown-option');
-                    
-                    if (!selected) return;
-                    
-                    selected.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        document.querySelectorAll('.dropdown-options.show').forEach(o => { if (o !== options) o.classList.remove('show'); });
-                        document.querySelectorAll('.dropdown-selected.active').forEach(s => { if (s !== selected) s.classList.remove('active'); });
-                        options.classList.toggle('show');
-                        selected.classList.toggle('active');
-                    });
-                    
-                    opts.forEach(opt => {
-                        opt.addEventListener('click', () => {
-                            selected.innerHTML = `${opt.innerText} <i class="fas fa-chevron-down"></i>`;
-                            options.classList.remove('show');
-                            selected.classList.remove('active');
-                            
-                            const target = selected.dataset.target;
-                            const inputMap = {
-                                'moveSize': 'moveSizeInput', 'vehicle': 'vehicleInput', 'moveTime': 'moveTimeInput',
-                                'repairType': 'repairTypeInput', 'repairTime': 'repairTimeInput',
-                                'handyTime': 'handyTimeInput', 'laundryType': 'laundryTypeInput', 'laundryTime': 'laundryTimeInput',
-                                [`${serviceId}ContactTime`]: `${serviceId}ContactTimeInput`,
-                                [`${serviceId}Urgency`]: `${serviceId}UrgencyInput`,
-                                [`${serviceId}City`]: `${serviceId}CityInput`
-                            };
-                            if (inputMap[target]) {
-                                document.getElementById(inputMap[target]).value = opt.dataset.value;
-                            }
-                        });
-                    });
-                });
-            }
-
-            function renderForm(serviceId, existingData = null) {
-                if (!servicesData) return;
-
-                const nameValue = existingData?.name || userData.name || '';
-                const phoneValue = existingData?.phone || userData.phone || '';
-                const addressValue = existingData?.address || userData.address || '';
-                const cityValue = existingData?.city || '';
-
-                let commonNote = `
-                    <div class="info-note">
-                        <i class="fas fa-clock"></i>
-                        <span>After booking, our team will contact you within 30 mins to confirm details and schedule the worker.</span>
-                    </div>
-                `;
-
-                let commonFields = `
-                    <div class="form-group">
-                        <label class="form-label"><i class="fas fa-user"></i> Full name</label>
-                        <input type="text" class="form-input ${nameValue ? 'profile-filled' : ''}" id="${serviceId}Name" placeholder="e.g. John Doe" value="${nameValue}">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label"><i class="fas fa-phone"></i> Phone number</label>
-                        <input type="tel" class="form-input ${phoneValue ? 'profile-filled' : ''}" id="${serviceId}Phone" placeholder="+234 800 000 0000" value="${phoneValue}">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label">Preferred contact method</label>
-                        <div class="radio-group" id="${serviceId}ContactMethod">
-                            <label class="radio-item"><input type="radio" name="${serviceId}ContactMethod" value="Phone call" ${existingData?.contactMethod === 'Phone call' || !existingData ? 'checked' : ''}> Phone call</label>
-                            <label class="radio-item"><input type="radio" name="${serviceId}ContactMethod" value="WhatsApp" ${existingData?.contactMethod === 'WhatsApp' ? 'checked' : ''}> WhatsApp</label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">Best time to contact you</label>
-                        <div class="custom-dropdown" id="drop${serviceId}ContactTime">
-                            <div class="dropdown-selected" data-target="${serviceId}ContactTime">${existingData?.bestTime || 'Select time'} <i class="fas fa-chevron-down"></i></div>
-                            <div class="dropdown-options">
-                                ${servicesData.contactTimes.map(t => `<div class="dropdown-option" data-value="${t}">${t}</div>`).join('')}
-                            </div>
-                        </div>
-                        <input type="hidden" id="${serviceId}ContactTimeInput" value="${existingData?.bestTime || ''}">
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">How soon do you need this?</label>
-                        <div class="custom-dropdown" id="drop${serviceId}Urgency">
-                            <div class="dropdown-selected" data-target="${serviceId}Urgency">${existingData?.urgency || 'Select urgency'} <i class="fas fa-chevron-down"></i></div>
-                            <div class="dropdown-options">
-                                ${servicesData.urgencyOptions.map(u => `<div class="dropdown-option" data-value="${u}">${u}</div>`).join('')}
-                            </div>
-                        </div>
-                        <input type="hidden" id="${serviceId}UrgencyInput" value="${existingData?.urgency || ''}">
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label"><i class="fas fa-city"></i> City / area</label>
-                        <div class="custom-dropdown" id="drop${serviceId}City">
-                            <div class="dropdown-selected" data-target="${serviceId}City">${cityValue || 'Select city'} <i class="fas fa-chevron-down"></i></div>
-                            <div class="dropdown-options">
-                                ${servicesData.cities.map(c => `<div class="dropdown-option" data-value="${c}">${c}</div>`).join('')}
-                            </div>
-                        </div>
-                        <input type="hidden" id="${serviceId}CityInput" value="${cityValue}">
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label"><i class="fas fa-map-marked-alt"></i> Full address</label>
-                        <textarea class="form-textarea ${addressValue ? 'profile-filled' : ''}" id="${serviceId}Address" placeholder="Street, building, landmark, gate code etc.">${addressValue}</textarea>
-                    </div>
-                `;
-
-                let specificFields = '';
-
-                if (serviceId === 'moving') {
-                    specificFields = `
-                        <div class="form-group">
-                            <label class="form-label">Pickup address</label>
-                            <textarea class="form-textarea" id="movePickup" placeholder="Where items are">${existingData?.pickup || ''}</textarea>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Destination address</label>
-                            <textarea class="form-textarea" id="moveDropoff" placeholder="Where to deliver">${existingData?.destination || ''}</textarea>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Move size</label>
-                            <div class="custom-dropdown" id="dropMoveSize">
-                                <div class="dropdown-selected" data-target="moveSize">${existingData?.moveSize || 'Select size'} <i class="fas fa-chevron-down"></i></div>
-                                <div class="dropdown-options">
-                                    ${servicesData.movingSizes.map(sz => `<div class="dropdown-option" data-value="${sz}">${sz}</div>`).join('')}
-                                </div>
-                            </div>
-                            <input type="hidden" id="moveSizeInput" value="${existingData?.moveSize || ''}">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Vehicle type</label>
-                            <div class="custom-dropdown" id="dropVehicle">
-                                <div class="dropdown-selected" data-target="vehicle">${existingData?.vehicle || 'Select vehicle'} <i class="fas fa-chevron-down"></i></div>
-                                <div class="dropdown-options">
-                                    ${servicesData.vehicleTypes.map(v => `<div class="dropdown-option" data-value="${v}">${v}</div>`).join('')}
-                                </div>
-                            </div>
-                            <input type="hidden" id="vehicleInput" value="${existingData?.vehicle || ''}">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Preferred date</label>
-                            <div class="custom-calendar" id="moveCalendar"></div>
-                            <input type="hidden" id="moveDateInput" value="${existingData?.date || ''}">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Preferred time</label>
-                            <div class="custom-dropdown" id="dropMoveTime">
-                                <div class="dropdown-selected" data-target="moveTime">${existingData?.time || 'Select time'} <i class="fas fa-chevron-down"></i></div>
-                                <div class="dropdown-options">
-                                    ${servicesData.timeSlots.map(t => `<div class="dropdown-option" data-value="${t}">${t}</div>`).join('')}
-                                </div>
-                            </div>
-                            <input type="hidden" id="moveTimeInput" value="${existingData?.time || ''}">
-                        </div>
-                    `;
-                }
-
-                if (serviceId === 'repair') {
-                    specificFields = `
-                        <div class="form-group">
-                            <label class="form-label">Device / item type</label>
-                            <div class="custom-dropdown" id="dropRepairType">
-                                <div class="dropdown-selected" data-target="repairType">${existingData?.device || 'Select device'} <i class="fas fa-chevron-down"></i></div>
-                                <div class="dropdown-options">
-                                    ${servicesData.repairDevices.map(d => `<div class="dropdown-option" data-value="${d}">${d}</div>`).join('')}
-                                </div>
-                            </div>
-                            <input type="hidden" id="repairTypeInput" value="${existingData?.device || ''}">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Describe the issue</label>
-                            <textarea class="form-textarea" id="repairIssue" placeholder="Exact issue, brand, model">${existingData?.description || ''}</textarea>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Preferred date</label>
-                            <div class="custom-calendar" id="repairCalendar"></div>
-                            <input type="hidden" id="repairDateInput" value="${existingData?.date || ''}">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Preferred time</label>
-                            <div class="custom-dropdown" id="dropRepairTime">
-                                <div class="dropdown-selected" data-target="repairTime">${existingData?.time || 'Select time'} <i class="fas fa-chevron-down"></i></div>
-                                <div class="dropdown-options">
-                                    ${servicesData.timeSlots.map(t => `<div class="dropdown-option" data-value="${t}">${t}</div>`).join('')}
-                                </div>
-                            </div>
-                            <input type="hidden" id="repairTimeInput" value="${existingData?.time || ''}">
-                        </div>
-                    `;
-                }
-
-                if (serviceId === 'handyman') {
-                    specificFields = `
-                        <div class="form-group">
-                            <label class="form-label">Tasks</label>
-                            <div class="checkbox-group" id="handyTasks">
-                                ${servicesData.handymanTasks.map(t => `
-                                    <label class="checkbox-item">
-                                        <input type="checkbox" value="${t}" ${existingData?.tasks?.includes(t) ? 'checked' : ''}> ${t}
-                                    </label>
-                                `).join('')}
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Description</label>
-                            <textarea class="form-textarea" id="handyDescription" placeholder="Additional details">${existingData?.description || ''}</textarea>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Preferred date</label>
-                            <div class="custom-calendar" id="handyCalendar"></div>
-                            <input type="hidden" id="handyDateInput" value="${existingData?.date || ''}">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Preferred time</label>
-                            <div class="custom-dropdown" id="dropHandyTime">
-                                <div class="dropdown-selected" data-target="handyTime">${existingData?.time || 'Select time'} <i class="fas fa-chevron-down"></i></div>
-                                <div class="dropdown-options">
-                                    ${servicesData.timeSlots.map(t => `<div class="dropdown-option" data-value="${t}">${t}</div>`).join('')}
-                                </div>
-                            </div>
-                            <input type="hidden" id="handyTimeInput" value="${existingData?.time || ''}">
-                        </div>
-                    `;
-                }
-
-                if (serviceId === 'laundry') {
-                    const initialPieces = existingData?.pieces ? parseInt(existingData.pieces) : 5;
-                    specificFields = `
-                        <div class="form-group">
-                            <label class="form-label">Service type</label>
-                            <div class="custom-dropdown" id="dropLaundryType">
-                                <div class="dropdown-selected" data-target="laundryType">${existingData?.laundryType || 'Select service'} <i class="fas fa-chevron-down"></i></div>
-                                <div class="dropdown-options">
-                                    ${servicesData.laundryServices.map(ls => `<div class="dropdown-option" data-value="${ls}">${ls}</div>`).join('')}
-                                </div>
-                            </div>
-                            <input type="hidden" id="laundryTypeInput" value="${existingData?.laundryType || ''}">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Where should the laundry be done?</label>
-                            <div class="radio-group" id="laundryLocation">
-                                <label class="radio-item"><input type="radio" name="laundryLocation" value="At my home" ${existingData?.laundryLocation === 'At my home' || !existingData ? 'checked' : ''}> At my home</label>
-                                <label class="radio-item"><input type="radio" name="laundryLocation" value="Worker's location" ${existingData?.laundryLocation === "Worker's location" ? 'checked' : ''}> Worker's location</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label"><i class="fas fa-tshirt"></i> Number of pieces (minimum 5)</label>
-                            <div class="counter-control">
-                                <span class="counter-btn" id="laundryPiecesMinus">−</span>
-                                <span class="counter-value" id="laundryPiecesDisplay">${initialPieces}</span>
-                                <span class="counter-btn" id="laundryPiecesPlus">+</span>
-                            </div>
-                            <input type="hidden" id="laundryPiecesInput" value="${initialPieces}">
-                            <div class="counter-hint">Minimum 5 pieces required</div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Pickup address</label>
-                            <textarea class="form-textarea" id="laundryPickup" placeholder="If different from your address">${existingData?.pickupAddress || ''}</textarea>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Special instructions</label>
-                            <textarea class="form-textarea" id="laundryNotes" placeholder="e.g. delicate fabrics">${existingData?.notes || ''}</textarea>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Preferred date</label>
-                            <div class="custom-calendar" id="laundryCalendar"></div>
-                            <input type="hidden" id="laundryDateInput" value="${existingData?.date || ''}">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Preferred time</label>
-                            <div class="custom-dropdown" id="dropLaundryTime">
-                                <div class="dropdown-selected" data-target="laundryTime">${existingData?.time || 'Select time'} <i class="fas fa-chevron-down"></i></div>
-                                <div class="dropdown-options">
-                                    ${servicesData.timeSlots.map(t => `<div class="dropdown-option" data-value="${t}">${t}</div>`).join('')}
-                                </div>
-                            </div>
-                            <input type="hidden" id="laundryTimeInput" value="${existingData?.time || ''}">
-                        </div>
-                    `;
-                }
-
-                modalContent.innerHTML = commonNote + commonFields + specificFields + `<button class="btn-submit" id="submit${serviceId}">${existingData ? 'Update & Book' : 'Request Service'}</button>`;
-
-                if (serviceId === 'laundry') {
-                    const minus = document.getElementById('laundryPiecesMinus');
-                    const plus = document.getElementById('laundryPiecesPlus');
-                    const display = document.getElementById('laundryPiecesDisplay');
-                    const input = document.getElementById('laundryPiecesInput');
-                    
-                    if (minus && plus && display && input) {
-                        const updateCounter = (val) => {
-                            if (val < 5) val = 5;
-                            display.innerText = val;
-                            input.value = val;
-                        };
-                        
-                        minus.addEventListener('click', () => {
-                            updateCounter(parseInt(display.innerText) - 1);
-                        });
-                        
-                        plus.addEventListener('click', () => {
-                            updateCounter(parseInt(display.innerText) + 1);
-                        });
-                    }
-                }
-
-                if (serviceId === 'moving') initCalendar('moveCalendar', 'moveDateInput', existingData?.date);
-                if (serviceId === 'repair') initCalendar('repairCalendar', 'repairDateInput', existingData?.date);
-                if (serviceId === 'handyman') initCalendar('handyCalendar', 'handyDateInput', existingData?.date);
-                if (serviceId === 'laundry') initCalendar('laundryCalendar', 'laundryDateInput', existingData?.date);
-
-                attachDropdowns(serviceId);
-                attachSubmit(serviceId, !!existingData);
-            }
-
-            function attachSubmit(service, isEdit = false) {
-                const btn = document.getElementById('submit' + service);
-                if (!btn) return;
-                
-                btn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    
-                    const bookingId = generateBookingId();
-                    const formData = new FormData();
-                    formData.append('_subject', `${isEdit ? 'Updated' : 'New'} ${service} booking`);
-                    formData.append('booking_id', bookingId);
-                    
-                    formData.append('name', document.getElementById(service + 'Name')?.value || '');
-                    formData.append('phone', document.getElementById(service + 'Phone')?.value || '');
-                    
-                    const contactMethod = document.querySelector(`input[name="${service}ContactMethod"]:checked`)?.value || '';
-                    formData.append('contactMethod', contactMethod);
-                    
-                    formData.append('bestTime', document.getElementById(service + 'ContactTimeInput')?.value || '');
-                    formData.append('urgency', document.getElementById(service + 'UrgencyInput')?.value || '');
-                    formData.append('city', document.getElementById(service + 'CityInput')?.value || '');
-                    formData.append('address', document.getElementById(service + 'Address')?.value || '');
-                    
-                    if (service === 'moving') {
-                        formData.append('pickup', document.getElementById('movePickup')?.value || '');
-                        formData.append('destination', document.getElementById('moveDropoff')?.value || '');
-                        formData.append('moveSize', document.getElementById('moveSizeInput')?.value || '');
-                        formData.append('vehicle', document.getElementById('vehicleInput')?.value || '');
-                        formData.append('date', document.getElementById('moveDateInput')?.value || '');
-                        formData.append('time', document.getElementById('moveTimeInput')?.value || '');
-                    }
-                    
-                    if (service === 'repair') {
-                        formData.append('device', document.getElementById('repairTypeInput')?.value || '');
-                        formData.append('description', document.getElementById('repairIssue')?.value || '');
-                        formData.append('date', document.getElementById('repairDateInput')?.value || '');
-                        formData.append('time', document.getElementById('repairTimeInput')?.value || '');
-                    }
-                    
-                    if (service === 'handyman') {
-                        const tasks = Array.from(document.querySelectorAll('#handyTasks input:checked')).map(cb => cb.value).join(', ');
-                        formData.append('tasks', tasks);
-                        formData.append('description', document.getElementById('handyDescription')?.value || '');
-                        formData.append('date', document.getElementById('handyDateInput')?.value || '');
-                        formData.append('time', document.getElementById('handyTimeInput')?.value || '');
-                    }
-                    
-                    if (service === 'laundry') {
-                        formData.append('laundryType', document.getElementById('laundryTypeInput')?.value || '');
-                        
-                        const laundryLoc = document.querySelector('input[name="laundryLocation"]:checked')?.value || '';
-                        formData.append('laundryLocation', laundryLoc);
-                        
-                        formData.append('pieces', document.getElementById('laundryPiecesInput')?.value || '5');
-                        formData.append('pickupAddress', document.getElementById('laundryPickup')?.value || '');
-                        formData.append('notes', document.getElementById('laundryNotes')?.value || '');
-                        formData.append('date', document.getElementById('laundryDateInput')?.value || '');
-                        formData.append('time', document.getElementById('laundryTimeInput')?.value || '');
-                    }
-                    
-                    saveBookingToHistory(service, formData, bookingId);
-                    
-                    const endpoint = 'https://formspree.io/f/your-endpoint';
-                    
-                    showToast('Sending request...', 'info');
-                    btn.disabled = true;
-                    btn.innerHTML = '<span class="loading-spinner"></span> Sending...';
-                    
-                    fetch(endpoint, {
-                        method: 'POST',
-                        body: formData,
-                        headers: { 'Accept': 'application/json' }
-                    })
-                    .then(response => {
-                        if (response.ok) {
-                            showToast(`${isEdit ? 'Booking updated' : 'Request sent'}! Your ID: ${bookingId}`, 'success');
-                            closeModal();
-                        } else {
-                            showToast('Error sending request. Please try again.', 'error');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        showToast('Network error. Please check your connection.', 'error');
-                    })
-                    .finally(() => {
-                        btn.disabled = false;
-                        btn.innerHTML = isEdit ? 'Update & Book' : 'Request Service';
-                    });
-                });
             }
 
             const toastContainer = document.getElementById('toastContainer');
@@ -1781,10 +1786,8 @@
                 }, 4000);
             }
 
-            document.addEventListener('click', () => {
-                document.querySelectorAll('.dropdown-options.show').forEach(o => o.classList.remove('show'));
-                document.querySelectorAll('.dropdown-selected.active').forEach(s => s.classList.remove('active'));
-            });
+            // Make handleCallClick globally available
+            window.handleCallClick = handleCallClick;
 
             loadData();
 
@@ -1795,6 +1798,8 @@
                 } else {
                     profileWarning.style.display = 'none';
                 }
+                document.getElementById('currentLocationDisplay').textContent = userData.city || 'Kaduna';
+                loadProviders();
             });
 
             document.addEventListener('keydown', (e) => {
