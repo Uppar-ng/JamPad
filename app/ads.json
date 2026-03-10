@@ -1,0 +1,82 @@
+[
+  {
+    "icon": "fa-crown",
+    "title": "⭐ PRIMER PREMIUM SERVICES ⭐",
+    "description": "Company-owned, fully insured, 24/7 availability",
+    "button": "Explore Primer",
+    "link": "#primer-services",
+    "image": "https://images.unsplash.com/photo-1600121848594-d8644e57abab?w=600&auto=format&fit=crop"
+  },
+  {
+    "icon": "fa-tags",
+    "title": "Weekend Special",
+    "description": "20% off moving services this weekend",
+    "button": "Book now",
+    "link": "providers-list.html?service=moving",
+    "image": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&auto=format&fit=crop"
+  },
+  {
+    "icon": "fa-star",
+    "title": "New to Primer?",
+    "description": "Get ₦2000 off your first booking",
+    "button": "Claim offer",
+    "link": "#",
+    "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&auto=format&fit=crop"
+  },
+  {
+    "icon": "fa-clock",
+    "title": "24/7 Emergency Services",
+    "description": "Plumbing & electrical available now",
+    "button": "Call now",
+    "link": "tel:+2348100590574",
+    "image": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&auto=format&fit=crop"
+  },
+  {
+    "icon": "fa-shield-alt",
+    "title": "Verified Providers",
+    "description": "All providers are background checked",
+    "button": "Learn more",
+    "link": "#",
+    "image": "https://images.unsplash.com/photo-1556740714-a8395b3bf30f?w=600&auto=format&fit=crop"
+  },
+  {
+    "icon": "fa-broom",
+    "title": "Primer Deep Cleaning",
+    "description": "Professional home cleaning at ₦15,000",
+    "button": "Book now",
+    "link": "providers-list.html?service=cleaning",
+    "image": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&auto=format&fit=crop"
+  },
+  {
+    "icon": "fa-wrench",
+    "title": "Primer Handyman Special",
+    "description": "Fix it right the first time",
+    "button": "Find handyman",
+    "link": "providers-list.html?service=handyman",
+    "image": "https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=600&auto=format&fit=crop"
+  },
+  {
+    "icon": "fa-camera",
+    "title": "Photography",
+    "description": "Capture your special moments",
+    "button": "Book photographer",
+    "link": "providers-list.html?service=photography",
+    "image": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&auto=format&fit=crop"
+  },
+  {
+    "icon": "fa-paint-roller",
+    "title": "Painting Services",
+    "description": "Transform your home today",
+    "button": "Get quote",
+    "link": "providers-list.html?service=painting",
+    "image": "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=600&auto=format&fit=crop"
+  },
+  {
+    "icon": "fa-bolt",
+    "title": "Electrical Services",
+    "description": "Licensed electricians, 24/7",
+    "button": "Call now",
+    "link": "providers-list.html?service=electrical",
+    "image": "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&auto=format&fit=crop"
+  }
+]

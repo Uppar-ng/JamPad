@@ -1,0 +1,16 @@
+{
+  "services": [
+    { "id": "moving", "name": "Moving", "icon": "truck", "type": "company", "primerOwned": true, "featured": true },
+    { "id": "cleaning", "name": "Cleaning", "icon": "broom", "type": "company", "primerOwned": true, "featured": true },
+    { "id": "handyman", "name": "Handyman", "icon": "wrench", "type": "company", "primerOwned": true, "featured": true },
+    { "id": "repair", "name": "Repair", "icon": "tools", "type": "independent" },
+    { "id": "laundry", "name": "Laundry", "icon": "soap", "type": "independent" },
+    { "id": "photography", "name": "Photography", "icon": "camera", "type": "independent" },
+    { "id": "painting", "name": "Painting", "icon": "paint-roller", "type": "independent" },
+    { "id": "plumbing", "name": "Plumbing", "icon": "wrench", "type": "independent" },
+    { "id": "electrical", "name": "Electrical", "icon": "bolt", "type": "independent" },
+    { "id": "carpentry", "name": "Carpentry", "icon": "hammer", "type": "independent" },
+    { "id": "gardening", "name": "Gardening", "icon": "leaf", "type": "independent" },
+    { "id": "pest-control", "name": "Pest Control", "icon": "bug", "type": "independent" }
+  ]
+}
