@@ -1,1174 +1,887 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Enterprise Meta Tags -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <meta name="description" content="How Primer Works - Simple, transparent process for finding or listing properties in Nigeria. Verified properties, direct landlord contact, 24/7 electricity guarantee.">
-    <meta name="keywords" content="how it works, property rental process, find apartment Nigeria, list property, tenant process, landlord process">
-    <meta name="author" content="Primer Technologies">
-    <meta property="og:title" content="How Primer Works - Simple Property Rental Process in Nigeria">
-    <meta property="og:description" content="三步简单流程：搜索、查看、联系。尼日利亚最透明的租房平台。">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://primert.vercel.app/how-it-works">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Primer Works • Simple 3-Step Process</title>
+    <meta name="description" content="Learn how Primer works in three simple steps. Install the app, browse providers, and connect instantly via call or WhatsApp.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
-    <title>How It Works | Primer Technologies - Enterprise Housing Solutions</title>
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2563EB">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Primer">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
     
-    <!-- Preconnect for Performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="enterprise-design-system.css">
-    <link rel="icon" type="image/png" href="/favicon.png">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
-        /* ===== MOBILE-FIRST ENTERPRISE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
         
-        /* CSS Custom Properties for Responsive Design */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
         :root {
-            --container-padding: 1rem;
-            --grid-gap: 1rem;
-            --primary-50: #eff6ff;
-            --primary-100: #dbeafe;
-            --primary-500: #0066FF;
-            --primary-600: #2563eb;
-            --primary-700: #1d4ed8;
-            --primary-800: #1e40af;
-            --accent-500: #F59E0B;
-            --success-500: #10B981;
-            --gray-50: #f9fafb;
-            --gray-100: #f3f4f6;
-            --gray-200: #e5e7eb;
-            --gray-500: #6b7280;
-            --gray-600: #4b5563;
-            --gray-700: #374151;
-            --gray-800: #1f2937;
-            --gray-900: #111827;
+            --primary: #2563EB;
+            --primary-dark: #1D4ED8;
+            --primary-light: #DBEAFE;
+            --primary-soft: #EFF6FF;
+            --background: #FFFFFF;
+            --surface: #F9FAFB;
+            --text-primary: #111827;
+            --text-secondary: #4B5563;
+            --text-tertiary: #9CA3AF;
+            --border: #E5E7EB;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
         
-        @media (min-width: 640px) {
-            :root {
-                --container-padding: 1.5rem;
-                --grid-gap: 1.5rem;
-            }
+        body {
+            background: var(--background);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            position: relative;
         }
         
-        @media (min-width: 1024px) {
-            :root {
-                --container-padding: 2rem;
-                --grid-gap: 2rem;
-            }
-        }
-        
-        /* Base Container */
-        .enterprise-container {
-            width: 100%;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 var(--container-padding);
-        }
-        
-        /* ===== RESPONSIVE NAVIGATION (Same as Homepage) ===== */
-        .enterprise-nav {
-            position: sticky;
+        /* Floating Background Icons */
+        .floating-icons {
+            position: fixed;
             top: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            height: 64px;
-            display: flex;
-            align-items: center;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
         }
         
-        [data-theme="dark"] .enterprise-nav {
-            background: rgba(10, 10, 10, 0.98);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        .float-icon {
+            position: absolute;
+            color: var(--primary);
+            opacity: 0.08;
+            font-size: 2rem;
+            animation: floatAround 20s infinite ease-in-out;
         }
         
-        .nav-container {
+        .float-icon:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; font-size: 3rem; }
+        .float-icon:nth-child(2) { top: 20%; right: 10%; animation-delay: -2s; font-size: 2.5rem; }
+        .float-icon:nth-child(3) { bottom: 30%; left: 15%; animation-delay: -4s; font-size: 4rem; }
+        .float-icon:nth-child(4) { top: 40%; right: 20%; animation-delay: -6s; font-size: 2rem; }
+        .float-icon:nth-child(5) { bottom: 20%; right: 25%; animation-delay: -8s; font-size: 3.5rem; }
+        .float-icon:nth-child(6) { top: 70%; left: 25%; animation-delay: -10s; font-size: 2.8rem; }
+        .float-icon:nth-child(7) { bottom: 10%; left: 40%; animation-delay: -12s; font-size: 3.2rem; }
+        .float-icon:nth-child(8) { top: 15%; left: 60%; animation-delay: -14s; font-size: 2.2rem; }
+        .float-icon:nth-child(9) { bottom: 40%; right: 5%; animation-delay: -16s; font-size: 3.8rem; }
+        .float-icon:nth-child(10) { top: 85%; right: 15%; animation-delay: -18s; font-size: 2.6rem; }
+        
+        @keyframes floatAround {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+            25% {
+                transform: translate(20px, -30px) rotate(10deg) scale(1.1);
+            }
+            50% {
+                transform: translate(-20px, 20px) rotate(-5deg) scale(0.9);
+            }
+            75% {
+                transform: translate(30px, 20px) rotate(15deg) scale(1.05);
+            }
+        }
+        
+        /* Install Banner */
+        .install-banner {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 16px 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            width: 100%;
-            padding: 0 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+            box-shadow: var(--shadow-lg);
         }
         
-        @media (min-width: 1024px) {
-            .nav-container {
-                padding: 0 2rem;
-            }
+        .install-banner.hidden {
+            transform: translateY(-100%);
         }
         
-        .logo-wrapper {
+        .banner-content {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            text-decoration: none;
+            gap: 12px;
         }
         
-        .logo-mark {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #0066FF, #0044CC);
-            border-radius: 12px;
+        .banner-content i {
+            font-size: 24px;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        .banner-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .install-btn {
+            background: white;
+            color: var(--primary);
+            border: none;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .install-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+        }
+        
+        .close-banner {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-weight: 800;
-            font-size: 1.25rem;
-            transition: transform 0.2s ease;
-        }
-        
-        .logo-mark:hover {
-            transform: scale(1.05);
-        }
-        
-        .logo-text {
-            display: none;
-        }
-        
-        @media (min-width: 640px) {
-            .logo-text {
-                display: block;
-            }
-            .logo-text h1 {
-                font-size: 1.25rem;
-                font-weight: 800;
-                background: linear-gradient(135deg, #0066FF, #0044CC);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                line-height: 1.2;
-            }
-            .logo-text p {
-                font-size: 0.7rem;
-                color: #666;
-                font-weight: 500;
-            }
-        }
-        
-        /* Mobile Menu Button */
-        .mobile-menu-btn {
-            display: block;
-            background: none;
-            border: none;
-            color: #333;
-            font-size: 1.5rem;
             cursor: pointer;
-            padding: 0.5rem;
+            transition: all 0.2s;
+            font-size: 16px;
         }
         
-        @media (min-width: 1024px) {
-            .mobile-menu-btn {
-                display: none;
-            }
+        .close-banner:hover {
+            background: rgba(255,255,255,0.3);
+            transform: rotate(90deg);
         }
         
-        [data-theme="dark"] .mobile-menu-btn {
-            color: #fff;
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 20px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 90;
         }
         
-        /* Desktop Navigation Links */
-        .nav-links-desktop {
-            display: none;
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
         
-        @media (min-width: 1024px) {
-            .nav-links-desktop {
-                display: flex;
-                align-items: center;
-                gap: 2rem;
-            }
-        }
-        
-        .nav-link {
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             text-decoration: none;
-            color: #555;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
             font-weight: 500;
-            font-size: 0.9rem;
             transition: color 0.2s;
             position: relative;
         }
         
-        [data-theme="dark"] .nav-link {
-            color: #aaa;
-        }
-        
-        .nav-link:hover,
-        .nav-link.active {
-            color: #0066FF;
-        }
-        
-        .nav-link::after {
+        .nav-links a::after {
             content: '';
             position: absolute;
             bottom: -4px;
             left: 0;
             width: 0;
             height: 2px;
-            background: #0066FF;
-            transition: width 0.2s;
+            background: var(--primary);
+            transition: width 0.3s;
         }
         
-        .nav-link:hover::after,
-        .nav-link.active::after {
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
             width: 100%;
         }
         
-        /* Desktop Actions */
-        .nav-actions-desktop {
-            display: none;
+        .nav-links a:hover {
+            color: var(--primary);
         }
         
-        @media (min-width: 1024px) {
-            .nav-actions-desktop {
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-            }
+        .nav-links a.active {
+            color: var(--primary);
         }
         
-        .theme-toggle {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: #f5f5f5;
-            border: none;
-            color: #333;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-        }
-        
-        [data-theme="dark"] .theme-toggle {
-            background: #222;
-            color: #fff;
-        }
-        
-        .theme-toggle:hover {
-            background: #e5e5e5;
-        }
-        
-        .btn-properties {
-            background: linear-gradient(135deg, #0066FF, #0044CC);
-            color: white;
-            padding: 0.6rem 1.5rem;
-            border-radius: 100px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-decoration: none;
-            transition: all 0.2s;
-        }
-        
-        .btn-properties:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 102, 255, 0.3);
-        }
-        
-        /* Mobile Menu Panel */
-        .mobile-menu {
-            position: fixed;
-            top: 64px;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: white;
-            z-index: 999;
-            padding: 2rem;
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-            overflow-y: auto;
-        }
-        
-        [data-theme="dark"] .mobile-menu {
-            background: #111;
-        }
-        
-        .mobile-menu.active {
-            transform: translateX(0);
-        }
-        
-        @media (min-width: 1024px) {
-            .mobile-menu {
-                display: none;
-            }
-        }
-        
-        .mobile-nav-links {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        
-        .mobile-nav-link {
-            text-decoration: none;
-            color: #333;
-            font-size: 1.25rem;
-            font-weight: 600;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid #eee;
-        }
-        
-        [data-theme="dark"] .mobile-nav-link {
-            color: #fff;
-            border-bottom-color: #333;
-        }
-        
-        .mobile-actions {
-            margin-top: 2rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        
-        .mobile-btn-properties {
-            background: linear-gradient(135deg, #0066FF, #0044CC);
-            color: white;
-            padding: 1rem;
-            border-radius: 12px;
-            text-align: center;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        
-        /* ===== PAGE HEADER ===== */
+        /* Page Header with Background Image */
         .page-header {
-            background: linear-gradient(135deg, #0066FF, #0044CC, #002277);
-            color: white;
-            padding: 3rem 1rem;
             position: relative;
-            overflow: hidden;
+            padding: 100px 24px;
             text-align: center;
+            background: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover fixed;
+            isolation: isolate;
         }
         
-        @media (min-width: 768px) {
-            .page-header {
-                padding: 5rem 2rem;
-            }
-        }
-        
-        .header-pattern {
+        .page-header::before {
+            content: '';
             position: absolute;
-            inset: 0;
-            background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
-            background-size: 40px 40px;
-            opacity: 0.3;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.95) 0%, rgba(29, 78, 216, 0.9) 100%);
+            z-index: 1;
         }
         
-        .header-content {
+        .page-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB4PSIwIiB5PSIwIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSgzMCkiPjxwYXRoIGQ9Ik0yMCAyMEwyMCAyMEwyMCAyMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDUpIiBzdHJva2Utd2lkdGg9IjIiLz48Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSI4IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiIHN0cm9rZS13aWR0aD0iMiIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+            opacity: 0.1;
+            z-index: 2;
+        }
+        
+        .page-header-content {
+            position: relative;
+            z-index: 3;
             max-width: 800px;
             margin: 0 auto;
-            position: relative;
-            z-index: 2;
+            color: white;
+        }
+        
+        .page-header h1 {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease-out;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .page-header p {
+            font-size: 20px;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease-out 0.1s both;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
         }
         
         .header-badge {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            background: rgba(255,255,255,0.1);
+            gap: 8px;
+            background: rgba(255,255,255,0.15);
             backdrop-filter: blur(10px);
-            padding: 0.5rem 1rem;
-            border-radius: 100px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(255,255,255,0.1);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255,255,255,0.2);
+            animation: fadeInUp 0.8s ease-out;
         }
         
         .header-badge i {
-            color: #FFD700;
+            animation: spin 4s linear infinite;
         }
         
-        .header-title {
-            font-size: 2.5rem;
-            font-weight: 900;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-            margin-bottom: 1.5rem;
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
         
-        @media (min-width: 768px) {
-            .header-title {
-                font-size: 3.5rem;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
         
-        .header-description {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            line-height: 1.6;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        /* ===== PROCESS OVERVIEW ===== */
-        .process-overview {
-            padding: 4rem 0;
-            background: #f8f9fa;
-        }
-        
-        [data-theme="dark"] .process-overview {
-            background: #111;
-        }
-        
-        .process-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-        
-        @media (min-width: 768px) {
-            .process-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-        
-        .process-card {
-            background: white;
-            border-radius: 24px;
-            padding: 2rem;
-            text-align: center;
-            border: 1px solid #eee;
-            transition: all 0.3s;
+        /* Steps Section */
+        .steps-section {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 24px;
             position: relative;
-        }
-        
-        [data-theme="dark"] .process-card {
-            background: #1a1a1a;
-            border-color: #333;
-        }
-        
-        .process-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-        
-        .process-icon-wrapper {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #0066FF, #0044CC);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            position: relative;
-        }
-        
-        .process-icon-wrapper::after {
-            content: '';
-            position: absolute;
-            inset: -4px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #0066FF, #0044CC);
-            opacity: 0.3;
-            z-index: -1;
-            animation: pulse 2s infinite;
-        }
-        
-        .process-icon-wrapper i {
-            font-size: 2rem;
-            color: white;
-        }
-        
-        .process-card h3 {
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-        
-        .process-card p {
-            color: #666;
-            line-height: 1.6;
-        }
-        
-        .process-step {
-            display: inline-block;
-            margin-top: 1.5rem;
-            color: #0066FF;
-            font-weight: 700;
-            font-size: 0.9rem;
-        }
-        
-        /* ===== STEP BY STEP DETAIL ===== */
-        .step-detail {
-            padding: 4rem 0;
+            z-index: 1;
         }
         
         .step-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 1rem;
+            margin-bottom: 100px;
         }
         
         .step-item {
-            margin-bottom: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+        
+        .step-item.reverse {
+            direction: rtl;
+        }
+        
+        .step-item.reverse .step-content {
+            direction: ltr;
+        }
+        
+        .step-number {
+            font-size: 100px;
+            font-weight: 800;
+            color: var(--primary-light);
+            line-height: 0.8;
+            margin-bottom: 20px;
             position: relative;
+            display: inline-block;
         }
         
-        @media (min-width: 768px) {
-            .step-item {
-                display: grid;
-                grid-template-columns: 100px 1fr;
-                gap: 2rem;
-                align-items: start;
-            }
-        }
-        
-        .step-item:not(:last-child)::after {
+        .step-number::after {
             content: '';
             position: absolute;
-            left: 50px;
-            top: 100px;
-            width: 2px;
-            height: calc(100% - 50px);
-            background: linear-gradient(to bottom, #0066FF, #0044CC);
-            opacity: 0.2;
-            display: none;
-        }
-        
-        @media (min-width: 768px) {
-            .step-item:not(:last-child)::after {
-                display: block;
-            }
-        }
-        
-        .step-number-large {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #0066FF, #0044CC);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2rem;
-            font-weight: 900;
-            margin: 0 auto 1.5rem;
-            box-shadow: 0 10px 20px rgba(0,102,255,0.3);
-            position: relative;
-        }
-        
-        @media (min-width: 768px) {
-            .step-number-large {
-                margin: 0;
-            }
-        }
-        
-        .step-content {
-            background: white;
-            border-radius: 24px;
-            padding: 2rem;
-            border: 1px solid #eee;
-        }
-        
-        [data-theme="dark"] .step-content {
-            background: #1a1a1a;
-            border-color: #333;
+            bottom: 10px;
+            left: 0;
+            width: 40%;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
         }
         
         .step-content h2 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            color: #0066FF;
-        }
-        
-        .step-content > p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
-        
-        /* Step Details Grid */
-        .step-details-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        @media (min-width: 640px) {
-            .step-details-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        .detail-card {
-            background: #f8f9fa;
-            border-radius: 16px;
-            padding: 1.5rem;
-            transition: all 0.2s;
-        }
-        
-        [data-theme="dark"] .detail-card {
-            background: #222;
-        }
-        
-        .detail-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        
-        .detail-icon {
-            width: 48px;
-            height: 48px;
-            background: #e6f0ff;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-        }
-        
-        .detail-icon i {
-            font-size: 1.5rem;
-            color: #0066FF;
-        }
-        
-        .detail-card h4 {
-            font-size: 1.2rem;
+            font-size: 36px;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            margin-bottom: 20px;
         }
         
-        .detail-card p {
-            color: #666;
-            font-size: 0.95rem;
-            line-height: 1.5;
+        .step-content p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 20px;
         }
         
-        /* ===== PROCESS COMPARISON ===== */
-        .process-comparison {
-            padding: 4rem 0;
-            background: #f8f9fa;
+        .step-features {
+            margin-top: 20px;
         }
         
-        [data-theme="dark"] .process-comparison {
-            background: #111;
-        }
-        
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-        
-        @media (min-width: 768px) {
-            .comparison-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        .comparison-card {
-            background: white;
-            border-radius: 24px;
-            padding: 2rem;
-            border: 1px solid #eee;
-        }
-        
-        [data-theme="dark"] .comparison-card {
-            background: #1a1a1a;
-            border-color: #333;
-        }
-        
-        .comparison-card.tenants {
-            border-top: 4px solid #0066FF;
-        }
-        
-        .comparison-card.landlords {
-            border-top: 4px solid #F59E0B;
-        }
-        
-        .comparison-header {
+        .step-feature {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+            gap: 12px;
+            margin-bottom: 12px;
         }
         
-        .comparison-icon {
-            width: 60px;
-            height: 60px;
-            background: #e6f0ff;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .step-feature i {
+            color: var(--primary);
+            font-size: 20px;
         }
         
-        .comparison-icon i {
-            font-size: 1.8rem;
-            color: #0066FF;
+        .step-feature span {
+            color: var(--text-primary);
+            font-size: 16px;
         }
         
-        .landlords .comparison-icon {
-            background: rgba(245, 158, 11, 0.1);
-        }
-        
-        .landlords .comparison-icon i {
-            color: #F59E0B;
-        }
-        
-        .comparison-header h3 {
-            font-size: 1.8rem;
-            font-weight: 800;
-        }
-        
-        .process-list {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-        
-        .process-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid #eee;
-        }
-        
-        [data-theme="dark"] .process-list li {
-            border-bottom-color: #333;
-        }
-        
-        .process-list li i {
-            color: #10B981;
-            margin-top: 0.2rem;
-            font-size: 0.9rem;
-        }
-        
-        .process-list li span {
-            flex: 1;
-            color: #444;
-        }
-        
-        [data-theme="dark"] .process-list li span {
-            color: #ccc;
-        }
-        
-        .process-list li strong {
-            color: #0066FF;
-            font-weight: 700;
-        }
-        
-        .landlords .process-list li strong {
-            color: #F59E0B;
-        }
-        
-        .comparison-actions {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            margin-top: 1.5rem;
-        }
-        
-        @media (min-width: 640px) {
-            .comparison-actions {
-                flex-direction: row;
-            }
-        }
-        
-        .btn-primary {
-            flex: 1;
-            background: linear-gradient(135deg, #0066FF, #0044CC);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 12px;
-            text-align: center;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.2s;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0,102,255,0.3);
-        }
-        
-        .btn-secondary {
-            flex: 1;
-            background: transparent;
-            border: 2px solid #0066FF;
-            color: #0066FF;
-            padding: 0.75rem 1.5rem;
-            border-radius: 12px;
-            text-align: center;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.2s;
-        }
-        
-        .btn-secondary:hover {
-            background: #0066FF;
-            color: white;
-        }
-        
-        .landlords .btn-primary {
-            background: linear-gradient(135deg, #F59E0B, #F97316);
-        }
-        
-        .landlords .btn-secondary {
-            border-color: #F59E0B;
-            color: #F59E0B;
-        }
-        
-        .landlords .btn-secondary:hover {
-            background: #F59E0B;
-            color: white;
-        }
-        
-        /* ===== VIDEO DEMO SECTION ===== */
-        .video-demo {
-            padding: 4rem 0;
-        }
-        
-        .video-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-        
-        .video-card {
-            background: white;
-            border-radius: 24px;
-            padding: 2rem;
-            border: 1px solid #eee;
-            text-align: center;
-        }
-        
-        [data-theme="dark"] .video-card {
-            background: #1a1a1a;
-            border-color: #333;
-        }
-        
-        .video-placeholder {
-            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
-            border-radius: 16px;
-            height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 2rem 0;
+        .step-image {
             position: relative;
-            overflow: hidden;
+            text-align: center;
         }
         
-        [data-theme="dark"] .video-placeholder {
-            background: linear-gradient(135deg, #222, #333);
-        }
-        
-        .video-play-btn {
-            width: 80px;
-            height: 80px;
-            background: white;
+        .step-icon-wrapper {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, var(--primary-light), white);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #0066FF;
-            font-size: 2rem;
-            cursor: pointer;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+            border: 4px solid white;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .step-icon-wrapper i {
+            font-size: 120px;
+            color: var(--primary);
             transition: all 0.3s;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
         }
         
-        .video-play-btn:hover {
-            transform: scale(1.1);
+        .step-item:hover .step-icon-wrapper i {
+            transform: scale(1.1) rotate(5deg);
         }
         
-        .demo-stats {
+        .step-badge {
+            position: absolute;
+            bottom: 20px;
+            right: -20px;
+            background: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .step-badge i {
+            color: var(--primary);
+            font-size: 20px;
+        }
+        
+        .step-badge span {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        /* Process Flow */
+        .process-flow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin: 60px 0;
+        }
+        
+        .process-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border-radius: 6px;
+            opacity: 0.3;
+        }
+        
+        .process-dot.active {
+            opacity: 1;
+            animation: pulse 2s infinite;
+        }
+        
+        /* Video Section */
+        .video-section {
+            background: var(--surface);
+            padding: 80px 24px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .video-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 30px;
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        .video-overlay {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: var(--shadow-lg);
+            animation: pulse 2s infinite;
+        }
+        
+        .video-overlay i {
+            color: var(--primary);
+            font-size: 20px;
+        }
+        
+        .video-overlay span {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        /* Benefits Section */
+        .benefits-section {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .benefits-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 16px;
+            position: relative;
+        }
+        
+        .benefits-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .benefits-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 18px;
+            margin-bottom: 50px;
+        }
+        
+        .benefits-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin-top: 2rem;
+            gap: 30px;
         }
         
-        .demo-stat {
+        .benefit-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px 30px;
             text-align: center;
+            transition: all 0.4s;
+            box-shadow: var(--shadow);
         }
         
-        .demo-stat .number {
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: #0066FF;
-            display: block;
+        .benefit-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-xl);
         }
         
-        .demo-stat .label {
-            font-size: 0.85rem;
-            color: #666;
+        .benefit-icon {
+            width: 100px;
+            height: 100px;
+            background: var(--primary-light);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 40px;
+            color: var(--primary);
+            transition: all 0.4s;
         }
         
-        /* ===== FAQ PREVIEW ===== */
-        .faq-preview {
-            padding: 4rem 0;
-            background: #f8f9fa;
+        .benefit-card:hover .benefit-icon {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1) rotate(360deg);
         }
         
-        [data-theme="dark"] .faq-preview {
-            background: #111;
+        .benefit-card h3 {
+            font-size: 22px;
+            margin-bottom: 16px;
+        }
+        
+        .benefit-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            max-width: 1000px;
+            margin: 80px auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .faq-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .faq-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
         }
         
         .faq-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 1rem;
-            max-width: 900px;
-            margin: 2rem auto 0;
-            padding: 0 1rem;
-        }
-        
-        @media (min-width: 768px) {
-            .faq-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
         }
         
         .faq-item {
-            background: white;
+            background: var(--surface);
+            border: 1px solid var(--border);
             border-radius: 16px;
-            padding: 1.5rem;
-            border: 1px solid #eee;
-            transition: all 0.2s;
-        }
-        
-        [data-theme="dark"] .faq-item {
-            background: #1a1a1a;
-            border-color: #333;
+            padding: 24px;
+            transition: all 0.3s;
+            cursor: pointer;
         }
         
         .faq-item:hover {
-            border-color: #0066FF;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
         }
         
-        .faq-item h4 {
+        .faq-question {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
+            gap: 12px;
+            margin-bottom: 12px;
         }
         
-        .faq-item h4 i {
-            color: #0066FF;
-            font-size: 1rem;
+        .faq-question i {
+            color: var(--primary);
+            font-size: 20px;
         }
         
-        .faq-item p {
-            color: #666;
+        .faq-question h3 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .faq-answer {
+            color: var(--text-secondary);
+            font-size: 15px;
             line-height: 1.6;
-            margin-left: 1.75rem;
+            margin-left: 32px;
         }
         
-        .faq-link {
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 80px 48px;
+            border-radius: 40px;
             text-align: center;
-            margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            z-index: 1;
         }
         
-        .faq-link a {
-            color: #0066FF;
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .cta h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta p {
+            font-size: 18px;
+            margin-bottom: 32px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta-btn {
+            background: white;
+            color: var(--primary);
+            padding: 18px 50px;
+            border-radius: 40px;
             text-decoration: none;
             font-weight: 600;
+            font-size: 18px;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 12px;
+            transition: all 0.3s;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
         
-        /* ===== CTA SECTION ===== */
-        .cta-section {
-            background: linear-gradient(135deg, #0066FF, #0044CC);
-            color: white;
-            padding: 4rem 1rem;
-            text-align: center;
+        .cta-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
         }
         
-        .cta-content {
-            max-width: 600px;
-            margin: 0 auto;
+        .cta-btn i {
+            transition: transform 0.3s;
         }
         
-        .cta-content h2 {
-            font-size: 2rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
+        .cta-btn:hover i {
+            transform: translateX(8px);
         }
         
-        @media (min-width: 768px) {
-            .cta-content h2 {
-                font-size: 2.5rem;
-            }
-        }
-        
-        .cta-content p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            justify-content: center;
-        }
-        
-        @media (min-width: 640px) {
-            .cta-buttons {
-                flex-direction: row;
-            }
-        }
-        
-        .btn-cta-primary {
-            background: white;
-            color: #0066FF;
-            padding: 1rem 2rem;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: all 0.2s;
-        }
-        
-        .btn-cta-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-        }
-        
-        .btn-cta-secondary {
-            background: transparent;
-            border: 2px solid white;
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: all 0.2s;
-        }
-        
-        .btn-cta-secondary:hover {
-            background: white;
-            color: #0066FF;
-        }
-        
-        /* ===== FOOTER ===== */
-        .enterprise-footer {
-            background: #111;
-            color: white;
-            padding: 3rem 1rem 1.5rem;
+        /* Professional Footer */
+        .footer {
+            background: #0B1120;
+            color: #94A3B8;
+            padding: 60px 24px 30px;
+            position: relative;
+            z-index: 1;
+            border-top: 1px solid #1E293B;
         }
         
         .footer-container {
-            max-width: 1280px;
+            max-width: 1200px;
             margin: 0 auto;
         }
         
-        .footer-grid {
+        .footer-main {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            margin-bottom: 3rem;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 60px;
+            margin-bottom: 50px;
         }
         
-        @media (min-width: 640px) {
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (min-width: 1024px) {
-            .footer-grid {
-                grid-template-columns: 2fr 1fr 1fr 1fr;
-            }
-        }
-        
-        .footer-about {
+        .footer-brand {
             max-width: 300px;
         }
         
         .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1.5rem;
-            text-decoration: none;
-        }
-        
-        .footer-logo .logo-mark {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #0066FF, #0044CC);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 800;
-        }
-        
-        .footer-logo span {
-            color: white;
-            font-weight: 800;
-            font-size: 1.25rem;
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #60A5FA, #A78BFA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            display: inline-block;
         }
         
         .footer-description {
-            color: #aaa;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
+            color: #94A3B8;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            font-size: 15px;
         }
         
         .footer-social {
             display: flex;
-            gap: 0.75rem;
+            gap: 12px;
         }
         
-        .social-link {
+        .footer-social-link {
             width: 40px;
             height: 40px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
+            border-radius: 10px;
+            background: #1E293B;
+            color: #94A3B8;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
             text-decoration: none;
-            transition: all 0.2s;
+            transition: all 0.3s;
+            font-size: 18px;
         }
         
-        .social-link:hover {
-            background: #0066FF;
-            transform: translateY(-2px);
-        }
-        
-        .footer-column h4 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
+        .footer-social-link:hover {
+            background: var(--primary);
             color: white;
+            transform: translateY(-3px);
+        }
+        
+        .footer-heading {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--primary);
         }
         
         .footer-links {
@@ -1176,803 +889,709 @@
         }
         
         .footer-links li {
-            margin-bottom: 0.75rem;
+            margin-bottom: 14px;
         }
         
         .footer-links a {
-            color: #aaa;
+            color: #94A3B8;
             text-decoration: none;
             transition: all 0.2s;
-            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
         }
         
         .footer-links a:hover {
-            color: #0066FF;
-            transform: translateX(4px);
-            display: inline-block;
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .footer-links i {
+            font-size: 14px;
+            color: var(--primary);
+        }
+        
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            color: #94A3B8;
+            font-size: 15px;
+        }
+        
+        .footer-contact-item i {
+            width: 20px;
+            color: var(--primary);
+            font-size: 16px;
+        }
+        
+        .footer-newsletter {
+            margin-top: 25px;
+        }
+        
+        .footer-newsletter p {
+            color: #94A3B8;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 1px solid #1E293B;
+            background: #1E293B;
+            color: white;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s;
+        }
+        
+        .newsletter-input:focus {
+            border-color: var(--primary);
+            background: #0F172A;
+        }
+        
+        .newsletter-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .newsletter-btn:hover {
+            background: var(--primary-dark);
+            transform: scale(1.05);
         }
         
         .footer-bottom {
-            padding-top: 2rem;
-            border-top: 1px solid #222;
+            padding-top: 30px;
+            border-top: 1px solid #1E293B;
             display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            text-align: center;
-            color: #666;
-            font-size: 0.9rem;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 14px;
         }
         
-        @media (min-width: 768px) {
-            .footer-bottom {
-                flex-direction: row;
-                justify-content: space-between;
-                text-align: left;
-            }
+        .footer-copyright {
+            color: #64748B;
         }
         
-        .footer-legal {
+        .footer-bottom-links {
             display: flex;
-            gap: 2rem;
-            justify-content: center;
+            gap: 25px;
         }
         
-        .footer-legal a {
-            color: #666;
+        .footer-bottom-links a {
+            color: #94A3B8;
             text-decoration: none;
+            transition: color 0.2s;
+            font-size: 14px;
         }
         
-        .footer-legal a:hover {
-            color: #0066FF;
+        .footer-bottom-links a:hover {
+            color: white;
         }
         
-        /* ===== ANIMATIONS ===== */
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-                opacity: 0.3;
-            }
-            50% {
-                transform: scale(1.05);
-                opacity: 0.5;
-            }
+        .footer-payment-icons {
+            display: flex;
+            gap: 12px;
+            font-size: 24px;
+            color: #475569;
         }
         
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease-out;
-        }
-        
-        /* ===== TOAST NOTIFICATIONS ===== */
-        .toast-container {
-            position: fixed;
-            bottom: 1rem;
-            right: 1rem;
-            z-index: 9999;
-        }
-        
+        /* Toast */
         .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 20px;
+            right: 20px;
+            max-width: 400px;
+            margin: 0 auto;
             background: white;
-            color: #333;
-            padding: 1rem 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+            padding: 16px 24px;
+            box-shadow: var(--shadow-lg);
             display: flex;
             align-items: center;
-            gap: 1rem;
-            margin-top: 0.5rem;
-            animation: slideUp 0.3s ease;
-            border-left: 4px solid #0066FF;
-        }
-        
-        .toast i {
-            color: #0066FF;
+            gap: 12px;
+            z-index: 1000;
+            animation: slideUp 0.3s;
         }
         
         @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        /* Responsive */
+        @media (max-width: 968px) {
+            .step-item,
+            .step-item.reverse {
+                grid-template-columns: 1fr;
+                direction: ltr;
+                gap: 40px;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            
+            .benefits-grid,
+            .faq-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
-        }
-        
-        /* ===== SECTION HEADERS ===== */
-        .section-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 3rem;
-            padding: 0 1rem;
-        }
-        
-        .section-badge {
-            display: inline-block;
-            background: #e6f0ff;
-            color: #0066FF;
-            padding: 0.5rem 1rem;
-            border-radius: 100px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-        
-        [data-theme="dark"] .section-badge {
-            background: rgba(0,102,255,0.2);
-        }
-        
-        .section-title {
-            font-size: 2rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #0066FF, #0044CC);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        @media (min-width: 768px) {
-            .section-title {
-                font-size: 2.5rem;
+            
+            .footer-main {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
         
-        .section-description {
-            color: #666;
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-        
-        [data-theme="dark"] .section-description {
-            color: #aaa;
-        }
-        
-        /* ===== UTILITY CLASSES ===== */
-        .bg-secondary {
-            background: #f8f9fa;
-        }
-        
-        [data-theme="dark"] .bg-secondary {
-            background: #111;
-        }
-        
-        .text-center {
-            text-align: center;
-        }
-        
-        .mt-8 {
-            margin-top: 2rem;
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .page-header h1 {
+                font-size: 36px;
+            }
+            
+            .step-number {
+                font-size: 70px;
+            }
+            
+            .step-content h2 {
+                font-size: 28px;
+            }
+            
+            .step-icon-wrapper {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .step-icon-wrapper i {
+                font-size: 80px;
+            }
+            
+            .benefits-grid,
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-flow {
+                flex-wrap: wrap;
+            }
+            
+            .footer-main {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-bottom-links {
+                justify-content: center;
+            }
+            
+            .footer-payment-icons {
+                justify-content: center;
+            }
+            
+            .step-badge {
+                right: 50%;
+                transform: translateX(50%);
+                white-space: nowrap;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Toast Container -->
-    <div id="toastContainer" class="toast-container"></div>
-    
-    <!-- ===== ENTERPRISE NAVIGATION ===== -->
-    <nav class="enterprise-nav">
-        <div class="nav-container">
-            <!-- Logo -->
-            <a href="index.html" class="logo-wrapper">
-    <img src="logo.png" alt="Primer Technologies" class="logo-image" style="height: 40px; width: auto;">
-                <div class="logo-text">
-                    <h1>Primer</h1>
-                    <p>technologies</p>
-                </div>
-            </a>
-            
-            <!-- Desktop Navigation Links -->
-            <div class="nav-links-desktop">
-                <a href="#" class="nav-link">Home</a>
-                <a href="how-it-works.html" class="nav-link active">How It Works</a>
-                <a href="for-tenants.html" class="nav-link">For Tenants</a>
-                <a href="for-landlords.html" class="nav-link">For Landlords</a>
-                <a href="#" class="nav-link">Pricing</a>
-                <a href="about.html" class="nav-link">About</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-            </div>
-            
-            <!-- Desktop Actions -->
-            <div class="nav-actions-desktop">
-                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <a href="explore.html" target="_blank" class="btn-properties">
-                    <i class="fas fa-building"></i>
-                    <span>Browse Properties</span>
-                </a>
-            </div>
-            
-            <!-- Mobile Menu Button -->
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu">
-                <i class="fas fa-bars"></i>
-            </button>
+    <!-- Floating Background Icons -->
+    <div class="floating-icons">
+        <i class="fas fa-download float-icon"></i>
+        <i class="fas fa-search float-icon"></i>
+        <i class="fas fa-phone-alt float-icon"></i>
+        <i class="fas fa-whatsapp float-icon"></i>
+        <i class="fas fa-star float-icon"></i>
+        <i class="fas fa-heart float-icon"></i>
+        <i class="fas fa-bolt float-icon"></i>
+        <i class="fas fa-shield-alt float-icon"></i>
+        <i class="fas fa-clock float-icon"></i>
+        <i class="fas fa-check-circle float-icon"></i>
+    </div>
+
+    <!-- Install Banner with Close Button -->
+    <div class="install-banner" id="installBanner">
+        <div class="banner-content">
+            <i class="fas fa-download"></i>
+            <p>Get the Primer app for faster access to providers</p>
         </div>
-    </nav>
-    
-    <!-- Mobile Menu Panel -->
-    <div class="mobile-menu" id="mobileMenu">
-        <div class="mobile-nav-links">
-            <a href="#" class="mobile-nav-link">Home</a>
-            <a href="how-it-works.html" class="mobile-nav-link">How It Works</a>
-            <a href="for-tenants.html" class="mobile-nav-link">For Tenants</a>
-            <a href="for-landlords.html" class="mobile-nav-link">For Landlords</a>
-            <a href="#" class="mobile-nav-link">Pricing</a>
-            <a href="about.html" class="mobile-nav-link">About</a>
-            <a href="contact.html" class="mobile-nav-link">Contact</a>
-        </div>
-        <div class="mobile-actions">
-            <button class="theme-toggle" onclick="toggleTheme()" style="width: 100%;">
-                <i class="fas fa-moon"></i> Dark Mode
+        <div class="banner-actions">
+            <a href="https://b98ce7b9.mobsted.com/pwa/?appid=20" class="install-btn">Install App <i class="fas fa-arrow-right"></i></a>
+            <button class="close-banner" id="closeBanner" aria-label="Close banner">
+                <i class="fas fa-times"></i>
             </button>
-            <a href="explore.html" target="_blank" class="mobile-btn-properties">
-                <i class="fas fa-building"></i> Browse Properties
-            </a>
         </div>
     </div>
-    
-    <!-- ===== PAGE HEADER ===== -->
-    <section class="page-header">
-        <div class="header-pattern"></div>
-        <div class="header-content">
-            <div class="header-badge fade-in-up">
-                <i class="fas fa-compass"></i>
-                <span>YOUR JOURNEY STARTS HERE</span>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">Primer</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="how-it-works.html" class="active">How It Works</a>
+                <a href="contact.html">Contact</a>
             </div>
-            <h1 class="header-title fade-in-up">How Primer Works</h1>
-            <p class="header-description fade-in-up">
-                A simple, transparent process for finding or listing properties in Nigeria. 
-                No agents, no middlemen, no hidden fees.
-            </p>
+        </nav>
+    </header>
+
+    <!-- Page Header with Background Image -->
+    <div class="page-header">
+        <div class="page-header-content">
+            <div class="header-badge" data-aos="fade-up">
+                <i class="fas fa-magic"></i>
+                <span>Simple 3-Step Process</span>
+            </div>
+            <h1 data-aos="fade-up" data-aos-delay="100">How Primer Works</h1>
+            <p data-aos="fade-up" data-aos-delay="200">Three simple steps to connect with trusted service providers</p>
         </div>
-    </section>
-    
-    <!-- ===== PROCESS OVERVIEW ===== -->
-    <section class="process-overview">
-        <div class="section-header">
-            <span class="section-badge">THE PROCESS</span>
-            <h2 class="section-title">Three Simple Steps</h2>
-            <p class="section-description">
-                Whether you're looking for a home or listing a property, the process is always straightforward.
-            </p>
+    </div>
+
+    <!-- Steps Section -->
+    <div class="steps-section">
+        <!-- Step 1 -->
+        <div class="step-item" data-aos="fade-right">
+            <div class="step-content">
+                <div class="step-number">01</div>
+                <h2>Install the App</h2>
+                <p>Download and install the Primer PWA app on your phone. It works like a native app but takes less space and installs instantly.</p>
+                <div class="step-features">
+                    <div class="step-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>No app store needed</span>
+                    </div>
+                    <div class="step-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Lightweight</span>
+                    </div>
+                    <div class="step-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Updates automatically</span>
+                    </div>
+                </div>
+            </div>
+            <div class="step-image">
+                <div class="step-icon-wrapper">
+                    <i class="fas fa-download"></i>
+                </div>
+                <div class="step-badge">
+                    <i class="fas fa-clock"></i>
+                    <span>Takes 10 seconds</span>
+                </div>
+            </div>
         </div>
-        
-        <div class="process-grid">
-            <div class="process-card fade-in-up">
-                <div class="process-icon-wrapper">
+
+        <!-- Step 2 -->
+        <div class="step-item reverse" data-aos="fade-left">
+            <div class="step-content">
+                <div class="step-number">02</div>
+                <h2>Browse Providers</h2>
+                <p>Select the service you need and browse available providers in your area. Each provider shows their rating, completed jobs, and response time.</p>
+                <div class="step-features">
+                    <div class="step-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>View ratings & reviews</span>
+                    </div>
+                    <div class="step-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Save favorites</span>
+                    </div>
+                    <div class="step-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Filter by location</span>
+                    </div>
+                </div>
+            </div>
+            <div class="step-image">
+                <div class="step-icon-wrapper">
                     <i class="fas fa-search"></i>
                 </div>
-                <h3>Search</h3>
-                <p>Browse thousands of verified properties with smart filters for location, price, amenities, and more.</p>
-                <span class="process-step">Step 01</span>
-            </div>
-            
-            <div class="process-card fade-in-up" style="animation-delay: 0.1s;">
-                <div class="process-icon-wrapper">
-                    <i class="fas fa-eye"></i>
+                <div class="step-badge">
+                    <i class="fas fa-star"></i>
+                    <span>500+ providers</span>
                 </div>
-                <h3>View</h3>
-                <p>See detailed photos, 360° tours, amenities, and landlord ratings. All properties are physically verified.</p>
-                <span class="process-step">Step 02</span>
-            </div>
-            
-            <div class="process-card fade-in-up" style="animation-delay: 0.2s;">
-                <div class="process-icon-wrapper">
-                    <i class="fas fa-handshake"></i>
-                </div>
-                <h3>Connect</h3>
-                <p>Contact landlords directly, schedule viewings, and move into your new home - all through the platform.</p>
-                <span class="process-step">Step 03</span>
             </div>
         </div>
-    </section>
-    
-    <!-- ===== STEP BY STEP DETAIL ===== -->
-    <section class="step-detail">
-        <div class="section-header">
-            <span class="section-badge">DETAILED GUIDE</span>
-            <h2 class="section-title">Step-by-Step Breakdown</h2>
-            <p class="section-description">
-                Here's exactly what happens at each stage of your journey with Primer.
-            </p>
+
+        <!-- Step 3 -->
+        <div class="step-item" data-aos="fade-right">
+            <div class="step-content">
+                <div class="step-number">03</div>
+                <h2>Call or WhatsApp</h2>
+                <p>Contact providers directly via call or WhatsApp. No booking forms, no waiting for responses. Connect instantly and get your work done.</p>
+                <div class="step-features">
+                    <div class="step-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Direct contact</span>
+                    </div>
+                    <div class="step-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Save chat history</span>
+                    </div>
+                    <div class="step-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Quick reordering</span>
+                    </div>
+                </div>
+            </div>
+            <div class="step-image">
+                <div class="step-icon-wrapper">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="step-badge">
+                    <i class="fas fa-bolt"></i>
+                    <span>Instant connection</span>
+                </div>
+            </div>
         </div>
+
+        <!-- Process Flow Indicator -->
+        <div class="process-flow" data-aos="fade-up">
+            <div class="process-dot active"></div>
+            <i class="fas fa-arrow-right"></i>
+            <div class="process-dot"></div>
+            <i class="fas fa-arrow-right"></i>
+            <div class="process-dot"></div>
+            <i class="fas fa-check-circle" style="color: var(--primary); font-size: 24px;"></i>
+        </div>
+    </div>
+
+    <!-- Video Section -->
+    <div class="video-section">
+        <div class="video-container" data-aos="zoom-in">
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                        title="How Primer Works Video"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                </iframe>
+                <div class="video-overlay">
+                    <i class="fas fa-play-circle"></i>
+                    <span>Watch how it works (2 min)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Benefits Section -->
+    <div class="benefits-section">
+        <h2 data-aos="fade-up">Why Users Love Primer</h2>
+        <p class="benefits-subtitle" data-aos="fade-up" data-aos-delay="100">Designed for simplicity and speed</p>
         
-        <div class="step-container">
-            <!-- Step 1 -->
-            <div class="step-item" id="step-1">
-                <div class="step-number-large">1</div>
-                <div class="step-content">
-                    <h2>Search & Discover</h2>
-                    <p>Find exactly what you're looking for with our powerful search tools and smart filters.</p>
-                    
-                    <div class="step-details-grid">
-                        <div class="detail-card">
-                            <div class="detail-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <h4>Location Search</h4>
-                            <p>Search by city, neighborhood, or specific university campus. See properties on an interactive map.</p>
-                        </div>
-                        
-                        <div class="detail-card">
-                            <div class="detail-icon">
-                                <i class="fas fa-sliders-h"></i>
-                            </div>
-                            <h4>Smart Filters</h4>
-                            <p>Filter by price range, bedrooms, property type, and amenities like 24/7 electricity, security, WiFi.</p>
-                        </div>
-                        
-                        <div class="detail-card">
-                            <div class="detail-icon">
-                                <i class="fas fa-university"></i>
-                            </div>
-                            <h4>University Mode</h4>
-                            <p>Specially designed for students - filter properties within walking distance of your campus.</p>
-                        </div>
-                        
-                        <div class="detail-card">
-                            <div class="detail-icon">
-                                <i class="fas fa-bookmark"></i>
-                            </div>
-                            <h4>Save Favorites</h4>
-                            <p>Bookmark properties you like and compare them side by side before making a decision.</p>
-                        </div>
-                    </div>
-                    
-                    <div style="margin-top: 1.5rem; display: flex; justify-content: flex-end;">
-                        <a href="explore.html" target="_blank" class="btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem;">
-                            Try Search Now <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
+        <div class="benefits-grid">
+            <div class="benefit-card" data-aos="flip-left" data-aos-delay="100">
+                <div class="benefit-icon">
+                    <i class="fas fa-bolt"></i>
                 </div>
+                <h3>Instant Connection</h3>
+                <p>Call or WhatsApp providers directly. No waiting for responses or approval.</p>
             </div>
-            
-            <!-- Step 2 -->
-            <div class="step-item" id="step-2">
-                <div class="step-number-large">2</div>
-                <div class="step-content">
-                    <h2>View & Verify</h2>
-                    <p>Get all the information you need to make an informed decision. Every listing is physically verified.</p>
-                    
-                    <div class="step-details-grid">
-                        <div class="detail-card">
-                            <div class="detail-icon">
-                                <i class="fas fa-images"></i>
-                            </div>
-                            <h4>Photo Gallery</h4>
-                            <p>View multiple high-quality images of the property interior and exterior. No misleading photos.</p>
-                        </div>
-                        
-                        <div class="detail-card">
-                            <div class="detail-icon">
-                                <i class="fas fa-check-circle"></i>
-                            </div>
-                            <h4>Verified Listings</h4>
-                            <p>All properties are physically visited and verified by our team. Look for the verified badge.</p>
-                        </div>
-                        
-                        <div class="detail-card">
-                            <div class="detail-icon">
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <h4>Landlord Ratings</h4>
-                            <p>See ratings and reviews from previous tenants. Know who you're dealing with before you call.</p>
-                        </div>
-                        
-                        <div class="detail-card">
-                            <div class="detail-icon">
-                                <i class="fas fa-map"></i>
-                            </div>
-                            <h4>Location Map</h4>
-                            <p>View exact property location and see nearby amenities like schools, hospitals, and markets.</p>
-                        </div>
-                    </div>
-                    
-                    <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-                        <div style="background: #e6f0ff; padding: 0.75rem 1.5rem; border-radius: 100px; display: inline-flex; align-items: center; gap: 0.5rem;">
-                            <i class="fas fa-shield-alt" style="color: #0066FF;"></i>
-                            <span><strong>Verification Process:</strong> 24-48 hours</span>
-                        </div>
-                        <div style="background: #e6f0ff; padding: 0.75rem 1.5rem; border-radius: 100px; display: inline-flex; align-items: center; gap: 0.5rem;">
-                            <i class="fas fa-camera" style="color: #0066FF;"></i>
-                            <span><strong>Photos:</strong> 10+ per property</span>
-                        </div>
-                    </div>
+            <div class="benefit-card" data-aos="flip-left" data-aos-delay="200">
+                <div class="benefit-icon">
+                    <i class="fas fa-shield-alt"></i>
                 </div>
+                <h3>Verified Providers</h3>
+                <p>All providers are vetted before joining our platform. Your safety is guaranteed.</p>
             </div>
-            
-            <!-- Step 3 -->
-            <div class="step-item" id="step-3">
-                <div class="step-number-large">3</div>
-                <div class="step-content">
-                    <h2>Contact & Move In</h2>
-                    <p>Connect directly with landlords and complete your rental journey seamlessly.</p>
-                    
-                    <div class="step-details-grid">
-                        <div class="detail-card">
-                            <div class="detail-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <h4>Direct Contact</h4>
-                            <p>Call landlords directly through the app. No middlemen, no agents, no extra fees.</p>
-                        </div>
-                        
-                        <div class="detail-card">
-                            <div class="detail-icon">
-                                <i class="fas fa-calendar-check"></i>
-                            </div>
-                            <h4>Schedule Viewings</h4>
-                            <p>Arrange in-person or virtual property viewings at a time that works for you.</p>
-                        </div>
-                        
-                        <div class="detail-card">
-                            <div class="detail-icon">
-                                <i class="fas fa-file-signature"></i>
-                            </div>
-                            <h4>Secure Process</h4>
-                            <p>Complete your rental agreement with confidence. We provide templates and guidance.</p>
-                        </div>
-                        
-                        <div class="detail-card">
-                            <div class="detail-icon">
-                                <i class="fas fa-key"></i>
-                            </div>
-                            <h4>Move In</h4>
-                            <p>Get your keys and move into your new home. Rate your experience to help others.</p>
-                        </div>
-                    </div>
-                    
-                    <div style="margin-top: 1.5rem; background: #f8f9fa; border-radius: 16px; padding: 1.5rem;">
-                        <h4 style="margin-bottom: 0.5rem;">Pro Tip</h4>
-                        <p style="color: #666; margin: 0;">Always view the property in person before making any payment. Primer never handles rent payments - you pay directly to the landlord.</p>
-                    </div>
+            <div class="benefit-card" data-aos="flip-left" data-aos-delay="300">
+                <div class="benefit-icon">
+                    <i class="fas fa-heart"></i>
                 </div>
+                <h3>Save Favorites</h3>
+                <p>Keep your trusted providers saved for quick access anytime.</p>
+            </div>
+            <div class="benefit-card" data-aos="flip-left" data-aos-delay="400">
+                <div class="benefit-icon">
+                    <i class="fas fa-history"></i>
+                </div>
+                <h3>Booking History</h3>
+                <p>All your past bookings are saved for easy reordering.</p>
+            </div>
+            <div class="benefit-card" data-aos="flip-left" data-aos-delay="500">
+                <div class="benefit-icon">
+                    <i class="fas fa-wifi"></i>
+                </div>
+                <h3>Lightweight</h3>
+                <p>Install without the need for more space.</p>
+            </div>
+            <div class="benefit-card" data-aos="flip-left" data-aos-delay="600">
+                <div class="benefit-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3>24/7 Availability</h3>
+                <p>Find providers anytime, day or night, with instant contact options.</p>
             </div>
         </div>
-    </section>
-    
-    <!-- ===== PROCESS COMPARISON ===== -->
-    <section class="process-comparison">
-        <div class="section-header">
-            <span class="section-badge">TWO PATHS</span>
-            <h2 class="section-title">Tenants & Landlords</h2>
-            <p class="section-description">
-                Primer works differently depending on your role. Here's what you need to know.
-            </p>
-        </div>
-        
-        <div class="comparison-grid">
-            <!-- For Tenants -->
-            <div class="comparison-card tenants fade-in-up">
-                <div class="comparison-header">
-                    <div class="comparison-icon">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <h3>For Tenants</h3>
-                </div>
-                
-                <ul class="process-list">
-                    <li>
-                        <i class="fas fa-check-circle"></i>
-                        <span><strong>Step 1:</strong> Search with filters (location, price, amenities)</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-check-circle"></i>
-                        <span><strong>Step 2:</strong> View verified listings with photos and details</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-check-circle"></i>
-                        <span><strong>Step 3:</strong> Contact landlord directly via phone</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-check-circle"></i>
-                        <span><strong>Step 4:</strong> Schedule viewing (in-person or virtual)</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-check-circle"></i>
-                        <span><strong>Step 5:</strong> Complete agreement and move in</span>
-                    </li>
-                </ul>
-                
-                <div class="comparison-actions">
-                    <a href="for-tenants.html" class="btn-primary">Learn More</a>
-                    <a href="explore.html" target="_blank" class="btn-secondary">Start Searching</a>
-                </div>
-            </div>
-            
-            <!-- For Landlords -->
-            <div class="comparison-card landlords fade-in-up" style="animation-delay: 0.1s;">
-                <div class="comparison-header">
-                    <div class="comparison-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h3>For Landlords</h3>
-                </div>
-                
-                <ul class="process-list">
-                    <li>
-                        <i class="fas fa-check-circle"></i>
-                        <span><strong>Step 1:</strong> Create landlord account (free)</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-check-circle"></i>
-                        <span><strong>Step 2:</strong> Add property details and photos</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-check-circle"></i>
-                        <span><strong>Step 3:</strong> Schedule verification visit (24-48h)</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-check-circle"></i>
-                        <span><strong>Step 4:</strong> Receive inquiries from tenants</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-check-circle"></i>
-                        <span><strong>Step 5:</strong> Manage listings from dashboard</span>
-                    </li>
-                </ul>
-                
-                <div class="comparison-actions">
-                    <a href="for-landlords.html" class="btn-primary">Learn More</a>
-                    <a href="for-landlords.html#list" class="btn-secondary">List Property</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- ===== VIDEO DEMO SECTION ===== -->
-    <section class="video-demo">
-        <div class="section-header">
-            <span class="section-badge">SEE IT IN ACTION</span>
-            <h2 class="section-title">Watch How It Works</h2>
-            <p class="section-description">
-                A quick 2-minute walkthrough of the Primer platform.
-            </p>
-        </div>
-        
-        <div class="video-container">
-            <div class="video-card">
-                <div class="video-placeholder" onclick="playVideo()">
-                    <div class="video-play-btn">
-                        <i class="fas fa-play"></i>
-                    </div>
-                </div>
-                
-                <div class="demo-stats">
-                    <div class="demo-stat">
-                        <span class="number">2min</span>
-                        <span class="label">Watch Time</span>
-                    </div>
-                    <div class="demo-stat">
-                        <span class="number">10+</span>
-                        <span class="label">Views</span>
-                    </div>
-                    <div class="demo-stat">
-                        <span class="number">98%</span>
-                        <span class="label">Found Helpful</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- ===== FAQ PREVIEW ===== -->
-    <section class="faq-preview">
-        <div class="section-header">
-            <span class="section-badge">QUESTIONS?</span>
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <p class="section-description">
-                Quick answers to common questions about the Primer process.
-            </p>
-        </div>
-        
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="faq-section">
+        <h2 data-aos="fade-up">Frequently Asked Questions</h2>
         <div class="faq-grid">
-            <div class="faq-item">
-                <h4><i class="fas fa-question-circle"></i> How long does verification take?</h4>
-                <p>Property verification typically takes 24-48 hours. Our team visits each property physically to confirm details.</p>
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="faq-question">
+                    <i class="fas fa-question-circle"></i>
+                    <h3>Is the app free?</h3>
+                </div>
+                <div class="faq-answer">
+                    Yes! Primer is completely free to use. You only pay providers directly for their services.
+                </div>
             </div>
-            
-            <div class="faq-item">
-                <h4><i class="fas fa-question-circle"></i> Is it really free for tenants?</h4>
-                <p>Yes! Primer is completely free for tenants. You can search, view, and contact landlords at no cost.</p>
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="faq-question">
+                    <i class="fas fa-question-circle"></i>
+                    <h3>How do I install the app?</h3>
+                </div>
+                <div class="faq-answer">
+                    Visit our website on your mobile browser, tap share, and select "Add to Home Screen". That's it!
+                </div>
             </div>
-            
-            <div class="faq-item">
-                <h4><i class="fas fa-question-circle"></i> Can I list multiple properties?</h4>
-                <p>Absolutely. Landlords can list multiple properties and manage them all from a single dashboard.</p>
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="faq-question">
+                    <i class="fas fa-question-circle"></i>
+                    <h3>Do I need to create an account?</h3>
+                </div>
+                <div class="faq-answer">
+                    No account needed! Just browse and contact providers directly via call or WhatsApp.
+                </div>
             </div>
-            
-            <div class="faq-item">
-                <h4><i class="fas fa-question-circle"></i> What does "24/7 Electricity" mean?</h4>
-                <p>Properties with this badge have guaranteed power supply, either from grid or backup generators.</p>
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                <div class="faq-question">
+                    <i class="fas fa-question-circle"></i>
+                    <h3>How are providers verified?</h3>
+                </div>
+                <div class="faq-answer">
+                    We verify all providers through background checks, ID verification, and in-person interviews.
+                </div>
+            </div>
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+                <div class="faq-question">
+                    <i class="fas fa-question-circle"></i>
+                    <h3>Can I become a provider?</h3>
+                </div>
+                <div class="faq-answer">
+                    Yes! Contact us through our app or website to learn about joining our platform.
+                </div>
+            </div>
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="600">
+                <div class="faq-question">
+                    <i class="fas fa-question-circle"></i>
+                    <h3>What areas do you cover?</h3>
+                </div>
+                <div class="faq-answer">
+                    We currently serve Kaduna, Lagos, Abuja, and expanding to more cities across Nigeria.
+                </div>
             </div>
         </div>
-        
-        <div class="faq-link">
-            <a href="faqs.html">
-                View All FAQs <i class="fas fa-arrow-right"></i>
-            </a>
-        </div>
-    </section>
-    
-    <!-- ===== CTA SECTION ===== -->
-    <section class="cta-section">
-        <div class="cta-content">
-            <h2>Ready to Get Started?</h2>
-            <p>Join thousands of Nigerians finding their perfect home through Primer.</p>
-            <div class="cta-buttons">
-                <a href="https://b98ce7b9.mobsted.com/pwa/?appid=20" target="_blank" class="btn-cta-primary">
-                    <i class="fas fa-download"></i> Install App
-                </a>
-                <a href="explore.html" target="_blank" class="btn-cta-secondary">
-                    <i class="fas fa-search"></i> Browse Properties
-                </a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- ===== FOOTER ===== -->
-    <footer class="enterprise-footer">
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta">
+        <h2 data-aos="fade-up">Ready to get started?</h2>
+        <p data-aos="fade-up" data-aos-delay="100">Install the Primer app now and find trusted providers in your area</p>
+        <a href="https://b98ce7b9.mobsted.com/pwa/?appid=20" class="cta-btn" data-aos="fade-up" data-aos-delay="200">
+            <i class="fas fa-download"></i> Install Primer App
+        </a>
+    </div>
+
+    <!-- Professional Footer -->
+    <footer class="footer">
         <div class="footer-container">
-            <div class="footer-grid">
-                <div class="footer-about">
-                    <a href="index.html" class="footer-logo">
-    <img src="logo.png" alt="Primer Technologies" class="footer-logo-image" style="height: 40px; width: auto;">
-                        <span>Primer</span>
-                    </a>
-                    <p class="footer-description">
-                        Making housing smarter in Nigeria since 2025. We connect verified tenants with verified properties.
-                    </p>
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">Primer</div>
+                    <p class="footer-description">Connecting Nigerians with trusted local service providers. No middleman, just quality service.</p>
                     <div class="footer-social">
-                        <a href="https://Facebook.com/primertech" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://x.com/primertech0" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="https://instagram.com/primertech0" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="https://YouTube.com/@primertech0" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="footer-social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com/primertech0" class="footer-social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com/primertech0" class="footer-social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://TikTok.com/primertech0" class="footer-social-link"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://YouTube.com/@primertech0" class="footer-social-link"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 
-                <div class="footer-column">
-                    <h4>Company</h4>
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
                     <ul class="footer-links">
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="careers.html">Careers</a></li>
-                        <li><a href="press.html">Press</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="how-it-works.html"><i class="fas fa-chevron-right"></i> How It Works</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-column">
-                    <h4>Services</h4>
+                <div>
+                    <h4 class="footer-heading">Support</h4>
                     <ul class="footer-links">
-                        <li><a href="for-tenants.html">For Tenants</a></li>
-                        <li><a href="for-landlords.html">For Landlords</a></li>
-                        <li><a href="#">Student Housing</a></li>
-                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Help Center</a></li>
+                        <li><a href="#faq"><i class="fas fa-chevron-right"></i> FAQs</a></li>
+                        <li><a href="privacy.html"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+                        <li><a href="terms.html"><i class="fas fa-chevron-right"></i> Terms of Service</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-column">
-                    <h4>Support</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="faqs.html">FAQs</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="#">Renting Guides</a></li>
-                    </ul>
+                <div>
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Ahmadu Bello Way, Kaduna, Nigeria</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+234 810 059 0574</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>get.primer@proton.me</span>
+                    </div>
+                    
+                    <div class="footer-newsletter">
+                        <p>Subscribe to our newsletter</p>
+                        <div class="newsletter-form">
+                            <input type="email" class="newsletter-input" placeholder="Your email">
+                            <button class="newsletter-btn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <div>© 2026 Primer Technologies. All rights reserved.</div>
-                <div class="footer-legal">
-                    <a href="terms.html">Terms</a>
+                <div class="footer-copyright">
+                    &copy; 2026 Primer Technologies. All rights reserved.
+                </div>
+                <div class="footer-bottom-links">
                     <a href="privacy.html">Privacy</a>
-                    <a href="#">Cookies</a>
+                    <a href="terms.html">Terms</a>
+                    <a href="#">Sitemap</a>
+                    <a href="#">Careers</a>
+                </div>
+                <div class="footer-payment-icons">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-cc-apple-pay"></i>
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- Toast Container -->
+    <div id="toastContainer"></div>
+
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
-    <!-- ===== JAVASCRIPT ===== -->
     <script>
-        // ===== THEME TOGGLE =====
-        function toggleTheme() {
-            const html = document.documentElement;
-            const currentTheme = html.getAttribute('data-theme') || 'light';
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            
-            html.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            
-            const icon = document.querySelector('.theme-toggle i');
-            if (icon) {
-                icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-            }
-        }
-        
-        // Apply saved theme
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        
-        // ===== MOBILE MENU =====
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('active');
-            
-            const icon = document.querySelector('.mobile-menu-btn i');
-            if (menu.classList.contains('active')) {
-                icon.className = 'fas fa-times';
-            } else {
-                icon.className = 'fas fa-bars';
-            }
-        }
-        
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.mobile-nav-link, .mobile-actions a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('mobileMenu').classList.remove('active');
-                const icon = document.querySelector('.mobile-menu-btn i');
-                if (icon) icon.className = 'fas fa-bars';
-            });
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50
         });
         
-        // ===== TOAST NOTIFICATION =====
-        function showToast(message, type = 'info') {
+        // Close Install Banner
+        const closeBanner = document.getElementById('closeBanner');
+        const installBanner = document.getElementById('installBanner');
+        
+        // Check if banner was closed before
+        if (localStorage.getItem('bannerClosed') === 'true') {
+            installBanner.classList.add('hidden');
+        }
+        
+        closeBanner.addEventListener('click', () => {
+            installBanner.classList.add('hidden');
+            localStorage.setItem('bannerClosed', 'true');
+        });
+        
+        // Toast function
+        function showToast(message) {
             const container = document.getElementById('toastContainer');
             const toast = document.createElement('div');
-            toast.className = `toast ${type}`;
-            
-            let icon = 'fa-info-circle';
-            if (type === 'success') icon = 'fa-check-circle';
-            
-            toast.innerHTML = `
-                <i class="fas ${icon}"></i>
-                <span>${message}</span>
-            `;
-            
+            toast.className = 'toast';
+            toast.innerHTML = `<i class="fas fa-check-circle" style="color: var(--primary);"></i><span>${message}</span>`;
             container.appendChild(toast);
-            
             setTimeout(() => {
                 toast.style.opacity = '0';
-                toast.style.transform = 'translateY(20px)';
                 setTimeout(() => toast.remove(), 300);
             }, 3000);
         }
         
-        // ===== VIDEO PLAY (Demo) =====
-        function playVideo() {
-            showToast('Video demo would play here. In production, embed YouTube/Vimeo.', 'info');
-        }
-        
-        // ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
+        // PWA install prompt
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            
+            document.querySelectorAll('.cta-btn, .install-btn').forEach(btn => {
+                btn.addEventListener('click', async (e) => {
+                    if (e.target.closest('a[href="https://b98ce7b9.mobsted.com/pwa/?appid=20"]')) return;
+                    
+                    e.preventDefault();
+                    if (deferredPrompt) {
+                        deferredPrompt.prompt();
+                        const { outcome } = await deferredPrompt.userChoice;
+                        deferredPrompt = null;
+                        
+                        if (outcome === 'accepted') {
+                            showToast('Primer installed successfully! 🎉');
+                        }
+                    } else {
+                        window.location.href = 'https://b98ce7b9.mobsted.com/pwa/?appid=20';
+                    }
+                });
             });
         });
-        
-        // ===== INITIALIZE =====
-        document.addEventListener('DOMContentLoaded', () => {
-            // Show welcome message
-            setTimeout(() => {
-                showToast('How Primer Works - Simple & Transparent', 'success');
-            }, 1000);
+
+        // FAQ Accordion functionality
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                // Optional: Add accordion toggle functionality
+                // For now, just a visual effect
+                item.style.transform = 'scale(1.02)';
+                setTimeout(() => {
+                    item.style.transform = 'translateY(-5px)';
+                }, 200);
+            });
         });
+
+        // Process flow animation
+        const dots = document.querySelectorAll('.process-dot');
+        let currentDot = 0;
+        
+        setInterval(() => {
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[currentDot].classList.add('active');
+            currentDot = (currentDot + 1) % dots.length;
+        }, 2000);
     </script>
 </body>
 </html>
