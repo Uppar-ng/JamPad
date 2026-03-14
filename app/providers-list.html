@@ -691,7 +691,7 @@
     <div id="app">
         <header class="app-header">
             <div class="header-content">
-                <a href="services.html" class="back-btn"><i class="fas fa-arrow-left"></i></a>
+                <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i></a>
                 <span class="header-title" id="headerTitle">Service Providers</span>
                 <button class="theme-btn" id="themeToggle"><i class="fas fa-moon"></i></button>
             </div>
@@ -825,7 +825,7 @@
                 document.getElementById('companyBanner').style.display = 'flex';
             }
 
-            // Favorites - sync with services.html
+            // Favorites - sync with index.html
             let favorites = [];
             function loadFavorites() {
                 try {
@@ -839,7 +839,7 @@
 
             function saveFavorites() {
                 localStorage.setItem('primer_favorites', JSON.stringify(favorites));
-                // Dispatch event for services.html to listen
+                // Dispatch event for index.html to listen
                 window.dispatchEvent(new CustomEvent('favoritesUpdated', { detail: favorites }));
             }
 
@@ -1202,7 +1202,7 @@
             // Initialize
             loadProviders();
 
-            // Listen for favorite updates from services.html
+            // Listen for favorite updates from index.html
             window.addEventListener('favoritesUpdated', (e) => {
                 favorites = e.detail;
                 // Refresh current view to update favorite buttons
