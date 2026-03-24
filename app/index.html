@@ -452,11 +452,12 @@
             background: white;
         }
         
-        /* Animated Search Bar */
+        /* Enhanced Search Container */
         .search-container {
             padding: 8px 16px 16px;
             pointer-events: none;
             opacity: 0.5;
+            transition: opacity 0.3s ease;
         }
         
         .search-container.enabled {
@@ -475,6 +476,13 @@
             box-shadow: var(--shadow);
             position: relative;
             overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .search-box:focus-within {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            transform: translateY(-1px);
         }
         
         .search-box::before {
@@ -497,6 +505,11 @@
             color: var(--primary);
             font-size: 16px;
             z-index: 1;
+            transition: transform 0.2s ease;
+        }
+        
+        .search-box:focus-within i {
+            transform: scale(1.1);
         }
         
         .search-box input {
@@ -529,16 +542,22 @@
             z-index: 0;
         }
         
+        /* Enhanced Location Bar */
         .location-bar {
-            padding: 0 20px 12px;
+            padding: 12px 20px;
             font-size: 13px;
             color: var(--text-secondary);
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             cursor: pointer;
             pointer-events: none;
             opacity: 0.5;
+            background: var(--surface);
+            border-radius: 30px;
+            margin-top: 8px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
         }
         
         .location-bar.enabled {
@@ -546,21 +565,90 @@
             opacity: 1;
         }
         
+        .location-bar:hover {
+            background: var(--surface-hover);
+            border-color: var(--primary);
+        }
+        
         .location-bar i {
             color: var(--primary);
             font-size: 14px;
+            transition: transform 0.2s ease;
+        }
+        
+        .location-bar:hover i {
+            transform: scale(1.1);
         }
         
         .location-bar span {
             font-weight: 500;
+            flex: 1;
         }
         
+        /* Filter Pills */
+        .filter-pills {
+            display: flex;
+            gap: 8px;
+            padding: 0 16px 16px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .filter-pills::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .filter-pills.enabled {
+            pointer-events: auto;
+            opacity: 1;
+        }
+        
+        .filter-pill {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .filter-pill i {
+            color: var(--primary);
+            font-size: 14px;
+        }
+        
+        .filter-pill.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .filter-pill.active i {
+            color: white;
+        }
+        
+        .filter-pill:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        /* Action Buttons */
         .action-buttons {
             display: flex;
             gap: 12px;
             padding: 8px 16px 20px;
             pointer-events: none;
             opacity: 0.5;
+            transition: opacity 0.3s ease;
         }
         
         .action-buttons.enabled {
@@ -583,7 +671,7 @@
             gap: 8px;
             cursor: pointer;
             box-shadow: var(--shadow);
-            transition: all 0.2s;
+            transition: all 0.2s ease;
         }
         
         .action-btn:active {
@@ -594,6 +682,11 @@
         .action-btn i {
             color: var(--primary);
             font-size: 16px;
+            transition: transform 0.2s ease;
+        }
+        
+        .action-btn:hover i {
+            transform: rotate(360deg);
         }
         
         .section-title {
@@ -618,6 +711,7 @@
             padding: 8px 16px 20px;
             pointer-events: none;
             opacity: 0.5;
+            transition: opacity 0.3s ease;
         }
         
         .service-grid.enabled {
@@ -632,7 +726,7 @@
             padding: 16px 4px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.2s ease;
             box-shadow: var(--shadow);
         }
         
@@ -641,10 +735,20 @@
             background: var(--surface-hover);
         }
         
+        .service-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
         .service-card i {
             font-size: 24px;
             color: var(--primary);
             margin-bottom: 8px;
+            transition: transform 0.2s ease;
+        }
+        
+        .service-card:hover i {
+            transform: scale(1.1);
         }
         
         .service-card span {
@@ -656,12 +760,24 @@
         
         .service-card.premium {
             border: 2px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card.premium::after {
+            content: '★';
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            color: var(--primary);
+            font-size: 10px;
         }
         
         .providers-container {
             padding: 0 16px 24px;
             pointer-events: none;
             opacity: 0.5;
+            transition: opacity 0.3s ease;
         }
         
         .providers-container.enabled {
@@ -676,14 +792,26 @@
             padding: 20px;
             margin-bottom: 12px;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.2s ease;
             box-shadow: var(--shadow);
             position: relative;
+            animation: fadeInUp 0.5s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         .provider-card:active {
             background: var(--surface-hover);
-            transform: translateY(-1px);
+            transform: translateY(-2px);
             box-shadow: var(--shadow-lg);
         }
         
@@ -707,6 +835,11 @@
             position: relative;
             border: 2px solid var(--surface);
             box-shadow: var(--shadow);
+            transition: transform 0.2s ease;
+        }
+        
+        .provider-card:hover .provider-avatar {
+            transform: scale(1.05);
         }
         
         .provider-avatar img {
@@ -747,6 +880,13 @@
             font-size: 11px;
             border: 2px solid var(--surface);
             z-index: 2;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
         
         .provider-info {
@@ -766,6 +906,16 @@
             color: var(--text-primary);
         }
         
+        .primer-badge {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 600;
+            margin-left: 4px;
+        }
+        
         .favorite-btn {
             background: none;
             border: none;
@@ -776,7 +926,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.2s;
+            transition: all 0.2s ease;
         }
         
         .favorite-btn:active {
@@ -786,6 +936,13 @@
         .favorite-btn.active i {
             font-weight: 900;
             color: #EF4444;
+            animation: heartBeat 0.3s ease;
+        }
+        
+        @keyframes heartBeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
         }
         
         .favorite-btn i {
@@ -862,6 +1019,28 @@
             border-radius: 20px;
             font-size: 11px;
             font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        
+        .badge:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+        
+        .services-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin: 8px 0;
+        }
+        
+        .service-tag {
+            background: var(--surface-hover);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
         }
         
         .provider-actions {
@@ -881,6 +1060,13 @@
             text-align: center;
             cursor: pointer;
             color: var(--text-primary);
+            transition: all 0.2s ease;
+        }
+        
+        .btn-view:hover {
+            background: var(--surface);
+            border-color: var(--primary);
+            color: var(--primary);
         }
         
         .btn-call {
@@ -897,6 +1083,12 @@
             align-items: center;
             justify-content: center;
             gap: 6px;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-call:hover {
+            background: var(--primary-dark);
+            transform: scale(1.02);
         }
         
         .btn-whatsapp {
@@ -911,6 +1103,38 @@
             justify-content: center;
             font-size: 20px;
             cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-whatsapp:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.3);
+        }
+        
+        /* Search Stats */
+        .search-stats {
+            padding: 0 16px 16px;
+            font-size: 13px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .search-stats i {
+            color: var(--primary);
+        }
+        
+        .clear-search {
+            color: var(--primary);
+            cursor: pointer;
+            margin-left: auto;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        
+        .clear-search:hover {
+            text-decoration: underline;
         }
         
         /* Modal Styles */
@@ -981,6 +1205,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: all 0.2s ease;
+        }
+        
+        .modal-close:hover {
+            background: var(--surface);
+            transform: rotate(90deg);
         }
         
         .modal-content {
@@ -997,7 +1227,7 @@
             border-radius: var(--radius);
             margin-bottom: 12px;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.2s ease;
             border: 1px solid var(--border);
         }
         
@@ -1241,7 +1471,7 @@
             <div class="ad-dots" id="adDots"></div>
         </div>
 
-        <!-- Animated Search Bar -->
+        <!-- Enhanced Search Section -->
         <div class="search-container" id="searchContainer">
             <div class="search-box">
                 <i class="fas fa-search"></i>
@@ -1251,7 +1481,18 @@
             <div class="location-bar" id="locationBar" onclick="openLocationSelector()">
                 <i class="fas fa-map-marker-alt"></i>
                 <span id="currentLocationDisplay">Select location</span>
+                <i class="fas fa-chevron-right" style="color: var(--primary);"></i>
             </div>
+        </div>
+
+        <!-- Filter Pills -->
+        <div class="filter-pills" id="filterPills"></div>
+
+        <!-- Search Stats -->
+        <div class="search-stats" id="searchStats" style="display: none;">
+            <i class="fas fa-info-circle"></i>
+            <span id="searchStatsText"></span>
+            <span class="clear-search" onclick="clearSearch()">Clear</span>
         </div>
 
         <div class="action-buttons" id="actionButtons">
@@ -1286,6 +1527,7 @@
             <div id="noProvidersMessage" class="empty-state" style="display: none;">
                 <i class="fas fa-users-slash"></i>
                 <p>No providers available</p>
+                <div class="empty-state-sub">Try adjusting your search or location</div>
             </div>
             <div class="refresh-note" id="refreshNote">© Primer Technologies</div>
         </div>
@@ -1409,6 +1651,8 @@
             let ads = [];
             let providers = [];
             let favorites = [];
+            let currentSearchTerm = '';
+            let currentFilter = 'all';
             
             // DOM Elements
             const app = document.getElementById('app');
@@ -1518,6 +1762,7 @@
                 const elements = [
                     'searchContainer',
                     'locationBar',
+                    'filterPills',
                     'actionButtons',
                     'serviceGrid',
                     'providersContainer',
@@ -1562,6 +1807,63 @@
                 }
             }
 
+            // ========== FAVORITES MANAGEMENT (SYNCED WITH providers-list.html) ==========
+            function loadFavorites() {
+                try {
+                    const saved = localStorage.getItem('primer_favorites');
+                    favorites = saved ? JSON.parse(saved) : [];
+                    // Ensure favorites is always an array
+                    if (!Array.isArray(favorites)) {
+                        favorites = [];
+                    }
+                } catch {
+                    favorites = [];
+                }
+            }
+
+            function saveFavorites() {
+                localStorage.setItem('primer_favorites', JSON.stringify(favorites));
+                // Dispatch event for other pages to listen
+                window.dispatchEvent(new CustomEvent('favoritesUpdated', { detail: favorites }));
+            }
+
+            // Make toggleFavorite globally available (same as providers-list.html)
+            window.toggleFavorite = function(providerId, event) {
+                if (event) event.stopPropagation();
+                
+                if (!window.isAuthenticated) {
+                    showToast('Please sign up to save favorites');
+                    return;
+                }
+                
+                const index = favorites.indexOf(providerId);
+                if (index === -1) {
+                    favorites.push(providerId);
+                    showToast('Added to favorites');
+                } else {
+                    favorites.splice(index, 1);
+                    showToast('Removed from favorites');
+                }
+                saveFavorites();
+                
+                // Update the clicked button
+                if (event && event.currentTarget) {
+                    const btn = event.currentTarget;
+                    const icon = btn.querySelector('i');
+                    if (favorites.includes(providerId)) {
+                        btn.classList.add('active');
+                        icon.className = 'fas fa-heart';
+                    } else {
+                        btn.classList.remove('active');
+                        icon.className = 'far fa-heart';
+                    }
+                }
+            };
+
+            function isFavorite(providerId) {
+                return favorites.includes(providerId);
+            }
+
             // ========== HANDLE SIGNUP ==========
             window.handleSignup = function() {
                 const name = document.getElementById('signupName').value.trim();
@@ -1596,54 +1898,8 @@
                 showToast('Welcome to Primer!');
                 
                 loadProviders();
+                renderFilterPills();
             };
-
-            // ========== LOAD FAVORITES ==========
-            function loadFavorites() {
-                try {
-                    const saved = localStorage.getItem('primer_favorites');
-                    favorites = saved ? JSON.parse(saved) : [];
-                } catch {
-                    favorites = [];
-                }
-            }
-
-            function saveFavorites() {
-                localStorage.setItem('primer_favorites', JSON.stringify(favorites));
-            }
-
-            window.toggleFavorite = function(providerId, event) {
-                if (event) event.stopPropagation();
-                
-                if (!window.isAuthenticated) {
-                    showToast('Please sign up to save favorites');
-                    return;
-                }
-                
-                const index = favorites.indexOf(providerId);
-                if (index === -1) {
-                    favorites.push(providerId);
-                    showToast('Added to favorites');
-                } else {
-                    favorites.splice(index, 1);
-                    showToast('Removed from favorites');
-                }
-                saveFavorites();
-                
-                // Update button with filled red heart
-                const btn = event.currentTarget;
-                if (favorites.includes(providerId)) {
-                    btn.classList.add('active');
-                    btn.innerHTML = '<i class="fas fa-heart"></i>';
-                } else {
-                    btn.classList.remove('active');
-                    btn.innerHTML = '<i class="far fa-heart"></i>';
-                }
-            };
-
-            function isFavorite(providerId) {
-                return favorites.includes(providerId);
-            }
 
             // ========== NAVIGATION CHECK ==========
             window.checkAuthAndNavigate = function(url) {
@@ -1672,7 +1928,11 @@
                     renderServices();
                     initAds();
                     initAnimatedPlaceholder();
-                    loadProviders();
+                    
+                    if (window.isAuthenticated) {
+                        renderFilterPills();
+                        loadProviders();
+                    }
                 } catch (error) {
                     console.error('Error:', error);
                     showToast('Failed to load data');
@@ -1691,6 +1951,35 @@
                 `).join('');
             }
 
+            // ========== RENDER FILTER PILLS ==========
+            function renderFilterPills() {
+                const container = document.getElementById('filterPills');
+                if (!container || !services.length) return;
+                
+                const filters = [
+                    { id: 'all', name: 'All', icon: 'fa-globe' },
+                    ...services.slice(0, 5).map(s => ({ 
+                        id: s.id, 
+                        name: s.name, 
+                        icon: s.icon || 'fa-tools' 
+                    }))
+                ];
+                
+                container.innerHTML = filters.map(f => `
+                    <div class="filter-pill ${currentFilter === f.id ? 'active' : ''}" onclick="filterByService('${f.id}')">
+                        <i class="fas ${f.icon}"></i>
+                        <span>${f.name}</span>
+                    </div>
+                `).join('');
+            }
+
+            // ========== FILTER BY SERVICE ==========
+            window.filterByService = function(serviceId) {
+                currentFilter = serviceId;
+                renderFilterPills();
+                performSearch(currentSearchTerm, serviceId);
+            };
+
             // ========== ANIMATED PLACEHOLDER ==========
             function initAnimatedPlaceholder() {
                 const placeholder = document.getElementById('animatedPlaceholder');
@@ -1703,22 +1992,26 @@
                     return;
                 }
                 
-                const serviceNames = services.map(s => s.name.toLowerCase());
-                if (serviceNames.length === 0) return;
+                const searchTerms = [
+                    ...services.map(s => s.name.toLowerCase()),
+                    'plumber', 'electrician', 'mechanic', 'cleaner', 'painter'
+                ];
+                
+                if (searchTerms.length === 0) return;
                 
                 let currentIndex = 0;
                 
-                placeholder.textContent = `Search for ${serviceNames[0]}...`;
+                placeholder.textContent = `Search for ${searchTerms[0]}...`;
                 placeholder.style.opacity = '1';
                 
                 setInterval(() => {
                     if (document.activeElement !== searchInput) {
-                        currentIndex = (currentIndex + 1) % serviceNames.length;
+                        currentIndex = (currentIndex + 1) % searchTerms.length;
                         placeholder.style.opacity = '0';
                         placeholder.style.transform = 'translateY(5px)';
                         
                         setTimeout(() => {
-                            placeholder.textContent = `Search for ${serviceNames[currentIndex]}...`;
+                            placeholder.textContent = `Search for ${searchTerms[currentIndex]}...`;
                             placeholder.style.opacity = '1';
                             placeholder.style.transform = 'translateY(0)';
                         }, 300);
@@ -1785,39 +2078,88 @@
                 }, 5000);
             }
 
+            // ========== ENHANCED SEARCH FUNCTION ==========
+            function performSearch(term, filter = 'all') {
+                currentSearchTerm = term;
+                
+                if (!providers.length) return;
+                
+                const city = userData ? userData.city : 'Kaduna';
+                
+                let results = providers.filter(p => 
+                    p?.serviceAreas?.includes(city)
+                );
+                
+                if (filter !== 'all') {
+                    results = results.filter(p => 
+                        p.services?.includes(filter) || 
+                        p.serviceIds?.includes(filter)
+                    );
+                }
+                
+                if (term) {
+                    const searchLower = term.toLowerCase();
+                    results = results.filter(p => {
+                        return (
+                            p.name?.toLowerCase().includes(searchLower) ||
+                            p.services?.some(s => s.toLowerCase().includes(searchLower)) ||
+                            p.badges?.some(b => b.toLowerCase().includes(searchLower)) ||
+                            p.currentLocation?.toLowerCase().includes(searchLower)
+                        );
+                    });
+                }
+                
+                // Update search stats
+                const statsEl = document.getElementById('searchStats');
+                const statsText = document.getElementById('searchStatsText');
+                
+                if (term || filter !== 'all') {
+                    statsEl.style.display = 'flex';
+                    let statsMessage = `Found ${results.length} provider${results.length !== 1 ? 's' : ''}`;
+                    if (term) statsMessage += ` for "${term}"`;
+                    if (filter !== 'all') {
+                        const service = services.find(s => s.id === filter);
+                        if (service) statsMessage += ` in ${service.name}`;
+                    }
+                    statsText.textContent = statsMessage;
+                } else {
+                    statsEl.style.display = 'none';
+                }
+                
+                renderProviders(results);
+            }
+
+            window.clearSearch = function() {
+                document.getElementById('searchInput').value = '';
+                currentSearchTerm = '';
+                currentFilter = 'all';
+                renderFilterPills();
+                performSearch('', 'all');
+            };
+
             // ========== LOAD PROVIDERS ==========
             function loadProviders() {
+                performSearch('', currentFilter);
+            }
+
+            function renderProviders(providersList) {
                 const loading = document.getElementById('providersLoading');
                 const list = document.getElementById('providersList');
                 const noProv = document.getElementById('noProvidersMessage');
 
-                if (!providers.length) {
+                if (!providersList.length) {
                     if (loading) loading.style.display = 'none';
                     if (noProv) noProv.style.display = 'block';
+                    if (list) list.innerHTML = '';
                     return;
                 }
 
-                const city = userData ? userData.city : 'Kaduna';
-                
-                const cityProviders = providers.filter(p => 
-                    p?.serviceAreas?.includes(city)
-                );
-
-                const randomProviders = getRandomProviders(cityProviders, 5);
-                
                 if (loading) loading.style.display = 'none';
                 
-                if (randomProviders.length && list) {
-                    list.innerHTML = renderProviderCards(randomProviders);
+                if (list) {
+                    list.innerHTML = renderProviderCards(providersList);
                     if (noProv) noProv.style.display = 'none';
-                } else if (noProv) {
-                    noProv.style.display = 'block';
                 }
-            }
-
-            function getRandomProviders(providerList, count) {
-                const shuffled = [...providerList].sort(() => 0.5 - Math.random());
-                return shuffled.slice(0, count);
             }
 
             function renderProviderCards(provs) {
@@ -1838,6 +2180,7 @@
                             <div class="provider-info">
                                 <div class="provider-name-row">
                                     <span class="provider-name">${p.name}</span>
+                                    ${isPrimerOwned ? '<span class="primer-badge">PRIMER</span>' : ''}
                                     <button class="favorite-btn ${isFav ? 'active' : ''}" onclick="event.stopPropagation(); toggleFavorite('${p.id}', event)">
                                         <i class="${isFav ? 'fas' : 'far'} fa-heart"></i>
                                     </button>
@@ -1847,7 +2190,7 @@
                                 </div>
                             </div>
                             <div class="availability-badge ${p.availability || 'busy'}">
-                                ${p.availability === 'available' ? 'Now' : 'Busy'}
+                                ${p.availability === 'available' ? 'Available' : 'Busy'}
                             </div>
                         </div>
                         
@@ -1858,6 +2201,11 @@
                             <div class="detail-item">
                                 <i class="fas fa-clock"></i> ${p.responseTime || 15}min
                             </div>
+                            ${p.services ? `
+                            <div class="detail-item">
+                                <i class="fas fa-tools"></i> ${p.services.slice(0, 2).join(', ')}${p.services.length > 2 ? '...' : ''}
+                            </div>
+                            ` : ''}
                         </div>
                         
                         ${p.badges ? `
@@ -1865,6 +2213,10 @@
                             ${p.badges.map(b => `<span class="badge">${b}</span>`).join('')}
                         </div>
                         ` : ''}
+                        
+                        <div class="services-list">
+                            ${(p.services || []).map(s => `<span class="service-tag">${s}</span>`).join('')}
+                        </div>
                         
                         <div class="provider-actions">
                             <span class="btn-view" onclick="event.stopPropagation(); if(window.isAuthenticated) window.location.href='provider-detail.html?id=${p.id}'; else showToast('Please sign up first')">View</span>
@@ -1974,30 +2326,12 @@
                 } catch (e) {}
             }
 
-            // ========== SEARCH ==========
+            // ========== SEARCH INPUT HANDLER ==========
             document.getElementById('searchInput')?.addEventListener('input', (e) => {
                 if (!window.isAuthenticated) return;
                 
                 const term = e.target.value.toLowerCase();
-                if (!term || !providers.length) {
-                    loadProviders();
-                    return;
-                }
-                
-                const city = userData ? userData.city : 'Kaduna';
-                const results = providers.filter(p => 
-                    p?.serviceAreas?.includes(city) &&
-                    p.name?.toLowerCase().includes(term)
-                );
-                
-                const list = document.getElementById('providersList');
-                const noProv = document.getElementById('noProvidersMessage');
-                
-                if (list) {
-                    document.getElementById('providersLoading').style.display = 'none';
-                    list.innerHTML = renderProviderCards(results);
-                    if (noProv) noProv.style.display = results.length ? 'none' : 'block';
-                }
+                performSearch(term, currentFilter);
             });
 
             // ========== MODAL FUNCTIONS ==========
@@ -2122,7 +2456,7 @@
             // ========== INIT ==========
             loadUserSession();
 
-            // Listen for storage events
+            // Listen for storage events and custom events
             window.addEventListener('storage', (e) => {
                 if (e.key === 'primer_account_deleted' && e.newValue === 'true') {
                     userData = null;
@@ -2131,6 +2465,16 @@
                 }
                 if (e.key === 'primer_favorites') {
                     loadFavorites();
+                    if (window.isAuthenticated) {
+                        loadProviders(); // Refresh providers to update favorite buttons
+                    }
+                }
+            });
+
+            // Listen for favorites updated event from other pages
+            window.addEventListener('favoritesUpdated', (e) => {
+                favorites = e.detail;
+                if (window.isAuthenticated) {
                     loadProviders(); // Refresh providers to update favorite buttons
                 }
             });
