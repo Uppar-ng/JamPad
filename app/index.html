@@ -71,7 +71,6 @@
             pointer-events: none;
         }
         
-        /* Transparent Header */
         .app-header {
             position: sticky;
             top: 0;
@@ -133,7 +132,6 @@
             transform: scale(0.95);
         }
         
-        /* Full Screen Signup Overlay */
         .signup-overlay {
             position: fixed;
             top: 0;
@@ -230,10 +228,6 @@
             background: var(--surface);
         }
         
-        .signup-field input::placeholder {
-            color: var(--text-tertiary);
-        }
-        
         .signup-dropdown {
             position: relative;
         }
@@ -327,7 +321,7 @@
             margin: 8px 0;
         }
         
-        .terms-checkbox input[type="checkbox"] {
+        .terms-checkbox input {
             width: 20px;
             height: 20px;
             accent-color: var(--primary);
@@ -377,12 +371,13 @@
             aspect-ratio: 2.5/1;
             background: var(--surface);
             box-shadow: var(--shadow);
-            cursor: grab;
+            cursor: pointer;
             user-select: none;
+            -webkit-user-select: none;
         }
         
         .ads-container:active {
-            cursor: grabbing;
+            cursor: pointer;
         }
         
         .ad-slide {
@@ -396,6 +391,7 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            cursor: pointer;
         }
         
         .ad-slide.active {
@@ -410,6 +406,7 @@
             padding: 20px;
             background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
             color: white;
+            pointer-events: none;
         }
         
         .ad-title {
@@ -432,16 +429,8 @@
             border-radius: 30px;
             font-size: 13px;
             font-weight: 600;
-            text-decoration: none;
             display: inline-block;
-            cursor: pointer;
-            transition: all 0.2s;
-            pointer-events: auto;
-        }
-        
-        .ad-btn:active {
-            transform: scale(0.95);
-            background: var(--primary-light);
+            pointer-events: none;
         }
         
         .ad-dots {
@@ -460,6 +449,7 @@
             background: rgba(255,255,255,0.5);
             transition: all 0.3s;
             cursor: pointer;
+            pointer-events: auto;
         }
         
         .ad-dot.active {
@@ -467,7 +457,6 @@
             background: white;
         }
         
-        /* Enhanced Search Container */
         .search-container {
             padding: 8px 16px 16px;
             pointer-events: none;
@@ -500,31 +489,10 @@
             transform: translateY(-1px);
         }
         
-        .search-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(37,99,235,0.1), transparent);
-            animation: shimmer 2s infinite;
-            pointer-events: none;
-        }
-        
-        @keyframes shimmer {
-            100% { left: 100%; }
-        }
-        
         .search-box i {
             color: var(--primary);
             font-size: 16px;
             z-index: 1;
-            transition: transform 0.2s ease;
-        }
-        
-        .search-box:focus-within i {
-            transform: scale(1.1);
         }
         
         .search-box input {
@@ -535,11 +503,6 @@
             font-size: 15px;
             outline: none;
             z-index: 1;
-        }
-        
-        .search-box input::placeholder {
-            color: var(--text-tertiary);
-            transition: opacity 0.3s;
         }
         
         .search-box input:disabled {
@@ -557,7 +520,6 @@
             z-index: 0;
         }
         
-        /* Enhanced Location Bar */
         .location-bar {
             padding: 12px 20px;
             font-size: 13px;
@@ -580,19 +542,9 @@
             opacity: 1;
         }
         
-        .location-bar:hover {
-            background: var(--surface-hover);
-            border-color: var(--primary);
-        }
-        
         .location-bar i {
             color: var(--primary);
             font-size: 14px;
-            transition: transform 0.2s ease;
-        }
-        
-        .location-bar:hover i {
-            transform: scale(1.1);
         }
         
         .location-bar span {
@@ -600,7 +552,6 @@
             flex: 1;
         }
         
-        /* Filter Pills */
         .filter-pills {
             display: flex;
             gap: 8px;
@@ -651,12 +602,6 @@
             color: white;
         }
         
-        .filter-pill:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        /* Action Buttons */
         .action-buttons {
             display: flex;
             gap: 12px;
@@ -697,11 +642,6 @@
         .action-btn i {
             color: var(--primary);
             font-size: 16px;
-            transition: transform 0.2s ease;
-        }
-        
-        .action-btn:hover i {
-            transform: rotate(360deg);
         }
         
         .section-title {
@@ -750,20 +690,10 @@
             background: var(--surface-hover);
         }
         
-        .service-card:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-        
         .service-card i {
             font-size: 24px;
             color: var(--primary);
             margin-bottom: 8px;
-            transition: transform 0.2s ease;
-        }
-        
-        .service-card:hover i {
-            transform: scale(1.1);
         }
         
         .service-card span {
@@ -814,14 +744,8 @@
         }
         
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         .provider-card:active {
@@ -850,11 +774,6 @@
             position: relative;
             border: 2px solid var(--surface);
             box-shadow: var(--shadow);
-            transition: transform 0.2s ease;
-        }
-        
-        .provider-card:hover .provider-avatar {
-            transform: scale(1.05);
         }
         
         .provider-avatar img {
@@ -928,7 +847,6 @@
             border-radius: 12px;
             font-size: 10px;
             font-weight: 600;
-            margin-left: 4px;
         }
         
         .favorite-btn {
@@ -941,7 +859,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.2s ease;
         }
         
         .favorite-btn:active {
@@ -958,10 +875,6 @@
             0% { transform: scale(1); }
             50% { transform: scale(1.3); }
             100% { transform: scale(1); }
-        }
-        
-        .favorite-btn i {
-            color: #EF4444;
         }
         
         .provider-rating {
@@ -1034,12 +947,6 @@
             border-radius: 20px;
             font-size: 11px;
             font-weight: 600;
-            transition: all 0.2s ease;
-        }
-        
-        .badge:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow);
         }
         
         .services-list {
@@ -1075,13 +982,6 @@
             text-align: center;
             cursor: pointer;
             color: var(--text-primary);
-            transition: all 0.2s ease;
-        }
-        
-        .btn-view:hover {
-            background: var(--surface);
-            border-color: var(--primary);
-            color: var(--primary);
         }
         
         .btn-call {
@@ -1098,12 +998,6 @@
             align-items: center;
             justify-content: center;
             gap: 6px;
-            transition: all 0.2s ease;
-        }
-        
-        .btn-call:hover {
-            background: var(--primary-dark);
-            transform: scale(1.02);
         }
         
         .btn-whatsapp {
@@ -1118,15 +1012,8 @@
             justify-content: center;
             font-size: 20px;
             cursor: pointer;
-            transition: all 0.2s ease;
         }
         
-        .btn-whatsapp:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 15px rgba(37, 211, 102, 0.3);
-        }
-        
-        /* Search Stats */
         .search-stats {
             padding: 0 16px 16px;
             font-size: 13px;
@@ -1145,14 +1032,8 @@
             cursor: pointer;
             margin-left: auto;
             font-weight: 600;
-            transition: all 0.2s ease;
         }
         
-        .clear-search:hover {
-            text-decoration: underline;
-        }
-        
-        /* Modal Styles */
         .modal-backdrop {
             position: fixed;
             inset: 0;
@@ -1220,19 +1101,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.2s ease;
-        }
-        
-        .modal-close:hover {
-            background: var(--surface);
-            transform: rotate(90deg);
         }
         
         .modal-content {
             padding: 24px;
         }
         
-        /* Improved Booking Item Styles */
         .booking-item {
             display: flex;
             align-items: center;
@@ -1242,14 +1116,7 @@
             border-radius: var(--radius);
             margin-bottom: 12px;
             cursor: pointer;
-            transition: all 0.2s ease;
             border: 1px solid var(--border);
-        }
-        
-        .booking-item:active {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-            background: var(--surface);
         }
         
         .booking-avatar {
@@ -1263,8 +1130,6 @@
             font-size: 24px;
             color: var(--primary);
             flex-shrink: 0;
-            border: 2px solid var(--surface);
-            box-shadow: var(--shadow);
         }
         
         .booking-info {
@@ -1294,7 +1159,6 @@
             border-radius: 12px;
             font-size: 11px;
             font-weight: 600;
-            display: inline-block;
         }
         
         .booking-date {
@@ -1303,11 +1167,6 @@
             gap: 4px;
             font-size: 12px;
             color: var(--text-tertiary);
-        }
-        
-        .booking-date i {
-            font-size: 10px;
-            color: var(--primary);
         }
         
         .booking-status {
@@ -1402,11 +1261,6 @@
             outline-offset: 2px;
         }
 
-        input, textarea, button, select, a {
-            -webkit-tap-highlight-color: rgba(0,0,0,0);
-        }
-
-        /* Bottom Navigation */
         .bottom-nav {
             position: fixed;
             bottom: 0;
@@ -1448,31 +1302,20 @@
         .nav-item i {
             font-size: 22px;
             font-weight: 400;
-            transition: transform 0.2s;
         }
 
         .nav-item.active {
             color: var(--primary);
         }
 
-        .nav-item.active i {
-            transform: translateY(-2px);
-        }
-
         .nav-item .label {
             font-weight: 500;
             font-size: 11px;
-        }
-
-        /* Remove change link from location bar */
-        .location-bar .change-link {
-            display: none;
         }
     </style>
 </head>
 <body>
     <div id="app">
-        <!-- Transparent Header -->
         <header class="app-header">
             <div class="header-content">
                 <div class="logo">Primer</div>
@@ -1486,7 +1329,6 @@
             <div class="ad-dots" id="adDots"></div>
         </div>
 
-        <!-- Enhanced Search Section -->
         <div class="search-container" id="searchContainer">
             <div class="search-box">
                 <i class="fas fa-search"></i>
@@ -1500,10 +1342,8 @@
             </div>
         </div>
 
-        <!-- Filter Pills -->
         <div class="filter-pills" id="filterPills"></div>
 
-        <!-- Search Stats -->
         <div class="search-stats" id="searchStats" style="display: none;">
             <i class="fas fa-info-circle"></i>
             <span id="searchStatsText"></span>
@@ -1544,56 +1384,42 @@
                 <p>No providers available</p>
                 <div class="empty-state-sub">Try adjusting your search or location</div>
             </div>
-            <div class="refresh-note" id="refreshNote">© Primer Technologies</div>
+            <div class="refresh-note">© Primer Technologies</div>
         </div>
     </div>
 
-    <!-- Sign Up Overlay (Full Screen) -->
     <div class="signup-overlay" id="signupOverlay">
         <div class="signup-card">
             <div class="signup-header">
                 <h2>Welcome to Primer</h2>
                 <p>Create your account to get started</p>
             </div>
-            
             <div class="signup-form">
                 <div class="signup-field">
                     <i class="fas fa-user"></i>
                     <input type="text" id="signupName" placeholder="Full name" autocomplete="off">
                 </div>
-                
                 <div class="signup-field">
                     <i class="fas fa-phone"></i>
                     <input type="tel" id="signupPhone" placeholder="Phone number" autocomplete="off">
                 </div>
-                
                 <div class="signup-dropdown" id="signupLocationDropdown">
                     <div class="dropdown-trigger" onclick="toggleLocationDropdown()">
                         <i class="fas fa-map-marker-alt"></i>
                         <span id="selectedSignupLocation">Select your city</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="dropdown-menu" id="locationDropdownMenu">
-                        <!-- Cities will be loaded here -->
-                    </div>
+                    <div class="dropdown-menu" id="locationDropdownMenu"></div>
                 </div>
-                
                 <div class="terms-checkbox">
                     <input type="checkbox" id="termsCheckbox">
-                    <label for="termsCheckbox">
-                        I agree to the <a href="https://primert.vercel.app/terms.html" target="_blank">Terms of Service</a> and 
-                        <a href="https://primert.vercel.app/privacy.html" target="_blank">Privacy Policy</a>
-                    </label>
+                    <label for="termsCheckbox">I agree to the <a href="https://primert.vercel.app/terms.html" target="_blank">Terms</a> and <a href="https://primert.vercel.app/privacy.html" target="_blank">Privacy</a></label>
                 </div>
-                
-                <button class="signup-btn" id="signupBtn" onclick="handleSignup()" disabled>
-                    Create Account
-                </button>
+                <button class="signup-btn" id="signupBtn" onclick="handleSignup()" disabled>Create Account</button>
             </div>
         </div>
     </div>
 
-    <!-- Modals -->
     <div class="modal-backdrop" id="modalBackdrop"></div>
     
     <div class="modal" id="howItWorksModal">
@@ -1605,24 +1431,15 @@
             <div style="padding: 20px 0;">
                 <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
                     <div style="width: 40px; height: 40px; background: var(--primary-light); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--primary);">1</div>
-                    <div>
-                        <h4 style="margin-bottom: 4px;">Choose a service</h4>
-                        <p style="color: var(--text-secondary); font-size: 14px;">Select what you need from our services</p>
-                    </div>
+                    <div><h4>Choose a service</h4><p style="color: var(--text-secondary); font-size: 14px;">Select what you need</p></div>
                 </div>
                 <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
                     <div style="width: 40px; height: 40px; background: var(--primary-light); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--primary);">2</div>
-                    <div>
-                        <h4 style="margin-bottom: 4px;">Pick a provider</h4>
-                        <p style="color: var(--text-secondary); font-size: 14px;">Browse providers in your area</p>
-                    </div>
+                    <div><h4>Pick a provider</h4><p style="color: var(--text-secondary); font-size: 14px;">Browse in your area</p></div>
                 </div>
                 <div style="display: flex; align-items: center; gap: 16px;">
                     <div style="width: 40px; height: 40px; background: var(--primary-light); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--primary);">3</div>
-                    <div>
-                        <h4 style="margin-bottom: 4px;">Call or WhatsApp</h4>
-                        <p style="color: var(--text-secondary); font-size: 14px;">Contact provider directly</p>
-                    </div>
+                    <div><h4>Call or WhatsApp</h4><p style="color: var(--text-secondary); font-size: 14px;">Contact directly</p></div>
                 </div>
             </div>
         </div>
@@ -1633,32 +1450,21 @@
             <h3>Previous Bookings</h3>
             <button class="modal-close" onclick="closeModal('previousBookingsModal')"><i class="fas fa-times"></i></button>
         </div>
-        <div class="modal-content" id="bookingsModalContent">
+        <div class="modal-content">
             <div class="bookings-list" id="bookingsList"></div>
         </div>
     </div>
 
-    <!-- Bottom Navigation -->
     <div class="bottom-nav" id="bottomNav">
-        <a href="index.html" class="nav-item active">
-            <i class="fas fa-building"></i>
-            <span class="label">Home</span>
-        </a>
-        <a href="javascript:void(0)" class="nav-item" onclick="return checkAuthAndNavigate('saved.html')">
-            <i class="fas fa-heart"></i>
-            <span class="label">Saved</span>
-        </a>
-        <a href="javascript:void(0)" class="nav-item" onclick="return checkAuthAndNavigate('account.html')">
-            <i class="fas fa-user"></i>
-            <span class="label">Account</span>
-        </a>
+        <a href="index.html" class="nav-item active"><i class="fas fa-map"></i><span class="label">Home</span></a>
+        <a href="javascript:void(0)" class="nav-item" onclick="return checkAuthAndNavigate('saved.html')"><i class="fas fa-heart"></i><span class="label">Saved</span></a>
+        <a href="javascript:void(0)" class="nav-item" onclick="return checkAuthAndNavigate('account.html')"><i class="fas fa-user"></i><span class="label">Account</span></a>
     </div>
 
     <div id="toastContainer"></div>
 
     <script>
         (function() {
-            // ========== GLOBAL VARIABLES - DECLARE FIRST ==========
             window.isAuthenticated = false;
             let userData = null;
             let cities = [];
@@ -1670,7 +1476,6 @@
             let currentFilter = 'all';
             let autoSwipeInterval = null;
             
-            // DOM Elements
             const app = document.getElementById('app');
             const signupOverlay = document.getElementById('signupOverlay');
             const themeToggle = document.getElementById('themeToggle');
@@ -1678,9 +1483,7 @@
             const termsCheckbox = document.getElementById('termsCheckbox');
             const signupBtn = document.getElementById('signupBtn');
             const locationDropdownMenu = document.getElementById('locationDropdownMenu');
-            const selectedSignupLocation = document.getElementById('selectedSignupLocation');
             
-            // ========== THEME MANAGEMENT ==========
             function syncTheme() {
                 const saved = localStorage.getItem('primer_theme') || 'light';
                 html.setAttribute('data-theme', saved);
@@ -1696,7 +1499,6 @@
                 themeToggle.innerHTML = next === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
             });
 
-            // ========== SHUFFLE ARRAY (Fisher-Yates) ==========
             function shuffleArray(array) {
                 for (let i = array.length - 1; i > 0; i--) {
                     const j = Math.floor(Math.random() * (i + 1));
@@ -1705,33 +1507,27 @@
                 return array;
             }
 
-            // ========== LOAD CITIES ==========
             async function loadCities() {
                 try {
                     const response = await fetch('locations.json');
                     const data = await response.json();
                     cities = data.cities || ["Abuja", "Kaduna", "Kano", "Lagos", "Port Harcourt"];
                     renderLocationDropdown();
-                } catch (error) {
-                    console.error('Error loading cities:', error);
+                } catch {
                     cities = ["Abuja", "Kaduna", "Kano", "Lagos", "Port Harcourt"];
                     renderLocationDropdown();
                 }
             }
 
-            // ========== RENDER LOCATION DROPDOWN ==========
             function renderLocationDropdown() {
                 if (!locationDropdownMenu) return;
-                
                 locationDropdownMenu.innerHTML = cities.map(city => `
                     <div class="dropdown-item" onclick="selectSignupLocation('${city}')">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>${city}</span>
+                        <i class="fas fa-map-marker-alt"></i><span>${city}</span>
                     </div>
                 `).join('');
             }
 
-            // ========== LOCATION DROPDOWN TOGGLE ==========
             window.toggleLocationDropdown = function() {
                 const menu = document.getElementById('locationDropdownMenu');
                 const trigger = document.querySelector('.dropdown-trigger');
@@ -1745,37 +1541,29 @@
                 updateSignupButton();
             };
 
-            // Close dropdown when clicking outside
             document.addEventListener('click', function(e) {
                 const dropdown = document.getElementById('signupLocationDropdown');
                 const menu = document.getElementById('locationDropdownMenu');
                 const trigger = document.querySelector('.dropdown-trigger');
-                
                 if (dropdown && !dropdown.contains(e.target)) {
                     menu.classList.remove('show');
                     trigger.classList.remove('active');
                 }
             });
 
-            // ========== SIGNUP BUTTON STATE ==========
             function updateSignupButton() {
                 const name = document.getElementById('signupName').value.trim();
                 const phone = document.getElementById('signupPhone').value.trim();
                 const location = document.getElementById('selectedSignupLocation').textContent;
-                const termsChecked = termsCheckbox.checked;
-                
-                signupBtn.disabled = !(name && phone && location !== 'Select your city' && termsChecked);
+                signupBtn.disabled = !(name && phone && location !== 'Select your city' && termsCheckbox.checked);
             }
 
-            // Add input listeners
             document.getElementById('signupName').addEventListener('input', updateSignupButton);
             document.getElementById('signupPhone').addEventListener('input', updateSignupButton);
             termsCheckbox.addEventListener('change', updateSignupButton);
 
-            // ========== ENABLE/DISABLE UI ==========
             function setUIAuthenticated(authenticated) {
                 window.isAuthenticated = authenticated;
-                
                 if (authenticated) {
                     signupOverlay.classList.remove('active');
                     app.classList.remove('blurred');
@@ -1783,40 +1571,18 @@
                     signupOverlay.classList.add('active');
                     app.classList.add('blurred');
                 }
-                
-                const elements = [
-                    'searchContainer',
-                    'locationBar',
-                    'filterPills',
-                    'actionButtons',
-                    'serviceGrid',
-                    'providersContainer',
-                    'bottomNav'
-                ];
-                
-                elements.forEach(id => {
+                ['searchContainer','locationBar','filterPills','actionButtons','serviceGrid','providersContainer','bottomNav'].forEach(id => {
                     const el = document.getElementById(id);
-                    if (el) {
-                        if (authenticated) {
-                            el.classList.add('enabled');
-                        } else {
-                            el.classList.remove('enabled');
-                        }
-                    }
+                    if (el) el.classList[authenticated ? 'add' : 'remove']('enabled');
                 });
-                
                 const searchInput = document.getElementById('searchInput');
-                if (searchInput) {
-                    searchInput.disabled = !authenticated;
-                }
+                if (searchInput) searchInput.disabled = !authenticated;
             }
 
-            // ========== LOAD USER SESSION ==========
             function loadUserSession() {
                 try {
                     const saved = localStorage.getItem('primer_user');
                     const accountDeleted = localStorage.getItem('primer_account_deleted');
-                    
                     if (saved && !accountDeleted) {
                         userData = JSON.parse(saved);
                         setUIAuthenticated(true);
@@ -1827,22 +1593,15 @@
                         document.getElementById('currentLocationDisplay').textContent = 'Select location';
                         loadData();
                     }
-                } catch (e) {
-                    setUIAuthenticated(false);
-                }
+                } catch { setUIAuthenticated(false); }
             }
 
-            // ========== FAVORITES MANAGEMENT (SYNCED WITH providers-list.html) ==========
             function loadFavorites() {
                 try {
                     const saved = localStorage.getItem('primer_favorites');
                     favorites = saved ? JSON.parse(saved) : [];
-                    if (!Array.isArray(favorites)) {
-                        favorites = [];
-                    }
-                } catch {
-                    favorites = [];
-                }
+                    if (!Array.isArray(favorites)) favorites = [];
+                } catch { favorites = []; }
             }
 
             function saveFavorites() {
@@ -1852,87 +1611,43 @@
 
             window.toggleFavorite = function(providerId, event) {
                 if (event) event.stopPropagation();
-                
-                if (!window.isAuthenticated) {
-                    showToast('Please sign up to save favorites');
-                    return;
-                }
-                
+                if (!window.isAuthenticated) { showToast('Please sign up first'); return; }
                 const index = favorites.indexOf(providerId);
-                if (index === -1) {
-                    favorites.push(providerId);
-                    showToast('Added to favorites');
-                } else {
-                    favorites.splice(index, 1);
-                    showToast('Removed from favorites');
-                }
+                if (index === -1) { favorites.push(providerId); showToast('Added to favorites'); }
+                else { favorites.splice(index, 1); showToast('Removed from favorites'); }
                 saveFavorites();
-                
                 if (event && event.currentTarget) {
                     const btn = event.currentTarget;
                     const icon = btn.querySelector('i');
-                    if (favorites.includes(providerId)) {
-                        btn.classList.add('active');
-                        icon.className = 'fas fa-heart';
-                    } else {
-                        btn.classList.remove('active');
-                        icon.className = 'far fa-heart';
-                    }
+                    btn.classList.toggle('active', favorites.includes(providerId));
+                    icon.className = favorites.includes(providerId) ? 'fas fa-heart' : 'far fa-heart';
                 }
             };
 
-            function isFavorite(providerId) {
-                return favorites.includes(providerId);
-            }
+            function isFavorite(providerId) { return favorites.includes(providerId); }
 
-            // ========== HANDLE SIGNUP ==========
             window.handleSignup = function() {
                 const name = document.getElementById('signupName').value.trim();
                 const phone = document.getElementById('signupPhone').value.trim();
                 const city = document.getElementById('selectedSignupLocation').textContent;
-                
-                if (!name || !phone || city === 'Select your city') {
-                    showToast('Please fill in all fields');
-                    return;
-                }
-                
-                if (!termsCheckbox.checked) {
-                    showToast('Please accept terms and conditions');
-                    return;
-                }
-                
-                userData = {
-                    name: name,
-                    phone: phone,
-                    city: city,
-                    createdAt: new Date().toISOString()
-                };
-                
+                if (!name || !phone || city === 'Select your city') { showToast('Please fill all fields'); return; }
+                if (!termsCheckbox.checked) { showToast('Accept terms'); return; }
+                userData = { name, phone, city, createdAt: new Date().toISOString() };
                 localStorage.setItem('primer_user', JSON.stringify(userData));
                 localStorage.removeItem('primer_account_deleted');
-                
                 loadFavorites();
-                
                 setUIAuthenticated(true);
                 document.getElementById('currentLocationDisplay').textContent = city;
-                
                 showToast('Welcome to Primer!');
-                
                 loadProviders();
                 renderFilterPills();
             };
 
-            // ========== NAVIGATION CHECK ==========
             window.checkAuthAndNavigate = function(url) {
-                if (!window.isAuthenticated) {
-                    showToast('Please create an account to continue');
-                    return false;
-                }
-                window.location.href = url;
-                return true;
+                if (!window.isAuthenticated) { showToast('Please create an account'); return false; }
+                window.location.href = url; return true;
             };
 
-            // ========== LOAD DATA ==========
             async function loadData() {
                 try {
                     const [servicesData, adsData, providersData] = await Promise.all([
@@ -1940,261 +1655,132 @@
                         fetch('ads.json').then(r => r.json()),
                         fetch('providers.json').then(r => r.json())
                     ]);
-                    
                     services = servicesData.services || [];
                     ads = adsData || [];
                     providers = shuffleArray(providersData.providers || []);
-                    
                     loadCities();
                     renderServices();
                     initAds();
                     initAnimatedPlaceholder();
-                    
-                    if (window.isAuthenticated) {
-                        renderFilterPills();
-                        loadProviders();
-                    }
-                } catch (error) {
-                    console.error('Error:', error);
-                    showToast('Failed to load data');
-                }
+                    if (window.isAuthenticated) { renderFilterPills(); loadProviders(); }
+                } catch { showToast('Failed to load data'); }
             }
 
             function renderServices() {
                 const grid = document.getElementById('serviceGrid');
                 if (!grid) return;
-                
                 grid.innerHTML = services.map(s => `
                     <div class="service-card ${s.primerOwned ? 'premium' : ''}" onclick="if(window.isAuthenticated) window.location.href='providers-list.html?service=${s.id}'; else showToast('Please sign up first')">
-                        <i class="fas fa-${s.icon || 'tools'}"></i>
-                        <span>${s.name}</span>
+                        <i class="fas fa-${s.icon || 'tools'}"></i><span>${s.name}</span>
                     </div>
                 `).join('');
             }
 
-            // ========== RENDER FILTER PILLS ==========
             function renderFilterPills() {
                 const container = document.getElementById('filterPills');
                 if (!container || !services.length) return;
-                
-                const filters = [
-                    { id: 'all', name: 'All', icon: 'fa-globe' },
-                    ...services.slice(0, 5).map(s => ({ 
-                        id: s.id, 
-                        name: s.name, 
-                        icon: s.icon || 'fa-tools' 
-                    }))
-                ];
-                
+                const filters = [{ id: 'all', name: 'All', icon: 'fa-globe' }, ...services.slice(0, 5).map(s => ({ id: s.id, name: s.name, icon: s.icon || 'fa-tools' }))];
                 container.innerHTML = filters.map(f => `
                     <div class="filter-pill ${currentFilter === f.id ? 'active' : ''}" onclick="filterByService('${f.id}')">
-                        <i class="fas ${f.icon}"></i>
-                        <span>${f.name}</span>
+                        <i class="fas ${f.icon}"></i><span>${f.name}</span>
                     </div>
                 `).join('');
             }
 
-            // ========== FILTER BY SERVICE ==========
             window.filterByService = function(serviceId) {
                 currentFilter = serviceId;
                 renderFilterPills();
                 performSearch(currentSearchTerm, serviceId);
             };
 
-            // ========== ANIMATED PLACEHOLDER ==========
             function initAnimatedPlaceholder() {
                 const placeholder = document.getElementById('animatedPlaceholder');
                 const searchInput = document.getElementById('searchInput');
-                
                 if (!placeholder || !searchInput) return;
-                
-                if (!window.isAuthenticated) {
-                    placeholder.textContent = 'Sign up to search...';
-                    return;
-                }
-                
-                const searchTerms = [
-                    ...services.map(s => s.name.toLowerCase()),
-                    'plumber', 'electrician', 'mechanic', 'cleaner', 'painter'
-                ];
-                
-                if (searchTerms.length === 0) return;
-                
-                let currentIndex = 0;
-                
-                placeholder.textContent = `Search for ${searchTerms[0]}...`;
-                placeholder.style.opacity = '1';
-                
+                if (!window.isAuthenticated) { placeholder.textContent = 'Sign up to search...'; return; }
+                const terms = [...services.map(s => s.name.toLowerCase()), 'plumber', 'electrician', 'mechanic'];
+                if (!terms.length) return;
+                let idx = 0;
+                placeholder.textContent = `Search for ${terms[0]}...`;
                 setInterval(() => {
                     if (document.activeElement !== searchInput) {
-                        currentIndex = (currentIndex + 1) % searchTerms.length;
+                        idx = (idx + 1) % terms.length;
                         placeholder.style.opacity = '0';
-                        placeholder.style.transform = 'translateY(5px)';
-                        
-                        setTimeout(() => {
-                            placeholder.textContent = `Search for ${searchTerms[currentIndex]}...`;
-                            placeholder.style.opacity = '1';
-                            placeholder.style.transform = 'translateY(0)';
-                        }, 300);
+                        setTimeout(() => { placeholder.textContent = `Search for ${terms[idx]}...`; placeholder.style.opacity = '1'; }, 300);
                     }
                 }, 3000);
-                
-                searchInput.addEventListener('focus', () => {
-                    placeholder.style.opacity = '0';
-                });
-                
-                searchInput.addEventListener('blur', () => {
-                    if (!searchInput.value) {
-                        placeholder.style.opacity = '1';
-                    }
-                });
+                searchInput.addEventListener('focus', () => placeholder.style.opacity = '0');
+                searchInput.addEventListener('blur', () => { if (!searchInput.value) placeholder.style.opacity = '1'; });
             }
 
-            // ========== ENHANCED ADS CAROUSEL WITH SWIPE ==========
+            // ========== ADS CAROUSEL - ENTIRE CARD CLICKABLE ==========
+            let swipeDetected = false;
+            
             function initAds() {
                 const container = document.getElementById('adsContainer');
                 const dotsContainer = document.getElementById('adDots');
-                
                 if (!container) return;
                 
                 if (!ads.length) {
-                    container.innerHTML = `
-                        <div class="ad-slide active" style="background-image: linear-gradient(135deg, var(--primary), var(--primary-dark))">
-                            <div class="ad-content">
-                                <div class="ad-title">Welcome to Primer</div>
-                                <div class="ad-description">Your trusted service platform</div>
-                                <a href="#" class="ad-btn">Get started</a>
-                            </div>
-                        </div>
-                    `;
+                    container.innerHTML = `<div class="ad-slide active" style="background-image: linear-gradient(135deg, var(--primary), var(--primary-dark))"><div class="ad-content"><div class="ad-title">Welcome to Primer</div><div class="ad-description">Your trusted service platform</div><span class="ad-btn">Get started</span></div></div>`;
                     return;
                 }
 
-                let currentAd = 0;
-                let touchStartX = 0;
-                let touchEndX = 0;
+                let currentAd = 0, touchStartX = 0, touchStartY = 0;
                 
                 function renderAd(index) {
-                    const slides = ads.map((ad, i) => `
-                        <div class="ad-slide ${i === index ? 'active' : ''}" style="background-image: url('${ad.image}')">
-                            <div class="ad-content">
-                                <div class="ad-title">${ad.title}</div>
-                                <div class="ad-description">${ad.description}</div>
-                                <a href="${ad.link || '#'}" class="ad-btn" onclick="event.stopPropagation(); return true;">${ad.button || 'Learn more'}</a>
-                            </div>
+                    container.innerHTML = ads.map((ad, i) => `
+                        <div class="ad-slide ${i === index ? 'active' : ''}" style="background-image: url('${ad.image}')" data-link="${ad.link || '#'}" onclick="handleAdCardClick(event, this)">
+                            <div class="ad-content"><div class="ad-title">${ad.title}</div><div class="ad-description">${ad.description}</div><span class="ad-btn">${ad.button || 'Learn more'}</span></div>
                         </div>
                     `).join('');
-                    
-                    const dots = ads.map((_, i) => `
-                        <span class="ad-dot ${i === index ? 'active' : ''}" onclick="event.stopPropagation(); goToAd(${i})"></span>
-                    `).join('');
-                    
-                    container.innerHTML = slides;
-                    if (dotsContainer) dotsContainer.innerHTML = dots;
+                    dotsContainer.innerHTML = ads.map((_, i) => `<span class="ad-dot ${i === index ? 'active' : ''}" onclick="event.stopPropagation(); goToAd(${i})"></span>`).join('');
                 }
 
-                window.goToAd = function(index) {
-                    currentAd = index;
-                    renderAd(currentAd);
-                    resetAutoSwipe();
+                window.handleAdCardClick = function(event, card) {
+                    if (swipeDetected) { swipeDetected = false; return; }
+                    const link = card.dataset.link;
+                    if (link && link !== '#') {
+                        if (link.startsWith('tel:')) window.location.href = link;
+                        else if (link.startsWith('http')) window.open(link, '_blank');
+                        else window.location.href = link;
+                    }
                 };
 
-                function nextAd() {
-                    currentAd = (currentAd + 1) % ads.length;
-                    renderAd(currentAd);
-                }
+                window.goToAd = function(index) { currentAd = index; renderAd(currentAd); resetAutoSwipe(); };
+                function nextAd() { currentAd = (currentAd + 1) % ads.length; renderAd(currentAd); }
+                function prevAd() { currentAd = (currentAd - 1 + ads.length) % ads.length; renderAd(currentAd); }
+                function resetAutoSwipe() { if (autoSwipeInterval) clearInterval(autoSwipeInterval); autoSwipeInterval = setInterval(nextAd, 5000); }
 
-                function prevAd() {
-                    currentAd = (currentAd - 1 + ads.length) % ads.length;
-                    renderAd(currentAd);
-                }
-
-                function resetAutoSwipe() {
-                    if (autoSwipeInterval) {
-                        clearInterval(autoSwipeInterval);
-                    }
-                    autoSwipeInterval = setInterval(nextAd, 5000);
-                }
-
-                // Touch swipe handlers
-                container.addEventListener('touchstart', (e) => {
-                    touchStartX = e.changedTouches[0].screenX;
-                }, { passive: true });
-
-                container.addEventListener('touchend', (e) => {
-                    touchEndX = e.changedTouches[0].screenX;
-                    handleSwipe();
+                container.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; touchStartY = e.changedTouches[0].screenY; swipeDetected = false; }, { passive: true });
+                container.addEventListener('touchmove', e => { if (Math.abs(touchStartX - e.changedTouches[0].screenX) > 10) swipeDetected = true; }, { passive: true });
+                container.addEventListener('touchend', e => {
+                    if (!swipeDetected) return;
+                    const diff = touchStartX - e.changedTouches[0].screenX;
+                    if (Math.abs(diff) > 50) { diff > 0 ? nextAd() : prevAd(); resetAutoSwipe(); }
+                    swipeDetected = false;
                 });
-
-                function handleSwipe() {
-                    const swipeThreshold = 50;
-                    const diff = touchStartX - touchEndX;
-                    
-                    if (Math.abs(diff) < swipeThreshold) return;
-                    
-                    if (diff > 0) {
-                        nextAd();
-                    } else {
-                        prevAd();
-                    }
-                    
-                    resetAutoSwipe();
-                }
 
                 renderAd(0);
                 resetAutoSwipe();
             }
 
-            // ========== ENHANCED SEARCH FUNCTION WITH RANDOMIZATION ==========
             function performSearch(term, filter = 'all') {
                 currentSearchTerm = term;
-                
                 if (!providers.length) return;
-                
                 const city = userData ? userData.city : 'Kaduna';
-                
-                let results = providers.filter(p => 
-                    p?.serviceAreas?.includes(city)
-                );
-                
-                if (filter !== 'all') {
-                    results = results.filter(p => 
-                        p.services?.includes(filter) || 
-                        p.serviceIds?.includes(filter)
-                    );
-                }
-                
+                let results = providers.filter(p => p?.serviceAreas?.includes(city));
+                if (filter !== 'all') results = results.filter(p => p.services?.includes(filter) || p.serviceIds?.includes(filter));
                 if (term) {
-                    const searchLower = term.toLowerCase();
-                    results = results.filter(p => {
-                        return (
-                            p.name?.toLowerCase().includes(searchLower) ||
-                            p.services?.some(s => s.toLowerCase().includes(searchLower)) ||
-                            p.badges?.some(b => b.toLowerCase().includes(searchLower)) ||
-                            p.currentLocation?.toLowerCase().includes(searchLower)
-                        );
-                    });
+                    const t = term.toLowerCase();
+                    results = results.filter(p => p.name?.toLowerCase().includes(t) || p.services?.some(s => s.toLowerCase().includes(t)) || p.badges?.some(b => b.toLowerCase().includes(t)) || p.currentLocation?.toLowerCase().includes(t));
                 }
-                
-                // Shuffle results for random order
                 results = shuffleArray(results);
-                
                 const statsEl = document.getElementById('searchStats');
-                const statsText = document.getElementById('searchStatsText');
-                
                 if (term || filter !== 'all') {
                     statsEl.style.display = 'flex';
-                    let statsMessage = `Found ${results.length} provider${results.length !== 1 ? 's' : ''}`;
-                    if (term) statsMessage += ` for "${term}"`;
-                    if (filter !== 'all') {
-                        const service = services.find(s => s.id === filter);
-                        if (service) statsMessage += ` in ${service.name}`;
-                    }
-                    statsText.textContent = statsMessage;
-                } else {
-                    statsEl.style.display = 'none';
-                }
-                
+                    document.getElementById('searchStatsText').textContent = `Found ${results.length} provider${results.length !== 1 ? 's' : ''}${term ? ` for "${term}"` : ''}${filter !== 'all' ? ` in ${services.find(s => s.id === filter)?.name || ''}` : ''}`;
+                } else statsEl.style.display = 'none';
                 renderProviders(results);
             }
 
@@ -2206,361 +1792,67 @@
                 performSearch('', 'all');
             };
 
-            // ========== LOAD PROVIDERS ==========
-            function loadProviders() {
-                providers = shuffleArray(providers);
-                performSearch('', currentFilter);
-            }
+            function loadProviders() { providers = shuffleArray(providers); performSearch('', currentFilter); }
 
-            function renderProviders(providersList) {
-                const loading = document.getElementById('providersLoading');
-                const list = document.getElementById('providersList');
+            function renderProviders(list) {
+                document.getElementById('providersLoading').style.display = 'none';
+                const listEl = document.getElementById('providersList');
                 const noProv = document.getElementById('noProvidersMessage');
-
-                if (!providersList.length) {
-                    if (loading) loading.style.display = 'none';
-                    if (noProv) noProv.style.display = 'block';
-                    if (list) list.innerHTML = '';
-                    return;
-                }
-
-                if (loading) loading.style.display = 'none';
-                
-                if (list) {
-                    list.innerHTML = renderProviderCards(providersList);
-                    if (noProv) noProv.style.display = 'none';
-                }
-            }
-
-            function renderProviderCards(provs) {
-                return provs.map(p => {
+                if (!list.length) { noProv.style.display = 'block'; listEl.innerHTML = ''; return; }
+                noProv.style.display = 'none';
+                listEl.innerHTML = list.map(p => {
                     const isFav = isFavorite(p.id);
-                    const isPrimerOwned = p.isPrimerOwned || false;
-                    
-                    return `
-                    <div class="provider-card ${isPrimerOwned ? 'premium' : ''}" onclick="if(window.isAuthenticated) window.location.href='provider-detail.html?id=${p.id}'; else showToast('Please sign up first')">
-                        <div class="provider-header">
-                            <div class="provider-avatar">
-                                <img src="${p.avatar || `https://ui-avatars.com/api/?name=${p.name}&background=2563EB&color=fff`}" 
-                                     alt="${p.name}"
-                                     onerror="this.src='https://ui-avatars.com/api/?name=${p.name}&background=2563EB&color=fff'">
-                                ${p.verified ? '<span class="verified-badge"><i class="fas fa-check"></i></span>' : ''}
-                                ${isPrimerOwned ? '<span class="premium-crown"><i class="fas fa-crown"></i></span>' : ''}
-                            </div>
-                            <div class="provider-info">
-                                <div class="provider-name-row">
-                                    <span class="provider-name">${p.name}</span>
-                                    ${isPrimerOwned ? '<span class="primer-badge">PRIMER</span>' : ''}
-                                    <button class="favorite-btn ${isFav ? 'active' : ''}" onclick="event.stopPropagation(); toggleFavorite('${p.id}', event)">
-                                        <i class="${isFav ? 'fas' : 'far'} fa-heart"></i>
-                                    </button>
-                                </div>
-                                <div class="provider-rating">
-                                    <i class="fas fa-star"></i> ${p.rating || '4.5'} (${p.completedJobs || 0} jobs)
-                                </div>
-                            </div>
-                            <div class="availability-badge ${p.availability || 'busy'}">
-                                ${p.availability === 'available' ? 'Available' : 'Busy'}
-                            </div>
-                        </div>
-                        
-                        <div class="provider-details">
-                            <div class="detail-item">
-                                <i class="fas fa-map-marker-alt"></i> ${p.currentLocation || 'Unknown'}
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-clock"></i> ${p.responseTime || 15}min
-                            </div>
-                            ${p.services ? `
-                            <div class="detail-item">
-                                <i class="fas fa-tools"></i> ${p.services.slice(0, 2).join(', ')}${p.services.length > 2 ? '...' : ''}
-                            </div>
-                            ` : ''}
-                        </div>
-                        
-                        ${p.badges ? `
-                        <div class="badges-container">
-                            ${p.badges.map(b => `<span class="badge">${b}</span>`).join('')}
-                        </div>
-                        ` : ''}
-                        
-                        <div class="services-list">
-                            ${(p.services || []).map(s => `<span class="service-tag">${s}</span>`).join('')}
-                        </div>
-                        
-                        <div class="provider-actions">
-                            <span class="btn-view" onclick="event.stopPropagation(); if(window.isAuthenticated) window.location.href='provider-detail.html?id=${p.id}'; else showToast('Please sign up first')">View</span>
-                            <span class="btn-call" onclick="event.stopPropagation(); if(window.isAuthenticated) window.callProvider(${JSON.stringify(p).replace(/"/g, '&quot;')}, event); else showToast('Please sign up first')"><i class="fas fa-phone-alt"></i> Call</span>
-                            <span class="btn-whatsapp" onclick="event.stopPropagation(); if(window.isAuthenticated) window.openWhatsApp(${JSON.stringify(p).replace(/"/g, '&quot;')}, event); else showToast('Please sign up first')"><i class="fab fa-whatsapp"></i></span>
-                        </div>
-                    </div>
-                `}).join('');
+                    return `<div class="provider-card ${p.isPrimerOwned ? 'premium' : ''}" onclick="if(window.isAuthenticated) window.location.href='provider-detail.html?id=${p.id}'; else showToast('Please sign up first')">
+                        <div class="provider-header"><div class="provider-avatar"><img src="${p.avatar || `https://ui-avatars.com/api/?name=${p.name}&background=2563EB&color=fff`}" onerror="this.src='https://ui-avatars.com/api/?name=${p.name}&background=2563EB&color=fff'">${p.verified?'<span class="verified-badge"><i class="fas fa-check"></i></span>':''}${p.isPrimerOwned?'<span class="premium-crown"><i class="fas fa-crown"></i></span>':''}</div>
+                        <div class="provider-info"><div class="provider-name-row"><span class="provider-name">${p.name}</span>${p.isPrimerOwned?'<span class="primer-badge">PRIMER</span>':''}<button class="favorite-btn ${isFav?'active':''}" onclick="event.stopPropagation(); toggleFavorite('${p.id}', event)"><i class="${isFav?'fas':'far'} fa-heart"></i></button></div>
+                        <div class="provider-rating"><i class="fas fa-star"></i> ${p.rating||'4.5'} (${p.completedJobs||0} jobs)</div></div>
+                        <div class="availability-badge ${p.availability||'busy'}">${p.availability==='available'?'Available':'Busy'}</div></div>
+                        <div class="provider-details"><div class="detail-item"><i class="fas fa-map-marker-alt"></i> ${p.currentLocation||'Unknown'}</div><div class="detail-item"><i class="fas fa-clock"></i> ${p.responseTime||15}min</div></div>
+                        <div class="provider-actions"><span class="btn-view" onclick="event.stopPropagation(); if(window.isAuthenticated) window.location.href='provider-detail.html?id=${p.id}'; else showToast('Please sign up first')">View</span>
+                        <span class="btn-call" onclick="event.stopPropagation(); if(window.isAuthenticated) window.callProvider(${JSON.stringify(p).replace(/"/g,'&quot;')}, event); else showToast('Please sign up first')"><i class="fas fa-phone-alt"></i> Call</span>
+                        <span class="btn-whatsapp" onclick="event.stopPropagation(); if(window.isAuthenticated) window.openWhatsApp(${JSON.stringify(p).replace(/"/g,'&quot;')}, event); else showToast('Please sign up first')"><i class="fab fa-whatsapp"></i></span></div>
+                    </div>`;
+                }).join('');
             }
 
-            // ========== CALL/WHATSAPP FUNCTIONS WITH TRACKING ==========
-            window.openWhatsApp = function(provider, e) {
-                if (e) e.stopPropagation();
-                
-                if (!window.isAuthenticated) {
-                    showToast('Please sign up to contact providers');
-                    return;
-                }
-                
-                saveBooking(provider);
-                
-                const data = {
-                    _subject: `WhatsApp Click: ${provider.name}`,
-                    user_name: userData?.name || 'Guest',
-                    user_phone: userData?.phone || 'Not provided',
-                    user_city: userData?.city || 'Kaduna',
-                    provider_name: provider.name,
-                    provider_phone: provider.phone,
-                    provider_id: provider.id,
-                    service: provider.services?.[0] || 'Service',
-                    action: 'whatsapp_click_index',
-                    isPrimerOwned: provider.isPrimerOwned || false,
-                    timestamp: new Date().toISOString()
-                };
-                
-                fetch('https://script.google.com/macros/s/AKfycbyopnxgVhZo80kdR1Rrdr_SbivRJZXrE6cAkwOB9bWB1OklMmp3jWoe9c8W6SGM4XNhHA/exec', {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    body: JSON.stringify(data),
-                    headers: { 
-                        'Accept': 'application/json', 
-                        'Content-Type': 'application/json' 
-                    }
-                }).catch(() => {});
-                
-                const phone = provider.phone.replace(/\D/g, '');
-                const text = `Hello ${provider.name}, I need ${provider.services?.[0] || 'service'} service.\n\nName: ${userData?.name || 'Guest'}\nLocation: ${userData?.city || 'Kaduna'}`;
-                window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, '_blank');
-                
-                showToast(`Opening WhatsApp...`);
-            };
+            window.openWhatsApp = function(p, e) { if(e)e.stopPropagation(); if(!window.isAuthenticated){showToast('Sign up first');return;} saveBooking(p); fetch('https://script.google.com/macros/s/AKfycbyopnxgVhZo80kdR1Rrdr_SbivRJZXrE6cAkwOB9bWB1OklMmp3jWoe9c8W6SGM4XNhHA/exec',{method:'POST',mode:'no-cors',body:JSON.stringify({_subject:`WhatsApp: ${p.name}`,user_name:userData?.name,provider_name:p.name,action:'whatsapp_click_index'})}).catch(()=>{}); window.open(`https://wa.me/${p.phone.replace(/\D/g,'')}?text=Hello ${p.name}, I need service.`,'_blank'); };
+            window.callProvider = function(p, e) { if(e)e.stopPropagation(); if(!window.isAuthenticated){showToast('Sign up first');return;} if(p?.phone){ saveBooking(p); window.location.href = `tel:${p.phone}`; } };
+            function saveBooking(p) { if(!userData) return; try { const b = JSON.parse(localStorage.getItem('primer_bookings')||'[]'); b.unshift({id:'BK'+Date.now(),providerId:p.id,providerName:p.name,service:p.services?.[0]||'Service',city:userData.city,timestamp:new Date().toISOString()}); localStorage.setItem('primer_bookings', JSON.stringify(b.slice(0,20))); } catch{} }
 
-            window.callProvider = function(provider, e) {
-                if (e) e.stopPropagation();
-                
-                if (!window.isAuthenticated) {
-                    showToast('Please sign up to contact providers');
-                    return;
-                }
-                
-                if (provider?.phone) {
-                    saveBooking(provider);
-                    
-                    const data = {
-                        _subject: `Call Click: ${provider.name}`,
-                        user_name: userData?.name || 'Guest',
-                        user_phone: userData?.phone || 'Not provided',
-                        user_city: userData?.city || 'Kaduna',
-                        provider_name: provider.name,
-                        provider_phone: provider.phone,
-                        provider_id: provider.id,
-                        service: provider.services?.[0] || 'Service',
-                        action: 'call_click_index',
-                        isPrimerOwned: provider.isPrimerOwned || false,
-                        timestamp: new Date().toISOString()
-                    };
-                    
-                    fetch('https://script.google.com/macros/s/AKfycbyopnxgVhZo80kdR1Rrdr_SbivRJZXrE6cAkwOB9bWB1OklMmp3jWoe9c8W6SGM4XNhHA/exec', {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        body: JSON.stringify(data),
-                        headers: { 
-                            'Accept': 'application/json', 
-                            'Content-Type': 'application/json' 
-                        }
-                    }).catch(() => {});
-                    
-                    window.location.href = `tel:${provider.phone}`;
-                    showToast(`Calling ${provider.name}...`);
-                }
-            };
+            document.getElementById('searchInput')?.addEventListener('input', e => { if(window.isAuthenticated) performSearch(e.target.value.toLowerCase(), currentFilter); });
 
-            function saveBooking(provider) {
-                if (!userData) return;
-                
-                try {
-                    const bookings = JSON.parse(localStorage.getItem('primer_bookings') || '[]');
-                    bookings.unshift({
-                        id: 'BK' + Date.now(),
-                        providerId: provider.id,
-                        providerName: provider.name,
-                        service: provider.services?.[0] || 'Service',
-                        city: userData.city,
-                        timestamp: new Date().toISOString()
-                    });
-                    localStorage.setItem('primer_bookings', JSON.stringify(bookings.slice(0, 20)));
-                } catch (e) {}
-            }
-
-            // ========== SEARCH INPUT HANDLER ==========
-            document.getElementById('searchInput')?.addEventListener('input', (e) => {
-                if (!window.isAuthenticated) return;
-                
-                const term = e.target.value.toLowerCase();
-                performSearch(term, currentFilter);
-            });
-
-            // ========== MODAL FUNCTIONS ==========
             const backdrop = document.getElementById('modalBackdrop');
-            
-            window.openModal = function(modalId) {
-                const modal = document.getElementById(modalId);
-                if (!modal) return;
-                
-                backdrop.classList.add('active');
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            };
-            
-            window.closeModal = function(modalId) {
-                const modal = document.getElementById(modalId);
-                if (modal) modal.classList.remove('active');
-                backdrop.classList.remove('active');
-                document.body.style.overflow = '';
-            };
-            
-            backdrop.addEventListener('click', () => {
-                closeModal('howItWorksModal');
-                closeModal('previousBookingsModal');
-            });
-            
-            document.getElementById('howItWorksBtn').addEventListener('click', () => {
-                if (!window.isAuthenticated) {
-                    showToast('Please sign up first');
-                    return;
-                }
-                openModal('howItWorksModal');
-            });
-            
-            document.getElementById('previousBookingsBtn').addEventListener('click', () => {
-                if (!window.isAuthenticated) {
-                    showToast('Please sign up first');
-                    return;
-                }
-                loadBookings();
-                openModal('previousBookingsModal');
-            });
+            window.openModal = id => { document.getElementById(id).classList.add('active'); backdrop.classList.add('active'); document.body.style.overflow = 'hidden'; };
+            window.closeModal = id => { document.getElementById(id).classList.remove('active'); backdrop.classList.remove('active'); document.body.style.overflow = ''; };
+            backdrop.addEventListener('click', () => { closeModal('howItWorksModal'); closeModal('previousBookingsModal'); });
+            document.getElementById('howItWorksBtn').addEventListener('click', () => window.isAuthenticated ? openModal('howItWorksModal') : showToast('Sign up first'));
+            document.getElementById('previousBookingsBtn').addEventListener('click', () => { if(!window.isAuthenticated){showToast('Sign up first');return;} loadBookings(); openModal('previousBookingsModal'); });
 
-            // ========== IMPROVED BOOKINGS LOADING FUNCTION ==========
             function loadBookings() {
+                const list = document.getElementById('bookingsList');
                 try {
-                    const bookings = JSON.parse(localStorage.getItem('primer_bookings') || '[]');
-                    const list = document.getElementById('bookingsList');
-                    
-                    if (!list) return;
-                    
-                    if (!bookings.length) {
-                        list.innerHTML = `
-                            <div class="empty-state">
-                                <i class="fas fa-calendar-alt"></i>
-                                <p>No bookings yet</p>
-                                <div class="empty-state-sub">Your booking history will appear here</div>
-                            </div>
-                        `;
-                        return;
-                    }
-                    
-                    list.innerHTML = bookings.map(b => {
-                        const date = new Date(b.timestamp);
-                        const formattedDate = date.toLocaleDateString('en-US', { 
-                            month: 'short', 
-                            day: 'numeric',
-                            year: 'numeric'
-                        });
-                        const formattedTime = date.toLocaleTimeString('en-US', { 
-                            hour: '2-digit', 
-                            minute: '2-digit' 
-                        });
-                        
-                        return `
-                        <div class="booking-item" onclick="window.location.href='provider-detail.html?id=${b.providerId}'">
-                            <div class="booking-avatar">
-                                <i class="fas fa-user"></i>
-                            </div>
-                            <div class="booking-info">
-                                <div class="booking-name">${b.providerName}</div>
-                                <div class="booking-details">
-                                    <span class="booking-service">${b.service}</span>
-                                    <span>${b.city}</span>
-                                </div>
-                                <div class="booking-date">
-                                    <i class="fas fa-calendar"></i>
-                                    <span>${formattedDate}</span>
-                                    <i class="fas fa-clock" style="margin-left: 8px;"></i>
-                                    <span>${formattedTime}</span>
-                                </div>
-                            </div>
-                            <div class="booking-status"></div>
-                        </div>
-                    `}).join('');
-                } catch (e) {
-                    console.error('Error loading bookings:', e);
-                }
+                    const bookings = JSON.parse(localStorage.getItem('primer_bookings')||'[]');
+                    if(!bookings.length) list.innerHTML = `<div class="empty-state"><i class="fas fa-calendar-alt"></i><p>No bookings</p></div>`;
+                    else list.innerHTML = bookings.map(b => `<div class="booking-item" onclick="window.location.href='provider-detail.html?id=${b.providerId}'"><div class="booking-avatar"><i class="fas fa-user"></i></div><div class="booking-info"><div class="booking-name">${b.providerName}</div><div class="booking-details"><span class="booking-service">${b.service}</span></div><div class="booking-date"><i class="fas fa-calendar"></i> ${new Date(b.timestamp).toLocaleDateString()}</div></div><div class="booking-status"></div></div>`).join('');
+                } catch { list.innerHTML = `<div class="empty-state"><p>Error loading</p></div>`; }
             }
 
-            // ========== TOAST ==========
-            function showToast(message) {
-                const container = document.getElementById('toastContainer');
-                const toast = document.createElement('div');
-                toast.className = 'toast';
-                toast.innerHTML = `<i class="fas fa-info-circle" style="color: var(--primary);"></i><span>${message}</span>`;
-                container.appendChild(toast);
-                setTimeout(() => {
-                    toast.style.opacity = '0';
-                    setTimeout(() => toast.remove(), 200);
-                }, 2500);
+            function showToast(m) {
+                const c = document.getElementById('toastContainer');
+                const t = document.createElement('div'); t.className = 'toast'; t.innerHTML = `<i class="fas fa-info-circle" style="color:var(--primary);"></i><span>${m}</span>`;
+                c.appendChild(t); setTimeout(() => { t.style.opacity = '0'; setTimeout(() => t.remove(), 200); }, 2500);
             }
             window.showToast = showToast;
+            window.openLocationSelector = () => { if(!window.isAuthenticated) showToast('Sign up first'); };
 
-            // ========== LOCATION SELECTOR ==========
-            window.openLocationSelector = function() {
-                if (!window.isAuthenticated) {
-                    showToast('Please sign up first');
-                }
-            };
-
-            // ========== INIT ==========
             loadUserSession();
-
-            // Listen for storage events and custom events
-            window.addEventListener('storage', (e) => {
-                if (e.key === 'primer_account_deleted' && e.newValue === 'true') {
-                    userData = null;
-                    setUIAuthenticated(false);
-                    document.getElementById('currentLocationDisplay').textContent = 'Select location';
-                }
-                if (e.key === 'primer_favorites') {
-                    loadFavorites();
-                    if (window.isAuthenticated) {
-                        loadProviders();
-                    }
-                }
+            window.addEventListener('storage', e => {
+                if(e.key==='primer_account_deleted'&&e.newValue==='true'){ userData=null; setUIAuthenticated(false); }
+                if(e.key==='primer_favorites'){ loadFavorites(); if(window.isAuthenticated) loadProviders(); }
             });
-
-            window.addEventListener('favoritesUpdated', (e) => {
-                favorites = e.detail;
-                if (window.isAuthenticated) {
-                    loadProviders();
-                }
-            });
-
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') {
-                    closeModal('howItWorksModal');
-                    closeModal('previousBookingsModal');
-                }
-            });
-
-            // Cleanup auto-swipe on page unload
-            window.addEventListener('beforeunload', () => {
-                if (autoSwipeInterval) {
-                    clearInterval(autoSwipeInterval);
-                }
-            });
+            window.addEventListener('favoritesUpdated', e => { favorites = e.detail; if(window.isAuthenticated) loadProviders(); });
+            document.addEventListener('keydown', e => { if(e.key==='Escape'){ closeModal('howItWorksModal'); closeModal('previousBookingsModal'); } });
+            window.addEventListener('beforeunload', () => { if(autoSwipeInterval) clearInterval(autoSwipeInterval); });
         })();
     </script>
 </body>
