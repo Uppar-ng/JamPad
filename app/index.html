@@ -377,6 +377,12 @@
             aspect-ratio: 2.5/1;
             background: var(--surface);
             box-shadow: var(--shadow);
+            cursor: grab;
+            user-select: none;
+        }
+        
+        .ads-container:active {
+            cursor: grabbing;
         }
         
         .ad-slide {
@@ -428,6 +434,14 @@
             font-weight: 600;
             text-decoration: none;
             display: inline-block;
+            cursor: pointer;
+            transition: all 0.2s;
+            pointer-events: auto;
+        }
+        
+        .ad-btn:active {
+            transform: scale(0.95);
+            background: var(--primary-light);
         }
         
         .ad-dots {
@@ -445,6 +459,7 @@
             border-radius: 3px;
             background: rgba(255,255,255,0.5);
             transition: all 0.3s;
+            cursor: pointer;
         }
         
         .ad-dot.active {
@@ -1653,6 +1668,7 @@
             let favorites = [];
             let currentSearchTerm = '';
             let currentFilter = 'all';
+            let autoSwipeInterval = null;
             
             // DOM Elements
             const app = document.getElementById('app');
@@ -1679,6 +1695,15 @@
                 localStorage.setItem('primer_theme', next);
                 themeToggle.innerHTML = next === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
             });
+
+            // ========== SHUFFLE ARRAY (Fisher-Yates) ==========
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+                return array;
+            }
 
             // ========== LOAD CITIES ==========
             async function loadCities() {
@@ -1812,7 +1837,6 @@
                 try {
                     const saved = localStorage.getItem('primer_favorites');
                     favorites = saved ? JSON.parse(saved) : [];
-                    // Ensure favorites is always an array
                     if (!Array.isArray(favorites)) {
                         favorites = [];
                     }
@@ -1823,11 +1847,9 @@
 
             function saveFavorites() {
                 localStorage.setItem('primer_favorites', JSON.stringify(favorites));
-                // Dispatch event for other pages to listen
                 window.dispatchEvent(new CustomEvent('favoritesUpdated', { detail: favorites }));
             }
 
-            // Make toggleFavorite globally available (same as providers-list.html)
             window.toggleFavorite = function(providerId, event) {
                 if (event) event.stopPropagation();
                 
@@ -1846,7 +1868,6 @@
                 }
                 saveFavorites();
                 
-                // Update the clicked button
                 if (event && event.currentTarget) {
                     const btn = event.currentTarget;
                     const icon = btn.querySelector('i');
@@ -1922,7 +1943,7 @@
                     
                     services = servicesData.services || [];
                     ads = adsData || [];
-                    providers = providersData.providers || [];
+                    providers = shuffleArray(providersData.providers || []);
                     
                     loadCities();
                     renderServices();
@@ -2029,7 +2050,7 @@
                 });
             }
 
-            // ========== ADS CAROUSEL ==========
+            // ========== ENHANCED ADS CAROUSEL WITH SWIPE ==========
             function initAds() {
                 const container = document.getElementById('adsContainer');
                 const dotsContainer = document.getElementById('adDots');
@@ -2050,6 +2071,8 @@
                 }
 
                 let currentAd = 0;
+                let touchStartX = 0;
+                let touchEndX = 0;
                 
                 function renderAd(index) {
                     const slides = ads.map((ad, i) => `
@@ -2057,28 +2080,72 @@
                             <div class="ad-content">
                                 <div class="ad-title">${ad.title}</div>
                                 <div class="ad-description">${ad.description}</div>
-                                <a href="${ad.link || '#'}" class="ad-btn">${ad.button || 'Learn more'}</a>
+                                <a href="${ad.link || '#'}" class="ad-btn" onclick="event.stopPropagation(); return true;">${ad.button || 'Learn more'}</a>
                             </div>
                         </div>
                     `).join('');
                     
                     const dots = ads.map((_, i) => `
-                        <span class="ad-dot ${i === index ? 'active' : ''}"></span>
+                        <span class="ad-dot ${i === index ? 'active' : ''}" onclick="event.stopPropagation(); goToAd(${i})"></span>
                     `).join('');
                     
                     container.innerHTML = slides;
                     if (dotsContainer) dotsContainer.innerHTML = dots;
                 }
 
-                renderAd(0);
-                
-                setInterval(() => {
+                window.goToAd = function(index) {
+                    currentAd = index;
+                    renderAd(currentAd);
+                    resetAutoSwipe();
+                };
+
+                function nextAd() {
                     currentAd = (currentAd + 1) % ads.length;
                     renderAd(currentAd);
-                }, 5000);
+                }
+
+                function prevAd() {
+                    currentAd = (currentAd - 1 + ads.length) % ads.length;
+                    renderAd(currentAd);
+                }
+
+                function resetAutoSwipe() {
+                    if (autoSwipeInterval) {
+                        clearInterval(autoSwipeInterval);
+                    }
+                    autoSwipeInterval = setInterval(nextAd, 5000);
+                }
+
+                // Touch swipe handlers
+                container.addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                }, { passive: true });
+
+                container.addEventListener('touchend', (e) => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe();
+                });
+
+                function handleSwipe() {
+                    const swipeThreshold = 50;
+                    const diff = touchStartX - touchEndX;
+                    
+                    if (Math.abs(diff) < swipeThreshold) return;
+                    
+                    if (diff > 0) {
+                        nextAd();
+                    } else {
+                        prevAd();
+                    }
+                    
+                    resetAutoSwipe();
+                }
+
+                renderAd(0);
+                resetAutoSwipe();
             }
 
-            // ========== ENHANCED SEARCH FUNCTION ==========
+            // ========== ENHANCED SEARCH FUNCTION WITH RANDOMIZATION ==========
             function performSearch(term, filter = 'all') {
                 currentSearchTerm = term;
                 
@@ -2109,7 +2176,9 @@
                     });
                 }
                 
-                // Update search stats
+                // Shuffle results for random order
+                results = shuffleArray(results);
+                
                 const statsEl = document.getElementById('searchStats');
                 const statsText = document.getElementById('searchStatsText');
                 
@@ -2139,6 +2208,7 @@
 
             // ========== LOAD PROVIDERS ==========
             function loadProviders() {
+                providers = shuffleArray(providers);
                 performSearch('', currentFilter);
             }
 
@@ -2466,16 +2536,15 @@
                 if (e.key === 'primer_favorites') {
                     loadFavorites();
                     if (window.isAuthenticated) {
-                        loadProviders(); // Refresh providers to update favorite buttons
+                        loadProviders();
                     }
                 }
             });
 
-            // Listen for favorites updated event from other pages
             window.addEventListener('favoritesUpdated', (e) => {
                 favorites = e.detail;
                 if (window.isAuthenticated) {
-                    loadProviders(); // Refresh providers to update favorite buttons
+                    loadProviders();
                 }
             });
 
@@ -2483,6 +2552,13 @@
                 if (e.key === 'Escape') {
                     closeModal('howItWorksModal');
                     closeModal('previousBookingsModal');
+                }
+            });
+
+            // Cleanup auto-swipe on page unload
+            window.addEventListener('beforeunload', () => {
+                if (autoSwipeInterval) {
+                    clearInterval(autoSwipeInterval);
                 }
             });
         })();
