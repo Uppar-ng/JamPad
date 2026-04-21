@@ -2,21 +2,77 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Primer • Connect with Service Providers in Nigeria</title>
     <meta name="description" content="Install the Primer PWA app to connect with verified local professionals for moving, cleaning, repairs, and more.">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="service providers Nigeria, handyman Lagos, cleaning services Abuja, moving company Kaduna, local professionals, verified service providers, home services Nigeria">
+    <meta name="author" content="Primer Technologies">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="geo.region" content="NG">
+    <meta name="geo.placename" content="Nigeria">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://primert.vercel.app/">
+    <meta property="og:title" content="Primer • Trusted Service Providers in Nigeria">
+    <meta property="og:description" content="Connect with verified local professionals for moving, cleaning, repairs, and more. Direct contact via call or WhatsApp.">
+    <meta property="og:image" content="https://primert.vercel.app/images/og-image.jpg">
+    <meta property="og:site_name" content="Primer">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Primer • Trusted Service Providers in Nigeria">
+    <meta name="twitter:description" content="Connect with verified local professionals for moving, cleaning, repairs, and more.">
+    <meta name="twitter:image" content="https://primert.vercel.app/images/twitter-image.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://primert.vercel.app/">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <!-- PWA Meta Tags -->
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#2563EB">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="Primer">
-    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" href="/icons/icon-192.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Structured Data / JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Primer",
+        "description": "Connecting Nigerians with trusted local service providers",
+        "url": "https://primert.vercel.app",
+        "logo": "https://primert.vercel.app/logo.png",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Kaduna",
+            "addressCountry": "NG"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+2348100590574",
+            "contactType": "customer service"
+        },
+        "sameAs": [
+            "https://instagram.com/primertech0",
+            "https://facebook.com/primertech1",
+            "https://tiktok.com/@primertech0",
+            "https://youtube.com/@primertech0"
+        ]
+    }
+    </script>
     
     <style>
         * {
@@ -49,6 +105,43 @@
             color: var(--text-primary);
             overflow-x: hidden;
             position: relative;
+        }
+        
+        /* Desktop Warning Toast */
+        .desktop-warning-toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1e293b;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            box-shadow: var(--shadow-lg);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+        .desktop-warning-toast.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .desktop-warning-toast i {
+            color: #fbbf24;
+        }
+        .desktop-warning-toast button {
+            background: transparent;
+            color: white;
+            border: none;
+            padding: 4px 8px;
+            cursor: pointer;
+            font-size: 14px;
         }
         
         /* Floating Background Icons */
@@ -1245,6 +1338,12 @@
             .footer-payment-icons {
                 justify-content: center;
             }
+            
+            .desktop-warning-toast {
+                white-space: normal;
+                width: 90%;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -1262,6 +1361,15 @@
         <i class="fas fa-comment-dots float-icon"></i>
         <i class="fas fa-star float-icon"></i>
     </div>
+    
+    <!-- Desktop Warning Toast -->
+    <div class="desktop-warning-toast" id="desktopWarningToast">
+        <i class="fas fa-mobile-alt"></i>
+        <span>Please use a mobile device or switch to mobile view to install the app</span>
+        <button onclick="this.parentElement.classList.remove('show')">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
 
     <!-- Install Banner with Close Button -->
     <div class="install-banner" id="installBanner">
@@ -1270,7 +1378,7 @@
             <p>Get the Primer app for faster access to providers</p>
         </div>
         <div class="banner-actions">
-            <a href="https://b98ce7b9.mobsted.com/pwa/?appid=20" class="install-btn">Install App <i class="fas fa-arrow-right"></i></a>
+            <button class="install-btn install-trigger">Install App <i class="fas fa-arrow-right"></i></button>
             <button class="close-banner" id="closeBanner" aria-label="Close banner">
                 <i class="fas fa-times"></i>
             </button>
@@ -1280,9 +1388,9 @@
     <!-- Header -->
     <header class="header" id="header">
         <nav class="nav">
-            <a href="index.html" class="logo">Primer</a>
+            <a href="/" class="logo">Primer</a>
             <div class="nav-links">
-                <a href="index.html" class="active">Home</a>
+                <a href="/" class="active">Home</a>
                 <a href="#features">Features</a>
                 <a href="#how-it-works">How It Works</a>
                 <a href="#contact">Contact</a>
@@ -1321,9 +1429,9 @@
                 </div>
                 
                 <div class="hero-buttons">
-                    <a href="https://b98ce7b9.mobsted.com/pwa/?appid=20" class="btn-primary">
+                    <button class="btn-primary install-trigger">
                         <i class="fas fa-download"></i> Get the App
-                    </a>
+                    </button>
                     <a href="#how-it-works" class="btn-secondary">
                         <i class="fas fa-play"></i> See How It Works
                     </a>
@@ -1429,7 +1537,7 @@
         <div class="preview-content" data-aos="fade-right">
             <h2>Simple, Fast, Direct</h2>
             <p>No complicated booking system. Just browse providers and contact them directly via call or WhatsApp.</p>
-            <a href="how-it-works.html" class="btn-primary">See How It Works</a>
+            <a href="/how-it-works" class="btn-primary">See How It Works</a>
         </div>
         <div class="preview-image" data-aos="fade-left">
             <i class="fas fa-rocket"></i>
@@ -1483,9 +1591,9 @@
     <section class="cta">
         <h2 data-aos="fade-up">Ready to find a provider?</h2>
         <p data-aos="fade-up" data-aos-delay="100">Install our app to browse providers in your area and connect instantly</p>
-        <a href="https://b98ce7b9.mobsted.com/pwa/?appid=20" class="cta-btn" data-aos="fade-up" data-aos-delay="200">
+        <button class="cta-btn install-trigger" data-aos="fade-up" data-aos-delay="200">
             <i class="fas fa-download"></i> Install Primer App
-        </a>
+        </button>
     </section>
 
     <!-- Professional Footer -->
@@ -1496,32 +1604,29 @@
                     <div class="footer-logo">Primer</div>
                     <p class="footer-description">Connecting Nigerians with trusted local service providers. No middleman, just quality service.</p>
                     <div class="footer-social">
-                        <a href="#" class="footer-social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="footer-social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="footer-social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="footer-social-link"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="footer-social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="https://instagram.com/primertech0" class="footer-social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com/primertech1" class="footer-social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://tiktok.com/@primertech0" class="footer-social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://youtube.com/@primertech0" class="footer-social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 
                 <div>
                     <h4 class="footer-heading">Quick Links</h4>
                     <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="/"><i class="fas fa-chevron-right"></i> Home</a></li>
                         <li><a href="#features"><i class="fas fa-chevron-right"></i> Features</a></li>
                         <li><a href="#how-it-works"><i class="fas fa-chevron-right"></i> How It Works</a></li>
-                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
-                        
+                        <li><a href="/about"><i class="fas fa-chevron-right"></i> About Us</a></li>
                     </ul>
                 </div>
                 
                 <div>
                     <h4 class="footer-heading">Support</h4>
                     <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Help Center</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> FAQs</a></li>
-                        <li><a href="privacy.html"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
-                        <li><a href="terms.ht"><i class="fas fa-chevron-right"></i> Terms of Service</a></li>
+                        <li><a href="/faq"><i class="fas fa-chevron-right"></i> FAQs</a></li>
+                        <li><a href="/privacy"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+                        <li><a href="/terms"><i class="fas fa-chevron-right"></i> Terms of Service</a></li>
                     </ul>
                 </div>
                 
@@ -1557,16 +1662,13 @@
                     &copy; 2026 Primer Technologies. All rights reserved.
                 </div>
                 <div class="footer-bottom-links">
-                    <a href="privacy.html">Privacy</a>
-                    <a href="terms.html">Terms</a>
-                    <a href="#">Sitemap</a>
-                    <a href="#">Careers</a>
+                    <a href="/privacy">Privacy</a>
+                    <a href="/terms">Terms</a>
+                    <a href="/sitemap">Sitemap</a>
                 </div>
                 <div class="footer-payment-icons">
                     <i class="fab fa-cc-visa"></i>
                     <i class="fab fa-cc-mastercard"></i>
-                    <i class="fab fa-cc-paypal"></i>
-                    <i class="fab fa-cc-apple-pay"></i>
                 </div>
             </div>
         </div>
@@ -1586,15 +1688,50 @@
             offset: 50
         });
         
+        // Device Detection
+        function isMobileDevice() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+                   (window.innerWidth <= 768);
+        }
+        
+        function showDesktopWarning() {
+            const toast = document.getElementById('desktopWarningToast');
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 5000);
+        }
+        
+        // Handle install button clicks
+        function handleInstallClick(e) {
+            e.preventDefault();
+            
+            if (!isMobileDevice()) {
+                showDesktopWarning();
+                return;
+            }
+            
+            if (window.deferredPrompt) {
+                window.deferredPrompt.prompt();
+                window.deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        showToast('Primer installed successfully! 🎉');
+                    }
+                    window.deferredPrompt = null;
+                });
+            } else {
+                // Fallback to Mobsted URL
+                window.location.href = 'https://b98ce7b9.mobsted.com/pwa/?appid=20';
+            }
+        }
+        
         // Close Install Banner
         const closeBanner = document.getElementById('closeBanner');
         const installBanner = document.getElementById('installBanner');
         const header = document.getElementById('header');
         
-        // Check if banner was closed before
         if (localStorage.getItem('bannerClosed') === 'true') {
             installBanner.classList.add('hidden');
-            header.style.top = '0';
         }
         
         closeBanner.addEventListener('click', () => {
@@ -1620,26 +1757,15 @@
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
-            
-            document.querySelectorAll('.btn-primary, .cta-btn, .install-btn').forEach(btn => {
-                btn.addEventListener('click', async (e) => {
-                    if (e.target.closest('a[href="https://b98ce7b9.mobsted.com/pwa/?appid=20"]')) return;
-                    
-                    e.preventDefault();
-                    if (deferredPrompt) {
-                        deferredPrompt.prompt();
-                        const { outcome } = await deferredPrompt.userChoice;
-                        deferredPrompt = null;
-                        
-                        if (outcome === 'accepted') {
-                            showToast('Primer installed successfully! 🎉');
-                        }
-                    } else {
-                        window.location.href = 'https://b98ce7b9.mobsted.com/pwa/?appid=20';
-                    }
-                });
-            });
         });
+        
+        // Attach install handlers to all install buttons
+        document.querySelectorAll('.install-trigger').forEach(btn => {
+            btn.addEventListener('click', handleInstallClick);
+        });
+        
+        // Also attach to banner install button
+        document.querySelector('.install-banner .install-btn')?.addEventListener('click', handleInstallClick);
         
         // Active link highlighting
         const sections = document.querySelectorAll('section[id]');
@@ -1647,7 +1773,6 @@
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
                 if (scrollY >= (sectionTop - 200)) {
                     current = section.getAttribute('id');
                 }
