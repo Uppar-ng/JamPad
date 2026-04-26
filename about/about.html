@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Primer • Our Mission & Story</title>
+    <meta name="description" content="Learn about Primer's mission to connect Nigerians with trusted local service providers. Our story, values, and commitment to quality service.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2563EB">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Primer">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        :root {
+            --primary: #2563EB;
+            --primary-dark: #1D4ED8;
+            --primary-light: #DBEAFE;
+            --primary-soft: #EFF6FF;
+            --background: #FFFFFF;
+            --surface: #F9FAFB;
+            --text-primary: #111827;
+            --text-secondary: #4B5563;
+            --text-tertiary: #9CA3AF;
+            --border: #E5E7EB;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        body {
+            background: var(--background);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Floating Background Icons */
+        .floating-icons {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .float-icon {
+            position: absolute;
+            color: var(--primary);
+            opacity: 0.08;
+            font-size: 2rem;
+            animation: floatAround 20s infinite ease-in-out;
+        }
+        
+        .float-icon:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; font-size: 3rem; }
+        .float-icon:nth-child(2) { top: 20%; right: 10%; animation-delay: -2s; font-size: 2.5rem; }
+        .float-icon:nth-child(3) { bottom: 30%; left: 15%; animation-delay: -4s; font-size: 4rem; }
+        .float-icon:nth-child(4) { top: 40%; right: 20%; animation-delay: -6s; font-size: 2rem; }
+        .float-icon:nth-child(5) { bottom: 20%; right: 25%; animation-delay: -8s; font-size: 3.5rem; }
+        .float-icon:nth-child(6) { top: 70%; left: 25%; animation-delay: -10s; font-size: 2.8rem; }
+        .float-icon:nth-child(7) { bottom: 10%; left: 40%; animation-delay: -12s; font-size: 3.2rem; }
+        .float-icon:nth-child(8) { top: 15%; left: 60%; animation-delay: -14s; font-size: 2.2rem; }
+        .float-icon:nth-child(9) { bottom: 40%; right: 5%; animation-delay: -16s; font-size: 3.8rem; }
+        .float-icon:nth-child(10) { top: 85%; right: 15%; animation-delay: -18s; font-size: 2.6rem; }
+        
+        @keyframes floatAround {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+            25% {
+                transform: translate(20px, -30px) rotate(10deg) scale(1.1);
+            }
+            50% {
+                transform: translate(-20px, 20px) rotate(-5deg) scale(0.9);
+            }
+            75% {
+                transform: translate(30px, 20px) rotate(15deg) scale(1.05);
+            }
+        }
+        
+        /* Install Banner */
+        .install-banner {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .install-banner.hidden {
+            transform: translateY(-100%);
+        }
+        
+        .banner-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .banner-content i {
+            font-size: 24px;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        .banner-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .install-btn {
+            background: white;
+            color: var(--primary);
+            border: none;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .install-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+        }
+        
+        .close-banner {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 16px;
+        }
+        
+        .close-banner:hover {
+            background: rgba(255,255,255,0.3);
+            transform: rotate(90deg);
+        }
+        
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 20px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 90;
+        }
+        
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a.active {
+            color: var(--primary);
+        }
+        
+        /* Page Header with Background Image */
+        .page-header {
+            position: relative;
+            padding: 100px 24px;
+            text-align: center;
+            background: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover fixed;
+            isolation: isolate;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.95) 0%, rgba(29, 78, 216, 0.9) 100%);
+            z-index: 1;
+        }
+        
+        .page-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB4PSIwIiB5PSIwIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSgzMCkiPjxwYXRoIGQ9Ik0yMCAyMEwyMCAyMEwyMCAyMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDUpIiBzdHJva2Utd2lkdGg9IjIiLz48Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSI4IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiIHN0cm9rZS13aWR0aD0iMiIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+            opacity: 0.1;
+            z-index: 2;
+        }
+        
+        .page-header-content {
+            position: relative;
+            z-index: 3;
+            max-width: 800px;
+            margin: 0 auto;
+            color: white;
+        }
+        
+        .page-header h1 {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease-out;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .page-header p {
+            font-size: 20px;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease-out 0.1s both;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255,255,255,0.2);
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .header-badge i {
+            animation: spin 4s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Content Section */
+        .content {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Story Section */
+        .story-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+        
+        .story-content {
+            padding-right: 40px;
+        }
+        
+        .story-content h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            position: relative;
+        }
+        
+        .story-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .story-content p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+        
+        .story-image {
+            position: relative;
+        }
+        
+        .story-image img {
+            width: 100%;
+            border-radius: 30px;
+            box-shadow: var(--shadow-xl);
+            transition: transform 0.5s;
+        }
+        
+        .story-image:hover img {
+            transform: scale(1.02);
+        }
+        
+        .story-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--primary);
+            border-radius: 30px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+        
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin: 80px 0;
+        }
+        
+        .stat-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.4s;
+            box-shadow: var(--shadow);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .stat-number {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        
+        .stat-label {
+            font-size: 16px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        
+        /* Values Section */
+        .values-section {
+            margin: 80px 0;
+        }
+        
+        .values-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .values-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .value-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-light), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .value-card:hover::before {
+            opacity: 0.2;
+        }
+        
+        .value-icon {
+            width: 100px;
+            height: 100px;
+            background: var(--primary-light);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 40px;
+            color: var(--primary);
+            transition: all 0.4s;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .value-card:hover .value-icon {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1) rotate(360deg);
+        }
+        
+        .value-card h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .value-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Team Section */
+        .team-section {
+            margin: 80px 0;
+        }
+        
+        .team-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .team-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .team-card {
+            text-align: center;
+        }
+        
+        .team-image {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-lg);
+            border: 3px solid white;
+            transition: all 0.4s;
+        }
+        
+        .team-card:hover .team-image {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary);
+        }
+        
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .team-card:hover .team-image img {
+            transform: scale(1.1);
+        }
+        
+        .team-card h3 {
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+        
+        .team-card p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+        
+        .team-social {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        
+        .team-social a {
+            width: 32px;
+            height: 32px;
+            border-radius: 16px;
+            background: var(--surface);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .team-social a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Timeline Section */
+        .timeline-section {
+            margin: 80px 0;
+            background: var(--surface);
+            padding: 60px 40px;
+            border-radius: 30px;
+        }
+        
+        .timeline-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .timeline-item {
+            text-align: center;
+            position: relative;
+        }
+        
+        .timeline-year {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 16px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .timeline-year::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        .timeline-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .timeline-desc {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 80px 48px;
+            border-radius: 40px;
+            text-align: center;
+            margin: 80px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .cta h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta p {
+            font-size: 18px;
+            margin-bottom: 32px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta-btn {
+            background: white;
+            color: var(--primary);
+            padding: 18px 50px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+        
+        .cta-btn i {
+            transition: transform 0.3s;
+        }
+        
+        .cta-btn:hover i {
+            transform: translateX(8px);
+        }
+        
+        /* Professional Footer */
+        .footer {
+            background: #0B1120;
+            color: #94A3B8;
+            padding: 60px 24px 30px;
+            position: relative;
+            z-index: 1;
+            border-top: 1px solid #1E293B;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-main {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 60px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-brand {
+            max-width: 300px;
+        }
+        
+        .footer-logo {
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #60A5FA, #A78BFA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        .footer-description {
+            color: #94A3B8;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            font-size: 15px;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .footer-social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: #1E293B;
+            color: #94A3B8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 18px;
+        }
+        
+        .footer-social-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .footer-heading {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 14px;
+        }
+        
+        .footer-links a {
+            color: #94A3B8;
+            text-decoration: none;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .footer-links i {
+            font-size: 14px;
+            color: var(--primary);
+        }
+        
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            color: #94A3B8;
+            font-size: 15px;
+        }
+        
+        .footer-contact-item i {
+            width: 20px;
+            color: var(--primary);
+            font-size: 16px;
+        }
+        
+        .footer-newsletter {
+            margin-top: 25px;
+        }
+        
+        .footer-newsletter p {
+            color: #94A3B8;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 1px solid #1E293B;
+            background: #1E293B;
+            color: white;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s;
+        }
+        
+        .newsletter-input:focus {
+            border-color: var(--primary);
+            background: #0F172A;
+        }
+        
+        .newsletter-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .newsletter-btn:hover {
+            background: var(--primary-dark);
+            transform: scale(1.05);
+        }
+        
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid #1E293B;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 14px;
+        }
+        
+        .footer-copyright {
+            color: #64748B;
+        }
+        
+        .footer-bottom-links {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .footer-bottom-links a {
+            color: #94A3B8;
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 14px;
+        }
+        
+        .footer-bottom-links a:hover {
+            color: white;
+        }
+        
+        .footer-payment-icons {
+            display: flex;
+            gap: 12px;
+            font-size: 24px;
+            color: #475569;
+        }
+        
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 20px;
+            right: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+            background: white;
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+            padding: 16px 24px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 1000;
+            animation: slideUp 0.3s;
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        /* Responsive */
+        @media (max-width: 968px) {
+            .story-section {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .story-content {
+                padding-right: 0;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .values-grid,
+            .team-grid,
+            .timeline-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-main {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .page-header h1 {
+                font-size: 36px;
+            }
+            
+            .stats-grid,
+            .values-grid,
+            .team-grid,
+            .timeline-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-main {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-bottom-links {
+                justify-content: center;
+            }
+            
+            .footer-payment-icons {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Background Icons -->
+    <div class="floating-icons">
+        <i class="fas fa-handshake float-icon"></i>
+        <i class="fas fa-bullseye float-icon"></i>
+        <i class="fas fa-eye float-icon"></i>
+        <i class="fas fa-heart float-icon"></i>
+        <i class="fas fa-users float-icon"></i>
+        <i class="fas fa-star float-icon"></i>
+        <i class="fas fa-shield-alt float-icon"></i>
+        <i class="fas fa-rocket float-icon"></i>
+        <i class="fas fa-globe-africa float-icon"></i>
+        <i class="fas fa-hands-helping float-icon"></i>
+    </div>
+
+    <!-- Install Banner with Close Button -->
+    <div class="install-banner" id="installBanner">
+        <div class="banner-content">
+            <i class="fas fa-download"></i>
+            <p>Get the Primer app for faster access to providers</p>
+        </div>
+        <div class="banner-actions">
+            <a href="https://b98ce7b9.mobsted.com/pwa/?appid=20" class="install-btn">Install App <i class="fas fa-arrow-right"></i></a>
+            <button class="close-banner" id="closeBanner" aria-label="Close banner">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">Primer</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html" class="active">About</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header with Background Image -->
+    <div class="page-header">
+        <div class="page-header-content">
+            <div class="header-badge" data-aos="fade-up">
+                <i class="fas fa-heart"></i>
+                <span>Our Story & Mission</span>
+            </div>
+            <h1 data-aos="fade-up" data-aos-delay="100">About Primer</h1>
+            <p data-aos="fade-up" data-aos-delay="200">Connecting Nigerians with trusted service providers since 2024</p>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <!-- Story Section -->
+        <div class="story-section">
+            <div class="story-content" data-aos="fade-right">
+                <h2>Our Story</h2>
+                <p>Primer was born from a simple observation: finding reliable service providers in Nigeria was too difficult. People needed movers, cleaners, handymen, and other professionals but didn't know where to look or who to trust.</p>
+                <p>We created Primer to solve this problem. Our platform connects you directly with vetted service providers in your area. No complicated booking systems, no middlemen. Just browse, call, and get your work done.</p>
+                <p>Today, Primer helps thousands of Nigerians find trusted professionals for moving, cleaning, repairs, and more. We're building a community of reliable service providers and satisfied customers across the country.</p>
+            </div>
+            <div class="story-image" data-aos="fade-left">
+                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&auto=format&fit=crop" alt="Team meeting at Primer">
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats-grid">
+            <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Happy Customers</div>
+            </div>
+            <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Verified Pros</div>
+            </div>
+            <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Cities in Nigeria</div>
+            </div>
+            <div class="stat-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Support Available</div>
+            </div>
+        </div>
+
+        <!-- Values Section -->
+        <div class="values-section">
+            <h2 data-aos="fade-up">Our Core Values</h2>
+            <div class="values-grid">
+                <div class="value-card" data-aos="flip-left" data-aos-delay="100">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Trust</h3>
+                    <p>All providers are thoroughly vetted and background checked before joining our platform. Your safety is our priority.</p>
+                </div>
+                <div class="value-card" data-aos="flip-left" data-aos-delay="200">
+                    <div class="value-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Speed</h3>
+                    <p>Contact providers directly via call or WhatsApp. No waiting, no complicated booking systems.</p>
+                </div>
+                <div class="value-card" data-aos="flip-left" data-aos-delay="300">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Simplicity</h3>
+                    <p>Browse, call, connect. Our platform makes finding help as simple as it should be.</p>
+                </div>
+                <div class="value-card" data-aos="flip-left" data-aos-delay="400">
+                    <div class="value-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Fairness</h3>
+                    <p>We never take a cut from providers. You pay them directly, keeping prices fair for everyone.</p>
+                </div>
+                <div class="value-card" data-aos="flip-left" data-aos-delay="500">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community</h3>
+                    <p>Building a network of trusted professionals and satisfied customers across Nigeria.</p>
+                </div>
+                <div class="value-card" data-aos="flip-left" data-aos-delay="600">
+                    <div class="value-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Excellence</h3>
+                    <p>We strive for excellence in everything we do, from provider vetting to customer support.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timeline Section -->
+        <div class="timeline-section" data-aos="fade-up">
+            <h2>Our Journey</h2>
+            <div class="timeline-grid">
+                <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-title">Primer Founded</div>
+                    <div class="timeline-desc">Started in Kaduna with a mission to connect Nigerians with trusted service providers.</div>
+                </div>
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="timeline-year">2025</div>
+                    <div class="timeline-title">Expanded to Kaduna</div>
+                    <div class="timeline-desc">Launched in Kaduna, Nigeria's largest city, helping thousands find reliable services.</div>
+                </div>
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="timeline-year">2025</div>
+                    <div class="timeline-title">50+ Providers</div>
+                    <div class="timeline-desc">Reached milestone of 50 verified professionals across multiple service categories.</div>
+                </div>
+                <div class="timeline-item" data-aos="fade-left" data-aos-delay="400">
+                    <div class="timeline-year">2026</div>
+                    <div class="timeline-title">Nationwide</div>
+                    <div class="timeline-desc">Now serving 3 cities across Nigeria, connecting communities with trusted pros.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Section -->
+        <div class="team-section">
+            <h2 data-aos="fade-up">Meet Our Team</h2>
+            <div class="team-grid">
+                <div class="team-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="team-image">
+                        <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Founder">
+                    </div>
+                    <h3>Founding Team</h3>
+                    <p>HQ</p>
+                    <div class="team-social">
+                        <a href="#"><i class=""></i></a>
+                        <a href="#"><i class=""></i></a>
+                    </div>
+                </div>
+      
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta">
+            <h2 data-aos="fade-up">Ready to find a provider?</h2>
+            <p data-aos="fade-up" data-aos-delay="100">Install our app and browse trusted professionals in your area</p>
+            <a href="https://b98ce7b9.mobsted.com/pwa/?appid=20" class="cta-btn" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-download"></i> Install Primer App
+            </a>
+        </div>
+    </div>
+
+    <!-- Professional Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">Primer</div>
+                    <p class="footer-description">Connecting Nigerians with trusted local service providers. No middleman, just quality service.</p>
+                    <div class="footer-social">
+                        <a href="#" class="footer-social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com/primertech0" class="footer-social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com/primertech0" class="footer-social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://TikTok.com/primertech0" class="footer-social-link"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://YouTube.com/@primertech0" class="footer-social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="how-it-works.html"><i class="fas fa-chevron-right"></i> How It Works</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                       
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Help Center</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> FAQs</a></li>
+                        <li><a href="privacy.html"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+                        <li><a href="terms.html"><i class="fas fa-chevron-right"></i> Terms of Service</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Cookie Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Ahmadu Bello Way, Kaduna, Nigeria</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+234 810 059 0574</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>get.primer@proton.me</span>
+                    </div>
+                    
+                    <div class="footer-newsletter">
+                        <p>Subscribe to our newsletter</p>
+                        <div class="newsletter-form">
+                            <input type="email" class="newsletter-input" placeholder="Your email">
+                            <button class="newsletter-btn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    &copy; 2026 Primer Technologies. All rights reserved.
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="privacy.html">Privacy</a>
+                    <a href="terms.html">Terms</a>
+                    <a href="#">Sitemap</a>
+                    <a href="#">Careers</a>
+                </div>
+                <div class="footer-payment-icons">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-cc-apple-pay"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div id="toastContainer"></div>
+
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50
+        });
+        
+        // Close Install Banner
+        const closeBanner = document.getElementById('closeBanner');
+        const installBanner = document.getElementById('installBanner');
+        
+        // Check if banner was closed before
+        if (localStorage.getItem('bannerClosed') === 'true') {
+            installBanner.classList.add('hidden');
+        }
+        
+        closeBanner.addEventListener('click', () => {
+            installBanner.classList.add('hidden');
+            localStorage.setItem('bannerClosed', 'true');
+        });
+        
+        // Toast function
+        function showToast(message) {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.innerHTML = `<i class="fas fa-check-circle" style="color: var(--primary);"></i><span>${message}</span>`;
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+        
+        // PWA install prompt
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            
+            document.querySelectorAll('.cta-btn, .install-btn').forEach(btn => {
+                btn.addEventListener('click', async (e) => {
+                    if (e.target.closest('a[href="https://b98ce7b9.mobsted.com/pwa/?appid=20"]')) return;
+                    
+                    e.preventDefault();
+                    if (deferredPrompt) {
+                        deferredPrompt.prompt();
+                        const { outcome } = await deferredPrompt.userChoice;
+                        deferredPrompt = null;
+                        
+                        if (outcome === 'accepted') {
+                            showToast('Primer installed successfully! 🎉');
+                        }
+                    } else {
+                        window.location.href = 'https://b98ce7b9.mobsted.com/pwa/?appid=20';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
