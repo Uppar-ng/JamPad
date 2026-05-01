@@ -645,16 +645,59 @@
             font-weight: 500;
             font-size: 11px;
         }
+
+        /* Share options inside modal */
+        .share-option {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px 12px;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+            background: var(--surface-hover);
+            border: 1px solid transparent;
+        }
+
+        .share-option:hover {
+            border-color: var(--border);
+            background: var(--surface);
+        }
+
+        .share-option:active {
+            background: var(--primary-light);
+            transform: scale(0.98);
+        }
+
+        .share-option i {
+            font-size: 22px;
+            width: 24px;
+            text-align: center;
+        }
+
+        .share-option .option-text {
+            font-weight: 500;
+        }
+
+        /* Specific brand colors (optional) */
+        .share-option.whatsapp i { color: #25D366; }
+        .share-option.messages i { color: #0A84FF; }
+        .share-option.email i { color: var(--primary); }
+        .share-option.telegram i { color: #0088cc; }
+        .share-option.copy i { color: var(--text-secondary); }
     </style>
 </head>
 <body>
     <div id="app">
-        <!-- Header with back button -->
+        <!-- Header with back button and share button -->
         <header class="app-header">
             <div class="header-content">
                 <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i></a>
                 <div class="logo">Account</div>
-                <div style="width: 44px;"></div>
+                <button class="back-btn" id="shareAppBtn" aria-label="Share app" style="border:1px solid var(--border); background: var(--surface);">
+                    <i class="fas fa-share-alt"></i>
+                </button>
             </div>
         </header>
 
@@ -669,7 +712,7 @@
             </div>
         </div>
 
-        <!-- Account Sections -->
+        <!-- Account Sections (unchanged) -->
         <div class="account-sections">
             <!-- PREFERENCES Section -->
             <div class="section">
@@ -732,7 +775,7 @@
                     </div>
                 </div>
                 
-                <!-- Social Links - Fixed with proper app links -->
+                <!-- Social Links -->
                 <div class="section-item" style="flex-wrap: wrap; cursor: default; background: transparent; padding: 12px 20px;">
                     <div class="item-left" style="margin-bottom: 8px;">
                         <i class="fas fa-hashtag"></i>
@@ -754,7 +797,7 @@
                 </div>
             </div>
 
-<div class="section">
+            <div class="section">
                 <div class="section-header">REPORT PROVIDERS</div>
                 <a href="report.html" class="section-item">
                     <div class="item-left">
@@ -765,9 +808,9 @@
                         <i class="fas fa-chevron-right"></i>
                     </div>
                 </a>
-                </div>
+            </div>
                 
-                 <!-- LEGAL Section -->
+            <!-- LEGAL Section -->
             <div class="section">
                 <div class="section-header">LEGAL</div>
                 <a href="https://primert.vercel.app/privacy.html" class="section-item">
@@ -805,7 +848,7 @@
             </div>
         </div>
 
-        <!-- Bottom Navigation with 4 items -->
+        <!-- Bottom Navigation -->
         <div class="bottom-nav">
             <a href="index.html" class="nav-item">
                 <i class="fas fa-building"></i>
@@ -852,7 +895,7 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="dropdown-options" id="dropdownOptions">
-                        <!-- Cities will be loaded from locations.json -->
+                        <!-- Cities loaded from locations.json -->
                     </div>
                 </div>
             </div>
@@ -872,6 +915,40 @@
                 <p>Are you sure you want to delete your account?</p>
                 <button class="btn-delete" onclick="deleteAccount()">Yes, delete</button>
                 <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Share App Modal (NEW) -->
+    <div class="modal" id="shareModal">
+        <div class="modal-header">
+            <h3>Share App</h3>
+            <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="modal-content">
+            <!-- Educational instruction added here -->
+            <p style="margin-bottom: 16px; color: var(--text-secondary); font-size: 14px; line-height: 1.5;">
+                Share Primer with friends and family. Choose an app below and the link will be added automatically.
+            </p>
+            <div class="share-option whatsapp" onclick="shareViaWhatsApp()">
+                <i class="fab fa-whatsapp"></i>
+                <span class="option-text">WhatsApp</span>
+            </div>
+            <div class="share-option messages" onclick="shareViaSMS()">
+                <i class="fas fa-comment-dots"></i>
+                <span class="option-text">Messages (SMS)</span>
+            </div>
+            <div class="share-option telegram" onclick="shareViaTelegram()">
+                <i class="fab fa-telegram-plane"></i>
+                <span class="option-text">Telegram</span>
+            </div>
+            <div class="share-option email" onclick="shareViaEmail()">
+                <i class="fas fa-envelope"></i>
+                <span class="option-text">Email</span>
+            </div>
+            <div class="share-option copy" onclick="copyAppLink()">
+                <i class="fas fa-copy"></i>
+                <span class="option-text">Copy Link</span>
             </div>
         </div>
     </div>
@@ -977,10 +1054,8 @@
                 let appUrl = '';
                 let webUrl = '';
                 
-                // Create proper URLs for each platform
                 switch(platform) {
                     case 'youtube':
-                        // YouTube app URLs
                         appUrl = isAndroid 
                             ? `intent://www.youtube.com/@${username}#Intent;package=com.google.android.youtube;scheme=https;end;` 
                             : `youtube://www.youtube.com/@${username}`;
@@ -988,11 +1063,8 @@
                         break;
                         
                     case 'facebook':
-                        // Facebook app URLs
                         if (isAndroid) {
-                            // For Facebook pages/accounts
                             appUrl = `fb://profile/${username}`;
-                            // Alternative: Try to open via intent
                             setTimeout(() => {
                                 window.location.href = `https://facebook.com/${username}`;
                             }, 500);
@@ -1003,7 +1075,6 @@
                         break;
                         
                     case 'instagram':
-                        // Instagram app URLs
                         appUrl = isAndroid 
                             ? `intent://instagram.com/_u/${username}#Intent;package=com.instagram.android;scheme=https;end;` 
                             : `instagram://user?username=${username}`;
@@ -1016,12 +1087,9 @@
                 
                 showToast(`Opening ${platform}...`);
                 
-                // Try to open the app
                 if (isAndroid && (platform === 'youtube' || platform === 'instagram')) {
-                    // For Android, use intent URLs
                     window.location.href = appUrl;
                     
-                    // Fallback to web after a short delay
                     setTimeout(() => {
                         const hidden = document.createElement('iframe');
                         hidden.style.display = 'none';
@@ -1030,23 +1098,19 @@
                         setTimeout(() => document.body.removeChild(hidden), 2000);
                     }, 500);
                 } else {
-                    // For iOS or direct app URLs
                     const appWindow = window.open(appUrl, '_blank');
                     
-                    // Fallback to web if app doesn't open
                     setTimeout(() => {
                         try {
                             if (!appWindow || appWindow.closed || typeof appWindow.closed === 'undefined') {
                                 window.location.href = webUrl;
                             }
                         } catch (e) {
-                            // App opened successfully
                             console.log('App opened');
                         }
                     }, 500);
                 }
                 
-                // Also open web version in background as backup
                 setTimeout(() => {
                     window.open(webUrl, '_blank');
                 }, 1000);
@@ -1056,6 +1120,7 @@
             const backdrop = document.getElementById('modalBackdrop');
             const contactModal = document.getElementById('contactModal');
             const deleteModal = document.getElementById('deleteModal');
+            const shareModal = document.getElementById('shareModal'); // NEW
 
             window.openModal = function(modal) {
                 backdrop.classList.add('active');
@@ -1067,6 +1132,7 @@
                 backdrop.classList.remove('active');
                 contactModal.classList.remove('active');
                 deleteModal.classList.remove('active');
+                shareModal.classList.remove('active'); // NEW
                 document.body.style.overflow = '';
             };
 
@@ -1093,7 +1159,6 @@
                 openModal(contactModal);
             });
 
-            // Dropdown functions
             window.toggleDropdown = function(event) {
                 event.stopPropagation();
                 const options = document.getElementById('dropdownOptions');
@@ -1113,7 +1178,6 @@
                 toggleDropdown(event);
             };
 
-            // Close dropdown when clicking outside
             document.addEventListener('click', function(e) {
                 const dropdown = document.getElementById('locationDropdown');
                 const options = document.getElementById('dropdownOptions');
@@ -1165,7 +1229,6 @@
                 closeModal();
                 showToast('Account deleted');
                 
-                // Redirect to home after deletion
                 setTimeout(() => {
                     window.location.href = 'index.html';
                 }, 1500);
@@ -1184,6 +1247,61 @@
                 }, 2500);
             }
             window.showToast = showToast;
+
+            // ========== SHARE FUNCTIONS (NEW) ==========
+            // Common share message and link
+            function getShareMessageAndLink() {
+                const appUrl = window.location.origin + '/';
+                const message = `Check out Primer – find lodging and services easily. ${appUrl}`;
+                return { message, url: appUrl };
+            }
+
+            // Open the share modal (instead of using Web Share API)
+            document.getElementById('shareAppBtn').addEventListener('click', () => {
+                openModal(shareModal);
+            });
+
+            // Individual share methods
+            window.shareViaWhatsApp = function() {
+                const { message } = getShareMessageAndLink();
+                const encoded = encodeURIComponent(message);
+                window.open(`https://wa.me/?text=${encoded}`, '_blank');
+                closeModal();
+            };
+
+            window.shareViaSMS = function() {
+                const { message } = getShareMessageAndLink();
+                const encoded = encodeURIComponent(message);
+                window.open(`sms:?body=${encoded}`, '_blank');
+                closeModal();
+            };
+
+            window.shareViaTelegram = function() {
+                const { message, url } = getShareMessageAndLink();
+                const encodedUrl = encodeURIComponent(url);
+                const encodedText = encodeURIComponent('Check out Primer – find lodging and services easily.');
+                // Use Telegram share URL
+                window.open(`https://t.me/share/url?url=${encodedUrl}&text=${encodedText}`, '_blank');
+                closeModal();
+            };
+
+            window.shareViaEmail = function() {
+                const { message, url } = getShareMessageAndLink();
+                const subject = encodeURIComponent('Check out Primer');
+                const body = encodeURIComponent(`${message}`);
+                window.open(`mailto:?subject=${subject}&body=${body}`, '_self');
+                closeModal();
+            };
+
+            window.copyAppLink = function() {
+                const { url } = getShareMessageAndLink();
+                navigator.clipboard.writeText(url).then(() => {
+                    showToast('Link copied to clipboard!');
+                }).catch(() => {
+                    showToast('Could not copy. Link: ' + url);
+                });
+                closeModal();
+            };
 
             // ========== INIT ==========
             loadCities();
